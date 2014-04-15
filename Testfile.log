@@ -1,20 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.8)  14 APR 2014 23:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.8)  15 APR 2014 22:26
 entering extended mode
 **C:/Users/Student/Documents/GitHub/WAB_3/Testfile.tex
 (C:/Users/Student/Documents/GitHub/WAB_3/Testfile.tex
-=======
-=======
->>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.15)  15 APR 2014 16:41
-entering extended mode
-**Testfile.tex
-(D:\Cloud\WAB_3\Testfile.tex
-<<<<<<< HEAD
->>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
-=======
->>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -388,7 +375,7 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(D:\Cloud\WAB_3\Testfile.aux)
+(C:\Users\Student\Documents\GitHub\WAB_3\Testfile.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
@@ -439,8 +426,6 @@ LaTeX Font Info:    ... okay on input line 6.
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<<<<<<< HEAD
-<<<<<<< HEAD
 (C:\Users\Student\Documents\GitHub\WAB_3\Testfile.aux) ) 
 Here is how much of TeX's memory you used:
  2553 strings out of 493921
@@ -452,28 +437,7 @@ Here is how much of TeX's memory you used:
  40i,6n,51p,283b,142s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on Testfile.pdf (1 page, 14995 bytes).
-=======
-(D:\Cloud\WAB_3\Testfile.aux) ) 
-Here is how much of TeX's memory you used:
-=======
-(D:\Cloud\WAB_3\Testfile.aux) ) 
-Here is how much of TeX's memory you used:
->>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
- 2554 strings out of 493921
- 38079 string characters out of 3147261
- 142474 words of memory out of 3000000
- 5866 multiletter control sequences out of 15000+200000
- 3938 words of font info for 15 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 40i,6n,51p,243b,142s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr12.pfb>
-Output written on Testfile.pdf (1 page, 13881 bytes).
-<<<<<<< HEAD
->>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
-=======
->>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
+Output written on Testfile.pdf (1 page, 17712 bytes).
 PDF statistics:
  10 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
