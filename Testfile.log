@@ -1,13 +1,19 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.8)  14 APR 2014 23:01
 entering extended mode
 **C:/Users/Student/Documents/GitHub/WAB_3/Testfile.tex
 (C:/Users/Student/Documents/GitHub/WAB_3/Testfile.tex
 =======
+=======
+>>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
 This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.15)  15 APR 2014 16:41
 entering extended mode
 **Testfile.tex
 (D:\Cloud\WAB_3\Testfile.tex
+<<<<<<< HEAD
+>>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
+=======
 >>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
@@ -434,6 +440,7 @@ LaTeX Font Info:    ... okay on input line 6.
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 <<<<<<< HEAD
+<<<<<<< HEAD
 (C:\Users\Student\Documents\GitHub\WAB_3\Testfile.aux) ) 
 Here is how much of TeX's memory you used:
  2553 strings out of 493921
@@ -449,6 +456,10 @@ Output written on Testfile.pdf (1 page, 14995 bytes).
 =======
 (D:\Cloud\WAB_3\Testfile.aux) ) 
 Here is how much of TeX's memory you used:
+=======
+(D:\Cloud\WAB_3\Testfile.aux) ) 
+Here is how much of TeX's memory you used:
+>>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
  2554 strings out of 493921
  38079 string characters out of 3147261
  142474 words of memory out of 3000000
@@ -459,6 +470,9 @@ Here is how much of TeX's memory you used:
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/
 amsfonts/cm/cmr12.pfb>
 Output written on Testfile.pdf (1 page, 13881 bytes).
+<<<<<<< HEAD
+>>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
+=======
 >>>>>>> a62e68c11860dc1fc71d3f305f370b9a31d738a3
 PDF statistics:
  10 PDF objects out of 1000 (max. 8388607)
