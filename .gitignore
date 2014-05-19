@@ -3,3 +3,6 @@ Sicherungskopie von 13_Anmerkungen_1.wbk
 *.log
 *.pdf
 *.wbk
+*.lof
+*.gz
+*.toc
