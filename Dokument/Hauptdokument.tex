@@ -1,0 +1,36 @@
+\documentclass[paper=a4, fontsize=12bp]{scrreprt}
+%Einbinden der benötigten Pakete über die Datei Pakete.tex, wobei die Dateiendung weggelassen wird
+\include{Pakete}
+
+%Falls wir Literaturverzeichnis mit BibTEX erstellen wollen müssen wir die nächste Zeile aktivieren und eine entsprechende .bib-Datei erstellen
+%\bibliography{Dateiname}
+
+\begin{document}
+% \pagestyle{empty} sorgt dafür, das keine SEitenzahl auf der entsprechenden Seite auftaucht
+
+\include{Titelseite}
+\pagestyle{empty}
+%Seitenumbruch
+\pagebreak
+
+\pagenumbering{Roman}
+%Inhaltsverzeichnis
+\tableofcontents
+\pagebreak
+%Abbildungsverzeichnis
+\listoffigures
+\pagebreak
+%falls benötigt auch noch ein Tabellenverzeichnis, müsste dann die Auskommentierung aufgehoben werden
+%\listoftables
+%\pagebreak
+%einbinden des in Akronyme.tex erstellten Abbildungsverzeichnisses
+\include{Akronyme}
+\pagebreak
+
+%ändern der Seitennummerierung auf arabische Zahlen und Beginn bei Seite 1
+\pagenumbering{arabic}\setcounter{page}{1}
+\input{../Vorlagen/Kapitelvorlage}
+
+%Wenn automatisch erzeugtes Literaturverzeichnis verwendet wird, wird es hier eingefügt
+%\printbibliography
+\end{document}
