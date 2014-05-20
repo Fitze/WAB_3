@@ -5,8 +5,14 @@
 %Falls wir Literaturverzeichnis mit BibTEX erstellen wollen müssen wir die nächste Zeile aktivieren und eine entsprechende .bib-Datei erstellen
 %\bibliography{Dateiname}
 
+%Mit nachfolgendem Befehl können LaTeX Wörter übergeben werden, die es entweder nicht selbstständig trennen kann(und hierdurch die entsprechenden Stellen markiert werden) oder nicht trennen soll
+\hyphenation{DANE DNSSEC Fla-schen-hals}
+
 \begin{document}
-% \pagestyle{empty} sorgt dafür, das keine SEitenzahl auf der entsprechenden Seite auftaucht
+% \pagestyle{empty} sorgt dafür, das keine Seitenzahl auf der entsprechenden Seite auftaucht
+
+%entfernt den Einzug nach Absätzen
+\parindent 0pt
 
 \include{Titelseite}
 \pagestyle{empty}
@@ -30,7 +36,7 @@
 %ändern der Seitennummerierung auf arabische Zahlen und Beginn bei Seite 1
 \pagenumbering{arabic}\setcounter{page}{1}
 \input{../Vorlagen/Kapitelvorlage}
-
+An dieser Stelle kann dann mal probiert werden ob Flaschenhals jetzt korrekt getrennt wird in dem ganz oft Flaschenhals geschrieben wird: Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals
 %Wenn automatisch erzeugtes Literaturverzeichnis verwendet wird, wird es hier eingefügt
 %\printbibliography
 \end{document}
