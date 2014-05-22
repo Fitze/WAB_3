@@ -3,11 +3,24 @@
 
 %mit \section{title} wird ein Unterkapitel der ersten Gliederungsebene überschrieben
 \section{Perfect Forward Secrecy - PFS}
-Lorem ipsum \dots
+%Problem
+Beim klassischen Schlüsselaustausch werden die Sitzungsschlüssel durch den Public Key innerhalb des Server-Zertifikat übertragen.\footnote{Golem} Dies geschieht mittels RSA-Verfahren. Verschlüsselte Kommunikation ist jedoch nur solang die Schlüssel geheim bleiben sicher. Die Gefahr beim klassischen RSA-Public-Key-Verfahren ist dass vergangene Kommunikation nachträglich zu jedem Zeitpunkt entschlüsselt werden kann, sobald Angreifer in Besitz des Private Keys sind. 
 
-%mit \subsection{title} wird ein Unterkapitel der zweiten Gliederungsebene überschrieben
-\subsection{Wichtiges Unterkapitel der zweiten Gliederungsebene}
-Lorem ipsum \dots
+%Idee
+Sinnvoller ist es die Sitzungsschlüssel %REFERENZ Erklären was Sitzungsschlüssel sind
+zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. 
+Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch Perfect Forward Secrecy (PFS)\footnote{golem} genannt wird.
 
-%Vom Grundsatz war es das für die Erstellung von Kapiteln, jetzt kommt noch ein kleines Beispiel für Fußnoten
-Dies ist ein großartiges Beispiel \footnote{Wenn einem nix einfällt muss man eben Quatsch schreiben} für eine Fußnote.
+%Umsetzung
+Das Diffie-Hellmann-Verfahren (DHE) ermöglicht die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationsparter verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. Die Verschlüsselungsverfahren TLS/SSL und IPsec beherrschen bereits PFS.
+
+%Vorteile
+Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem Man-in-the-Middle Angriff manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie DANE, die in Kombination mit PFS aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizät der Kommunikation gewährleistet wird. %REFERENZ MitM erklären 
+
+%Nachteile
+Nachteile gibt es lediglich bei der Verwendung des bereits überholten, und seit Jahren als geknackt bekannte DHE-Verfahren, denn dabei verzögert sich zusätzlich der Verbindungaufbau. Die Moduluslänge der Schlüssel ist Minimum 1024 Bit, und längere Schlüssel mit 2048 oder 4096 Bit sind debi nicht sicher. Der moderne Nachfolger mit elliptischen Kurven (ECDHE) gilt aktuell als sicher und benötigt dabei weniger als 1024 Bit und verzögert den Verbindungsaufbau nur unweigerlich. 
+
+%Grenzen
+Obwohl es Forward Secrecy bereits seit 1999 im TLS Standard 1.0 \footnote{golem} vorgesehen ist und smoit essenzieller Bestandteil von Verschlüsselung ist, hat sich PFS nocht nicht als Standard durchgesetzt.\footnote{https://www.trustworthyinternet.org/ssl-pulse/} Dies liegt zum einen an den Webservern. Mit einem Apache Webserver ist nur eine Moduluslänge von 1024 Bit vorgesehen. Beim Einsatz von DHE würden Provider damit ihre Server also unsicher betreiben. Zum Anderen sind es auf Client-Seite die Browser die noch nicht mitspielen. Der InternetExplorer verschlüsselt nur nach DSS, wobei der de-facto Standard für verschlüsselung RSA ist. Opera unterstützt lediglich das überholte DHE-Verfahren und Safari priorisiert Forward Secrecy niedrig und bevorzugt bei gegebener Option sogar die unverschlüsselte Kommunikation. Lediglich Firefox und Chrome unterstützen PFS in volle Umfang. 
+
+%Browser prüfen und mit eigenen Quellen versehen
