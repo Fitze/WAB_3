@@ -9,10 +9,10 @@ Beim klassischen Schlüsselaustausch werden die Sitzungsschlüssel durch den Pub
 %Idee
 Sinnvoller ist es die Sitzungsschlüssel %REFERENZ Erklären was Sitzungsschlüssel sind
 zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. 
-Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch Perfect Forward Secrecy (PFS)\footnote{golem} genannt wird.
+Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch \ac{PFS}\footnote{golem} genannt wird.
 
 %Umsetzung
-Das Diffie-Hellmann-Verfahren (DHE) ermöglicht die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationsparter verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. Die Verschlüsselungsverfahren TLS/SSL und IPsec beherrschen bereits PFS.
+Das \ac{DHE} ermöglicht die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationsparter verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. Die Verschlüsselungsverfahren \ac{TLS/SSL} und IPsec beherrschen bereits \ac{PFS}.
 
 %Vorteile
 Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem Man-in-the-Middle Angriff manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie DANE, die in Kombination mit PFS aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizät der Kommunikation gewährleistet wird. %REFERENZ MitM erklären 
