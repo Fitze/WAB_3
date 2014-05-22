@@ -1,4 +1,7 @@
-\documentclass[paper=a4, fontsize=12bp]{scrreprt}
+\documentclass  [paper=a4,
+				fontsize=12pt,
+				listof=totoc,
+				bibliography=totoc]{scrreprt}
 %Einbinden der benötigten Pakete über die Datei Pakete.tex, wobei die Dateiendung weggelassen wird
 \include{Pakete}
 
@@ -6,7 +9,7 @@
 %\bibliography{Dateiname}
 
 %Mit nachfolgendem Befehl können LaTeX Wörter übergeben werden, die es entweder nicht selbstständig trennen kann(und hierdurch die entsprechenden Stellen markiert werden) oder nicht trennen soll
-\hyphenation{DANE DNSSEC Fla-schen-hals}
+\include{Hyphenation}
 
 \begin{document}
 % \pagestyle{empty} sorgt dafür, das keine Seitenzahl auf der entsprechenden Seite auftaucht
