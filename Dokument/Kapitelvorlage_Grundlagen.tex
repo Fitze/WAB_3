@@ -15,7 +15,7 @@ Im elektronischen Briefverkehr wirkt sich die Funktionsweise der symmetrischen V
 \subsection{Asymmetrische Verschlüsselung}
 
 Wie bei der symmetrischen Verschlüsselung kommt auch bei der asymmetrischen Verschlüsselung, die auch Public-Key-Kryptography genannt wird, ein kryptographischer Algorithmus zum Einsatz. Bei letzterem Verfahren wird statt eines Schlüssels ein Schlüsselpaar verwendet. Dieser besteht aus einem öffentlichen und einem privaten Schlüssel, die mathematisch zusammenhängen. Jeder, der verschlüsselte Nachrichten empfangen möchte, verfügt über ein solches Schlüsselpaar. Der private Schlüssel wird niemals bekanntgegeben, wohingegen der öffentliche Schlüssel jedem zugänglich gemacht werden kann. Obwohl die Schlüssel zusammenhängen, kann aus der Kenntnis des öffentlichen Schlüssels nicht auf den privaten Schlüssel geschlossen werden. Möchte Alice mit diesem Verfahren eine verschlüsselte Mail an Bob versenden, so besorgt sie sich zunächst den öffentlichen Schlüssel von Bob. Damit verschlüsselt sie ihre Nachricht und schickt diese an Bob, der die Nachricht mit seinem privaten Schlüssel entschlüsseln kann. Die Abbildung verdeutlicht noch einmal die Funktionsweise der Public-Key-Verschlüsselung
-\footnote(Kryptographie, S. 177)
+\footnote{Kryptographie, S. 177}
 Mit diesem Verfahren wurde das Sicherheitsrisiko der symmetrischen Verschlüsselung behoben, da der öffentliche Schlüssel zum Verschlüsseln jedem bekannt sein darf. Zur Entschlüsselung wird der dazugehörige private Schlüssel benötigt, der im Besitz des Empfängers ist und niemals veröffentlicht wird.
 Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels von Bob abfangen und sich somit als Bob ausgeben kann, indem er seinen öffentlichen Schlüssel publiziert. In diesem sogenannten Man-In-The-Middle-Szenario kann der Dritte nun alle vermeintlich an Bob verschlüsselten Nachrichten lesen, da diese mit seinem öffentlichen Schlüssel verschlüsselt worden sind.
 Dies wird durch digitale Signaturen sichergestellt, deren Konzept im nächsten Kapitel näher untersucht wird.
@@ -23,7 +23,7 @@ Dies wird durch digitale Signaturen sichergestellt, deren Konzept im nächsten K
 \subsection{Digitale Signaturen}
 
 Digitale Signaturen bieten die Möglichkeit, die menschliche Unterschrift in der digitalen Welt abzubilden. Um dies zu garantieren, müssen folgende Bedingungen eingehalten werden:
-\footnote(Kryptographie S. 202)
+\footnote{Kryptographie S. 202}
 \begin{itemize}
 \item Sie darf nicht zu fälschen sein.
 \item Ihre Echtzeit muss überprüfbar sein
@@ -42,5 +42,5 @@ Das Sicherheitsrisiko bezüglich der Verlässlichkeit des öffentlichen Schlüss
 
 \section{Web of Trust}
 Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist dabei, dass die Nutzer die öffentlichen Schlüssel voneinander signieren. An einem Beispiel lässt sich das Grundprinzip dieses Modells verdeutlichen \footnote{Angewandte Kryptographie, S. 120}: Carol möchte Bob eine vertrauliche Nachricht schicken. Dazu besorgt er sich Bobs öffentlichen Schlüssel. Zuvor hatte Alice den öffentlichen Schlüssel von Bob signiert. Da Carol Alice vertraut, beschafft sie sich die Signatur von Alice über den öffentlichen Schlüssel von Bob und entschlüsselt diesen mit Alices öffentlichem Schlüssel. Stimmen die Schlüssel überein, so kann Carol den öffentlichen Schlüssel von Bob vertrauen, weil dieser von Alice signiert wurde, der Carol vertraut. Die folgende Abbildung veranschaulicht das Funktionsprinzip:
-\footnote{S. 121, Angewandte Kryptographie).
+\footnote{S. 121, Angewandte Kryptographie}.
 Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Zum einen vertraut man in einen Schlüssel, indem dieser Schlüssel durch jemand anderes, den man vertraut, signiert worden ist. Zum anderen gibt es das Vertrauen in eine Person. Diese beiden Arten sind nicht voneinander abhängig.

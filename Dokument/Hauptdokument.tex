@@ -1,7 +1,8 @@
 \documentclass  [paper=a4,
 				fontsize=12pt,
-				listof=totoc,
-				bibliography=totoc]{scrreprt}
+%				listof=totoc,
+%				bibliography=totoc
+				]{scrreprt}
 %Einbinden der benötigten Pakete über die Datei Pakete.tex, wobei die Dateiendung weggelassen wird
 \include{Pakete}
 
@@ -17,7 +18,7 @@
 %entfernt den Einzug nach Absätzen
 \parindent 0pt
 
-\include{Titelseite}
+%\include{Titelseite}
 \pagestyle{empty}
 %Seitenumbruch
 \pagebreak
@@ -38,10 +39,13 @@
 
 %ändern der Seitennummerierung auf arabische Zahlen und Beginn bei Seite 1
 \pagenumbering{arabic}\setcounter{page}{1}
-\input{../Vorlagen/Kapitelvorlage}
+%\input{../Vorlagen/Kapitelvorlage}
+%\input{Kapitelvorlage_Datenschutz1x1}
+\input{Kapitelvorlage_Grundlagen}
 \input{PFS}
 
 An dieser Stelle kann dann mal probiert werden ob Flaschenhals jetzt korrekt getrennt wird in dem ganz oft Flaschenhals geschrieben wird: Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals Flaschenhals
 %Wenn automatisch erzeugtes Literaturverzeichnis verwendet wird, wird es hier eingefügt
 %\printbibliography
+
 \end{document}
