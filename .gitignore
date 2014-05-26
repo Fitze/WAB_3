@@ -7,3 +7,6 @@ Sicherungskopie von 13_Anmerkungen_1.wbk
 *.gz
 *.toc
 *.out
+*.run.xml
+*.blg
+*.bcf
