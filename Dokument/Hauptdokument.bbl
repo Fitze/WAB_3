@@ -47,6 +47,26 @@
       \verb http://www.golem.de/news/perfect-forward-secrecy-zukunftssicher-per-schluesselaustausch-1306-100090.html
       \endverb
     \endentry
+    \entry{Eckert2013}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=cd9b8b6ad8b07ad6c0e7ff77e3340a14}{Eckert}{E\bibinitperiod}{Claudia}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=cd9b8b6ad8b07ad6c0e7ff77e3340a14}{Eckert}{E\bibinitperiod}{Claudia}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Oldenbourg}%
+      }
+      \strng{namehash}{cd9b8b6ad8b07ad6c0e7ff77e3340a14}
+      \strng{fullhash}{cd9b8b6ad8b07ad6c0e7ff77e3340a14}
+      \field{sortinit}{E}
+      \field{labeltitle}{IT-Sicherheit / Konzepte - Verfahren - Protokolle}
+      \field{edition}{8., aktualisierte und korr. Aufl.}
+      \field{isbn}{9783486721386}
+      \field{title}{IT-Sicherheit / Konzepte - Verfahren - Protokolle}
+      \field{year}{2013}
+      \keyw{Computersicherheit}
+    \endentry
   \endsortlist
 \endrefsection
 \endinput

@@ -5,7 +5,7 @@
 Beim klassischen Schlüsselaustausch werden die Sitzungsschlüssel durch den Public Key innerhalb des Server-Zertifikat übertragen.\footnote{Golem} Dies geschieht mittels \ac{RSA}-Verfahren. Verschlüsselte Kommunikation ist jedoch nur solang die Schlüssel geheim bleiben sicher. Die Gefahr beim klassischen \ac{RSA}-\ac{PKI}-Verfahren ist dass vergangene Kommunikation nachträglich zu jedem Zeitpunkt entschlüsselt werden kann, sobald Angreifer in Besitz des Private Keys sind.\medskip\\
 %Idee
 Sinnvoller ist es die Sitzungsschlüssel %REFERENZ Erklären was Sitzungsschlüssel sind
-zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch \ac{PFS}\footcite[test]{Boeck2013} genannt wird. \medskip\\
+zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch \ac{PFS}\footcite{Boeck2013} genannt wird. \medskip\\
 %Umsetzung
 Das \ac{DHE} ermöglicht die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. Die Verschlüsselungsverfahren \ac{TLS/SSL} und IPsec beherrschen bereits \ac{PFS}.\medskip\\
 %Vorteile
