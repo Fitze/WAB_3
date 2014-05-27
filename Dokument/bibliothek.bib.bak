@@ -11,6 +11,7 @@
   Month                    = {Juni},
   Organization             = {GOLEM.DE - Klaß \& Ihlenfeld Verlag GmbH},
   Urldate                  = {2014-05-26},
+
   Address                  = {Klaß \& Ihlenfeld Verlag GmbH
 Oranienstr. 164
 10969 Berlin},
@@ -26,9 +27,9 @@ Oranienstr. 164
   ISBN                     = {9783486721386},
   Publisher                = {Oldenbourg},
 
+  HowPublished             = {Offline},
   Keywords                 = {Computersicherheit},
   Owner                    = {spirellilein},
-  Timestamp                = {2014-05-26},
-  HowPublished             = {Offline}
+  Timestamp                = {2014-05-26}
 }
 
