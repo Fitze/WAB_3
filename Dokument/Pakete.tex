@@ -1,9 +1,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-%nachfolgend Paket für Times New Roman
-\usepackage{mathptmx}
-%..Und das Font Paket für Droid Serif
-%\usepackage[default]{droidserif}
+\usepackage{mathptmx}				%Font: Times New Roman
+%\usepackage[default]{droidserif}	%Font: Droid Serif
 \usepackage[ngerman]{babel}
 %Seitenränder einstellen
 \usepackage[head=2cm,bottom=2cm, left=25mm, right= 25mm ]{geometry}
@@ -12,6 +10,29 @@
 %Paket zur Gestaltung der Kopf- und Fusszeile bei KOMA-Script
 \usepackage{scrpage2}
 \usepackage[hidelinks]{hyperref}
-%genutzte Pakete können so einfach ergänzt werden, falls Bedarf bestehen sollte (und ich vermute dass es dazu kommen wird...)
-\usepackage[backend=biber,style=authortitle]{biblatex}
-\usepackage[babel,german=quotes]{csquotes}
+%--------------------------------------Bibliograpie Packages / Settings
+\usepackage{ragged2e} % Ermöglicht Flattersatz mit Silbentrennung
+\usepackage[babel,german=guillemets]{csquotes}
+% damit werden Zitate in französische Anführungszeichen gesetzt
+\usepackage[%
+backend=biber,% damit wird bestimmt, dass Sie mit der biber.exe arbeiten
+bibencoding=utf8,% steht für die Kodierung der .bib-Datei
+bibwarn=true,% damit werden ggf. enstandene Fehler ausgegeben
+style=din,% hier wird die DIN 1505-T2 eingebunden
+firstinits=true% der Familienname des Authors wird an die erste Stelle
+% gesetzt und anschließend der Vorname nur mit dem ersten
+% Buchstaben abgekürzt ausgegeben
+]{biblatex}
+\usepackage[babel]{microtype} % bringt optischen Randausgleich und
+% minimale Skalierung der Buchstaben
+\setlength\bibitemsep{8pt} % Abstand zwischen 2 Einträgen im Verzeichnis
+% nachfolgend wird der Kopf des Literaturverzeichnisses bestimmt
+\defbibheading{online}{\subsection*{Online-Quellen}}
+\defbibheading{offline}{\subsection*{Literatur}}
+\ExecuteBibliographyOptions{%
+isbn=false, % falls die ISBN hinterlegt ist wird diese ausgeblendet
+}
+\addbibresource{bibliothek.bib} % Einbindung der Literaturquelldatei
+%--------------------------------------Fortlaufende Fußnoten
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}

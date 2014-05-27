@@ -53,9 +53,8 @@
       <file>blx-dm.def</file>
       <file>blx-compat.def</file>
       <file>biblatex.def</file>
-      <file>authortitle.bbx</file>
-      <file>standard.bbx</file>
-      <file>authortitle.cbx</file>
+      <file>din.bbx</file>
+      <file>din.cbx</file>
       <file>biblatex.cfg</file>
       <file>ngerman.lbx</file>
       <file>german.lbx</file>

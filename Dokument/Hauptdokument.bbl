@@ -38,10 +38,15 @@
       \strng{namehash}{2ac0c389713be2a2d308b6bde1252a93}
       \strng{fullhash}{2ac0c389713be2a2d308b6bde1252a93}
       \field{sortinit}{B}
+      \field{labelyear}{2013}
+      \field{labelmonth}{06}
       \field{labeltitle}{Perfect Forward Secrecy: Zukunftssicher per Schlüsselaustausch}
       \field{howpublished}{Online}
       \field{month}{06}
       \field{title}{Perfect Forward Secrecy: Zukunftssicher per Schlüsselaustausch}
+      \field{urlday}{26}
+      \field{urlmonth}{05}
+      \field{urlyear}{2014}
       \field{year}{2013}
       \verb{url}
       \verb http://www.golem.de/news/perfect-forward-secrecy-zukunftssicher-per-schluesselaustausch-1306-100090.html
@@ -60,8 +65,10 @@
       \strng{namehash}{cd9b8b6ad8b07ad6c0e7ff77e3340a14}
       \strng{fullhash}{cd9b8b6ad8b07ad6c0e7ff77e3340a14}
       \field{sortinit}{E}
+      \field{labelyear}{2013}
       \field{labeltitle}{IT-Sicherheit / Konzepte - Verfahren - Protokolle}
       \field{edition}{8., aktualisierte und korr. Aufl.}
+      \field{howpublished}{Offline}
       \field{isbn}{9783486721386}
       \field{title}{IT-Sicherheit / Konzepte - Verfahren - Protokolle}
       \field{year}{2013}

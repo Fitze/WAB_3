@@ -7,7 +7,7 @@
 \include{Pakete}
 
 %Falls wir Literaturverzeichnis mit BibTEX erstellen wollen müssen wir die nächste Zeile aktivieren und eine entsprechende .bib-Datei erstellen
-\bibliography{bibliothek} 
+%\bibliography{bibliothek} 
 
 %Mit nachfolgendem Befehl können LaTeX Wörter übergeben werden, die es entweder nicht selbstständig trennen kann(und hierdurch die entsprechenden Stellen markiert werden) oder nicht trennen soll
 \include{Hyphenation}
@@ -43,6 +43,8 @@
 \input{Schluesselaustausch}
 \input{Transportwegverschluesselung}
 Flaschenhals
-%Wenn automatisch erzeugtes Literaturverzeichnis verwendet wird, wird es hier eingefügt
-\printbibliography
+%Literaturverzeichnis
+\chapter*{Literaturverzeichnis}
+\printbibliography[heading=offline,nottype=online]
+\printbibliography[heading=online,type=online]
 \end{document}
