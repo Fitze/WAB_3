@@ -7,6 +7,7 @@
   Author                   = {Hanno Böck},
   Date                     = {2013-06-28},
   Url                      = {http://www.golem.de/news/perfect-forward-secrecy-zukunftssicher-per-schluesselaustausch-1306-100090.html},
+  Year                     = {2013},
   Subtitle                 = {Zukunftssicher per Schlüsselaustausch},
   Urldate                  = {2014-05-26},
 
@@ -16,27 +17,44 @@ Oranienstr. 164
   HowPublished             = {Online}
 }
 
+@Book{Sorge2013,
+  Title                    = {Sicherheit in Kommunikationsnetzen},
+  Author                   = {Christoph Sorge, Nils Gruschka, Luigi Lo Iacono},
+  Year                     = {2013},
+  ISBN                     = {978-3486720167},
+  Location                 = {München},
+  Pages                    = {1-261},
+  Publisher                = {Oldenbourg Verlag}
+}
+
 @Book{Eckert2013,
   Title                    = {IT-Sicherheit},
   Author                   = {Eckert, Claudia},
   Date                     = {2013-03-13},
   Year                     = {2013},
-  Edition                  = {korrigierte und aktualisierte Auflage},
+  Edition                  = {8., korrigierte und aktualisierte Auflage},
   ISBN                     = {978-3486721386},
   Location                 = {München},
-  Maintitleaddon           = {Konzepte - Verfahren - Protokolle},
   Pages                    = {1-1030},
   Publisher                = {Oldenbourg Verlag},
-  Volume                   = {8},
+  Subtitle                 = {Konzepte - Verfahren - Protokolle},
 
   Keywords                 = {Computersicherheit},
   Timestamp                = {2014-05-26}
 }
 
-@Book{Sorge2013,
-  Title                    = {Sicherheit in Kommunikationsnetzen},
-  Author                   = {Sorge, Christoph and Gruschka, Nils and Iacono, Luigi Lo},
-  Year                     = {2013},
-  Publisher                = {Oldenbourg}
+@Online{SSLLabs,
+  Title                    = {Trustworthy Internet Movement},
+  Author                   = {SSL Labs},
+  Date                     = {2014-05-02},
+  Url                      = {https://www.trustworthyinternet.org/ssl-pulse/},
+  Year                     = {2014},
+  Subtitle                 = {SSL Pulse},
+  Urldate                  = {2014-05-28},
+
+  Address                  = {Klaß \& Ihlenfeld Verlag GmbH
+Oranienstr. 164
+10969 Berlin},
+  HowPublished             = {Online}
 }
 

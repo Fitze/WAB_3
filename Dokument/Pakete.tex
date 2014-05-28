@@ -18,7 +18,7 @@
 backend=biber,% damit wird bestimmt, dass Sie mit der biber.exe arbeiten
 bibencoding=utf8,% steht für die Kodierung der .bib-Datei
 bibwarn=true,% damit werden ggf. enstandene Fehler ausgegeben
-style=din,% hier wird die DIN 1505-T2 eingebunden
+style=alphabetic,% hier wird die DIN 1505-T2 eingebunden
 %firstinits=true% der Familienname des Authors wird an die erste Stelle
 % gesetzt und anschließend der Vorname nur mit dem ersten
 % Buchstaben abgekürzt ausgegeben
@@ -38,3 +38,11 @@ style=din,% hier wird die DIN 1505-T2 eingebunden
 \counterwithout{footnote}{chapter}
 %Paket zum Einbinden von Grafiken
 \usepackage{graphicx}
+
+
+
+% Bibtexkey vor Quellenangabe (Jedoch nur bei stlye=alphabetic)
+\DeclareFieldFormat{labelalpha}{\thefield{entrykey}}
+\DeclareFieldFormat{extraalpha}{}
+
+\usepackage{filecontents}
