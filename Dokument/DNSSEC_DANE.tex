@@ -1,0 +1,16 @@
+%Dies ist die Vorlage für die einzelnen Kapitel, die jeweils mit Chapter als Kapiteltitel starten
+\chapter{DNSSEC und DANE}
+	Bei \ac{DNSSEC} handelt es sich um eine Sicherheitserweiterung des \ac{DNS}.
+	Das \ac{DNS} ist ein wichtiger Dienst im INternet, da er dafür zuständig ist, gut merkbare Domainnamen in \ac{IP}-Adressen, und umgekehrt, aufzulösen.
+	Um diese Auflösung bewerkstelligen zu können ist \ac{DNS} in einer Baumstruktur aufgebaut. 
+	Wie in der Abbildung\footnote{Abb. in Anlehnung an Sorge S. 180 einbinden} veranschaulicht, ist auf der obersten Ebene der Knoten "root" zu finden.
+	Dies ist sozusagen die Wurzel des \ac{DNS} und hier finden sich auch die Root-Server des \ac{DNS}
+	Auf der nächsten Ebene kommen die \ac{TLD}, anschließend folgen die Second-Level-Domains und zum Aufbau einer gängigen \ac{URL} für \ac{HTTP} fehlt noch eine weitere Ebene, die den Hostnamen enthält.
+	Soll ein Domainnamen aufgelöst werden, so fragt der Host zunächst einen Root-Server.
+	Dieser sendet ihm die Adresse des für die entsprechende \ac{TLD} zuständigen Nameservers mit, an die der Client eine erneute Anfrage stellt.
+	Auch der Nameserver der \ac{TLD} verweist den Client an für die Second-Level-Domain zuständigen Nameserver.
+	Auf diese Weise kann der Client den dargestellten Baum traversieren, bis er die gewünschte Information erhält.
+	Die für diese Auskünfte benötigten Datensätze werden in sogenannten \ac{DNS}-Records abgelegt.
+	Das Problem ist hierbei, dass allein mit den \ac{DNS}-Records nicht die Authentizität und damit auch nicht die Integrität der Daten sicher gestellt werden kann.
+	Dies wird beim sogenannten \ac{DNS} Cache Poisoning ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
+	Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
