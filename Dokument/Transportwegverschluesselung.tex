@@ -1,18 +1,25 @@
 %Dies ist die Vorlage für die einzelnen Kapitel, die jeweils mit Chapter als Kapiteltitel starten
 \chapter{Transportwegverschlüsselung}
-Das \ac{SSL}-Protokoll wurde zunächst durch die Firma Netscape entwickelt, um die Kommunikation über \ac{HTTP}-Verbindungen abzusichern.\footcite[S. 796]{Eckert2013} \ac{SSL} kann auf der Sitzungs- und Präsentationsschicht des \ac{OSI}-Referenzmodells angesiedelt werden und setzt meist auf dem \ac{TCP} auf. Es hat die Aufgabe den darüber liegenden Schichten die Möglichkeit für eine authentifizierte, integritätsgeschützte und verschlüsselte Kommunikation zu geben.\footcite[Vgl.][S. 799 ff.]{Eckert2013}
+Das \ac{SSL}-Protokoll wurde zunächst durch die Firma Netscape entwickelt, um die Kommunikation über \ac{HTTP}-Verbindungen abzusichern.\footcite[Vgl.][S. 796]{Eckert2013} \ac{SSL} kann auf der Sitzungs- und Präsentationsschicht des \ac{OSI}-Referenzmodells angesiedelt werden und setzt meist auf dem \ac{TCP} auf. Es hat die Aufgabe den darüber liegenden Schichten die Möglichkeit für eine authentifizierte, integritätsgeschützte und verschlüsselte Kommunikation zu geben.\footcite[Vgl.][S. 799 ff.]{Eckert2013}
 Die Version \ac{SSL} 3.0 hat sich mittlerweile als de facto Standard im Internet durchgesetzt und wird von allen gängigen Browsern unterstützt.
 
-Das \ac{TLS}-Protokoll kann als Weiterentwicklung von \ac{SSL} 3.0 angesehen werden und liegt aktuell in der Version 1.2 vor.
-Da beide Protokolle in ihren Kernkonzepten übereinstimmen werden sie häufig synonym verwandt. Da \ac{TLS} jedoch eine Weiterentwicklung von \ac{SSL} ist, werden dort einige Erweiterungen eingeführt sowie unsichere Verfahren zur Berechnung von \ac{MAC}-Werten durch neuere Varianten ersetzt.\\
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{wrapfigure}{r}{0.4\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
 	\begin{center}
 		\includegraphics[width=0.4\textwidth]{images/MSC_Transport.png}
 	\end{center}
-	\caption{Handshake-Protokoll mit RSA}
-	\footcite[In Anlehnung an][S. 170]{Sorge2013}
-	\label{MSC_Transport}
-\end{wrapfigure}
+	\caption[Handshake-Protokoll mit RSA]{Handshake-Protokoll mit RSA\footnotemark} %Bildunterschrift, erstes Argument ist für Abbildungsverzeichnis ohne Fußnote; \footnotemark ist ein Platzhalter für die Fußnote
+	\label{img:MSC_Transport} %für Bezüge auf diese Abbildung
+\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 170]{Sorge2013}} %\footnotetext enthält die oben gemarkte Fußnote, für Zitat muss hier \cite genommen werden, bei \footcite werden Klammern um die Fußnote gesetzt
+Das \ac{TLS}-Protokoll kann als Weiterentwicklung von \ac{SSL} 3.0 angesehen werden und liegt aktuell in der Version 1.2 vor.
+Da beide Protokolle in ihren Kernkonzepten übereinstimmen werden sie häufig synonym verwandt. Da \ac{TLS} jedoch eine Weiterentwicklung von \ac{SSL} ist, werden dort einige Erweiterungen eingeführt sowie unsichere Verfahren zur Berechnung von \ac{MAC}-Werten durch neuere Varianten ersetzt.
+
+%\begin{figure}
+%	\begin{minipage}{0.5\textwidth}
+%		\centering
+%		\includegraphics[width=0.45\textwidth]{images/MSC_Transport.png}
+%		\caption[Handshake-Protokoll mit RSA]{Handshake-Protokoll mit \ac{RSA}\footcite[In Anlehnung an:][S. 170]{Sorge2013}}
+%	\end{minipage}
+%\end{figure}
 
 Beide Protokolle bestehen aus mehreren Schichten bzw. Unterprotokollen wobei das Record- und das Handshakeprotokoll von besonderer Bedeutung sind. 
 Das Record-Protokoll ist für die Fragmentierung, Authentifizierung mittels \ac{MAC} und Verschlüsselung der zu übertragenden Daten zuständig. 
@@ -26,4 +33,4 @@ Außerdem ist zu bedenken, dass \ac{TLS/SSL} aufgrund seiner weiten Verbreitung 
 Außerdem ist zu beachten, dass es sich, aufgrund der Ansiedlung des Protokolls unterhalb der Anwendungsschicht, nur um eine Verschlüsselung der transportierten Nutzdaten auf dem Transportweg handelt. 
 Die Daten werden am Kommunikationsendpunkt entschlüsselt und anschließend an die entsprechende Anwendung weitergereicht.
 
-Auch die Authentifizierung der Kommunikationspartner mittels Zertifikaten weißt dieselben Schwachstellen durch die Vertrauensbeziehung zu bekannten \ac{CA}s, die unzureichend gesichert sind, auf.  
+Auch die Authentifizierung der Kommunikationspartner mittels Zertifikaten weißt dieselben Schwachstellen durch die Vertrauensbeziehung zu bekannten \acp{CA}, die unzureichend gesichert sind, auf.  
