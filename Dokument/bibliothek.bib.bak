@@ -59,6 +59,24 @@ Oranienstr. 164
   HowPublished             = {Online}
 }
 
+<<<<<<< HEAD
+=======
+@Online{Schulz-Haddouti2014,
+  Title                    = {Perfect Forward Secrecy},
+  Author                   = {Christiane Schulz-Haddouti},
+  Date                     = {2013-09-03},
+  Url                      = {http://www.zeit.de/digital/datenschutz/2013-09/perfect-forward-secrecy},
+  Year                     = {2014},
+  Subtitle                 = {Die bessere Verschlüsselung},
+  Urldate                  = {2014-05-31},
+
+  Address                  = {Klaß \& Ihlenfeld Verlag GmbH
+Oranienstr. 164
+10969 Berlin},
+  HowPublished             = {Online}
+}
+
+>>>>>>> 471c319a1a9ceb7503975b2b821962ef78b6781b
 @Book{Sorge2013,
   Title                    = {Sicherheit in Kommunikationsnetzen},
   Author                   = {Sorge, Christoph and Gruschka, Nils and Iacono, Luigi Lo},
@@ -69,6 +87,7 @@ Oranienstr. 164
   Publisher                = {Oldenbourg Verlag}
 }
 
+<<<<<<< HEAD
 @Online{TSE,
   Title                    = {IT Security Policy - Leitfaden},
   Author                   = {TSE},
@@ -79,5 +98,19 @@ Oranienstr. 164
 Technologieberatung und Systementwicklung mbH},
 
   Timestamp                = {2014-05-31}
+=======
+@Online{Zhu2014,
+  Title                    = {Why the Web Needs Perfect Forward Secrecy More Than Ever},
+  Author                   = {Yan Zhu},
+  Date                     = {2014-04-08},
+  Url                      = {https://www.eff.org/deeplinks/2014/04/why-web-needs-perfect-forward-secrecy},
+  Year                     = {2014},
+  Urldate                  = {2014-05-31},
+
+  Address                  = {Klaß \& Ihlenfeld Verlag GmbH
+Oranienstr. 164
+10969 Berlin},
+  HowPublished             = {Online}
+>>>>>>> 471c319a1a9ceb7503975b2b821962ef78b6781b
 }
 
