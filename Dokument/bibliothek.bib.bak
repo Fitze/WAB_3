@@ -2,7 +2,7 @@
 % Encoding: UTF8
 
 
-@Online{,
+@Online{ReinhausenGmbH,
   Title                    = {Richtlinie Informationsklassifizierung der REINHAUSEN Gruppe},
   Author                   = {FID Dr. Bauer},
   Date                     = {2012-03-28},
@@ -50,6 +50,7 @@ Oranienstr. 164
   Date                     = {2014-05-02},
   Url                      = {https://www.trustworthyinternet.org/ssl-pulse/},
   Year                     = {2014},
+  Organization             = {SSL Labs},
   Subtitle                 = {SSL Pulse},
   Urldate                  = {2014-05-28},
 
@@ -59,9 +60,7 @@ Oranienstr. 164
   HowPublished             = {Online}
 }
 
-<<<<<<< HEAD
-=======
-@Online{Schulz-Haddouti2014,
+@Online{Schulz2014,
   Title                    = {Perfect Forward Secrecy},
   Author                   = {Christiane Schulz-Haddouti},
   Date                     = {2013-09-03},
@@ -76,7 +75,6 @@ Oranienstr. 164
   HowPublished             = {Online}
 }
 
->>>>>>> 471c319a1a9ceb7503975b2b821962ef78b6781b
 @Book{Sorge2013,
   Title                    = {Sicherheit in Kommunikationsnetzen},
   Author                   = {Sorge, Christoph and Gruschka, Nils and Iacono, Luigi Lo},
