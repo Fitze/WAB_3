@@ -1,0 +1,28 @@
+\chapter{Potenzielle Gefahren und Schwachstellen der E-Mail-Kommunikation}
+\label{chap:gefahren}
+\section{Informationsgewinnung durch Provider}
+warum ist E-Mail oft Kostenlos?
+Welchen Sinn hat das für die Provider?
+Welche Bots lassen die Provider über unsere Kommunikation laufen?
+Wie mächtig sind Meta-Daten?
+
+
+Überleitung... Neben den weniger gerichteten (Kein Angriff?) Maßnahmen der Informationsgewinnung aus E-Mail-Kommunikation gibt es auch klassische Angriffsmethoden Dritter.
+
+%Jetzt mal nur aus dem DANE Artikel
+\section{Angriffsarten}
+\subsection{MITM - Man in the Middle}
+\label{sec:mitm}
+\subsection{Umleitungsangriff}
+
+
+\section{Schwachstellen}
+\subsection{Zertifikatsaussteller}
+\label{sec:zertifikatsaussteller}
+AUTHENTIZITÄT 
+200 Aussteller (z.T. keine eigenen Private Keys der User) CAs können nachlässig werden. Angreifern können somit gültiges Zertifikat für einen Host erstellen dessen Besucher das Ziel sind.
+\subsection{Zertifikatsprüfung}
+\label{sec:zertifikatspruefung}
+AUTHENTIZITÄT
+Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. In der Praxis jedoch kein sog. "Identifiziertes TLS" (Kommunikationspartner eideutig festgestellt) In der Praxis arbeiten Server jedoch nach "Opportunistischem TLS", dass bedeutet das lediglich wichtig ist, dass die Nachricht verschlüsselt übertragen wird, egal von wem.
+
