@@ -1,7 +1,6 @@
 %Dies ist die Vorlage für die einzelnen Kapitel, die jeweils mit Chapter als Kapiteltitel starten
 \chapter{DNS - Domain Name System}
-\label{sec:dns}
-%Hier DNS erklären?
+\label{chap:dns}
 	Das \ac{DNS} ist ein wichtiger Dienst im Internet, da er dafür zuständig ist, gut merkbare Domainnamen in \ac{IP}-Adressen, und umgekehrt, aufzulösen.
 	Um diese Auflösung bewerkstelligen zu können ist \ac{DNS} in einer Baumstruktur aufgebaut. 
 	Wie in der Abbildung\footnote{Abb. in Anlehnung an Sorge S. 180 einbinden} veranschaulicht, ist auf der obersten Ebene der Knoten "root" zu finden.
@@ -22,7 +21,7 @@
 	Sie beruht auf der Einführung weiterer \ac{DNS}-Records.
 	Unter anderem gibt es einen Recordtyp, der einen öffentlichen Schlüssel enthält und einen weiteren, der die Signatur eines Ressource Records enthält.
 	Ein autoritativer Nameserver kann eine Zone an einen anderen Nameserver delegieren und hält dann einen Verweis auf den entsprechenden Nameserver vor.
-	Dadurch gibt es pro Zone des \ac{DNS} maximal einen \ac{ZSK} mit dem die Resource Records dieser Zone signiert werden, dies ist jedoch nicht zwingend notwendig.
+	Dadurch gibt es pro Zone des \ac{DNS} maximal einen \ac{ZSK} mit dem die Ressource Records dieser Zone signiert werden, dies ist jedoch nicht zwingend notwendig.
 	Mithilfe dieser Schlüssel und Signaturen kann nun eine Zertifikatskette aufgebaut werden.
 	Ein Schwachpunkt dabei ist, dass mindestens ein öffentlicher Schlüssel, der als \ac{KSK} fungiert und den \ac{ZSK} einer Zone signiert, auf einem sicheren Weg zum Client kommen muss.
 	Daher wird dieser Schlüssel auch als Secure Entry Point bezeichnet.
