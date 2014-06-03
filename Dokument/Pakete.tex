@@ -6,7 +6,7 @@
 %Seitenränder einstellen
 \usepackage[head=2cm,bottom=2cm, left=25mm, right= 25mm ]{geometry}
 %Paket für Erzeugung eines Abkürzungsverzeichnis, über das auch per Befehl im späteren Text auf diese verwiesen werden kann
-\usepackage[printonlyused]{acronym}
+\usepackage[printonlyused,smaller]{acronym}
 %Paket zur Gestaltung der Kopf- und Fusszeile bei KOMA-Script
 \usepackage{scrpage2}
 \usepackage[hidelinks]{hyperref}
@@ -47,3 +47,5 @@ style=din,% hier wird die DIN 1505-T2 eingebunden
 \DeclareFieldFormat{extraalpha}{}
 
 \usepackage{filecontents}
+\usepackage{multicol}
+\usepackage{relsize}
