@@ -21,7 +21,6 @@
   Year                     = {2013},
   Subtitle                 = {Zukunftssicher per Schlüsselaustausch},
   Urldate                  = {2014-05-26},
-
   HowPublished             = {Online}
 }
 
@@ -41,30 +40,16 @@
   Timestamp                = {2014-05-26}
 }
 
-@Article{Kaps2014,
-  Title                    = {Noch ein Sargnagel},
-  Author                   = {Reiko Kaps},
-  Date                     = {2014-05-19},
+@Online{SSLLabs,
+  Title                    = {Trustworthy Internet Movement},
+  Author                   = {SSL Labs},
+  Date                     = {2014-05-02},
+  Url                      = {https://www.trustworthyinternet.org/ssl-pulse/},
   Year                     = {2014},
-  Issue                    = {12/2014},
-  Month                    = {Mai},
-  Pages                    = {46-47},
-  Subtitle                 = {Wie CAs das Vertrauen in die SSL-Technik weiter untergraben},
-  Url                      = {http://www.heise.de/ct/inhalt/14/12/46/},
-  Urldate                  = {2014-06-02}
-}
-
-@Article{Koetter2014,
-  Title                    = {Geleitschutz},
-  Author                   = {Patrick Ben Koetter, Carsten Strotmann},
-  Date                     = {2014-05-05},
-  Year                     = {2014},
-  Issue                    = {11/2014},
-  Month                    = {Mai},
-  Pages                    = {194-197},
-  Subtitle                 = {DANE verbessert sicheren Transport zwischen Mailservern},
-  Url                      = {http://www.heise.de/ct/inhalt/2014/11/194/},
-  Urldate                  = {2014-06-02}
+  Organization             = {SSL Labs},
+  Subtitle                 = {SSL Pulse},
+  Urldate                  = {2014-05-28},
+  HowPublished             = {Online}
 }
 
 @Online{Schulz2014,
@@ -75,7 +60,6 @@
   Year                     = {2014},
   Subtitle                 = {Die bessere Verschlüsselung},
   Urldate                  = {2014-05-31},
-
   HowPublished             = {Online}
 }
 
@@ -87,19 +71,6 @@
   Location                 = {München},
   Pages                    = {1-261},
   Publisher                = {Oldenbourg Verlag}
-}
-
-@Online{SSLLabs,
-  Title                    = {Trustworthy Internet Movement},
-  Author                   = {SSL Labs,},
-  Date                     = {2014-05-02},
-  Url                      = {https://www.trustworthyinternet.org/ssl-pulse/},
-  Year                     = {2014},
-  Organization             = {SSL Labs},
-  Subtitle                 = {SSL Pulse},
-  Urldate                  = {2014-05-28},
-
-  HowPublished             = {Online}
 }
 
 @Online{TSE,
@@ -121,7 +92,5 @@ Technologieberatung und Systementwicklung mbH},
   Url                      = {https://www.eff.org/deeplinks/2014/04/why-web-needs-perfect-forward-secrecy},
   Year                     = {2014},
   Urldate                  = {2014-05-31},
-
   HowPublished             = {Online}
 }
-
