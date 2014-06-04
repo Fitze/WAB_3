@@ -25,6 +25,16 @@
   HowPublished             = {Online}
 }
 
+@Online{Berliner2014,
+  Title                    = {Verfügbarkeit, Integrität, Vertraulichkeit, Authentizität},
+  Author                   = {Berliner Beauftragter für Datenschutz und Informationsfreiheit},
+  Date                     = {2008-11-14},
+  Url                      = {http:/www.datenschutz-berlin.de/content/technik/begriffsbestimmungen/verfuegbarkeit-integritaet-vertraulichkeit-authentizitaet},
+  Year                     = {2008},
+
+  Timestamp                = {2014-06-04}
+}
+
 @Book{Eckert2013,
   Title                    = {IT-Sicherheit},
   Author                   = {Claudia Eckert},
@@ -41,10 +51,21 @@
   Timestamp                = {2014-05-26}
 }
 
+@Book{Ertel2012,
+  Title                    = {Angewandte Kryptographie},
+  Author                   = {Wolfgang Ertel},
+  Year                     = {2012},
+  Edition                  = {4. Aufl.},
+  Publisher                = {Carl Hanser Verlag},
+
+  Timestamp                = {2014-06-04}
+}
+
 @Article{Kaps2014,
   Title                    = {Noch ein Sargnagel},
   Author                   = {Reiko Kaps},
   Date                     = {2014-05-19},
+  Journaltitle             = {c't Magazin für Computertechnik},
   Year                     = {2014},
   Issue                    = {12/2014},
   Month                    = {Mai},
@@ -58,6 +79,7 @@
   Title                    = {Geleitschutz},
   Author                   = {Patrick Ben Koetter and Carsten Strotmann},
   Date                     = {2014-05-05},
+  Journaltitle             = {c't Magazin für Computertechnik},
   Year                     = {2014},
   Issue                    = {11/2014},
   Month                    = {Mai},
@@ -80,6 +102,16 @@
   HowPublished             = {Online}
 }
 
+@Book{Schmeh2013,
+  Title                    = {Kryptographie - Verfahren, Protokolle, Infrastrukturen},
+  Author                   = {Klaus Schmeh},
+  Year                     = {2013},
+  Edition                  = {5. Aufl.},
+  Publisher                = {dpunkt.verlag},
+
+  Timestamp                = {2014-06-04}
+}
+
 @Online{Schulz2014,
   Title                    = {Perfect Forward Secrecy},
   Author                   = {Christiane Schulz-Haddouti},
@@ -92,6 +124,15 @@
   HowPublished             = {Online}
 }
 
+@Online{BSI2014,
+  Title                    = {Glossar und Begriffsdefinitionen},
+  Author                   = {Bundesamt für Sicherheit in der Informationsstechnik},
+  Date                     = {2014-06-04},
+  Year                     = {2009},
+
+  Timestamp                = {2014-06-04}
+}
+
 @Book{Sorge2013,
   Title                    = {Sicherheit in Kommunikationsnetzen},
   Author                   = {Christoph Sorge and Nils Gruschka and Luigi Lo Lacono},
@@ -100,6 +141,16 @@
   Location                 = {München},
   Pages                    = {1-261},
   Publisher                = {Oldenbourg Verlag}
+}
+
+@Book{Stephan2011,
+  Title                    = {Kryptographie und IT-Sicherheit - Grundlagen und Anwendungen},
+  Author                   = {Stephan Spitz, Michael Prameteftakis, Joachim Swoboda},
+  Year                     = {2011},
+  Edition                  = {2. Aufl},
+  Publisher                = {Vieweg+Teubner},
+
+  Timestamp                = {2014-06-04}
 }
 
 @Online{TSE,
