@@ -247,9 +247,9 @@
 			Ein autoritativer Nameserver kann eine Zone an einen anderen Nameserver delegieren und hält dann einen Verweis auf den entsprechenden Nameserver vor.
 			Dadurch gibt es pro Zone des \ac{DNS} maximal einen \ac{ZSK} mit dem die Ressource Records dieser Zone signiert werden, dies ist jedoch nicht zwingend notwendig.
 			Mithilfe dieser Schlüssel und Signaturen kann nun eine Zertifikatskette aufgebaut werden.
-			Ein Schwachpunkt dabei ist, dass mindestens ein öffentlicher Schlüssel, der als \ac{KSK} fungiert und den \ac{ZSK} einer Zone signiert, auf einem sicheren Weg zum Client kommen muss.
-			Daher wird dieser Schlüssel auch als Secure Entry Point bezeichnet.
-			Ein weiterer Kritikpunkt an \ac{DNSSEC} ist die Komplexität des Systems.
+%			Ein Schwachpunkt dabei ist, dass mindestens ein öffentlicher Schlüssel, der als \ac{KSK} fungiert und den \ac{ZSK} einer Zone signiert, auf einem sicheren Weg zum Client kommen muss.
+%			Daher wird dieser Schlüssel auch als Secure Entry Point bezeichnet.
+			Ein Kritikpunkt an \ac{DNSSEC} ist die hohe Komplexität des Systems, die durch den Aufbau der Zertifikatsketten und dem aufwändigen Austausch der Schlüssel auf Zonenebene entsteht.
 			Diese ist jedoch der benötigten Kompatibilität mit bestehenden Systemen geschuldet und momentan alternativlos.\footcite[Vgl.][S. 195]{Sorge2013}
 			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI} deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite{Koetter2014}. Der "Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden]."\footcite{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR} die an der Erstellung des root key und der Signierungsprozesse partizipieren.
 	
