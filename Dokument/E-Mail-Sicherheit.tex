@@ -236,6 +236,7 @@
 		Auf diese Weise kann der Client den dargestellten Baum traversieren, bis er die gewünschte Information erhält.
 		Die für diese Auskünfte benötigten Datensätze werden in sogenannten \ac{DNS}-Records abgelegt.
 		Das Problem ist hierbei, dass allein mit den \ac{DNS}-Records nicht die Authentizität des Absenders (vgl. \ref{sec:cache_poison}) und damit auch nicht die Integrität der Daten sicher gestellt werden kann.
+		Dies wird jedoch für eine sichere E-Mailkommunikation benötigt, da auch die Domainnamen der Mailserver einer Zone über \ac{DNS}-Records vom Typ \glqq MX\grqq aufgelöst werden.
 %		Dies wird beim sogenannten \ac{DNS} Cache Poisoning %Das unter "E-Mail-Kommunikation-Gefahren" einbauen.
 %	 	ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
 %		Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
