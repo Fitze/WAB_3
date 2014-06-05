@@ -213,7 +213,9 @@
 			Dies hat zur Folge, dass durch die hohe Komplexität nicht mit Sicherheit alle Schwachstellen beim Design des Protokolls entfernt werden konnten. 
 			Außerdem ist zu bedenken, dass \ac{TLS/SSL} aufgrund seiner weiten Verbreitung ein lohnendes Ziel für Angriffe ist. Die Sicherheit des Protokolls hängt dabei stark von den genutzten kryptologischen Methoden ab. 
 			Außerdem ist zu beachten, dass es sich, aufgrund der Ansiedlung des Protokolls unterhalb der Anwendungsschicht, nur um eine Verschlüsselung der transportierten Nutzdaten auf dem Transportweg handelt. 
-			Die Daten werden am Kommunikationsendpunkt entschlüsselt und anschließend an die entsprechende Anwendung weitergereicht.\\
+			Die Daten werden am Kommunikationsendpunkt entschlüsselt und anschließend an die entsprechende Anwendung weitergereicht.
+			Dies bedeutet für die Anwendung im Bereich des E-Mailversands, dass die Nachrichten weiterhin im Klartext auf den Servern der Mailprovider vorliegen und von jedem, der berechtigten oder unberechtigten Zugang zu diesen erhält, ausgelesen werden können.
+			Im Sinne der definierten Sicherheitsniveaus ist die \ac{SSL}-Verschlüsselung daher auf der zweitniedrigsten Stufe anzusiedeln, da das Mitlesen der versandten Mails zwar erschwert, aber nicht unmöglich gemacht wird.\\
 			
 			%\acp erzeugt den Plural des Akronyms bzw. hängt ein "s" an
 			Auch die Authentifizierung der Kommunikationspartner mittels Zertifikaten weißt dieselben Schwachstellen durch die Vertrauensbeziehung zu bekannten \acp{CA}, die unzureichend gesichert sind, auf.  
