@@ -1,0 +1,51 @@
+%Dies ist die Vorlage für die einzelnen Kapitel, die jeweils mit Chapter als Kapiteltitel starten
+\chapter{Public Key Infrastruktur}
+
+%Problem
+- In Kapitel \ref*{chp: zertifikate} Funktionsweise erklärt
+- Austausch der Zertifikate zw Kommunikationspartner -> Problem: sie müssen sich "kennen und einen sicheren Weg für Austausch finden" \footcite{BSI}
+
+%Idee
+- PKI zur Vereinfachung des Austauschs
+
+%Umsetzung
+- Hierarchie von Zertifikaten, die aus einer Wurzelinstanz und dieser untergeordneten Certification Authorities besteht, die wiederum die Zertifikate der Benutzer signieren \footcite[Vgl.][]{Schwenk, S23}
+- PCA -> für alle vertrauenswürdig, erstellt ein sog. Wurzel Zertifikat \footcite[Vgl. ][]{ITWissen2012}
+
+- alle weiteren Zertifikate dieser Vertrauenskette werden mit privaten Schlüssel des Wurzelzertifikats signiert, sofern Anforderungen übereinstimmen \ref{chp: Signatur}
+
+
+%Vorteile
+- nicht jedes Zertifikat muss von CA signiert sein
+- Es kann auch zwischenzertifikate geben
+- die Kette kann sich beliebig lang fortsetzen
+- möchte Bob das Zertifikat von Alice prüfen, so schaut er entlang der PKI, solange bis er auf ein vertrauenswürdiges stößt
+- möglich, da im Zertifikat die ausstellende Instanz und deren Zertifikat enthalten ist
+- Unternehmen: Für MA selbst Zertifikate ausstellen -> weniger Aufwand
+
+- Unter einem Wurzelzertifikat können durch verschiedene CAs verschieden artige Zertifikate ausgestellt werden z.B. für E-Mail, SSL Zertifikate für Webserver, Zertifikate für S/MIME
+- Verschiedene Sicherheitspolicies je CA -> Stufe 1 -> gültige E-Mail Adresse; Stufe 3: Personalausweis
+- Struktur einer Unternehmung darstellen
+\footcite[Vgl.][]{Schwenk, S24}
+
+%Nachteile
+- Vertrauenswürdiges CA bekannt machen -> Einbindung in E-Mail Clients
+- CA können angegegriffen werden und somit vertrauensunwürdige Zertifikate signiert werden
+- Häufigkeit?
+
+%Grenzen
+-
+
+%Mailbezug
+- Zertifikate beim Versenden von Mails -> eher allg. Part
+
+%mit \section{title} wird ein Unterkapitel der ersten Gliederungsebene überschrieben
+%\section{Wichtiges Unterkapitel erster Gliederungsebene}
+%Lorem ipsum \dots
+
+%mit \subsection{title} wird ein Unterkapitel der zweiten Gliederungsebene überschrieben
+%\subsection{Wichtiges Unterkapitel der zweiten Gliederungsebene}
+%Lorem ipsum \dots
+
+%Vom Grundsatz war es das für die Erstellung von Kapiteln, jetzt kommt noch ein kleines Beispiel für Fußnoten
+%Dies ist ein großartiges Beispiel \footnote{Wenn einem nix einfällt muss man eben Quatsch schreiben} für eine Fußnote.
