@@ -15,11 +15,11 @@
 \usepackage[babel,german=guillemets]{csquotes}
 % damit werden Zitate in französische Anführungszeichen gesetzt
 \usepackage[%
-backend=biber,% damit wird bestimmt, dass Sie mit der biber.exe arbeiten
-bibencoding=utf8,% steht für die Kodierung der .bib-Datei
-bibwarn=true,% damit werden ggf. enstandene Fehler ausgegeben
-%style=alphabetic,% hier alphabetic einblenden. NUR für Chico. Bitte probiere wie in den Mails erklärt die din Files zu implementieren. Bis dahin den Style einblenden, und wieder ausblenden wenn du für dich kompilierst
-style=din,% hier wird die DIN 1505-T2 eingebunden
+	backend=biber,% damit wird bestimmt, dass Sie mit der biber.exe arbeiten
+	bibencoding=utf8,% steht für die Kodierung der .bib-Datei
+	bibwarn=true,% damit werden ggf. enstandene Fehler ausgegeben
+	%style=alphabetic,% hier alphabetic einblenden.
+	style=din,% hier wird die DIN 1505-T2 eingebunden
 ]{biblatex}
 \usepackage[babel]{microtype} % bringt optischen Randausgleich und
 % minimale Skalierung der Buchstaben
@@ -47,3 +47,8 @@ style=din,% hier wird die DIN 1505-T2 eingebunden
 \usepackage{filecontents}
 \usepackage{multicol}
 \usepackage{relsize}
+
+%Abstand Chapters einstellen
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-2.3\baselineskip}}% +2.3 ist Standard
+
+		
