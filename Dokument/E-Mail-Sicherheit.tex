@@ -89,8 +89,12 @@
 			\subsection{MITM - Man in the Middle}
 			\label{sec:mitm}
 			\subsection{Umleitungsangriff}
-	
-	
+			\label{sec:cache_poison}
+			Umleitungsangriffe werden mit dem sogenannten \ac{DNS} Cache Poisoning durchgeführt.
+			Bei diesem Angriff wird sich die Schwachstelle zu nutze gemacht, dass ältere oder falsch konfigurierte \ac{DNS}-Server auch nicht angeforderte Records in ihren Cache schreiben.
+			Ein Angreifer kann dies dazu nutzen im Cache eines \ac{DNS}-Servers mithilfe von gefälschten Paketen falsche Zuordnungen von Domainnamen zu \ac{IP}-Adressen zu hinterlegen.
+			Ein Opfer, das die Auflösung des Domainnamens jetzt vom kompromittierten Server anfordert, wird auf den Server des Angreifers umgeleitet.
+
 		\section{Schwachstellen}
 			\subsection{Zertifikatsaussteller}
 			\label{sec:zertifikatsaussteller}
@@ -231,10 +235,10 @@
 		Auch der Nameserver der \ac{TLD} verweist den Client an für die Second-Level-Domain zuständigen Nameserver.
 		Auf diese Weise kann der Client den dargestellten Baum traversieren, bis er die gewünschte Information erhält.
 		Die für diese Auskünfte benötigten Datensätze werden in sogenannten \ac{DNS}-Records abgelegt.
-		Das Problem ist hierbei, dass allein mit den \ac{DNS}-Records nicht die Authentizität des Absenders und damit auch nicht die Integrität der Daten sicher gestellt werden kann.
-		Dies wird beim sogenannten \ac{DNS} Cache Poisoning %Das unter "E-Mail-Kommunikation-Gefahren" einbauen.
-	 	ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
-		Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
+		Das Problem ist hierbei, dass allein mit den \ac{DNS}-Records nicht die Authentizität des Absenders (vgl. \ref{sec:cache_poison}) und damit auch nicht die Integrität der Daten sicher gestellt werden kann.
+%		Dies wird beim sogenannten \ac{DNS} Cache Poisoning %Das unter "E-Mail-Kommunikation-Gefahren" einbauen.
+%	 	ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
+%		Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
 		\section{DNSSEC - Domain Name System Security Extensions}
 		\label{sec:dnssec}
 			Bei \ac{DNSSEC} handelt es sich um eine Sicherheitserweiterung des \ac{DNS}.
