@@ -122,7 +122,7 @@
 				Mit diesem Verfahren wurde das Sicherheitsrisiko der symmetrischen Verschlüsselung behoben, da der öffentliche Schlüssel zum Verschlüsseln jedem bekannt sein darf. Zur Entschlüsselung wird der dazugehörige private Schlüssel benötigt, der im Besitz des Empfängers ist und niemals veröffentlicht wird.
 				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels von Bob abfangen und sich somit als Bob ausgeben kann, indem er seinen öffentlichen Schlüssel publiziert. In diesem sogenannten Man-In-The-Middle-Szenario kann der Dritte nun alle vermeintlich an Bob verschlüsselten Nachrichten lesen, da diese mit seinem öffentlichen Schlüssel verschlüsselt worden sind.
 				Dies wird durch digitale Signaturen sichergestellt, deren Konzept im nächsten Kapitel näher untersucht wird.
-			\subsection{Digitale Signaturen}	
+			\subsection{Digitale Signaturen}\label{chp: Signatur}	
 				Digitale Signaturen bieten die Möglichkeit, die menschliche Unterschrift in der digitalen Welt abzubilden. Um dies zu garantieren, müssen folgende Bedingungen eingehalten werden:
 				\footnote{Kryptographie S. 202}
 				\begin{itemize}
@@ -135,7 +135,7 @@
 				
 				Beim Signieren wird in der Regel aufgrund des Rechenaufwandes für lange Nachrichten nicht die gesamt Nachricht verschlüsselt, sondern ein sogenannter Hashwert der Nachricht. Hashwerte sind eine Zeichenfolge mit einer bestimmten Länge, die durch eine mathematische Einweg-Hashfunktion generiert werden. Diese Funktionen haben einen Eingabeparameter und berechnen daraus den erwähnten Hashwert. Aus der Kenntis des Hashwertes und der Funktion lässt sich der Eingabeparameter nicht ableiten. Dadurch, dass zu jedem Eingabeparameter nur ein Hashwert existiert, bleibt die Eigenschaft der Integrität erhalten.
 	
-			\subsection{Zertifikate}
+			\subsection{Zertifikate}\label{chp: zertifikate}
 				Bei den bisher genannten Verfahren wurde davon ausgegangen, dass der öffentliche Schlüssel wirklich dem Kommunikationspartner gehört. Die Verlässlichkeit des öffentlichen Schlüssels ist durch Szenarien wie dem Man-In-The-Middle-Angriff nicht immer garantiert. Um dies zu erreichen, werden Zertifikate benutzt.
 				%Garantieren Zertifikate alleine das MITM-Attacks nicht mehr möglich sind?
 				Ein Zertifikat ist ein elektronisches Dokument, das einer Person zugeordnet werden kann. Dieses Dokument enthält neben den persönlichen und weiteren Informationen des Inhabers dessen öffentlichen Schlüssel. Außerdem enthält ein Zertifikat eine Signatur über all den genannten Angaben. Das Signieren wird dabei meist von einer vertrauenswürdigen Instanz durchgeführt, die auch \ac{CA} oder Zertifizierungsstelle genannt wird.
@@ -143,6 +143,37 @@
 				Möchte Alice Bob nun eine verschlüsselte Nachricht schicken, so besorgt sich Alice zunächst Bobs Zertifikat, auf dem sich dessen öffentlicher Schlüssel befindet. Um zu prüfen, ob dieser Schlüssel tatsächlich zu Bob gehört, verifiziert sie nun sein Zertifikat, indem sie die Signatur mit dem öffentlichen Schlüssel der \ac{CA} entschlüsselt. Stimmen beide Schlüssel überein, kann sie davon ausgehen, dass dieser Schlüssel tatsächlich Bob gehört.
 				Das Sicherheitsrisiko bezüglich der Verlässlichkeit des öffentlichen Schlüssels der Zertifizierungsstelle wird so gelöst, indem ein Zertifikat über den öffentlichen Schlüssel erstellt wird, das von der CA selbst signiert wurde. Dieses Zertifikat wird als self-signed bezeichnet.
 	
+		\section{Public Key Infrastruktur}
+			%Problem
+			In Kapitel \ref*{chp: zertifikate} Zertifikate wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner "kennen und einen sicheren Weg für den Austausch finden" \footcite{BSI}.\medskip\\
+			
+			%Idee
+			An dieser Stelle setzt die so genannte \ac{PKI} an, die eine Vertrauenskette darstellt und den Austausch von Zertifikaten zweier Kommunikationspartner erleichtern soll.
+			\medskip\\
+			
+					
+			%Umsetzung
+			Bei der \ac{PKI} handelt es sich um eine Hierarchie von Zertifikaten, die aus verschiedenen Elementen besteht. Auf der obersten Hierarchie Ebene steht die Wurzelinstanz, welcher auf einer oder mehrerer Unterebenen verschiedene \ac{CA} untergeordnet sind, die wiederum die Zertifikate der Endanwender signieren. \footcite[Vgl.][]{Schwenk, S.23}\medskip\\
+			
+			Die Wurzelinstanz wird durch die \ac{PCA} verkörpert, die  für alle vertrauenswürdig ist und ein so genanntes Wurzelzertifikat erstellt. \footcite[Vgl. ][]{ITWissen2012} 
+			
+			Alle weiteren Zertifikate dieser Vertrauenskette werden mit dem privaten Schlüssel des Wurzelzertifikats signiert %(vgl. Kapitel \ref{chp: Signatur} Digitale Signaturen).
+			\medskip\\
+						
+			%Vorteile
+			Dies bringt eine Reihe von Vorteilen mit sich. Zum einen können der \ac{PCA} verschieden artige \ac{CA} untergeordnet sein. Beispielsweise könnte eine \ac{CA} SSL-Zertifikate für Webserver signieren, eine weitere \ac{CA} S/MIME Zertifikate ausstellen und eine dritte \ac{CA} für die E-Mail Kommunikation zuständig sein.
+			
+			Zum anderen können verschiedene Sicherheitspolicies für unterschiedliche \ac{CA} hinterlegt werden. So stellt die eine \ac{CA} Zertifikate unter Voraussetzung einer gültigen E-Mail Adresse aus, wohingegen eine andere CA erst nach Vorlage eines Personalausweises ein Zertifikat signiert. \footcite[Vgl.][]{Schwenk, S.24}
+			
+			Ein dritter Vorteil liegt darin, dass mit Hilfe der \ac{PKI} organisatorische Strukturen, zum Beispiel die einer Unternehmung, abgebildet werden können. In solchem Falle können verschiedene CA für unterschiedliche Standorte eines Unternehmens einberufen werden, die wiederum die Zertifikate der Mitarbeiter am jeweiligen Standort signieren und deren eigenes Zertifikat durch eine übergeordnete \ac{CA} oder \ac{PCA} signiert wurde. \medskip\\
+			
+			Diese Vertrauenskette kann beliebig lang fortgesetzt werden, sodass zwei Kommunikationspartner sich nicht mehr gegenseitig kennen müssen um ihre Zertifikate einander auszutauschen, sondern es ausreichend ist, wenn das Zertifikat des Kommunikationspartners entlang der  \ac{PKI} von einer Instanz signiert wurde, die man selbst für vertrauenswürdig befindet. \medskip\\
+			
+			%Nachteile
+			Jedoch liegen genau in dieser Vertrauenswürdigkeit auch die Nachteile der \ac{PKI}. Einerseits muss eine neue \ac{CA} oder \ac{PCA} erst einmal bekannt gemacht werden und auf diesem Weg vertrauen erlangen. \footcite[Vgl.][]{Schwenk, S.24}
+			
+			Andererseits kommt es immer wieder vor, dass \ac{CA} angegriffen werden und somit auch gefälschte Zertifikate illegal signiert werden.
+				
 		\section{Web of Trust}
 			Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist dabei, dass die Nutzer die öffentlichen Schlüssel voneinander signieren. An einem Beispiel lässt sich das Grundprinzip dieses Modells verdeutlichen \footnote{Angewandte Kryptographie, S. 120}: Carol möchte Bob eine vertrauliche Nachricht schicken. Dazu besorgt sie sich Bobs öffentlichen Schlüssel. Zuvor hatte Alice den öffentlichen Schlüssel von Bob signiert. Da Carol Alice vertraut, beschafft sie sich die Signatur von Alice über den öffentlichen Schlüssel von Bob und entschlüsselt diesen mit Alices öffentlichem Schlüssel. Stimmen die Schlüssel überein, so kann Carol den öffentlichen Schlüssel von Bob vertrauen, weil dieser von Alice signiert wurde, der Carol vertraut. Die folgende Abbildung veranschaulicht das Funktionsprinzip:
 			\footnote{S. 121, Angewandte Kryptographie}.

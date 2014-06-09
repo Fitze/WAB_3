@@ -25,6 +25,16 @@
   HowPublished             = {Online}
 }
 
+@Online{BSI,
+  Title                    = {Public Key Infrastructure (PKI)},
+  Author                   = {BSI},
+  Date                     = {2014-06-03},
+  Url                      = {https://www.bsi.bund.de/DE/Themen/ElektronischeAusweise/Sicherheitsmechanismen/sicherPKI/pki_node.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-03}
+}
+
 @Online{Berliner2014,
   Title                    = {Verfügbarkeit, Integrität, Vertraulichkeit, Authentizität},
   Author                   = {Berliner Beauftragter für Datenschutz und Informationsfreiheit},
@@ -38,7 +48,6 @@
 @Book{Eckert2013,
   Title                    = {IT-Sicherheit},
   Author                   = {Claudia Eckert},
-  Date                     = {2013-03-13},
   Year                     = {2013},
   Edition                  = {8., korrigierte und aktualisierte Auflage},
   ISBN                     = {978-3-4867-2138-6},
@@ -59,6 +68,18 @@
   Publisher                = {Carl Hanser Verlag},
 
   Timestamp                = {2014-06-04}
+}
+
+@Online{ITWissen2012,
+  Title                    = {Sicherheitsinfrastruktur},
+  Author                   = {ITWissen},
+  Date                     = {2012-11-03},
+  Editor                   = {DATACOM Buchverlag GmbH 2004-2014. All rights reserverd.},
+  Url                      = {http://www.itwissen.info/definition/lexikon/Sicherheitsinfrastruktur-PKI-public-key-infrastructure.html},
+  Year                     = {2012},
+
+  Owner                    = {Student},
+  Timestamp                = {2014-06-03}
 }
 
 @Article{Kaps2014,
@@ -102,10 +123,9 @@
   HowPublished             = {Online}
 }
 
-@Book{Eckert2013,
+@Book{Mueller2011,
   Title                    = {IT-Sicherheit mit System},
   Author                   = {Klaus-Rainer Müller},
-  Date                     = {2013-03-13},
   Year                     = {2011},
   Edition                  = {4., neu bearbeitete und erweiterte Auflage},
   ISBN                     = {978-3-8348-1536-1},
@@ -149,6 +169,14 @@
   Urldate                  = {2014-05-31},
 
   HowPublished             = {Online}
+}
+
+@Book{Schwenk,
+  Title                    = {Sicherheit und Kryptographie im Inter},
+  Author                   = {Jörg Schwenk},
+  Year                     = {2002},
+
+  Timestamp                = {2014-06-03}
 }
 
 @Online{BSI2014,
