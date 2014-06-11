@@ -5,6 +5,8 @@
 				]{scrreprt}
 \include{Pakete} %Einbinden der benötigten Pakete über die Datei Pakete.tex, wobei die Dateiendung weggelassen wird
 \include{Hyphenation} % LaTeX Wörter übergeben werden, die es entweder nicht selbstständig trennen kann(und hierdurch die entsprechenden Stellen markiert werden) oder nicht trennen soll\textbf{}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter} 
 \begin{document}
 	\parindent 0pt %entfernt den Einzug nach Absätzen
 	%\include{Titelseite}
@@ -15,8 +17,8 @@
 	\pagebreak
 	\listoffigures %Abbildungsverzeichnis
 	\pagebreak
-	%\listoftables %falls benötigt auch noch ein Tabellenverzeichnis, müsste dann die Auskommentierung aufgehoben werden
-	%\pagebreak
+	\listoftables %Tabellenverzeichnis
+	\pagebreak
 	\include{Akronyme} %einbinden des in Akronyme.tex erstellten Abbildungsverzeichnisses
 	\pagebreak
 	\pagenumbering{arabic}\setcounter{page}{1} %ändern der Seitennummerierung auf arabische Zahlen und Beginn bei Seite 1
@@ -108,7 +110,7 @@ Die Funktionsweise des Web of Trust wird anhand eines Beispiels erläutert.:
 	\begin{center}
 		\includegraphics[width=0.4\textwidth]{images/WOT.png}
 	\end{center}
-	\caption[Web of Trust Vertrauensmodell]{Web of Trust Vertrauensmodell\footnotemark}
+	%\caption[Web of Trust Vertrauensmodell]{Web of Trust Vertrauensmodell\footnotemark}
 	In Anlehnung an: \footcite[S. 120]{Ertel2012}
 Teilnehmer C möchte Teilnehmer B eine verschlüsselte Nachricht schicken. Dazu besorgt er sich zunächst das Zertifikat von Teilnehmer B. Dieser wurde zuvor von Teilnehmer A signiert. Da Teilnehmer C Teilnehmer A vertraut, beschafft sich Teilnehmer C den öffentlichen Schlüssel von Teilnehmer A und verifiziert mit damit das Zertifikat von Teilnehmer B. Ist die Verifizierung erfolgreich, so kann Teilnehmer C den öffentlichen Schlüssel von Teilnehmer B vertrauen.
 
@@ -157,13 +159,31 @@ Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerse
 		\medskip\\
 		
 	\pagebreak
-	\begin{figure}[h] %{wrapfigure}[36]{l}{1.0\textwidth}
-			%\begin{center}
-		\includegraphics[width=16cm]{images/sicherheitsniveaus.jpg}
-			%\end{center}
-		\caption {Sicherheitsniveaus} %Bildunterschrift, erstes Argument ist für Abbildungsverzeichnis ohne Fußnote; \footnotemark ist ein Platzhalter für die Fußnote
-		\label{img:sicherheitsniveaus} %für Bezüge auf diese Abbildung
-	\end{figure} %wrapfigure}
+%	\begin{figure}[h] %{wrapfigure}[36]{l}{1.0\textwidth}
+%			%\begin{center}
+%		\includegraphics[width=16cm]{images/sicherheitsniveaus.jpg}
+%			%\end{center}
+%		\caption {Sicherheitsniveaus} %Bildunterschrift, erstes Argument ist für Abbildungsverzeichnis ohne Fußnote; \footnotemark ist ein Platzhalter für die Fußnote
+%		\label{img:sicherheitsniveaus} %für Bezüge auf diese Abbildung
+%	\end{figure} %wrapfigure}
+
+	\begin{table}
+		\small
+		\centering
+		\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|} 
+			\hline Stufe & \multicolumn{1}{c|}{\textbf{4}} & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{\textbf{1}} \\
+			  & \multicolumn{1}{c|}{\textbf{Streng Vertraulich}} & \multicolumn{1}{c|}{\textbf{Vertraulich}} & \multicolumn{1}{c|}{\textbf{Privat}} & \multicolumn{1}{c|}{\textbf{Öffentlich}} \\ 
+			\hline Wert der Information, Schutzwürdigkeit & Äußerst hoch & Hoch & Gering & kein hoher Wert; kein Schutz notwendig \\ 
+			\hline Personenbezogene Daten & Ja & Ja & Teilweise & Nein \\ 
+			\hline Einfluss auf Privatsphäre & Äußerst hoch & Hoch & Gering & Nicht vorhanden \\ 
+			\hline Autorisierter Personenkreis & Sender + Empfänger; evtl. zusätzlich engste Verwandte & Verwandtschaft & Freunde + Bekannte & Jeder \\ 
+			\hline Auswirkung bei Integritätsverletzung & Äußerst hoch & Hoch & Gering & Nicht vorhanden \\
+			\hline Analogie: Übermittlung Postweg & Einschreiben oder Verzicht auf Postweg und persönliche Übergabe & Doppelte Kuvertierung oder Einschreiben & Standard Brief & Postkarte \\
+			\hline Häufigkeit des Niveaus & Sehr selten & Selten & Häufig & Oft \\  
+			\hline
+		\end{tabularx} 
+		\caption{Sicherheitsniveaus}
+	\end{table}
 		
 		Der Wert der Information und deren Schutzwürdigkeit beschreiben, wie wertvoll die zu versendende E-Mail für einen nicht rechtmäßigen Empfänger ist und welche Notwendigkeit des Schutzes daraus folgt.
 		
