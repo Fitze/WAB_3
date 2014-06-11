@@ -32,7 +32,7 @@
 		%evtl. unnötig wenn Zielsetzung klar formuliert
 
 	%Dies ist die Vorlage für die einzelnen Kapitel, die jeweils mit Chapter als Kapiteltitel starten
-	\chapter{Datensicherheit 1x1}
+	\chapter{Datensicherheit Einmaleins}
 	Unter Datensicherheit wird der Schutz von Daten in den Aspekten Verfügbarkeit, Vertraulichkeit und Integrität verstanden. \footcite{BSI2014} Im Gegensatz dazu beschreibt Datenschutz den Schutz von und den vertrauensvollen Umgang mit persönlichen Daten. In der IT-Sicherheit wird zusätzlich des Aspekt der Authentizität berücksichtigt \footcite{Berliner2014}. In diesem Abschnitt werden diese Aspekte näher betrachtet, da diese für das Verständnis der vorgestellten Techniken in den späteren Kapitel notwendig sind.
 	
 	%mit \section{title} wird ein Unterkapitel der ersten Gliederungsebene überschrieben
@@ -226,37 +226,59 @@ Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerse
 		
 		Somit kann als Resultat für dieses Beispiel unter dem beschriebenen Sicherheitsbedürfnis ein Sicherheitsniveau von \textit{Vertraulich} ermittelt werden. Welches Verschlüsselungsverfahren konkret für dieses Sicherheitsniveau anzuwenden ist, wird in den nachfolgenden Kapiteln beschrieben.
 		
-	\chapter{Potenzielle Gefahren und Schwachstellen der E-Mail-Kommunikation}
+	\chapter{Gefahren und Schwachstellen}
 		\label{chap:gefahren}
 		\section{Informationsgewinnung durch Provider}
-			warum ist E-Mail oft Kostenlos?
-			Welchen Sinn hat das für die Provider?
-			Welche Bots lassen die Provider über unsere Kommunikation laufen?
-			Wie mächtig sind Meta-Daten?
-		
-		
-		Überleitung... Neben den weniger gerichteten (Kein Angriff?) Maßnahmen der Informationsgewinnung aus E-Mail-Kommunikation gibt es auch klassische Angriffsmethoden Dritter.
-		
-		%Jetzt mal nur aus dem DANE Artikel
+\textsl{
+warum ist E-Mail oft Kostenlos?\\
+Welchen Sinn hat das für die Provider?\\
+Welche Bots lassen die Provider über unsere Kommunikation laufen?\\
+Wie mächtig sind Meta-Daten?\\
+\\
+\\
+Überleitung... Neben den weniger gerichteten (Kein Angriff?) Maßnahmen der Informationsgewinnung aus E-Mail-Kommunikation gibt es auch klassische Angriffsmethoden Dritter.\\
+\\
+Internetquellen, die durch Literatur idealerweise belegt wird:\\
+\begin{itemize}
+\item \href{http://www.netzdurchblick.de/emails.html}{netzdurchblick.de}
+\item \href{https://www.eleven.de/aktuelle-pressemitteilungen.428/items/eleven-warnt-die-5-groessten-gefahren-fuer-e-mail-nutzer.html}{eleven.de}
+\item \href{https://www.bsi-fuer-buerger.de/BSIFB/DE/SicherheitImNetz/OnlineBanking/GefahrenUndSicherheitsrisiken/gefahren_sicherheitsrisiken_node.html}{BSI}
+\end{itemize}
+Diese Quellen dienen auch zur Übersicht. Belegt werden sollten diese noch durch Literatur, die ggf. zu suchen ist!}
+		 
 		\section{Angriffsarten}
 			\subsection{MITM - Man in the Middle}
 			\label{sec:mitm}
-			\subsection{Umleitungsangriff}
+			\subsection{Umleitungsangriffe}
 			\label{sec:cache_poison}
 			Umleitungsangriffe werden mit dem sogenannten \ac{DNS} Cache Poisoning durchgeführt.
 			Bei diesem Angriff wird sich die Schwachstelle zu nutze gemacht, dass ältere oder falsch konfigurierte \ac{DNS}-Server auch nicht angeforderte Records in ihren Cache schreiben.
 			Ein Angreifer kann dies dazu nutzen im Cache eines \ac{DNS}-Servers mithilfe von gefälschten Paketen falsche Zuordnungen von Domainnamen zu \ac{IP}-Adressen zu hinterlegen.
 			Ein Opfer, das die Auflösung des Domainnamens jetzt vom kompromittierten Server anfordert, wird auf den Server des Angreifers umgeleitet.
+			\subsection{Drive-By-Angriffe}
+\textsl{(eleven.de)}
+			\subsection{Phishing}
+\textsl{Auch Spear Phising (eleven.de)}
+			\subsection{Malware-E-Mails}
+\textsl{Auch: Lokalisierte Angriffe (eleven.de)}
+			\subsection{Spam}
+\textsl{Auch: Event-Spam (eleven.de)}
 
 		\section{Schwachstellen}
 			\subsection{Zertifikatsaussteller}
 			\label{sec:zertifikatsaussteller}
-				AUTHENTIZITÄT 
-				200 Aussteller (z.T. keine eigenen Private Keys der User) CAs können nachlässig werden. Angreifern können somit gültiges Zertifikat für einen Host erstellen dessen Besucher das Ziel sind.
+\textsl{AUTHENTIZITÄT (DANE-Artikel)
+200 Aussteller (z.T. keine eigenen Private Keys der User) CAs können nachlässig werden. Angreifern können somit gültiges Zertifikat für einen Host erstellen dessen Besucher das Ziel sind.}
 			\subsection{Zertifikatsprüfung}
 			\label{sec:zertifikatspruefung}
-				AUTHENTIZITÄT
-				Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. In der Praxis jedoch kein sog. "Identifiziertes TLS" (Kommunikationspartner eideutig festgestellt) In der Praxis arbeiten Server jedoch nach "Opportunistischem TLS", dass bedeutet das lediglich wichtig ist, dass die Nachricht verschlüsselt übertragen wird, egal von wem.
+\textsl{AUTHENTIZITÄT (DANE-Artikel)
+Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. In der Praxis jedoch kein sog. "Identifiziertes TLS" (Kommunikationspartner eindeutig festgestellt) In der Praxis arbeiten Server jedoch nach "Opportunistischem TLS", dass bedeutet das lediglich wichtig ist, dass die Nachricht verschlüsselt übertragen wird, egal von wem.}
+			\subsection{Metadaten}
+			\label{sec:metadaten}
+\textsl{Quellen:
+\href{http://www.spiegel.de/netzwelt/netzpolitik/google-urteil-eugh-entscheidung-zu-suchmaschinen-a-969302.html}{google-urteil-eugh-entscheidung-zu-suchmaschinen} \\
+\href{http://www.golem.de/news/stanford-experiment-metadaten-verraten-intimste-details-des-privatlebens-1403-105253.html}{metadaten-verraten-intimste-details-des-privatlebens}\\
+\href{http://www.heise.de/ct/heft/2014-4-Die-Schwaechen-der-E-Mail-und-was-dagegen-hilft-2092851.html}{Schwaechen-der-E-Mail-und-was-dagegen-hilft}}
 	
 	\chapter{Kryptographie}
 		Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten vor Dritten unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegende Funktionsweise der Verschlüsselung untersucht, die zum Verständnis der weiteren Unterkapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
@@ -407,6 +429,7 @@ Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerse
 			
 			%\acp erzeugt den Plural des Akronyms bzw. hängt ein "s" an
 			Auch die Authentifizierung der Kommunikationspartner mittels Zertifikaten weißt dieselben Schwachstellen durch die Vertrauensbeziehung zu bekannten \acp{CA}, die unzureichend gesichert sind, auf.  
+			%Hier noch ein kurzer Abschnitt zu Metadaten mit Bezug auf die Schwachstellen (sec:metadaten)
 	\chapter{DNS - Domain Name System}
 	\label{chap:dns}
 		Das \ac{DNS} ist ein wichtiger Dienst im Internet, da er dafür zuständig ist, gut merkbare Domainnamen in \ac{IP}-Adressen, und umgekehrt, aufzulösen.
@@ -446,25 +469,39 @@ Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerse
 			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen Publik Key des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch ist die Verbindung vertrauensvoll.
 			Ein durchgängig verfizierter Transport ist allerdings nur möglich wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt muss ``müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren''\footcite[S. 197]{Koetter2014}
 			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn ``die Verwendung [...] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,''\footcite[S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
-	\chapter{Realisierung der Verfahren für Anwender}
-		\section{Vergleich der E-Mail Provider}
+	\chapter{E-Mail-Sicherheit in der Praxis}
+		\section{Provider Vergleich}
 			\subsection{Internationale Provider}
-				<Googlemail
-				Hotmail
+				Googlemail\\
+				Hotmail\\
 				Yahoo Mail
-				>
 			\subsection{EmiG - E-Mail made in Germany}
-				<web.de
-				gmx.de
-				t-online
-				freenet
-				>
-			\subsection{Sicherheits Provider}
-				<posteo
-				mailbox.org
-				startmail>
-		\section{Erhöhung des Sicherheitsbewusstsein für E-Mail-Kommunikation}
-			<Entwurf einer Infografik hier einzufügen und in diesem Kapitel zu begründen>
+\textsl{web.de, gmx.de, t-online \\
+Meine Quellen:\\
+\\
+\begin{itemize}
+\item \href{http://www.heise.de/netze/meldung/So-funktioniert-E-Mail-made-in-Germany-2188248.html}{So-funktioniert-E-Mail-made-in-Germany}\\
+\item
+\href{http://www.heise.de/netze/meldung/E-Mail-made-in-Germany-Vollstaendig-umgesetzt-dennoch-unzureichend-2179269.html}{E-Mail-made-in-Germany-Vollstaendig-umgesetzt-dennoch-unzureichend}\\
+\item
+\href{http://www.e-mail-made-in-germany.de/Verschluesselung.html}{e-mail-made-in-germany.de/Verschluesselung}\\
+\item
+\href{http://www.heise.de/security/meldung/30C3-E-Mail-Unsicherheit-made-in-Germany-2072758.html?wt\_mc=rss.security.beitrag.atom}{E-Mail-Unsicherheit-made-in-Germany}\\
+\item
+\href{http://www.heise.de/newsticker/meldung/Was-der-Beitritt-zu-E-Mail-made-in-Germany-kostet-2189578.html}{Was-der-Beitritt-zu-E-Mail-made-in-Germany-kostet} \\
+\item
+\href{https://mailbox.org/e-mail-made-in-germany-verhindert-systematisch-teilnahme-anderer-provider/}{e-mail-made-in-germany-verhindert-systematisch-teilnahme-anderer-provider}\\
+\item
+\href{http://www.heise.de/newsticker/meldung/mailbox-org-wirft-E-Mail-made-in-Germany-Blockadehaltung-vor-2191020.html}{mailbox-org-wirft-E-Mail-made-in-Germany-Blockadehaltung-vor}  \\
+\end{itemize}
+} 
+
+			\subsection{Alternative Provider}
+				posteo\\
+				mailbox.org\\
+				startmail
+		\section{Nutzwertanalyse E-Mail-Provider}
+			<Hier Nutzwertanalyse beschreiben und einbetten, ggf. im Anhang darauf verweisen>
 	\chapter{Ausblick}
 		(Trends/Fazit/Schlusswort -> proton Mail Provider vom CERN)
 		(Google hat die alpha eines Plugins für Chromebrowser vorgestellt, die E2E-Verschlüsselung im Browser durchführen und vereinfachen soll -> könnte nen Hinweis wert sein) 	
