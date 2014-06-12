@@ -1,14 +1,14 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{mathptmx}				%Font: Times New Roman
-%\usepackage{droidserif}				%Font: Droid Serif
+%\usepackage{mathptmx}				%Font: Times New Roman
+%\usepackage[default]{droidserif}				%Font: Droid Serif
 \usepackage[ngerman]{babel}
 %Seitenränder einstellen
 \usepackage[head=2cm,bottom=3cm, left=25mm, right= 25mm ]{geometry}
 %Paket für Erzeugung eines Abkürzungsverzeichnis, über das auch per Befehl im späteren Text auf diese verwiesen werden kann
 \usepackage[printonlyused]{acronym}
 %Paket zur Gestaltung der Kopf- und Fusszeile bei KOMA-Script
-%\usepackage{scrpage2}
+%\usepackage{scrpage2}			Ausgeblendet, da fancy Kopf und Fußzeilen handled, und inkompatibel ist
 \usepackage[hidelinks]{hyperref}
 %Bibliograpie Packages / Settings
 \usepackage{ragged2e} % Ermöglicht Flattersatz mit Silbentrennung
@@ -41,7 +41,7 @@
 \usepackage{caption}
 
 
-% Bibtexkey vor Quellenangabe (Jedoch nur bei stlye=alphabetic)
+% Bibtexkey vor Quellenangabe
 \DeclareFieldFormat{labelalpha}{\thefield{entrykey}}
 \DeclareFieldFormat{extraalpha}{}
 
@@ -53,24 +53,25 @@
 \renewcommand*{\chapterheadstartvskip}{\vspace*{-2.3\baselineskip}}% +2.3 ist Standard
 
 \usepackage{array}
-\usepackage{tabularx}
+\usepackage{tabularx}			%Tabellen Handler
 \usepackage{longtable}
 \usepackage{booktabs}
-
-\usepackage{wrapfig} %Für Bilder und deren Wrapumgebung (Textfluss)
-\usepackage{graphicx}
-
-%Prettyref für automatische Referenzierung mit 
-\usepackage{prettyref}
+\usepackage{wrapfig} 			%Textfluss, damit bsp. Bilder den Textumfließen
+\usepackage{graphicx}			
+\usepackage{prettyref}			%Automatische Referenzierung mit den hier definierten Formaten 
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Definition der Referenzierungsformate %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Für Abschnitte %%%
 \newrefformat{sec}{siehe Abschnitt~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
 %%% Für Abbildungen %%%
 \newrefformat{fig}{siehe Abb.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
 %%% Für Tabellen %%%
 \newrefformat{tab}{siehe Tab.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{xcolor}           % farbiger Text
-\definecolor{darkred}{rgb}{0.7,0.0,0.0}
+\usepackage{xcolor}         	%Farbiger Text
+\definecolor{darkred} 			%Definiert die Farbe mit der Kommentiert wird
+{rgb}{0.7,0.0,0.0}
 
-\usepackage{fancyhdr}
+\usepackage{fancyhdr}			%Kontrolliert die Fuß- und Kopfzeilen
+\usepackage{datetime}			%Damit das aktuelle Datum in der Fußzeile erzeugt wird.
 		

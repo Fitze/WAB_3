@@ -28,19 +28,17 @@
 	\include{Akronyme} %einbinden des in Akronyme.tex erstellten Abbildungsverzeichnisses
 	\pagebreak
 	\pagenumbering{arabic}\setcounter{page}{1} %ändern der Seitennummerierung auf arabische Zahlen und Beginn bei Seite 1
-	%\input{../Vorlagen/Kapitelvorlage}
-	%\input{Kapitelvorlage_Datenschutz1x1}
-\pagestyle{fancyplain}
-\fancyhf{}							% http://www.sharelatex.com/learn/Headers_and_footers
-\renewcommand{\headrulewidth}{0pt}
-\footskip =30pt
-\hoffset = 0pt
-\paperwidth = 597pt
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\rhead{\nouppercase{\leftmark}}	
-\lhead{E-Mail-Sicherheit}
-\lfoot{Feller, Moy, Tran, Schünhoff - v0.5 \\ Datum}
-\rfoot{\thepage\ / \pageref{LastPage}}
+	% % % Kopf-und Fußzeilenumgebung / Einstellung % % %
+		\pagestyle{fancyplain}
+		\fancyhf{}							% http://www.sharelatex.com/learn/Headers_and_footers
+		\renewcommand{\headrulewidth}{0.4pt}
+		\footskip =30pt
+		\renewcommand{\chaptermark}[1]{\markboth{#1}{}}	%"Kapitel 2." in Kopfzeile entfernen
+		\rhead{\nouppercase{\leftmark}}	
+		\lhead{E-Mail-Sicherheit}
+		\lfoot{v0.5 \\ \today}
+		\cfoot{\thepage\ / \pageref{LastPage}}
+	% % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 \chapter{Einleitung}
 		\section{Motivation}
@@ -358,7 +356,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Das \ac{SSL}-Protokoll wurde zunächst durch die Firma Netscape entwickelt, um die Kommunikation über \ac{HTTP}-Verbindungen abzusichern.\footcite[Vgl.][S. 796]{Eckert2013} \ac{SSL} kann auf der Sitzungs- und Präsentationsschicht des \ac{OSI}-Referenzmodells angesiedelt werden und setzt meist auf dem \ac{TCP} auf. Es hat die Aufgabe den darüber liegenden Schichten die Möglichkeit für eine authentifizierte, integritätsgeschützte und verschlüsselte Kommunikation zu geben.\footcite[Vgl.][S. 799 ff.]{Eckert2013}
 			Die Version \ac{SSL} 3.0 hat sich mittlerweile als de facto Standard im Internet durchgesetzt und wird von allen gängigen Browsern unterstützt.\\
 		
-			\begin{wrapfigure}{R}{0.4\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
+			\begin{wrapfigure}{r}{0.4\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
 				\centering
 				\includegraphics[width=0.4\textwidth]{images/MSC_Transport.png}
 				\caption[Handshake-Protokoll mit RSA]{Handshake-Protokoll mit RSA\footnotemark} %Bildunterschrift, erstes Argument ist für Abbildungsverzeichnis ohne Fußnote; \footnotemark ist ein Platzhalter für die Fußnote
@@ -475,12 +473,17 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			als sehr gering Eingeschätzt: 
 			\glqq SSL/TLS wurde aktiviert $\rightarrow$ smtp\_use\_tls=yes $\rightarrow$ smtpd\_use\_tls=yes.\grqq
 			\footcite{https://www.heinlein-support.de/sites/default/files/sicheres_mailhosting_-_e-mail_made_in_germany_reicht_nicht_0.pdf}
-			Zertifikate werden müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.\medskip\\
+			Zertifikate müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.
+			Die Ergbnisse des SSL-Test (Bezug auf SSL-Labs in NWA-Abschnitt nehmen) sind für die drei Provider ähnlich gut. GMX und WEB unterstützen Forward Secrecy mit den meisten Browsern, T-Online hingegen lässt den Schlüsselaustausch für ältere Browser über RC4 zu. \\
+			Für die Anwender die innerhalb der EmiG Initiative E-Mails versenden bzw. empfangen ist die Vertraulichkeit des Kommunikationspartner im Webmailer und Outlook klar ersichtlich.
+			Die Anwender sehen in der Adresszeile die E-Mail-Adresse mit einem grünen Haken, sofern sie im EmiG-Verbund sind, und bekommen so visualisert, das die E-Mail Transportverschlüsselt versendet wird.
+			\footcite{http://www.heise.de/netze/meldung/E-Mail-made-in-Germany-Vollstaendig-umgesetzt-dennoch-unzureichend-2179269.html}
+			\medskip\\
 		%NWA - Integrität
-			Die \textbf{Integrität} der E-Mail-Inhalte sind für EmiG-Provider von keiner großen Bedeutung.
+			Die \textbf{Integrität} der E-Mail-Inhalte sind für EmiG-Provider von unterschiedlicher Bedeutung.
 			Ende-zu-Ende-Verschlüsselung ist mit keinem Webmail-Angebot der Provider möglich.
 			Das liegt an einer sehr schwierigen Implementierung und kaum existierender Ansätze für eine Realisierung von PGP im Webmailer.\\	
-			Allerdings ist bspw. im \textit{Hilfe und Support} Bereich von T-Online generell keinerlei Hilfe zur Einrichtung von E2EE mittels PGP oder S/MIME zu finden.
+			Im \textit{Hilfe und Support} Bereich von T-Online generell keinerlei Hilfe zur Einrichtung von E2EE mittels PGP oder S/MIME zu finden.
 			
 			\begin{wrapfigure}{r}{0.6\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
 				\centering
@@ -490,15 +493,42 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\end{wrapfigure}
 			Auch wenn hierfür eine externe Mail-Applikation verwendet werden müsste, könnte technisch versierten Anwendern eine Hilfestellung bei der Einrichtung von E2EE bereit gestellt werden.
 			Lediglich der Hinweis warum Einzelverbindungsnachweise nur mit PGP Verschlüsselung versendet werden dürfen ist aufzufinden und auf www.pgpi.org verlinkt. (\prettyref{fig:T-Online_Hilfe_PGP})
-			Eine Information das es sich um Ende-zu-Ende-Verschlüsselung handelt ist dem Suchergebnis nicht zu entnehmen.\medskip\\
+			Eine Information das es sich um Ende-zu-Ende-Verschlüsselung handelt ist dem Suchergebnis nicht zu entnehmen.\\
+			Die Provider web.de und GMX stellen dem Nutzer eine solche Hilfestellung gut sichtbar in einem eigenen Menüpunkt bereit. (\prettyref{fig:Web-de_Hilfe_PGP})
+			
+			\begin{wrapfigure}{r}{0.6\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
+				\centering
+				\includegraphics[width=0.6\textwidth]{images/Web-de_Hilfe_PGP}
+				\caption[Web.de PGP]{Web.de Hilfe: PGP} 
+				\label{fig:Web-de_Hilfe_PGP} %für "\prettyref"s
+			\end{wrapfigure}
+			Generell haben die Provider der United Internet Gruppe eine informative Sicherheits-Hilferubrik.
+			Anwendern wird bei der Einrichtung von PGP in der Mailapplikation Thunderbird aktiv unterstützt.
+			Für die Applikationen Microsoft Outlook oder Mail.app für Mac besteht jedoch keine Hilfestellung.
+			Auch eine Begründung hierfür ist nicht zu finden.
+			\medskip\\
 			%NWA - Authentizität
+			Im Angebot von T-Online wird dem Nutzer, aufgrund fehlender PGP-Unterstützung, bei der Signierung von E-Mails (\textbf{Authentizität}) in externen Mailanwendungen nicht geholfen. 
+			Web und GMX helfen zwar bei der Einrichtung von PGP, weisen jedoch nicht darauf hin, dass durch den Einsatz von PGP und E-Mail-Signierung auch die Authentizität des Empfänger und Sender ohne Verschlüsselung sichergestellt werden kann. \\
+			Der Verzicht auf den offenen Standard DANE als Standard-Instrument zur Sicherstellung der Authentizität hat gewiss Nachteile für die Nutzer. 
+			Mit Inter Mail Provider Trust existiert jedoch für den E-Mail-Versand unter den EmiG-Partnern ein gleichwertiger Schutz. 
+			Somit besteht im Prinzip kein Abstrich für die Authentizität der Sicherheitsniveaus Stufe 3 und 4. da Mitm-Angriffe erschwert werden.\\
+			Lediglich die Vorgehensweise zur Entwicklung einer proprietären Lösung ist in diesem Punkt kritisch zu Hinterfragen. 
+			United Internet möchte ggf. den Einsatz von DNSSEC und DANE in einem Review-Prozess einer Neubewertung unterziehen.
+			\footcite{http://www.heise.de/netze/meldung/E-Mail-made-in-Germany-Vollstaendig-umgesetzt-dennoch-unzureichend-2179269.html}
+			
 
 			%NWA - Zusätzliche Sicherheitsrelevante Aspekte
 \color{darkred}
 			
-			Seit April 2014 Umgesetzt
-			
+			Seit April 2014 Umgesetzt\\
+			Der grüne Haken: Ein deutliches Plus an Benutzerfreundlichkeit\\
 			wie sinnvoll wird erst die Zeit sehen, ob DANE wirklich neu bewertet wird, oder ob RFC bei der IEEE eingereicht wird.
+			\footcite{http://www.heise.de/netze/meldung/E-Mail-made-in-Germany-Vollstaendig-umgesetzt-dennoch-unzureichend-2179269.html}
+			Allerdings kostet der Spaß ja 30000 Kröten um aufgenommen zu werden\\
+			zusätzlich wurde eine große Marketing-Kampagne gefahren (Verweis auf den Fernsehspot)\\
+			Und angebelich wird Interessenten an der Initiative der Zugang systematisch erschwert. (vgl. Heinlein)
+			\\
 			
 \textsl{web.de, gmx.de, t-online \\
 Meine Quellen:\\
@@ -526,12 +556,17 @@ Meine Quellen:\\
 				startmail
 		\section{Nutzwertanalyse E-Mail-Provider}
 			<Hier Nutzwertanalyse beschreiben und einbetten, ggf. im Anhang darauf verweisen>
+			SSL-Labs-Test und CheckTLS-Test beschreiben und als Beleg nutzen
 	\chapter{Ausblick}
 		(Trends/Fazit/Schlusswort -> proton Mail Provider vom CERN)
 		(Google hat die alpha eines Plugins für Chromebrowser vorgestellt, die E2E-Verschlüsselung im Browser durchführen und vereinfachen soll -> könnte nen Hinweis wert sein) 	
 		Da das Thema noch aktuell ist, und ständig weiter lebt macht es vll Sinn genau nochmal drauf aufmerksam zu machen das es nur um eine Moment-Aufnahme handelt. 
-		\color{black}		
+		\color{black}	
+				
+						
 	\chapter*{Literaturverzeichnis}
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{0pt}	
 		\addcontentsline{toc}{chapter}{Literaturverzeichnis}
 		%Literaturverzeichnis
 		\printbibliography[heading=offline,nottype=online]
