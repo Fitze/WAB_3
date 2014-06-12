@@ -116,6 +116,7 @@ Teilnehmer C möchte Teilnehmer B eine verschlüsselte Nachricht schicken. Dazu 
 
 Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerseits existiert das Vertrauen in eine Person bzw. dessen Signatur. Andererseits besteht ein Vertrauen in einen signierten Schlüssel eines Dritten, der von einer vertrauensvollen Person signiert wurde. Beide Arten des Vertrauens können unabhängig voneinander existieren.
 	\chapter{Sicherheitsniveaus}
+		%Pascal: Wäre noch toll wenn wir hier nochmal sagen das wir eigtnlich nach einer Wissenschaftlichen Methode vorgehen müssten, also ähnlich wie bei der Festlegung der Zielgruppe. Nur das wir aus Zeitgründen eben Annahmen treffen. Aber einfach das wir hier sagen können, wenn wir Zeit hätten, hätten wir eine Umfrage gemacht und diese so und so gestaltet...
 	
 	
 		In den nachfolgenden Kapiteln dieser Arbeit werden verschiedene Möglichkeiten der Verschlüsselung von E-Mail Kommunikation vorgestellt und jeweils passende Sicherheitsniveaus zugeordnet. %das eher so ein Einleitungs-Einsatz
@@ -395,10 +396,9 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Das \ac{SSL}-Protokoll wurde zunächst durch die Firma Netscape entwickelt, um die Kommunikation über \ac{HTTP}-Verbindungen abzusichern.\footcite[Vgl.][S. 796]{Eckert2013} \ac{SSL} kann auf der Sitzungs- und Präsentationsschicht des \ac{OSI}-Referenzmodells angesiedelt werden und setzt meist auf dem \ac{TCP} auf. Es hat die Aufgabe den darüber liegenden Schichten die Möglichkeit für eine authentifizierte, integritätsgeschützte und verschlüsselte Kommunikation zu geben.\footcite[Vgl.][S. 799 ff.]{Eckert2013}
 			Die Version \ac{SSL} 3.0 hat sich mittlerweile als de facto Standard im Internet durchgesetzt und wird von allen gängigen Browsern unterstützt.\\
 		
-			\begin{wrapfigure}{r}{0.4\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
-				\begin{center}
-					\includegraphics[width=0.4\textwidth]{images/MSC_Transport.png}
-				\end{center}
+			\begin{wrapfigure}{R}{0.4\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
+				\centering
+				\includegraphics[width=0.4\textwidth]{images/MSC_Transport.png}
 				\caption[Handshake-Protokoll mit RSA]{Handshake-Protokoll mit RSA\footnotemark} %Bildunterschrift, erstes Argument ist für Abbildungsverzeichnis ohne Fußnote; \footnotemark ist ein Platzhalter für die Fußnote
 				\label{img:MSC_Transport} %für Bezüge auf diese Abbildung
 			\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 170]{Sorge2013}} 
@@ -464,7 +464,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 		\section{DANE - DNS-based Authentication of Named Entities}
 		\label{sec:dane}
 			Die Basis für die Applikation \ac{DANE} stellt \ac{DNSSEC} und soll dabei die Schwachstellen von \ac{TLS} beim Verschlüsseln des Datentransport entfernen. Denn die Authentizität der verwendeten Zertifikate kann nicht immer gewährleistet werden, und somit besteht die Gefahr der kompromittierten Daten durch \ac{MITM}-Angriffe oder \ac{DNS}-Cache-Poisoning.
-			Die Schwachstellen der Zertifikatsprüfung und -aussteller (Vgl. Kapitel \ref{sec:zertifikatsaussteller} und \ref{sec:zertifikatspruefung}) werden mittels \ac{DANE} eliminiert, denn es werden damit nicht mehr mehrere CA-Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
+			Die Schwachstellen der Zertifikatsprüfung und -aussteller (vgl. Kapitel \ref{sec:zertifikatsaussteller} und \ref{sec:zertifikatspruefung}) werden mittels \ac{DANE} eliminiert, denn es werden damit nicht mehr mehrere CA-Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
 			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail Protokolle beschränkt sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
 			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen Publik Key des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch ist die Verbindung vertrauensvoll.
 			Ein durchgängig verfizierter Transport ist allerdings nur möglich wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt muss ``müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren''\footcite[S. 197]{Koetter2014}
@@ -476,6 +476,65 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				Hotmail\\
 				Yahoo Mail
 			\subsection{EmiG - E-Mail made in Germany}
+			Hinter der dem Namen EmiG steckt eine Initiative der größten deutschen E-Mail Provider GMX, web.de und T-Online, die zusammen über 53\% \footnote{Stand 2013} der aktiven E-Mail-Konten in Deutschland betreiben.
+			\footcite{http://de.statista.com/infografik/1495/marktanteile-der-e-mail-dienste-in-deutschland-2013/} 
+			Zusammen mit den Teilnehmern freenet AG, 1\&1 Internet AG und STRATO AG\footnote{Die 1\&1 Internet AG ist wie GMX und web.de Teil des United-Internet-Konzern, sowie die STRATO AG eine Tochter des Betreiber von T-Online, der Deutschen Telekom AG ist} deckt EmiG ca. zwei Drittel der aktiven E-Mail Konten in Deutschland ab.\\
+			Das Projekt wurde im August 2013 als Reaktion der damaligen NSA-Äffäre ins Leben gerufen und hat das Ziel  das E-Mails zwischen den teilnehmenden Providern auf dem Transportweg mit SSL verschlüsselt versendet werden.
+			\medskip\\
+			Prinzipiell ist das Verfahren ausgelegt weitere Teilnehmer aufzunehmen.
+			Dabei beschreiben die Provider ihre Mail-Infrastruktur im JSON-Format mit ``Domainnamen, IP-Adressen, SSL-Zertifikate und Rollen der beteiligten Server.''
+			\footcite{http://www.heise.de/netze/meldung/So-funktioniert-E-Mail-made-in-Germany-2188248.html}
+			Die Teilnehmer spiegeln diese Infrastrukturlisten untereinander um Manipulationen derselben zu erschweren.\\
+			Ein zugehöriger Dienst prüft ob Syntax, IP-Adressen und Hostnamen auf Übereinstimmung um anschließend die SSL-Zertifikate zu verifizieren, die von einer Deutschen CA ausgestellt worden sein müssen.
+			Die Listen werden anschließend geprüft um im Nachgang an Teilnehmer der Initiative verteilt zu werden. 
+			Neue Teilnehmer müssen durch den TÜV Rheinland zertifiziert worden sein, damit die EmiG Teilnehmer die aktualisierte Infrastrukturliste laden.
+			\medskip\\
+			Auch die Authentizität wird mittels dem selbst entwickelten, proprietären Verfahren \textit{Inter Mail Provider Trust} sichergestellt. 
+			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client und Server-Zertifikate gegen die herausgebende CA sowie gegen die Infrastrukturlisten.
+			\footcite{http://www.heise.de/netze/meldung/So-funktioniert-E-Mail-made-in-Germany-2188248.html} 
+			Sollten dabei Inkonsistenzen auftreten wird der Versand abgelehnt.\\
+			Dieses Vorgehen erinnert an ein geschlossene Variante von DANE, welches ähnlich zur Sicherstellung der Authentizität verfährt.\\
+			Alle Partner der Initiative setzen Perfect Forward Secrecy ein
+			\footcite{http://www.heise.de/netze/meldung/E-Mail-made-in-Germany-Vollstaendig-umgesetzt-dennoch-unzureichend-2179269.html}
+			und setzen damit eine weitere Eigenschaft um, die einem Schutzbedarf in Sicherheitsniveau der Stufe 3 entsprechen.
+			\medskip\\
+		%Nutzwertanalyse
+			Die Nutzwertanalyse (\prettyref{sec:nwa}) wird im Folgenden zusammenfassend für die Provider der Dienste \textit{GMX}, \textit{web.de} und \textit{T-online} beschrieben. 
+			Auf unterschiedliche Bewertungspunkte wird explizit hingewiesen.\medskip\\
+		%NWA - Vertraulichkeit			
+			Bei den Providern der EmiG Initative ist im Prinzip eine hohe \textbf{Vertraulichkeit} durch die TLS-Transportverschlüsselung gegeben. 
+			Die Transportverschlüsselung ist allerdings nur untereinander garantiert. 
+			Die Anwender besitzen keine TLS-Garantie wenn E-Mails von oder zu Providern außerhalb des Verbunds gesendet oder empfangen werden.\\
+			Ein weiter Kritikpunkt ist, dass die Umsetzung der Transportverschlüsselung 15 Jahre seit Verabschiedung des Standards 1999 und eine Datenschutzaffäre noch unabschätzbaren Ausmaßes benötigt um von den größten E-Mail Providern Deutschlands obligatorisch umgesetzt zu werden. 
+			Konkurrent Google unterstützt beim eigenen E-mail Dienst seit 2004 SSL/TLS und PFS beim E-mail-Versand.\\
+			Ferner wird der Aufwand der Einstellung lt. Peter Heinlein\footnote{CEO Heinlein Support, Betreiber mailbox.org}
+			als sehr gering Eingeschätzt: ``SSL/TLS wurde aktiviert -> smtp\_use\_tls=yes -> smtpd\_use\_tls=yes.''
+			\footcite{https://www.heinlein-support.de/sites/default/files/sicheres_mailhosting_-_e-mail_made_in_germany_reicht_nicht_0.pdf}
+			Zertifikate werden müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.\medskip\\
+		%NWA - Integrität
+			Die \textbf{Integrität} der E-Mail-Inhalte sind für EmiG-Provider von keiner großen Bedeutung.
+			Ende-zu-Ende-Verschlüsselung ist mit keinem Webmail-Angebot der Provider möglich.
+			Das liegt an einer sehr schwierigen Implementierung und kaum existierender Ansätze für eine Realisierung von PGP im Webmailer.\\	
+			Allerdings ist bspw. im \textit{Hilfe und Support} Bereich von T-Online generell keinerlei Hilfe zur Einrichtung von E2EE mittels PGP oder S/MIME zu finden.
+			
+			\begin{wrapfigure}{r}{0.6\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
+				\centering
+				\includegraphics[width=0.6\textwidth]{images/T-Online_Hilfe_PGP}
+				\caption[T-Online PGP]{T-Online Hilfe: PGP} 
+				\label{fig:T-Online_Hilfe_PGP} %für "\prettyref"s
+			\end{wrapfigure}
+			Auch wenn hierfür eine externe Mail-Applikation verwendet werden müsste, könnte technisch versierten Anwendern eine Hilfestellung bei der Einrichtung von E2EE bereit gestellt werden.
+			Lediglich der Hinweis warum Einzelverbindungsnachweise nur mit PGP Verschlüsselung versendet werden dürfen ist aufzufinden und auf www.pgpi.org verlinkt. (\prettyref{fig:T-Online_Hilfe_PGP})
+			Eine Information das es sich um Ende-zu-Ende-Verschlüsselung handelt ist dem Suchergebnis nicht zu entnehmen.\medskip\\
+			%NWA - Authentizität
+
+			%NWA - Zusätzliche Sicherheitsrelevante Aspekte
+
+			
+			Seit April 2014 Umgesetzt
+			
+			wie sinnvoll wird erst die Zeit sehen, ob DANE wirklich neu bewertet wird, oder ob RFC bei der IEEE eingereicht wird.
+			
 \textsl{web.de, gmx.de, t-online \\
 Meine Quellen:\\
 \\
@@ -501,6 +560,7 @@ Meine Quellen:\\
 				mailbox.org\\
 				startmail
 		\section{Nutzwertanalyse E-Mail-Provider}
+		\label{sec:nwa}
 			<Hier Nutzwertanalyse beschreiben und einbetten, ggf. im Anhang darauf verweisen>
 	\chapter{Ausblick}
 		(Trends/Fazit/Schlusswort -> proton Mail Provider vom CERN)

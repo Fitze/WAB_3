@@ -55,4 +55,16 @@
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{booktabs}
+
+\usepackage{wrapfig} %Für Bilder und deren Wrapumgebung (Textfluss)
+\usepackage{graphicx}
+
+%Prettyref für automatische Referenzierung mit 
+\usepackage{prettyref}
+%%% Für Abschnitte %%%
+\newrefformat{sec}{siehe Abschnitt~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
+%%% Für Abbildungen %%%
+\newrefformat{fig}{siehe Abb.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
+%%% Für Tabellen %%%
+\newrefformat{tab}{siehe Tab.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}} 
 		
