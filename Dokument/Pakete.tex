@@ -1,19 +1,20 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{mathptmx}				%Font: Times New Roman
-%\usepackage[default]{droidserif}	%Font: Droid Serif
+%\usepackage{droidserif}				%Font: Droid Serif
 \usepackage[ngerman]{babel}
 %Seitenränder einstellen
-\usepackage[head=2cm,bottom=2cm, left=25mm, right= 25mm ]{geometry}
+\usepackage[head=2cm,bottom=3cm, left=25mm, right= 25mm ]{geometry}
 %Paket für Erzeugung eines Abkürzungsverzeichnis, über das auch per Befehl im späteren Text auf diese verwiesen werden kann
 \usepackage[printonlyused]{acronym}
 %Paket zur Gestaltung der Kopf- und Fusszeile bei KOMA-Script
-\usepackage{scrpage2}
+%\usepackage{scrpage2}
 \usepackage[hidelinks]{hyperref}
 %Bibliograpie Packages / Settings
 \usepackage{ragged2e} % Ermöglicht Flattersatz mit Silbentrennung
 \usepackage[babel,german=guillemets]{csquotes}
 % damit werden Zitate in französische Anführungszeichen gesetzt
+\usepackage{amstext}          % für Klartext via \text{} in Formeln
 \usepackage[%
 	backend=biber,% damit wird bestimmt, dass Sie mit der biber.exe arbeiten
 	bibencoding=utf8,% steht für die Kodierung der .bib-Datei
@@ -67,4 +68,9 @@
 \newrefformat{fig}{siehe Abb.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
 %%% Für Tabellen %%%
 \newrefformat{tab}{siehe Tab.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}} 
+
+\usepackage{xcolor}           % farbiger Text
+\definecolor{darkred}{rgb}{0.7,0.0,0.0}
+
+\usepackage{fancyhdr}
 		

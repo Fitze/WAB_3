@@ -9,12 +9,18 @@
 \counterwithout{table}{chapter} 
 \begin{document}
 	\parindent 0pt %entfernt den Einzug nach Absätzen
-	%\include{Titelseite}
-	\pagestyle{empty} %\pagestyle{empty} sorgt dafür, das keine Seitenzahl auf der entsprechenden Seite auftaucht
+%	\pagestyle{empty} %\pagestyle{empty} sorgt dafür, das keine Seitenzahl auf der entsprechenden Seite auftaucht
+	\include{Titelseite}
 	\pagebreak	%Seitenumbruch
 	\pagenumbering{Roman}
-	\tableofcontents %Inhaltsverzeichnis		
-	\pagebreak
+%\clearpage
+%\begingroup
+%  \renewcommand*{\chapterpagestyle}{empty}
+  \pagestyle{plain}
+  \tableofcontents
+%  \clearpage
+%\endgroup	
+	%\pagebreak
 	\listoffigures %Abbildungsverzeichnis
 	\pagebreak
 	\listoftables %Tabellenverzeichnis
@@ -24,8 +30,19 @@
 	\pagenumbering{arabic}\setcounter{page}{1} %ändern der Seitennummerierung auf arabische Zahlen und Beginn bei Seite 1
 	%\input{../Vorlagen/Kapitelvorlage}
 	%\input{Kapitelvorlage_Datenschutz1x1}
-	\chapter*{Selbstständigkeitserklärung}
-	\chapter{Einleitung}
+\pagestyle{fancyplain}
+\fancyhf{}							% http://www.sharelatex.com/learn/Headers_and_footers
+\renewcommand{\headrulewidth}{0pt}
+\footskip =30pt
+\hoffset = 0pt
+\paperwidth = 597pt
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\rhead{\nouppercase{\leftmark}}	
+\lhead{E-Mail-Sicherheit}
+\lfoot{Feller, Moy, Tran, Schünhoff - v0.5 \\ Datum}
+\rfoot{\thepage\ / \pageref{LastPage}}
+
+\chapter{Einleitung}
 		\section{Motivation}
 		\section{Zielsetzung und Zielperspektive}
 		\section{Abgrenzung}
@@ -56,65 +73,6 @@
 	
 	Bei der Authentizität geht es um den Nachweis, dass die beteiligten Kommunikationspartner tatsächlich diejenigen sind, für die sie sich ausgeben.
 	
-\chapter{Kryptographie}
-Die Kryptographie ist eine Wissenschaftslehre, die sich mit den Verfahren der Ver- und Entschlüsselung von Informationen sowie deren Anwendung befasst. Meistens werden dazu geheime Schlüssel oder Schlüsselpaare verwendet. Damit lassen sich mithilfe mathematischen Berechnungsverfahren, sogenannten Algorithmen, Nachrichten verschlüsseln. Heutige Verschlüsselungsverfahren basieren entweder auf einem symmetrischen oder asymmetrischen Algorithmus.
-
-%mit \section{title} wird ein Unterkapitel der ersten Gliederungsebene überschrieben
-\section{Grundlagen}
-
-
-%mit \subsection{title} wird ein Unterkapitel der zweiten Gliederungsebene überschrieben
-\subsection{Symmetrische Verschlüsselung}
-
-Bei der symmetrischen Verschlüsselung wird sowohl zur Ver- und Entschlüsselung derselbe Schlüssel verwendet, der auch Shared Secret genannt wird. Mithilfe dieses Schlüssels und einem symmetrischen Verschlüsselungsalgorithmus wird die Nachricht des Absenders verschlüsselt. In diesem Zusammenhang wird der "lesbare Text einer Nachricht [...] Klartext [..] genannt" \footcite[S. 21]{Ertel2012}. Aus dem Shared Secret und dem Klartext wird durch eine mathematische Vorschrift ein Geheimtext erzeugt. Dieser verschlüsselte Text kann ausschließlich mit dem gleichen Schlüssel entschlüsselt werden, mit dem er verschlüsselt wurde.
-Diese Tatsache wirkt sich in der E-Mail Kommunikation nachteilig auf die Anwendung der symmetrischen Verschlüsselung aus. Da beide Kommunikationspartner denselben Schlüssel benötigen, muss dieser zuvor ausgehandelt und übertragen werden. Die Übertragung dieses Schlüssels stellt ein Sicherheitsrisiko dar. Wird die Übertragung der Schlüssels abgehört, können Dritte mit seiner Hilfe die verschlüsselten Nachrichten mitlesen.
-
-\subsection{Asymmetrische Verschlüsselung}
-
-Wie bei der symmetrischen Verschlüsselung kommt auch bei der asymmetrischen Verschlüsselung, die auch Public-Key-Kryptography genannt wird, ein kryptographischer Algorithmus zum Einsatz. Hierbei wird jedoch wird statt eines gemeinsamen Schlüssels ein Schlüsselpaar verwendet. Dieser besteht aus einem öffentlichen und einem privaten Schlüssel, die mathematisch zusammenhängen. Jeder, der verschlüsselte Nachrichten empfangen möchte, verfügt über ein solches Schlüsselpaar. Der private Schlüssel wird niemals bekanntgegeben, wohingegen der öffentliche Schlüssel jedem zugänglich gemacht werden kann. Obwohl die Schlüsseln zusammenhängen, kann aus der Kenntnis des öffentlichen Schlüssels nicht auf den privaten Schlüssel geschlossen werden \footcite[S. 177]{Schmeh2013}.
-Soll eine E-Mail durch ein asymmetrisches Verschlüsselungsverfahren verschlüsselt verschickt werden, wird zunächst der öffentliche Schlüssel des Empfängers benötigt. Zusammen mit der Nachricht wird der Geheimtext erzeugt und an den Empfänger geschickt. Zum Entschlüsseln der Nachricht wird der private Schlüssel des Empfängers verwendet, der zum bei der Verschlüsselung genutztem öffentlichen Schlüssel gehört.
-
-Mit diesem Verfahren wurde das Sicherheitsrisiko der symmetrischen Verschlüsselung gelöst, da der öffentliche Schlüssel zum Verschlüsseln jedem bekannt sein darf. Zur Entschlüsselung wird der dazugehörige private Schlüssel benötigt, der im Besitz des Empfängers ist und niemals veröffentlicht wird.
-Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels des Empfängers abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt. Bei diesem sogenannten Man-in-the-Middle-Szenario kann ein Angreifer alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis entschlüsseln. Daher muss "bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden." \footcite[S. 90]{Ertel2012}.
-
-Zwei Aspekte sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Der im Jahr 1978 erfundene asymmetrische RSA-Algorithmus, der nach seinen Erfindern R. Rivest, A Shamir und L Adleman benannt, hebt sich vor allem durch seine Einfachheit hervor \footcite[S. 79]{Ertel2012} und der Diffie-Hellman-Schlüsselaustausch. Mit diesem Protokoll, das Eigenschaften von asymmetrischer Verschlüsselung aufweist, können geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden. Nach Ablauf der Vereinbarung kennen nur die beiden Kommunikationspartner den geheimen Schlüssel \footcite[S. 129]{Stephan2011}
-
-\subsection{Digitale Signaturen}
-
-Asymmetrische Verschlüsselungsverfahren ermöglichen, die menschliche Unterschrift in der digitalen Welt abzubilden. Diese Funktionalität wird mit digitalen Signaturen umgesetzt. Damit eine digitale Signatur den Anforderungen einer menschlichen Unterschrift erfüllt, müssen einige Bedingungen eingehalten werden:
-\footcite[S. 202]{Schmeh2013}
-\begin{itemize}
-\item Sie darf nicht zu fälschen sein.
-\item Ihre Echtzeit muss überprüfbar sein
-\item Sie darf nicht unbemerkt von einem Dokument zum anderen übertragen werden können.
-\item Das dazugehörende Dokument darf nicht unbemerkt verändert werden können.
-\end{itemize}
-Diese Voraussetzungen dienen dazu, die Verbindlichkeit des Absenders sowie die Integrität der Nachricht zu gewährleisten. Beim Signieren verschlüsselt der Absender seine Nachricht mit seinem privaten Schlüssel. Die resultierende Nachricht ist die digitale Signatur. In der Regel wird
-beim Signieren aufgrund des Rechenaufwandes für lange Nachrichten nicht die gesamte Nachricht verschlüsselt, sondern ein sogenannter Hashwert. Hashwerte sind eine Zeichenfolge mit einer bestimmten Länge, die durch eine mathematische Einweg-Hashfunktion generiert werden. Diese Funktionen haben einen Eingabeparameter und berechnen daraus einen Hashwert. Aus der Kenntnis des Hashwertes oder der Hashfunktion lässt sich der Eingabeparameter nicht ableiten, wodurch die Integrität einer signierten Nachricht gewährleistet ist.
-Die signierte Nachricht wird im nächsten Schritt an den Empfänger geschickt. Dieser kann nun die Verbindlichkeit der Nachricht überprüfen, indem er die Signatur mit dem öffentlichen Schlüssel des Absenders entschlüsselt. Dazu berechnet er den Hashwert der erhaltenen Nachricht und vergleicht diesen mit dem zuvor entschlüsselten Hashwert des Absenders. Diese Überprüfung wird dabei auch Verifizierung genannt. Stimmen beide überein, kann er sicher sein, dass die Nachricht von dem Absender stammt, da nur mit dessen privatem Schlüssel die Nachricht verschlüsselt werden konnte. Zusätzlich ist damit garantiert, dass die Nachricht vollständig und ungeändert beim Absender angekommen ist.
-
-Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass "man einem öffentlichen Schlüssel nicht ansieht, wem er gehört" \footcite[S. 506]{Schmeh2013}. Mit Zertifikaten kann die Authentizität eines öffentlichen Schlüssels nachgewiesen werden.
-
-\subsection{Zertifikate}
-Bei den bisher genannten Verfahren wurde davon ausgegangen, dass der öffentliche Schlüssel wirklich dem beabsichtigten Kommunikationspartner gehört. Die Authentizität des öffentlichen Schlüssels ist durch Szenarien wie dem Man-In-The-Middle-Angriff nicht immer garantiert. Um die Authentizität des öffentlichen Schlüssels sicherzustellen, werden Zertifikate verwendet.
-
-Ein Zertifikat ist ein elektronisches Dokument, das einer Person zugeordnet werden kann. Dieses Dokument enthält neben den persönlichen und weiteren Informationen des Inhabers dessen öffentlichen Schlüssel. Außerdem enthält ein Zertifikat eine Signatur über all den genannten Angaben. Das Signieren wird dabei von einer vertrauenswürdigen Instanz durchgeführt, die auch \ac{CA} oder Zertifizierungsstelle genannt wird.
-
-Zum Versenden einer verschlüsselten Nachricht wird zunächst das Zertifikat vom Empfänger besorgt. Der Absender überprüft die Authentizität des öffentlichen Schlüssels des Empfängers, indem er die Signatur unter Verwendung des öffentlichen Schlüsses des \ac{CA}s] verifiziert. Mit der Verifizierung ist gewährleistet, dass der öffentliche Schlüssel auf dem Zertifikat dem Zertifikatsinhaber gehört.
-
-Das Sicherheitsrisiko bezüglich der Authentizität des öffentlichen Schlüssels der Zertifizierungsstelle wird gelöst, indem ein Zertifikat über den seinen öffentlichen Schlüssel erstellt wird, das von der \ac{CA} selbst signiert wurde. Dieses Zertifikat wird als self-signed bezeichnet.
-
-\section{Web of Trust}
-Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist, dass die Nutzer dieses Modells gegenseitig ihre öffentlichen Schlüsseln signieren. Im Gegensatz zum hierarchischen Verfahren gibt es keine zentrale Zertifizierungsstelle.
-Die Funktionsweise des Web of Trust wird anhand eines Beispiels erläutert.:
-	\begin{center}
-		\includegraphics[width=0.4\textwidth]{images/WOT.png}
-	\end{center}
-	%\caption[Web of Trust Vertrauensmodell]{Web of Trust Vertrauensmodell\footnotemark}
-	In Anlehnung an: \footcite[S. 120]{Ertel2012}
-Teilnehmer C möchte Teilnehmer B eine verschlüsselte Nachricht schicken. Dazu besorgt er sich zunächst das Zertifikat von Teilnehmer B. Dieser wurde zuvor von Teilnehmer A signiert. Da Teilnehmer C Teilnehmer A vertraut, beschafft sich Teilnehmer C den öffentlichen Schlüssel von Teilnehmer A und verifiziert mit damit das Zertifikat von Teilnehmer B. Ist die Verifizierung erfolgreich, so kann Teilnehmer C den öffentlichen Schlüssel von Teilnehmer B vertrauen.
-
-Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerseits existiert das Vertrauen in eine Person bzw. dessen Signatur. Andererseits besteht ein Vertrauen in einen signierten Schlüssel eines Dritten, der von einer vertrauensvollen Person signiert wurde. Beide Arten des Vertrauens können unabhängig voneinander existieren.
 	\chapter{Sicherheitsniveaus}
 		%Pascal: Wäre noch toll wenn wir hier nochmal sagen das wir eigtnlich nach einer Wissenschaftlichen Methode vorgehen müssten, also ähnlich wie bei der Festlegung der Zielgruppe. Nur das wir aus Zeitgründen eben Annahmen treffen. Aber einfach das wir hier sagen können, wenn wir Zeit hätten, hätten wir eine Umfrage gemacht und diese so und so gestaltet...
 	
@@ -229,6 +187,7 @@ Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerse
 		
 	\chapter{Gefahren und Schwachstellen}
 		\label{chap:gefahren}
+\color{darkred}
 		\section{Informationsgewinnung durch Provider}
 \textsl{
 warum ist E-Mail oft Kostenlos?\\
@@ -250,12 +209,14 @@ Diese Quellen dienen auch zur Übersicht. Belegt werden sollten diese noch durch
 		\section{Angriffsarten}
 			\subsection{MITM - Man in the Middle}
 			\label{sec:mitm}
+\color{black}
 			\subsection{Umleitungsangriffe}
 			\label{sec:cache_poison}
 			Umleitungsangriffe werden mit dem sogenannten \ac{DNS} Cache Poisoning durchgeführt.
 			Bei diesem Angriff wird sich die Schwachstelle zu nutze gemacht, dass ältere oder falsch konfigurierte \ac{DNS}-Server auch nicht angeforderte Records in ihren Cache schreiben.
 			Ein Angreifer kann dies dazu nutzen im Cache eines \ac{DNS}-Servers mithilfe von gefälschten Paketen falsche Zuordnungen von Domainnamen zu \ac{IP}-Adressen zu hinterlegen.
 			Ein Opfer, das die Auflösung des Domainnamens jetzt vom kompromittierten Server anfordert, wird auf den Server des Angreifers umgeleitet.
+\color{darkred}
 			\subsection{Drive-By-Angriffe}
 \textsl{(eleven.de)}
 			\subsection{Phishing}
@@ -280,6 +241,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 \href{http://www.spiegel.de/netzwelt/netzpolitik/google-urteil-eugh-entscheidung-zu-suchmaschinen-a-969302.html}{google-urteil-eugh-entscheidung-zu-suchmaschinen} \\
 \href{http://www.golem.de/news/stanford-experiment-metadaten-verraten-intimste-details-des-privatlebens-1403-105253.html}{metadaten-verraten-intimste-details-des-privatlebens}\\
 \href{http://www.heise.de/ct/heft/2014-4-Die-Schwaechen-der-E-Mail-und-was-dagegen-hilft-2092851.html}{Schwaechen-der-E-Mail-und-was-dagegen-hilft}}
+\color{black}
 	
 	\chapter{Kryptographie}
 		Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten vor Dritten unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegende Funktionsweise der Verschlüsselung untersucht, die zum Verständnis der weiteren Unterkapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
@@ -462,9 +424,9 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI} deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite{Koetter2014}. Der "Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden]."\footcite{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR} die an der Erstellung des root key und der Signierungsprozesse partizipieren.
 	
 		\section{DANE - DNS-based Authentication of Named Entities}
-		\label{sec:dane}
+		\label{sec:dane}                                             
 			Die Basis für die Applikation \ac{DANE} stellt \ac{DNSSEC} und soll dabei die Schwachstellen von \ac{TLS} beim Verschlüsseln des Datentransport entfernen. Denn die Authentizität der verwendeten Zertifikate kann nicht immer gewährleistet werden, und somit besteht die Gefahr der kompromittierten Daten durch \ac{MITM}-Angriffe oder \ac{DNS}-Cache-Poisoning.
-			Die Schwachstellen der Zertifikatsprüfung und -aussteller (vgl. Kapitel \ref{sec:zertifikatsaussteller} und \ref{sec:zertifikatspruefung}) werden mittels \ac{DANE} eliminiert, denn es werden damit nicht mehr mehrere CA-Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
+			Die Schwachstellen der Zertifikatsprüfung und -aussteller (Vgl. Kapitel \ref{sec:zertifikatsaussteller} und \ref{sec:zertifikatspruefung}) werden mittels \ac{DANE} eliminiert, denn es werden damit nicht mehr mehrere CA-Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
 			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail Protokolle beschränkt sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
 			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen Publik Key des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch ist die Verbindung vertrauensvoll.
 			Ein durchgängig verfizierter Transport ist allerdings nur möglich wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt muss ``müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren''\footcite[S. 197]{Koetter2014}
@@ -472,9 +434,11 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 	\chapter{E-Mail-Sicherheit in der Praxis}
 		\section{Provider Vergleich}
 			\subsection{Internationale Provider}
+			\color{darkred}
 				Googlemail\\
 				Hotmail\\
 				Yahoo Mail
+			\color{black}
 			\subsection{EmiG - E-Mail made in Germany}
 			Hinter der dem Namen EmiG steckt eine Initiative der größten deutschen E-Mail Provider GMX, web.de und T-Online, die zusammen über 53\% \footnote{Stand 2013} der aktiven E-Mail-Konten in Deutschland betreiben.
 			\footcite{http://de.statista.com/infografik/1495/marktanteile-der-e-mail-dienste-in-deutschland-2013/} 
@@ -508,7 +472,8 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Ein weiter Kritikpunkt ist, dass die Umsetzung der Transportverschlüsselung 15 Jahre seit Verabschiedung des Standards 1999 und eine Datenschutzaffäre noch unabschätzbaren Ausmaßes benötigt um von den größten E-Mail Providern Deutschlands obligatorisch umgesetzt zu werden. 
 			Konkurrent Google unterstützt beim eigenen E-mail Dienst seit 2004 SSL/TLS und PFS beim E-mail-Versand.\\
 			Ferner wird der Aufwand der Einstellung lt. Peter Heinlein\footnote{CEO Heinlein Support, Betreiber mailbox.org}
-			als sehr gering Eingeschätzt: ``SSL/TLS wurde aktiviert -> smtp\_use\_tls=yes -> smtpd\_use\_tls=yes.''
+			als sehr gering Eingeschätzt: 
+			\glqq SSL/TLS wurde aktiviert $\rightarrow$ smtp\_use\_tls=yes $\rightarrow$ smtpd\_use\_tls=yes.\grqq
 			\footcite{https://www.heinlein-support.de/sites/default/files/sicheres_mailhosting_-_e-mail_made_in_germany_reicht_nicht_0.pdf}
 			Zertifikate werden müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.\medskip\\
 		%NWA - Integrität
@@ -529,7 +494,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			%NWA - Authentizität
 
 			%NWA - Zusätzliche Sicherheitsrelevante Aspekte
-
+\color{darkred}
 			
 			Seit April 2014 Umgesetzt
 			
@@ -560,12 +525,12 @@ Meine Quellen:\\
 				mailbox.org\\
 				startmail
 		\section{Nutzwertanalyse E-Mail-Provider}
-		\label{sec:nwa}
 			<Hier Nutzwertanalyse beschreiben und einbetten, ggf. im Anhang darauf verweisen>
 	\chapter{Ausblick}
 		(Trends/Fazit/Schlusswort -> proton Mail Provider vom CERN)
 		(Google hat die alpha eines Plugins für Chromebrowser vorgestellt, die E2E-Verschlüsselung im Browser durchführen und vereinfachen soll -> könnte nen Hinweis wert sein) 	
-		Da das Thema noch aktuell ist, und ständig weiter lebt macht es vll Sinn genau nochmal drauf aufmerksam zu machen das es nur um eine Moment-Aufnahme handelt. 		
+		Da das Thema noch aktuell ist, und ständig weiter lebt macht es vll Sinn genau nochmal drauf aufmerksam zu machen das es nur um eine Moment-Aufnahme handelt. 
+		\color{black}		
 	\chapter*{Literaturverzeichnis}
 		\addcontentsline{toc}{chapter}{Literaturverzeichnis}
 		%Literaturverzeichnis
@@ -573,4 +538,5 @@ Meine Quellen:\\
 		\printbibliography[heading=online,type=online]
 	\chapter*{Anhang}
 		\addcontentsline{toc}{chapter}{Anhang}
+	\label{LastPage}
 \end{document}
