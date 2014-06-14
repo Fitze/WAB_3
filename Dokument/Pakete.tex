@@ -34,7 +34,7 @@
 \addbibresource{bibliothek.bib} % Einbindung der Literaturquelldatei
 %Fortlaufende Fußnoten
 \usepackage{chngcntr}
-\counterwithout{footnote}{chapter}
+%\counterwithout{footnote}{chapter}
 %Paket zum Einbinden von Grafiken
 \usepackage[pdftex]{graphicx}
 \usepackage{wrapfig}
@@ -61,11 +61,15 @@
 \usepackage{prettyref}			%Automatische Referenzierung mit den hier definierten Formaten 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Definition der Referenzierungsformate %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Für Abschnitte %%%
-\newrefformat{sec}{siehe Abschnitt~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
+\newrefformat{sec}{s. Kap.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
+%%% Für SubAbschnitte %%%
+\newrefformat{subsec}{s. Kap.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
+%%% Für SubSubAbschnitte %%%
+\newrefformat{subsubsec}{s. Kap.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
 %%% Für Abbildungen %%%
-\newrefformat{fig}{siehe Abb.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
+\newrefformat{fig}{s. Abb.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}}
 %%% Für Tabellen %%%
-\newrefformat{tab}{siehe Tab.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}} 
+\newrefformat{tab}{s. Tab.~\ref{#1} \glqq\nameref{#1}\grqq , S. \pageref{#1}} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{xcolor}         	%Farbiger Text
