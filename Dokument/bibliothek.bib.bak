@@ -35,6 +35,16 @@
   Timestamp                = {2014-06-03}
 }
 
+@Online{BSIDeMail,
+  Title                    = {De-Mail - Sicherer elektronischer Nachrichtenverkehr},
+  Author                   = {Bundesamt},
+  Date                     = {2014-06-14},
+  Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/Publikationen/Publikationen_node.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-14}
+}
+
 @Online{Berliner2014,
   Title                    = {Verfügbarkeit, Integrität, Vertraulichkeit, Authentizität},
   Author                   = {Berliner Beauftragter für Datenschutz und Informationsfreiheit},
@@ -137,6 +147,26 @@
   Timestamp                = {2014-05-26}
 }
 
+@Online{Neumann2013a,
+  Title                    = {Stellungnahme zum Gesetz zur Förderung der elektronischen Verwaltung sowie zur Änderung weiterer Vorschriften},
+  Author                   = {Linus Neumann},
+  Date                     = {2013-03-20},
+  Url                      = {http://ccc.de/system/uploads/126/original/stellungnahme-demail2013.pdf},
+  Year                     = {2013},
+
+  Timestamp                = {2014-06-14}
+}
+
+@Online{Neumann2013b,
+  Title                    = {Stellungnahme an den Rechtsauschuß des Deutschen Bundestages - Elektronischer Rechtsverkehr - GesetzeseGesetz zur Förderung des elektronischen Rechtsverkehrs mit den Gerichten},
+  Author                   = {Linus Neumann},
+  Date                     = {2013-04-14},
+  Url                      = {http://ccc.de/system/uploads/126/original/stellungnahme-demail2013.pdf},
+  Year                     = {2013},
+
+  Timestamp                = {2014-06-14}
+}
+
 @Online{Posteo2013,
   Title                    = {Verschlüsselung bei Posteo},
   Author                   = {Posteo-Team},
@@ -146,6 +176,16 @@
   Urldate                  = {2014-06-04},
 
   HowPublished             = {Online}
+}
+
+@Online{BSIGrundlagen,
+  Title                    = {De-Mail - Grundlagen},
+  Author                   = {Bundesamt für S},
+  Date                     = {2014-06-14},
+  Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/Grundlagen/Grundlagen_node.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-14}
 }
 
 @Book{Schmeh2013,
@@ -178,6 +218,16 @@
   Timestamp                = {2014-06-03}
 }
 
+@Online{BSIKommunikation,
+  Title                    = {Ablauf der Kommunikation über De-Mail},
+  Author                   = {Bundesamt für Sicherhe},
+  Date                     = {2014-06-14},
+  Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/AblaufKommunikation/AblaufKommunikation_node.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-14}
+}
+
 @Online{BSI2014,
   Title                    = {Glossar und Begriffsdefinitionen},
   Author                   = {Bundesamt für Sicherheit in der Informationsstechnik},
@@ -185,6 +235,26 @@
   Year                     = {2009},
 
   Timestamp                = {2014-06-04}
+}
+
+@Online{BSIDiensteanbieter,
+  Title                    = {Akkreditiert De-Mail Diensteanbieter},
+  Author                   = {Bundesamt für Sicherheit in},
+  Date                     = {2014-06-14},
+  Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/Akkreditierte_DMDA/Akkreditierte_DMDA_node.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-14}
+}
+
+@Online{BSIMerkmale,
+  Title                    = {De-Mail - Merkmale und Funktionen},
+  Author                   = {Bundesamt für Sicherheit},
+  Date                     = {2014-06-14},
+  Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/Funktionen/Merkmale_Funktionen_node.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-14}
 }
 
 @Online{Somogyi2013,

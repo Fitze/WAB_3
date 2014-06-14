@@ -554,6 +554,50 @@ Meine Quellen:\\
 				posteo\\
 				mailbox.org\\
 				startmail
+			\subsection{De-Mail}
+			
+			=====COMMENT
+			
+			Absprache Keyserver bei De-Mail
+			
+			=====COMMENT END
+			
+			Seitdem am 3. Mai 2011 das De-Mail-Gesetz in Kraft getreten ist, können die darauf basierenden De-Mail-Dienste genutzt werden. Das ursprünglich unter dem Projektnamen "Bürgerportale" entwickelte Konzept hat zum Ziel, eine elektronische und rechtlich verbindliche Kommunikation zu ermöglichen. Dadurch werden die Vorteile der "Schnelligkeit der E-Mail in Verbindung mit der Sicherheit eines Briefes und der Nachweis eines Einschreibens" genutzt \footcite{BSIDeMail, S. 8}.
+			Obwohl die Nutzung von De-Mail nicht komplizierter als die Nutzung herkömmlicher E-Mails ist, sind beide Kommunikationsmittel nicht interoperabel, d. h. De-Mail-Nachrichten können nicht als herkömmliche E-Mails empfangen und versendet werden und umgekehrt. De-Mail-Nachrichten können jedoch Empfängern anderer De-Mail-Anbieter verschickt werden. Die per De-Mail verschickten Nachrichten bleiben im Verbund der De-Mail-Provider.
+			Um als De-Mail-Anbieter akkreditiert zu werden, müssen künftige De-Mail-Anbieter sich eine Reihe von Sicherheitsanforderungen erfüllen und einen Prüfungsprozess absolvieren. Nach erfolgreicher Prüfung werden die Anbieter durch das \ac{BSI} akkreditiert.
+			
+			Um sich in das De-Mail-Konto anzumelden gibt es grundsätzlich zwei verschiedene Anmeldeverfahren. In der Stufe "normal" meldet sich der Nutzer mit seinem Benutzernamen und Passwort an. Meldet sich der Nutzer im "hohen" Sicherheitsmodus an, wird zusätzlich zum Benutzernamen und Passwort ein sogenannter Token benötigt. Bei dieser sogenannten Zwei-Faktor-Authentifizierung wird der Anmeldevorgang durch einen Gegenstand, der im Besitz des Nutzers ist, zusätzlich gesichert. Abhängig von dem Anmeldeverfahren können verschiedene Versandoptionen genutzt werden:
+			
+			\begin{itemize}
+				\item Versandbestätigung: Bei Wahl dieser Option wird eine Versandbestätigung vom Versanddienst des Absenders erzeugt und dem Absender per Nachricht zugestellt.
+				\item Eingangsbestätigung: Bei Wahl dieser Option wird eine Zugangsbestätigung vom Postfachdienst des Empfängers erzeugt und dem Absender sowie dem Empfänger der ursprünglichen Nachricht per Nachricht zugestellt.
+				\item Persönlich: Die Wahl dieser Option bedeutet, dass das erforderliche Anmeldeniveau des Empfängers mindestens "hoch" sein muss, um die Nachricht lesen zu können. Um diese Option wählen zu können, muss auch das Anmeldeniveau des Absenders "hoch" sein.
+				\item Absender-bestätigt: Mit der Wahl dieser Option bringt der Absender zum Ausdruck, dass er sich verbindlich an den von ihm versendeten Nachrichteninhalt gebunden fühlt. Um diese Option wählen zu können, muss das Anmeldeniveau des Absenders "hoch" sein. Der Empfänger erfährt, dass der Absender beim Versand der Nachricht "hoch" angemeldet war.\footcite{BSIMerkmale}
+			\end{itemize}
+			Bei den ersten beiden Optionen "sendet der De-Mail-Anbieter Ihnen [den Nutzer, Anm. der Autoren] eine qualifiziert elektronisch signierte Bestätigung darüber, wann und an wen Sie die De-Mail verschickt haben bzw. wann die Nachricht im Postfach des Empfängers einging." \footcite{BSIDeMail, S. 15}.
+			
+			Die derzeit bekannteren De-Mail Diensteanbieter sind die Telekom mit Ihrem eigenen Mailservice und die United Internet AG mit 1&1, web.de und gmx.de. Weitere Diensteanbieter sind die Mentana-Claimsoft GmbH sowie die T-Systems International GmbH \footcite{BSIDiensteanbieter}.
+			
+			Die drei Sicherheitsaspekte Vertraulichkeit, Integrität und Authentizität sind im Umgang mit De-Mail wesentlich \footcite{BSIGrundlagen}. Im Folgenden werden diese drei Aspekte im Zusammenhang mit De-Mail näher untersucht.
+			
+			Bevor De-Mail genutzt werden kann, wird ein De-Mail-Konto mit einer De-Mail-Adresse benötigt, nach dessen Registrierung eine Identifikation notwendig ist. Die Überprüfung der Identität erfolgt beim De-Mail-Anbieter. Der Nutzer muss sich dabei mit einem gültigen Ausweisdokument identifizieren lassen. Auch eine Identifizierung über die "Online-Ausweisfunktion (eID-Funktion) im neuen Personalausweis (nPA)" \footcite{BSIDeMail, S. 13} ist möglich. Dieses Verfahren dient dazu, die Authentizität des Nutzers festzustellen.
+			
+			De-Mails werden auf dem ganzen Transportweg verschlüsselt übertragen, um die Mail vor unberechtigten Zugriff zu schützen. Auf dem Transportweg liegt die De-Mail für einen kurzen Zeitabschnitt unverschlüsselt vor, wenn sie den De-Mail-Anbieter erreicht \footcite{BSIDeMail, S. 16}. In diesem Moment wird die De-Mail auf Schadsoftware untersucht. Sollte die De-Mail Schadsoftware enthalten, wird der Empfänger beim Erhalt der Nachricht davor gewarnt. Im Vergleich zur herkömmlichen Mail-Verschlüsselung werden auch die Metadaten verschlüsselt \footcite{BSIMerkmale}
+			Darüber hinaus existiert die Möglichkeit, eine End-to-End-Verschlüsselung zu nutzen. Dabei müssen beide Kommunikationsteilnehmer eine separate Verschlüsselungssoftware verwenden. Durch diese zusätzliche Maßnahme sind auch die De-Mail-Anbieter nicht in der Lage, die Nachrichten zur Schadsoftware-Überprüfung kurzzeitig zu entschlüsseln.
+			
+			Die Integrität einer De-Mail gewährleistet, indem der De-Mail-Anbieter nach Eingang der versendeten Nachricht eine Prüfsummer oder elektronische Signatur erzeugt und diese dem Empfänger übermittelt. Die De-Mail kann daher während der Übertragung nicht modifiziert werden, ohne dass der Empfänger es merkt.
+			
+			\section{De-Mail Kritik}
+			Linus Neumann vom \ac{CCC} im Jahre 2013 in zwei Stellungnahmen zu Gesetzesvorhaben der Bundesregierung bzgl. der rechtsverbindlichen Kommunikation Kritik gegenüber den gegebenen Anforderungen von De-Mail geäußert \footcite{Neumann2013a und Neumann2013b}.
+			Zum einen sei die Authentizität beim Versenden einer De-Mail-Nachricht nicht immer gegeben. Lediglich einmalig bei der Registrierung wird die Identität des Nutzers überprüft \footcite{Neumann2013b}. Beim Versenden erfolge keine weitere Überprüfung der Authentizität. Werden die Zugangsdaten abgefangen, hätten Angreifer Zugriff auf das Konto und Nachrichten als vermeintlich rechtmäßigen Absender verschicken. Selbst die Anmeldung mittels der Zwei-Faktor-Authentifizierung biete nicht genügend Schutz, da nach einmaliger Anmeldung "mehrere De-Mails ohne erneute Authentifizierung gesendet werden" \footcite{Neumann2013b, o. S.} können. Dazu bieten sich Angriffsszenarien wie dem Man-in-the-Middle-Angriff an, um an die Zugangsdaten zu gelangen.
+			
+			Ein ähnliches Problem ergibt sich im Zusammenhang mit der Integrität einer De-Mail-Nachricht. Nach dem Versand der Nachricht wird die De-Mail vom De-Mail-Anbieter signiert. Dies garantiert zwar, dass die Nachricht unterwegs nicht verändert wurde. Mittels den oben beschriebenen Angriffsszenarien kann der Angreifer eine Nachricht verschicken und der Empfänger geht fälschlicherweise davon aus, dass die Nachricht unverändert wurde \footcite{Neumann2013b, o. S.}.
+			
+			Die Vertraulichkeit durch die Verschlüsselung sei zwar gegeben, durch die kurzzeitige explizite Entschlüsslung beim De-Mail-Anbieter sei diese nicht konsistent \footcite{Neumann2013a, S. 4}. Unbefugte hätten theoretisch die Möglichkeit, an den Inhalt der Nachricht zu gelangen.
+			
+			Laut Neumann sei es noch nicht zu spät für die Nachbesserung des De-Mail-Gesetztes \footcite{Neumann2013a, S. 6f.}. Er empfiehlt eine standardmäßige Ende-zu-Ende-Verschlüsslung \footcite{Neumann2013a, S. 7 und Neumann2013b, o. S.} sowie die Einhaltung der Vorgaben des Signaturgesetzes \footcite{Neumann2013a, S. 4}.
+				
+				
 		\section{Nutzwertanalyse E-Mail-Provider}
 			<Hier Nutzwertanalyse beschreiben und einbetten, ggf. im Anhang darauf verweisen>
 			SSL-Labs-Test und CheckTLS-Test beschreiben und als Beleg nutzen
