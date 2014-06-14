@@ -441,7 +441,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Hinter der dem Namen EmiG steckt eine Initiative der größten deutschen E-Mail Provider GMX, web.de und T-Online, die zusammen über 53\% \footnote{Stand 2013} der aktiven E-Mail-Konten in Deutschland betreiben.
 			\footcite{http://de.statista.com/infografik/1495/marktanteile-der-e-mail-dienste-in-deutschland-2013/} 
 			Zusammen mit den Teilnehmern freenet AG, 1\&1 Internet AG und STRATO AG\footnote{Die 1\&1 Internet AG ist wie GMX und web.de Teil des United-Internet-Konzern, sowie die STRATO AG eine Tochter des Betreiber von T-Online, der Deutschen Telekom AG ist} deckt EmiG ca. zwei Drittel der aktiven E-Mail Konten in Deutschland ab.\\
-			Das Projekt wurde im August 2013 als Reaktion der damaligen NSA-Äffäre ins Leben gerufen und hat das Ziel  das E-Mails zwischen den teilnehmenden Providern auf dem Transportweg mit SSL verschlüsselt versendet werden.
+			Das Projekt wurde im August 2013 als Reaktion der damaligen NSA-Äffäre ins Leben gerufen und hat das Ziel das E-Mails zwischen den teilnehmenden Providern auf dem Transportweg mit SSL verschlüsselt versendet werden.
 			\medskip\\
 			Prinzipiell ist das Verfahren ausgelegt weitere Teilnehmer aufzunehmen.
 			Dabei beschreiben die Provider ihre Mail-Infrastruktur im JSON-Format mit ``Domainnamen, IP-Adressen, SSL-Zertifikate und Rollen der beteiligten Server.''
@@ -452,10 +452,10 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Neue Teilnehmer müssen durch den TÜV Rheinland zertifiziert worden sein, damit die EmiG Teilnehmer die aktualisierte Infrastrukturliste laden.
 			\medskip\\
 			Auch die Authentizität wird mittels dem selbst entwickelten, proprietären Verfahren \textit{Inter Mail Provider Trust} sichergestellt. 
-			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client und Server-Zertifikate gegen die herausgebende CA sowie gegen die Infrastrukturlisten.
+			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client und Server-Zertifikate gegen die herausgebende \ac{CA} sowie gegen die Infrastrukturlisten.
 			\footcite{http://www.heise.de/netze/meldung/So-funktioniert-E-Mail-made-in-Germany-2188248.html} 
 			Sollten dabei Inkonsistenzen auftreten wird der Versand abgelehnt.\\
-			Dieses Vorgehen erinnert an ein geschlossene Variante von DANE, welches ähnlich zur Sicherstellung der Authentizität verfährt.\\
+			Dieses Vorgehen erinnert an eine geschlossene Variante von DANE, welches ähnlich zur Sicherstellung der Authentizität verfährt.\\
 			Alle Partner der Initiative setzen Perfect Forward Secrecy ein
 			\footcite{http://www.heise.de/netze/meldung/E-Mail-made-in-Germany-Vollstaendig-umgesetzt-dennoch-unzureichend-2179269.html}
 			und setzen damit eine weitere Eigenschaft um, die einem Schutzbedarf in Sicherheitsniveau der Stufe 3 entsprechen.
