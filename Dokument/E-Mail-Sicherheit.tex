@@ -394,9 +394,17 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 	\chapter{DNS - Domain Name System}
 	\label{chap:dns}
 		Das \ac{DNS} ist ein wichtiger Dienst im Internet, da er dafür zuständig ist, gut merkbare Domainnamen in \ac{IP}-Adressen, und umgekehrt, aufzulösen.
-		Um diese Auflösung bewerkstelligen zu können ist \ac{DNS} in einer Baumstruktur aufgebaut. 
-		Wie in der Abbildung\footnote{Abb. in Anlehnung an Sorge S. 180 einbinden} veranschaulicht, ist auf der obersten Ebene der Knoten "root" zu finden.
-		Dies ist sozusagen die Wurzel des \ac{DNS} und hier finden sich auch die Root-Server des \ac{DNS}
+		Um diese Auflösung bewerkstelligen zu können ist \ac{DNS} in einer Baumstruktur aufgebaut.
+		
+		\begin{wrapfigure}{l}{0.55\textwidth}
+			\centering
+			\includegraphics[width=0.5\textwidth]{images/Baumstruktur_DNS.png}
+			\caption[Baumstruktur des DNS]{Beispielhafte Abbildung der Baumstruktur des \ac{DNS}\footnotemark}
+			\label{img:baumstruktur_dns}
+		\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 180]{Sorge2013}}
+		
+		Wie in Abbildung \ref{img:baumstruktur_dns} veranschaulicht, ist auf der obersten Ebene der Knoten "root" zu finden.
+		Dies ist sozusagen die Wurzel des \ac{DNS} und hier finden sich auch die Root-Server des \ac{DNS}.
 		Auf der nächsten Ebene kommen die \ac{TLD}, anschließend folgen die Second-Level-Domains und zum Aufbau einer gängigen \ac{URL} für \ac{HTTP} fehlt noch eine weitere Ebene, die den Hostnamen enthält.
 		Soll ein Domainnamen aufgelöst werden, so fragt der Host zunächst einen Root-Server.
 		Dieser sendet ihm die Adresse des für die entsprechende \ac{TLD} zuständigen Nameservers mit, an die der Client eine erneute Anfrage stellt.
@@ -612,7 +620,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\end{itemize}
 			Bei den ersten beiden Optionen "sendet der De-Mail-Anbieter Ihnen [den Nutzer, Anm. der Autoren] eine qualifiziert elektronisch signierte Bestätigung darüber, wann und an wen Sie die De-Mail verschickt haben bzw. wann die Nachricht im Postfach des Empfängers einging." \footcite{BSIDeMail, S. 15}.
 			
-			Die derzeit bekannteren De-Mail Diensteanbieter sind die Telekom mit Ihrem eigenen Mailservice und die United Internet AG mit 1&1, web.de und gmx.de. Weitere Diensteanbieter sind die Mentana-Claimsoft GmbH sowie die T-Systems International GmbH \footcite{BSIDiensteanbieter}.
+			Die derzeit bekannteren De-Mail Diensteanbieter sind die Telekom mit Ihrem eigenen Mailservice und die United Internet AG mit 1\&1, web.de und gmx.de. Weitere Diensteanbieter sind die Mentana-Claimsoft GmbH sowie die T-Systems International GmbH \footcite{BSIDiensteanbieter}.
 			
 			Die drei Sicherheitsaspekte Vertraulichkeit, Integrität und Authentizität sind im Umgang mit De-Mail wesentlich \footcite{BSIGrundlagen}. Im Folgenden werden diese drei Aspekte im Zusammenhang mit De-Mail näher untersucht.
 			
