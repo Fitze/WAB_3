@@ -91,6 +91,14 @@
   Timestamp                = {2014-06-04}
 }
 
+@Online{Drilling2014,
+  Title                    = {Mailbox.org - Vollstaendig verschluesselter deutscher E-Mail Dienst},
+  Author                   = {Thomas Drilling},
+  Date                     = {2014-02-21},
+  Url                      = {http://www.heise.de/ix/meldung/Mailbox-org-Vollstaendig-verschluesselter-deutscher-E-Mail-Dienst-2120363.html},
+  Urldate                  = {2014-06-15}
+}
+
 @Book{Eckert2013,
   Title                    = {IT-Sicherheit},
   Author                   = {Claudia Eckert},
@@ -215,6 +223,13 @@
   Timestamp                = {2014-06-14}
 }
 
+@Online{Posteo2013a,
+  Title                    = {Datenschutz},
+  Author                   = {Posteo-Team},
+  Url                      = {https://posteo.de/site/datenschutz},
+  Urldate                  = {2014-06-15}
+}
+
 @Online{Posteo2013,
   Title                    = {Verschlüsselung bei Posteo},
   Author                   = {Posteo-Team},
@@ -226,16 +241,6 @@
   HowPublished             = {Online}
 }
 
-<<<<<<< HEAD
-@Online{BSIGrundlagen,
-  Title                    = {De-Mail - Grundlagen},
-  Author                   = {Bundesamt für S},
-  Date                     = {2014-06-14},
-  Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/Grundlagen/Grundlagen_node.html},
-  Year                     = {2014},
-
-  Timestamp                = {2014-06-14}
-=======
 @Online{Rundfeldt14,
   Title                    = {E-Mail Made in Germany: Broken by design, überflüssig dank DANE.},
   Author                   = {Johannes Rundfeldt},
@@ -246,7 +251,16 @@
 
   HowPublished             = {Online},
   Timestamp                = {14.06.2014}
->>>>>>> origin/master
+}
+
+@Online{BSIGrundlagen,
+  Title                    = {De-Mail - Grundlagen},
+  Author                   = {Bundesamt für S},
+  Date                     = {2014-06-14},
+  Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/Grundlagen/Grundlagen_node.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-14}
 }
 
 @Book{Schmeh2013,
@@ -285,6 +299,7 @@
   Date                     = {2014-06-14},
   Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/AblaufKommunikation/AblaufKommunikation_node.html},
   Year                     = {2014},
+  Urldate                  = {2014-06-14},
 
   Timestamp                = {2014-06-14}
 }
@@ -294,6 +309,7 @@
   Author                   = {Bundesamt für Sicherheit in der Informationsstechnik},
   Date                     = {2014-06-04},
   Year                     = {2009},
+  Urldate                  = {2014-06-04},
 
   Timestamp                = {2014-06-04}
 }
@@ -304,6 +320,7 @@
   Date                     = {2014-06-14},
   Url                      = {https://www.bsi.bund.de/DE/Themen/EGovernment/DeMail/Akkreditierte_DMDA/Akkreditierte_DMDA_node.html},
   Year                     = {2014},
+  Urldate                  = {2014-06-14},
 
   Timestamp                = {2014-06-14}
 }
@@ -370,6 +387,14 @@ Technologieberatung und Systementwicklung mbH},
   Urldate                  = {2014-05-31},
 
   HowPublished             = {Online}
+}
+
+@Online{Zivadino14-5,
+  Title                    = {Verschluesselter Mail-Transport - Posteo setzt als erster Provider DANE ein},
+  Author                   = {Dusan Zivadinovic},
+  Date                     = {2014-05-12},
+  Url                      = {http://www.heise.de/netze/meldung/Verschluesselter-Mail-Transport-Posteo-setzt-als-erster-Provider-DANE-ein-2187144.html},
+  Urldate                  = {2014-06-15}
 }
 
 @Online{Zivadino14-1,
