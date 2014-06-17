@@ -189,10 +189,19 @@
 }
 
 @Online{Mailbox2014,
-  Title                    = {Ihr E.Mail Postfach},
+  Title                    = {Ihr E-Mail Postfach},
   Author                   = {Mailbox.org-Team},
   Url                      = {https://mailbox.org/ihr-e-mail-postfach/},
   Urldate                  = {2014-06-15}
+}
+
+@Online{Mailbox2014a,
+  Title                    = {DANE und DNSSEC für sicheren E-Mail-Versand bei Mailbox.org},
+  Author                   = {Mailbox.org-Team},
+  Date                     = {2014-05-29},
+  Url                      = {https://mailbox.org/dane-und-dnssec-fuer-sicheren-e-mail-versand-bei-mailbox-org/},
+  Year                     = {2014},
+  Urldate                  = {2014-06-17}
 }
 
 @Book{Mueller2011,
@@ -289,7 +298,7 @@
 
 @Online{Schulz2014,
   Title                    = {Perfect Forward Secrecy},
-  Author                   = {Christiane Schulz-Haddouti},
+  Author                   = {Christiane Schulzki-Haddouti},
   Date                     = {2013-09-03},
   Url                      = {http://www.zeit.de/digital/datenschutz/2013-09/perfect-forward-secrecy},
   Year                     = {2014},
