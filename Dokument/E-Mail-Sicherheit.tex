@@ -570,6 +570,9 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Die Anwender besitzen keine TLS-Garantie wenn E-Mails von oder zu Providern außerhalb des Verbunds gesendet oder empfangen werden.\\
 			Kritisch zu betrachten ist, dass die Umsetzung der Transportverschlüsselung 15 Jahre seit Verabschiedung des Standards 1999 und eine Datenschutzaffäre noch unabschätzbaren Ausmaßes benötigt, um von den größten E-Mail Providern Deutschlands obligatorisch und verantwortungsvoll umgesetzt zu werden. 
 			Konkurrent Google unterstützt beim eigenen E-mail Dienst seit 2004 SSL/TLS sowie PFS.
+			\color{darkred}
+				Die Behauptung, dass Google das seit 2004 einsetzt muss noch belegt werde\dots (Daniel)
+			\color{black}
 			
 			\begin{wrapfigure}{r}{0.5\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
 				\vspace{-24pt}
@@ -676,11 +679,16 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\subsection{Alternative Provider}
 			Als alternative Provider werden zwei kleine Anbieter, die bereits aktiv am Markt sind, untersucht.
 			Hierbei handelt es sich um die beiden in Berlin ansässigen Provider \textit{Posteo} und \textit{mailbox.org}.
-			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutze nicht auswerten.\footcite[Vgl.]{Posteo2013a} \footcite[Vgl.]{Mailborx2014}
+			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutze nicht auswerten.\footcite[Vgl.]{Posteo2013a} \footcite[Vgl.]{Mailbox2014}
 			
 			\subsubsection{posteo}
 			\label{subsubsec:posteo}
 				Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde. \footcite[Vgl.]{Posteo2013b}
+				Laut Angaben des Unternehmens verzeichnet das Unternehmen einen Nutzerzuwachs um mehr 100\% pro Jahr.\footcite[Vgl.]{Posteo2013b}
+				Er probiert sich bewusst von den Konkurrenten abzusetzen durch das Angebot von innovativen Sicherheitsfunktionen.
+				So war Posteo einer der ersten\footnote{Auch Mailbox.org hat fast zeitgleich \ac{DANE} eingesetzt, so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter, der zur Authentifizierung seiner Server auf \ac{DANE} gesetzt hat.\footcite[Vgl.]{Zivadino14-5}\medskip\\
+				
+				
 				
 			\subsubsection{mailbox.org}
 			\label{subsubsec:mailbox}
