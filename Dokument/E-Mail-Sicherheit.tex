@@ -61,6 +61,7 @@
 	\end{itemize}
 	
 	\paragraph{Integrität}
+	
 	Unter der Integrität der Daten wird verstanden, dass die Daten bei der Übertragung nicht unbemerkt verändert werden können und somit vollständig übermittelt worden sind. Bei diesem Aspekt geht es demzufolge um die Unversehrtheit der Nachricht.
 	
 	\paragraph{Vertraulichkeit}
@@ -568,7 +569,11 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Bei den Providern der EmiG-Initative ist die Vertraulichkeit durch die TLS-Transport"-verschlüsselung gegeben. 
 			Die Transportverschlüsselung ist allerdings nur untereinander garantiert. 
 			Die Anwender besitzen keine TLS-Garantie wenn E-Mails von oder zu Providern außerhalb des Verbunds gesendet oder empfangen werden.\\
-			Kritisch zu betrachten ist, dass die Umsetzung der Transportverschlüsselung 15 Jahre seit Verabschiedung des Standards 1999 und eine Datenschutzaffäre noch unabschätzbaren Ausmaßes benötigt, um von den größten E-Mail Providern Deutschlands obligatorisch und verantwortungsvoll umgesetzt zu werden. 
+			\color{darkred}
+				ISt der folgende Abschnitt nicht eher etwas für die Zusammenfassung?
+				Aber sehr schön ist er schon ;-) (Daniel)
+			\color{black}
+ 			Kritisch zu betrachten ist, dass die Umsetzung der Transportverschlüsselung 15 Jahre seit Verabschiedung des Standards 1999 und eine Datenschutzaffäre noch unabschätzbaren Ausmaßes benötigt, um von den größten E-Mail Providern Deutschlands obligatorisch und verantwortungsvoll umgesetzt zu werden. 
 			Konkurrent Google unterstützt beim eigenen E-mail Dienst seit 2004 SSL/TLS sowie PFS.
 			\color{darkred}
 				Die Behauptung, dass Google das seit 2004 einsetzt muss noch belegt werde\dots (Daniel)
@@ -679,22 +684,42 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\subsection{Alternative Provider}
 			Als alternative Provider werden zwei kleine Anbieter, die bereits aktiv am Markt sind, untersucht.
 			Hierbei handelt es sich um die beiden in Berlin ansässigen Provider \textit{Posteo} und \textit{mailbox.org}.
-			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutze nicht auswerten.\footcite[Vgl.]{Posteo2013a} \footcite[Vgl.]{Mailbox2014}
+			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutzer nicht auswerten.\footcite[Vgl.]{Posteo2013a} \footcite[Vgl.]{Mailbox2014}
 			
 			\subsubsection{posteo}
 			\label{subsubsec:posteo}
 				Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde. \footcite[Vgl.]{Posteo2013b}
-				Laut Angaben des Unternehmens verzeichnet das Unternehmen einen Nutzerzuwachs um mehr 100\% pro Jahr.\footcite[Vgl.]{Posteo2013b}
-				Er probiert sich bewusst von den Konkurrenten abzusetzen durch das Angebot von innovativen Sicherheitsfunktionen.
-				So war Posteo einer der ersten\footnote{Auch Mailbox.org hat fast zeitgleich \ac{DANE} eingesetzt, so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter, der zur Authentifizierung seiner Server auf \ac{DANE} gesetzt hat.\footcite[Vgl.]{Zivadino14-5}\medskip\\
+				Laut eigenen Angaben verzeichnet das Unternehmen einen Nutzerzuwachs um mehr als 100\% pro Jahr.\footcite[Vgl.]{Posteo2013b}
+				Er probiert sich bewusst von den Konkurrenten abzusetzen durch das Angebot von innovativen Sicherheitsfunktionen und die garantierte Werbefreiheit.
+				Die Kosten deckt Posteo dadurch, dass für die Nutzung des Dienstes eine monatliche Gebühr erhoben wird.
+				Diese kann auf unterschiedliche Weise bezahlt werden und kann durch die Löschung der Beziehungsdaten zwischen Zahlungseingang und Postfach nach erfolgter Zahlung nciht zurückverfolgt werden.
+				Dadurch soll eine anonyme Nutzung des Postfachs ermöglicht werden, da auch bei der Registrierung keine persönlichen Daten angegeben werden müssen.\footcite[Vgl.]{Posteo2013a}
+				Nachfolgend wird die durchgeführte Nutzwertanalyse für Posteo beschrieben.
+				\medskip\\
+				
+				\paragraph{Vertraulichkeit}
+					Der Zugriff auf den Server von Posteo erfolgt unabhängig davon, ob mit einem Mailprogramm oder auf im Webmailer zugegriffen wird, immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung.
+					Dies wird durch den Einsatz von \ac{HSTS} erzwungen.
+					Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt um und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
+					Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.]{Posteo2013c}
+					
+				\paragraph{Integrität}
+				
+					Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versenden.
+					An der Umsetzung wird bereits aktiv gearbeitet.
+					Momentan bereitet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nciht feststeht zuwelchem Zeitpunkt diese Funktion zur Verfügung se´tehen wird.\footcite[Vgl.]{Posteo2013c}
+					Über die Verschlüsselungsmöglichkeiten per \ac{PGP} und \ac{S/MIME} und die damit verbundenen Vor- und Nachteile wird auf der Webseite von Posteo gut informiert.
+					Eine konkrete Hilfestellung zur Einrichtung der Verschlüsselungsverfahren zur Nutzung mit einem Mailprogramm wird bisher nicht gegeben.
+					Stattdessen wird auf die Seite von \textit{Netzpolitik.org}\footnote{\url{https://netzpolitik.org/2013/anleitung-so-verschlusselt-ihr-eure-e-mails-mit-pgp}} und dem Mailprogramm \textit{Thunderbird} der Mozilla Foundation\footnote{\url{http://www.thunderbird-mail.de/wiki/Mailverschlüsselung_mit_S/MIME}} verlinkt.
+				
+				\paragraph{Authentizität}
+				So war Posteo einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein,\cite[Vgl.]{Mailbox2014a} so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter, der zur Authentifizierung seiner Server \ac{DANE} umgesetzt hat.\footcite[Vgl.]{Zivadino14-5}\medskip\\
 				
 				
 				
 			\subsubsection{mailbox.org}
 			\label{subsubsec:mailbox}
-				posteo\\
-				mailbox.org\\
-				startmail
+				
 			\subsection{De-Mail}
 			
 			=====COMMENT
