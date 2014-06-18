@@ -97,7 +97,7 @@
 		
 		Daher ist es den Autoren nicht möglich, eine allgemein gültige Auflistung aller möglichen Szenarien der E-Mail Kommunikation bereitzustellen, aus welcher die Teilnehmer der Zielgruppe lediglich das richtige Szenario heraussuchen müssen und dadurch den optimalen Grad der Verschlüsselung erhalten. 
 		
-		Stattdessen wird in Abbildung \ref{img:sicherheitsniveaus} eine Übersicht präsentiert, die es dem Nutzer erlaubt auf Basis seines eigenen Sicherheitsbedürfnisses und mit Hilfe festgelegter Kriterien für die Übermittlung einer ganz bestimmten Information ein geeignetes Sicherheitsniveau zu bestimmen. 
+		Stattdessen wird in Tabelle \ref{tab:sicherheitsniveaus} eine Übersicht präsentiert, die es dem Nutzer erlaubt auf Basis seines eigenen Sicherheitsbedürfnisses und mit Hilfe festgelegter Kriterien für die Übermittlung einer ganz bestimmten Information ein geeignetes Sicherheitsniveau zu bestimmen. 
 		\medskip\\
 		
 		
@@ -107,7 +107,7 @@
 		%Wäre nice wenn die Abbildung eine Tabelle ist, weil eine Abbildung für eine Tabelle ist irgendwie komisch :D (Pascal)
 		%Auch viel Sicht der Autoren, ich würde das zur Einleitung einmal allgmein sagen statt hier 3 Mal im Absatz. So bei der Abgrenzung / Zielsetzung / einleitung. Generell ein sehr Einleitungslastiger Abschnitt.
 		
-		Die Abbildung \ref{img:sicherheitsniveaus} stellt im Tabellenkopf vier verschiedene Sicherheitsniveaus dar: \textit{Streng Vertraulich, Vertraulich, Privat und Öffentlich}. Dabei nimmt das Sicherheitsbedürfnis sowie der Verschlüsselungsaufwand von Streng Vertraulich bis Öffentlich ab.
+		Die Tabelle \ref{tab:sicherheitsniveaus} stellt im Tabellenkopf vier verschiedene Sicherheitsniveaus dar: \textit{Streng Vertraulich, Vertraulich, Privat und Öffentlich}. Dabei nimmt das Sicherheitsbedürfnis sowie der Verschlüsselungsaufwand von Streng Vertraulich bis Öffentlich ab.
 		
 		In der ersten Spalte sind verschiedene Merkmale aufgelistet, welche es dem Nutzer ermöglichen sollen, 
 		%für eine ganz bestimmte Information 
@@ -141,13 +141,14 @@
 			\hline
 		\end{tabularx} 
 		\caption{Sicherheitsniveaus}
+		\label{tab:sicherheitsniveaus}
 	\end{table}
 		
 		Der Wert der Information und deren Schutzwürdigkeit beschreiben, wie wertvoll die zu versendende E-Mail für einen nicht rechtmäßigen Empfänger ist und welche Notwendigkeit des Schutzes daraus folgt.
 		
 		Der potentielle Schaden stellt das Ausmaß dar, welches eintritt für den Fall, dass die E-Mail durch 
 		%unberechtigte 
-		Dritte (klassische Angreifer sowie der E-Mail Provider) gelesen wird. Dieser Schaden kann verschiedener Art sein. Zum Beispiel können daraus rechtliche Konsequenzen erfolgen, es kann zu einem finanziellen Verlust führen oder mit einer Schädigung des Images des Senders einhergehen \footcite[Vgl.][]{Reinhausen GmbH, S. 6}. Aus dem potentiellen Schaden lässt sich außerdem gut der Einfluss auf die eigene Privatsphäre ableiten.
+		Dritte (klassische Angreifer sowie der E-Mail Provider) gelesen wird. Dieser Schaden kann verschiedener Art sein. Zum Beispiel können daraus rechtliche Konsequenzen erfolgen, es kann zu einem finanziellen Verlust führen oder mit einer Schädigung des Images des Senders einhergehen \footcite[Vgl.][S. 6]{Reinhausen GmbH}. Aus dem potentiellen Schaden lässt sich außerdem gut der Einfluss auf die eigene Privatsphäre ableiten.
 		
 		
 		%Habe aus Einzahl mal mehrzahl gemacht. Unberechtigte Dritte ist schwierig weil der Mailprovider ist ja quasi Berechtigt, jedenfalls stellt er das (glaub ich) zumindest in den AGBs klar. Würde nur "Dritte" sagen oder? Dazu müsste man noch klarstellen wer Dritte sind, oder verweisen (Klassische Angreifer oder Provider, Bots)
@@ -169,7 +170,7 @@
 		\medskip\\
 	%Auch wieder Cut Bsp: Anwenwedungsfälle als Section? dann Stufe 1-4 und die Fälle dazu? Das ist jetzt ein riesen Case, der unheimnlich kreativ ist und toll beschrieben. Eventuell kann es für ne wissenschaftl. Arbeit auch weniger sein nach dem Motto "Versicherungsschaden am Wagen. Bilder und Kontodaten per E-Mail an Versicherung senden: Streng vertraulich" Sowas hätte mir persönlich gereicht, und dazu vll noch ein Beispiel wie das mit den Patientendaten mit Röntgenbildern (auch streng vertraulich). Und zusätzlich noch ein paar cases zu den unteren stufen. Weihnachtsbild für die Familie mit Gesichtern : Vertraulich. Weihnachts E-Card von Webseite ohne Gesichter Öffentlich. Irgendwie sowas. Das soltlen wir besprechen am Freitag
 	
-		Anhand des nachfolgenden Beispiels soll der Umgang mit der Abbildung \ref{img:sicherheitsniveaus} verdeutlicht werden. Hierbei ist zu erwähnen, dass das resultierende Sicherheitsniveau auf Basis des beschriebenen Sicherheitsbedürfnisses ermittelt wurde und für die gleiche Information bei anderen Nutzern unterschiedlich ausfallen kann:
+		Anhand des nachfolgenden Beispiels soll der Umgang mit der Tabelle \ref{tab:sicherheitsniveaus} verdeutlicht werden. Hierbei ist zu erwähnen, dass das resultierende Sicherheitsniveau auf Basis des beschriebenen Sicherheitsbedürfnisses ermittelt wurde und für die gleiche Information bei anderen Nutzern unterschiedlich ausfallen kann:
 		\medskip\\
 		
 		Herr Meier war vor kurzem in einen Auffahrunfall verwickelt, den ein unachtsamer Autofahrer verursacht hatte. Daraufhin brachte Herr Meier sein Fahrzeug in die Werkstatt und ließ ein Gutachten des Schadens erstellen. Dieses Gutachten möchte er nun zusammen mit seinen Kontodaten via E-Mail an die Versicherung des Unfallverursachers senden. 
@@ -683,16 +684,16 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\subsection{Alternative Provider}
 			Als alternative Provider werden zwei kleine Anbieter, die bereits aktiv am Markt sind, untersucht.
 			Hierbei handelt es sich um die beiden in Berlin ansässigen Provider \textit{Posteo} und \textit{mailbox.org}.
-			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutzer nicht auswerten.\footcite[Vgl.]{Posteo2013a} \footcite[Vgl.]{Mailbox2014}
+			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutzer nicht auswerten.\footcite[Vgl.][]{Posteo2013a, Mailbox2014}
 			
 			\subsubsection{posteo}
 			\label{subsubsec:posteo}
-				Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde. \footcite[Vgl.]{Posteo2013b}
-				Laut eigenen Angaben verzeichnet das Unternehmen einen Nutzerzuwachs um mehr als 100\% pro Jahr.\footcite[Vgl.]{Posteo2013b}
+				Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde. \footcite[Vgl.][]{Posteo2013b}
+				Laut eigenen Angaben verzeichnet das Unternehmen einen Nutzerzuwachs um mehr als 100\% pro Jahr.\footcite[Vgl.][]{Posteo2013b}
 				Er probiert sich bewusst von den Konkurrenten abzusetzen durch das Angebot von innovativen Sicherheitsfunktionen und die garantierte Werbefreiheit.
 				Die Kosten deckt Posteo dadurch, dass für die Nutzung des Dienstes eine monatliche Gebühr erhoben wird.
 				Diese kann auf unterschiedliche Weise bezahlt werden und kann durch die Löschung der Beziehungsdaten zwischen Zahlungseingang und Postfach nach erfolgter Zahlung nciht zurückverfolgt werden.
-				Dadurch soll eine anonyme Nutzung des Postfachs ermöglicht werden, da auch bei der Registrierung keine persönlichen Daten angegeben werden müssen.\footcite[Vgl.]{Posteo2013a}
+				Dadurch soll eine anonyme Nutzung des Postfachs ermöglicht werden, da auch bei der Registrierung keine persönlichen Daten angegeben werden müssen.\footcite[Vgl.][]{Posteo2013a}
 				Nachfolgend wird die durchgeführte Nutzwertanalyse für Posteo beschrieben.
 				\medskip\\
 				
@@ -700,13 +701,13 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 					Der Zugriff auf den Server von Posteo erfolgt unabhängig davon, ob mit einem Mailprogramm oder auf im Webmailer zugegriffen wird, immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung.
 					Dies wird durch den Einsatz von \ac{HSTS} erzwungen.
 					Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt um und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
-					Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.]{Posteo2013c}
+					Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.][]{Posteo2013c}
 					
 				\paragraph{Integrität}
 				
 					Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versenden.
 					An der Umsetzung wird bereits aktiv gearbeitet.
-					Momentan bereitet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.]{Posteo2013c}
+					Momentan bereitet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.][]{Posteo2013c}
 					Über die Verschlüsselungsmöglichkeiten per \ac{PGP} und \ac{S/MIME} und die damit verbundenen Vor- und Nachteile in Bezug auf anonyme Kommunikation wird auf der Webseite von Posteo ausführlich informiert.
 					Eine konkrete Hilfestellung zur Einrichtung der Verschlüsselungsverfahren zur Nutzung mit einem Mailprogramm wird bisher nicht gegeben.
 					Stattdessen wird auf die Seite von \textit{Netzpolitik.org}\footnote{\url{https://netzpolitik.org/2013/anleitung-so-verschlusselt-ihr-eure-e-mails-mit-pgp}} und dem Mailprogramm \textit{Thunderbird} der Mozilla Foundation\footnote{\url{http://www.thunderbird-mail.de/wiki/Mailverschlüsselung_mit_S/MIME}} verlinkt.
@@ -716,19 +717,19 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 					Eine Anleitung, wie das Signieren durchgeführt wird sucht der Nutzer allerdings vergeblich.
 					Auch die Tatsache, dass eine Verschlüsselung im Webmailer bisher nicht möglich ist, lässt darauf schließen, dass ebenfalls keine Signaturen erstellt werden können.
 					Eine direkte Information hierzu gibt es nicht.
-					Bei der Authentifizierung ihrer Server ist Posteo jedoch hochaktuell und hat als einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein,\cite[Vgl.]{Mailbox2014a} so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter in Deutschland \ac{DANE} umgesetzt.\footcite[Vgl.]{Zivadino14-5}\medskip\\
+					Bei der Authentifizierung ihrer Server ist Posteo jedoch hochaktuell und hat als einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein(\cite[Vgl.][]{Mailbox2014a}), so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter in Deutschland \ac{DANE} umgesetzt.\footcite[Vgl.][]{Zivadino14-5}\medskip\\
 				
 				\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
 					Im Bereich der zusätzlichen sicherheitsrelevanten Aspekte kann Posteo durch die Verschlüsselung seiner Festplatten mit \ac{AES} punkten.
 					Hierdurch sind die gespeicherten Mails vor Zugriffen geschützt, falls die Festplatten geklaut oder beschlagnahmt werden sollten.
 					Die Mails selbst werden jedoch nicht extra verschlüsselt gespeichert, wodurch sie für Personen, die sich unberechtigten Zugriff auf die Server im laufenden Betrieb verschaffen können, auslesbar sind.
-					Die Möglichkeit für eine zusätzliche Verschlüsselung der Mails ist jedoch ebenfalls für die Zukunft geplant.\footcite[Vgl.]{Posteo2013c}
+					Die Möglichkeit für eine zusätzliche Verschlüsselung der Mails ist jedoch ebenfalls für die Zukunft geplant.\footcite[Vgl.][]{Posteo2013c}
 					Insgesamt wäre es jedoch wünschenswert, wenn Posteo bei dem geäußerten Anspruch auf hohen Datenschutz und Wahrung der Privatspähre seiner Nutzer, diesen gut verständliche Anleitungen für die Einrichtung und Nutzung von Verschlüsselungsverfahren und digitalen Signaturen geben würde.
 					Wie bereits zu Beginn der Ausführungen zu den alternativen Providern erwähnt garantiert Posteo seinen Nutzern Werbefreiheit.
 					Aus diesem Grund werden die Mails weder beim Versand noch beim Empfang durch Posteo analysiert.
 					Eine weitere Sicherheitsfunktion ist das sogenannte \ac{IP}-Stripping.
 					Hierbei wird die \ac{IP}-Adresse des Absenders durch die \ac{IP}-Adresse des Mailservers von Posteo ersetzt.
-					Somit ist eine Rückverfolgung zum Absender aufgrund der \ac{IP}-Adresse nicht möglich.\footcite[Vgl.]{Posteo2013a}
+					Somit ist eine Rückverfolgung zum Absender aufgrund der \ac{IP}-Adresse nicht möglich.\footcite[Vgl.][]{Posteo2013a}
 					Auch was die Veröffentlichung eines Transparenzberichts angeht ist Posteo vorbildlich und hat als erster deutscher Anbieter diesen veröffentlicht und damit die großen Konkurrenten wie beispielsweise die \ac{DTAG} als Betreiber von T-Online unter Zugzwang gesetzt.
 				
 				
@@ -762,14 +763,14 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				\item Versandbestätigung: Bei Wahl dieser Option wird eine Versandbestätigung vom Versanddienst des Absenders erzeugt und dem Absender per Nachricht zugestellt.
 				\item Eingangsbestätigung: Bei Wahl dieser Option wird eine Zugangsbestätigung vom Postfachdienst des Empfängers erzeugt und dem Absender sowie dem Empfänger der ursprünglichen Nachricht per Nachricht zugestellt.
 				\item Persönlich: Die Wahl dieser Option bedeutet, dass das erforderliche Anmeldeniveau des Empfängers mindestens "hoch" sein muss, um die Nachricht lesen zu können. Um diese Option wählen zu können, muss auch das Anmeldeniveau des Absenders "hoch" sein.
-				\item Absender-bestätigt: Mit der Wahl dieser Option bringt der Absender zum Ausdruck, dass er sich verbindlich an den von ihm versendeten Nachrichteninhalt gebunden fühlt. Um diese Option wählen zu können, muss das Anmeldeniveau des Absenders "hoch" sein. Der Empfänger erfährt, dass der Absender beim Versand der Nachricht "hoch" angemeldet war.\footcite{BSIMerkmale}
+				\item Absender-bestätigt: Mit der Wahl dieser Option bringt der Absender zum Ausdruck, dass er sich verbindlich an den von ihm versendeten Nachrichteninhalt gebunden fühlt. Um diese Option wählen zu können, muss das Anmeldeniveau des Absenders "hoch" sein. Der Empfänger erfährt, dass der Absender beim Versand der Nachricht "hoch" angemeldet war.\footcite[Vgl.][]{BSIMerkmale}
 			\end{itemize}
-			Bei den ersten beiden Optionen \textit{\glqq sendet der De-Mail-Anbieter Ihnen [den Nutzer, Anm. der Autoren] eine qualifiziert elektronisch signierte Bestätigung darüber, wann und an wen Sie die De-Mail verschickt haben bzw. wann die Nachricht im Postfach des Empfängers einging\grqq} \footcite{BSIDeMail, S. 15}.\medskip\\
+			Bei den ersten beiden Optionen \textit{\glqq sendet der De-Mail-Anbieter Ihnen [den Nutzer, Anm. der Autoren] eine qualifiziert elektronisch signierte Bestätigung darüber, wann und an wen Sie die De-Mail verschickt haben bzw. wann die Nachricht im Postfach des Empfängers einging\grqq}. \footcite[Vgl.][S. 15]{BSIDeMail}\medskip\\
 			
 			Die derzeit bekannteren De-Mail Diensteanbieter sind die Telekom mit Ihrem eigenen Mailservice und die United Internet AG mit 1\&1, web.de und gmx.de.
-			Weitere Diensteanbieter sind die Mentana-Claimsoft GmbH sowie die T-Systems International GmbH \footcite{BSIDiensteanbieter}.\medskip\\
+			Weitere Diensteanbieter sind die Mentana-Claimsoft GmbH sowie die T-Systems International GmbH \footcite[Vgl.][]{BSIDiensteanbieter}.\medskip\\
 			
-			Die drei Sicherheitsaspekte Vertraulichkeit, Integrität und Authentizität sind im Umgang mit De-Mail wesentlich \footcite{BSIGrundlagen}.
+			Die drei Sicherheitsaspekte Vertraulichkeit, Integrität und Authentizität sind im Umgang mit De-Mail wesentlich \footcite[Vgl.][]{BSIGrundlagen}.
 			Im Folgenden werden diese drei Aspekte im Zusammenhang mit De-Mail näher untersucht.
 			
 			Bevor De-Mail genutzt werden kann, wird ein De-Mail-Konto mit einer De-Mail-Adresse benötigt, nach dessen Registrierung eine Identifikation notwendig ist.
@@ -781,7 +782,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			De-Mails werden auf dem ganzen Transportweg verschlüsselt übertragen, um die Mail vor unberechtigten Zugriff zu schützen.
 			Auf dem Transportweg liegt die De-Mail für einen kurzen Zeitabschnitt unverschlüsselt vor, wenn sie den De-Mail-Anbieter erreicht. \footcite[Vgl.][S. 16]{BSIDeMail} 
 			In diesem Moment wird die De-Mail auf Schadsoftware untersucht. Sollte die De-Mail Schadsoftware enthalten, wird der Empfänger beim Erhalt der Nachricht davor gewarnt.
-			Im Vergleich zur herkömmlichen Mail-Verschlüsselung werden auch die Metadaten verschlüsselt. \footcite{BSIMerkmale}
+			Im Vergleich zur herkömmlichen Mail-Verschlüsselung werden auch die Metadaten verschlüsselt. \footcite[Vgl.][]{BSIMerkmale}
 			Darüber hinaus existiert die Möglichkeit, eine End-to-End-Verschlüsselung zu nutzen.
 			Dabei müssen beide Kommunikationsteilnehmer eine separate Verschlüsselungssoftware verwenden. Durch diese zusätzliche Maßnahme sind auch die De-Mail-Anbieter nicht in der Lage, die Nachrichten zur Schadsoftware-Überprüfung kurzzeitig zu entschlüsseln.\medskip\\
 			
@@ -789,17 +790,17 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Die De-Mail kann daher während der Übertragung nicht modifiziert werden, ohne dass der Empfänger es merkt.
 			
 			\subsubsection{Kritik}
-			Linus Neumann vom \ac{CCC} im Jahre 2013 in zwei Stellungnahmen zu Gesetzesvorhaben der Bundesregierung bzgl. der rechtsverbindlichen Kommunikation Kritik gegenüber den gegebenen Anforderungen von De-Mail geäußert.\footcite{Neumann2013a} \footcite{Neumann2013b}
-			Zum einen sei die Authentizität beim Versenden einer De-Mail-Nachricht nicht immer gegeben. Lediglich einmalig bei der Registrierung wird die Identität des Nutzers überprüft. \footcite{Neumann2013b} 
+			Linus Neumann vom \ac{CCC} im Jahre 2013 in zwei Stellungnahmen zu Gesetzesvorhaben der Bundesregierung bzgl. der rechtsverbindlichen Kommunikation Kritik gegenüber den gegebenen Anforderungen von De-Mail geäußert.\footcite[Vgl.][]{Neumann2013a,Neumann2013b} %\footcite{Neumann2013b}
+			Zum einen sei die Authentizität beim Versenden einer De-Mail-Nachricht nicht immer gegeben. Lediglich einmalig bei der Registrierung wird die Identität des Nutzers überprüft. \footcite[Vgl.][]{Neumann2013b} 
 			Beim Versenden erfolge keine weitere Überprüfung der Authentizität.
 			Werden die Zugangsdaten abgefangen, hätten Angreifer Zugriff auf das Konto und Nachrichten als vermeintlich rechtmäßigen Absender verschicken.
-			Selbst die Anmeldung mittels der Zwei-Faktor-Authentifizierung biete nicht genügend Schutz, da nach einmaliger Anmeldung \textit{\glqq mehrere De-Mails ohne erneute Authentifizierung gesendet werden\grqq} \footcite[][o.S.]{Neumann2013b} können.
+			Selbst die Anmeldung mittels der Zwei-Faktor-Authentifizierung biete nicht genügend Schutz, da nach einmaliger Anmeldung \textit{\glqq mehrere De-Mails ohne erneute Authentifizierung gesendet werden\grqq} \footcite[Vgl.][o.S.]{Neumann2013b} können.
 			Dazu bieten sich Angriffsszenarien wie dem Man-in-the-Middle-Angriff an, um an die Zugangsdaten zu gelangen.\medskip\\
 			
 			Ein ähnliches Problem ergibt sich im Zusammenhang mit der Integrität einer De-Mail-Nachricht.
 			Nach dem Versand der Nachricht wird die De-Mail vom De-Mail-Anbieter signiert.
 			Dies garantiert zwar, dass die Nachricht unterwegs nicht verändert wurde.
-			Mittels den oben beschriebenen Angriffsszenarien kann der Angreifer eine Nachricht verschicken und der Empfänger geht fälschlicherweise davon aus, dass die Nachricht unverändert wurde. \footcite[o.S.]{Neumann2013b}\medskip\\
+			Mittels den oben beschriebenen Angriffsszenarien kann der Angreifer eine Nachricht verschicken und der Empfänger geht fälschlicherweise davon aus, dass die Nachricht unverändert wurde. \footcite[Vgl.][o.S.]{Neumann2013b}\medskip\\
 			
 			Die Vertraulichkeit durch die Verschlüsselung sei zwar gegeben, durch die kurzzeitige explizite Entschlüsslung beim De-Mail-Anbieter sei diese nicht konsistent.\footcite[Vgl.][S. 4]{Neumann2013a}
 			Unbefugte hätten theoretisch die Möglichkeit, an den Inhalt der Nachricht zu gelangen.\medskip\\
