@@ -686,56 +686,71 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Hierbei handelt es sich um die beiden in Berlin ansässigen Provider \textit{Posteo} und \textit{mailbox.org}.
 			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutzer nicht auswerten.\footcite[Vgl.][]{Posteo2013a, Mailbox2014}
 			
-			\subsubsection{posteo}
-			\label{subsubsec:posteo}
-				Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde. \footcite[Vgl.][]{Posteo2013b}
-				Laut eigenen Angaben verzeichnet das Unternehmen einen Nutzerzuwachs um mehr als 100\% pro Jahr.\footcite[Vgl.][]{Posteo2013b}
-				Er probiert sich bewusst von den Konkurrenten abzusetzen durch das Angebot von innovativen Sicherheitsfunktionen und die garantierte Werbefreiheit.
-				Die Kosten deckt Posteo dadurch, dass für die Nutzung des Dienstes eine monatliche Gebühr erhoben wird.
-				Diese kann auf unterschiedliche Weise bezahlt werden und kann durch die Löschung der Beziehungsdaten zwischen Zahlungseingang und Postfach nach erfolgter Zahlung nciht zurückverfolgt werden.
-				Dadurch soll eine anonyme Nutzung des Postfachs ermöglicht werden, da auch bei der Registrierung keine persönlichen Daten angegeben werden müssen.\footcite[Vgl.][]{Posteo2013a}
-				Nachfolgend wird die durchgeführte Nutzwertanalyse für Posteo beschrieben.
-				\medskip\\
-				
+				\subsubsection{posteo}
+				\label{subsubsec:posteo}
+					Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde und von der Posteo e.K. betrieben wird. \footcite[Vgl.][]{Posteo2013b}
+					Laut eigenen Angaben verzeichnet das Unternehmen einen Nutzerzuwachs um mehr als 100\% pro Jahr.\footcite[Vgl.][]{Posteo2013b}
+					Er probiert sich bewusst von den Konkurrenten abzusetzen durch das Angebot von innovativen Sicherheitsfunktionen und die garantierte Werbefreiheit.
+					Die Kosten deckt Posteo dadurch, dass für die Nutzung des Dienstes eine monatliche Gebühr erhoben wird.
+					Diese kann auf unterschiedliche Weise bezahlt werden und kann durch die Löschung der Beziehungsdaten zwischen Zahlungseingang und Postfach nach erfolgter Zahlung nciht zurückverfolgt werden.
+					Dadurch soll eine anonyme Nutzung des Postfachs ermöglicht werden, da auch bei der Registrierung keine persönlichen Daten angegeben werden müssen.\footcite[Vgl.][]{Posteo2013a}
+					Nachfolgend wird die durchgeführte Nutzwertanalyse für Posteo beschrieben.
+					\medskip\\
+					
+					\paragraph{Vertraulichkeit}
+						Der Zugriff auf den Server von Posteo erfolgt unabhängig davon, ob mit einem Mailprogramm oder auf im Webmailer zugegriffen wird, immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung.
+						Dies wird durch den Einsatz von \ac{HSTS} erzwungen.
+						Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt um und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
+						Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.][]{Posteo2013c}
+						
+					\paragraph{Integrität}
+					
+						Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versenden.
+						An der Umsetzung wird bereits aktiv gearbeitet.
+						Momentan bereitet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.][]{Posteo2013c}
+						Über die Verschlüsselungsmöglichkeiten per \ac{PGP} und \ac{S/MIME} und die damit verbundenen Vor- und Nachteile in Bezug auf anonyme Kommunikation wird auf der Webseite von Posteo ausführlich informiert.
+						Eine konkrete Hilfestellung zur Einrichtung der Verschlüsselungsverfahren zur Nutzung mit einem Mailprogramm wird bisher nicht gegeben.
+						Stattdessen wird auf die Seite von \textit{Netzpolitik.org}\footnote{\url{https://netzpolitik.org/2013/anleitung-so-verschlusselt-ihr-eure-e-mails-mit-pgp}} und dem Mailprogramm \textit{Thunderbird} der Mozilla Foundation\footnote{\url{http://www.thunderbird-mail.de/wiki/Mailverschlüsselung_mit_S/MIME}} verlinkt.
+					
+					\paragraph{Authentizität}
+						Auf die Möglichkeiten, die Mails vor dem Versand digital zu signieren und wie dies im Mailprogramm durchgeführt werden kann werden auf der Posteo-Seite ein paar Informationen gegeben.
+						Eine Anleitung, wie das Signieren durchgeführt wird sucht der Nutzer allerdings vergeblich.
+						Auch die Tatsache, dass eine Verschlüsselung im Webmailer bisher nicht möglich ist, lässt darauf schließen, dass ebenfalls keine Signaturen erstellt werden können.
+						Eine direkte Information hierzu gibt es nicht.
+						Bei der Authentifizierung ihrer Server ist Posteo jedoch hochaktuell und hat als einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein(\cite[Vgl.][]{Mailbox2014a}), so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter in Deutschland \ac{DANE} umgesetzt.\footcite[Vgl.][]{Zivadino14-5}\medskip\\
+					
+					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
+						Im Bereich der zusätzlichen sicherheitsrelevanten Aspekte kann Posteo durch die Verschlüsselung seiner Festplatten mit \ac{AES} punkten.
+						Hierdurch sind die gespeicherten Mails vor Zugriffen geschützt, falls die Festplatten geklaut oder beschlagnahmt werden sollten.
+						Die Mails selbst werden jedoch nicht extra verschlüsselt gespeichert, wodurch sie für Personen, die sich unberechtigten Zugriff auf die Server im laufenden Betrieb verschaffen können, auslesbar sind.
+						Die Möglichkeit für eine zusätzliche Verschlüsselung der Mails ist jedoch ebenfalls für die Zukunft geplant.\footcite[Vgl.][]{Posteo2013c}
+						Insgesamt wäre es jedoch wünschenswert, wenn Posteo bei dem geäußerten Anspruch auf hohen Datenschutz und Wahrung der Privatspähre seiner Nutzer, diesen gut verständliche Anleitungen für die Einrichtung und Nutzung von Verschlüsselungsverfahren und digitalen Signaturen geben würde.
+						Wie bereits zu Beginn der Ausführungen zu den alternativen Providern erwähnt garantiert Posteo seinen Nutzern Werbefreiheit.
+						Aus diesem Grund werden die Mails weder beim Versand noch beim Empfang durch Posteo analysiert.
+						Eine weitere Sicherheitsfunktion ist das sogenannte \ac{IP}-Stripping.
+						Hierbei wird die \ac{IP}-Adresse des Absenders durch die \ac{IP}-Adresse des Mailservers von Posteo ersetzt.
+						Somit ist eine Rückverfolgung zum Absender aufgrund der \ac{IP}-Adresse nicht möglich.\footcite[Vgl.][]{Posteo2013a}
+						Auch was die Veröffentlichung eines Transparenzberichts angeht ist Posteo vorbildlich und hat als erster deutscher Anbieter diesen veröffentlicht und damit die großen Konkurrenten wie beispielsweise die \ac{DTAG} als Betreiber von T-Online unter Zugzwang gesetzt.
+					
+					
+				\subsubsection{mailbox.org}
+				\label{subsubsec:mailbox}
+					Mailbox.org startete im Februar 2014 als neuer E-Maildienst der Heinlein Support GmbH, die mit JPBerlin bereits seit über 20 Jahren als \ac{ISP} auftritt und E-Mailpostfächer anbietet.
+					Die Abgrenzung zur Konkurrenz erfolgt, wie auch bei Posteo, über die explizite Betonung des Datenschutzes und der Privatsphäre des Kunden.
+					Dies ist unter anderem am Werbespruch zu erkennen, der \glqq damit Privates privat bleibt\grqq lautet.
+					Auch bei Mailbox.org gibt es kein kostenloses Angebot zur Nutzung des E-Maildienstes, dafür aber ebenso das Versprechen von Werbe- und insbesondere auch hohem Spamschutz.\footcite[Vgl.][]{Mailbox2014}
+					In den folgenden Abschnitten wird die Durchführung der Nutzwertanalyse für Mailbox.org beschrieben.
+					
 				\paragraph{Vertraulichkeit}
-					Der Zugriff auf den Server von Posteo erfolgt unabhängig davon, ob mit einem Mailprogramm oder auf im Webmailer zugegriffen wird, immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung.
-					Dies wird durch den Einsatz von \ac{HSTS} erzwungen.
-					Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt um und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
-					Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.][]{Posteo2013c}
 					
 				\paragraph{Integrität}
-				
-					Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versenden.
-					An der Umsetzung wird bereits aktiv gearbeitet.
-					Momentan bereitet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.][]{Posteo2013c}
-					Über die Verschlüsselungsmöglichkeiten per \ac{PGP} und \ac{S/MIME} und die damit verbundenen Vor- und Nachteile in Bezug auf anonyme Kommunikation wird auf der Webseite von Posteo ausführlich informiert.
-					Eine konkrete Hilfestellung zur Einrichtung der Verschlüsselungsverfahren zur Nutzung mit einem Mailprogramm wird bisher nicht gegeben.
-					Stattdessen wird auf die Seite von \textit{Netzpolitik.org}\footnote{\url{https://netzpolitik.org/2013/anleitung-so-verschlusselt-ihr-eure-e-mails-mit-pgp}} und dem Mailprogramm \textit{Thunderbird} der Mozilla Foundation\footnote{\url{http://www.thunderbird-mail.de/wiki/Mailverschlüsselung_mit_S/MIME}} verlinkt.
-				
+					
 				\paragraph{Authentizität}
-					Auf die Möglichkeiten, die Mails vor dem Versand digital zu signieren und wie dies im Mailprogramm durchgeführt werden kann werden auf der Posteo-Seite ein paar Informationen gegeben.
-					Eine Anleitung, wie das Signieren durchgeführt wird sucht der Nutzer allerdings vergeblich.
-					Auch die Tatsache, dass eine Verschlüsselung im Webmailer bisher nicht möglich ist, lässt darauf schließen, dass ebenfalls keine Signaturen erstellt werden können.
-					Eine direkte Information hierzu gibt es nicht.
-					Bei der Authentifizierung ihrer Server ist Posteo jedoch hochaktuell und hat als einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein(\cite[Vgl.][]{Mailbox2014a}), so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter in Deutschland \ac{DANE} umgesetzt.\footcite[Vgl.][]{Zivadino14-5}\medskip\\
-				
+					
 				\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
-					Im Bereich der zusätzlichen sicherheitsrelevanten Aspekte kann Posteo durch die Verschlüsselung seiner Festplatten mit \ac{AES} punkten.
-					Hierdurch sind die gespeicherten Mails vor Zugriffen geschützt, falls die Festplatten geklaut oder beschlagnahmt werden sollten.
-					Die Mails selbst werden jedoch nicht extra verschlüsselt gespeichert, wodurch sie für Personen, die sich unberechtigten Zugriff auf die Server im laufenden Betrieb verschaffen können, auslesbar sind.
-					Die Möglichkeit für eine zusätzliche Verschlüsselung der Mails ist jedoch ebenfalls für die Zukunft geplant.\footcite[Vgl.][]{Posteo2013c}
-					Insgesamt wäre es jedoch wünschenswert, wenn Posteo bei dem geäußerten Anspruch auf hohen Datenschutz und Wahrung der Privatspähre seiner Nutzer, diesen gut verständliche Anleitungen für die Einrichtung und Nutzung von Verschlüsselungsverfahren und digitalen Signaturen geben würde.
-					Wie bereits zu Beginn der Ausführungen zu den alternativen Providern erwähnt garantiert Posteo seinen Nutzern Werbefreiheit.
-					Aus diesem Grund werden die Mails weder beim Versand noch beim Empfang durch Posteo analysiert.
-					Eine weitere Sicherheitsfunktion ist das sogenannte \ac{IP}-Stripping.
-					Hierbei wird die \ac{IP}-Adresse des Absenders durch die \ac{IP}-Adresse des Mailservers von Posteo ersetzt.
-					Somit ist eine Rückverfolgung zum Absender aufgrund der \ac{IP}-Adresse nicht möglich.\footcite[Vgl.][]{Posteo2013a}
-					Auch was die Veröffentlichung eines Transparenzberichts angeht ist Posteo vorbildlich und hat als erster deutscher Anbieter diesen veröffentlicht und damit die großen Konkurrenten wie beispielsweise die \ac{DTAG} als Betreiber von T-Online unter Zugzwang gesetzt.
-				
-				
-			\subsubsection{mailbox.org}
-			\label{subsubsec:mailbox}
-				
+					
+					
+					
 			\subsection{De-Mail}
 			
 			=====COMMENT
