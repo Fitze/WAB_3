@@ -242,10 +242,10 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 \href{http://www.heise.de/ct/heft/2014-4-Die-Schwaechen-der-E-Mail-und-was-dagegen-hilft-2092851.html}{Schwaechen-der-E-Mail-und-was-dagegen-hilft}}
 \color{black}
 	
-	\chapter{Kryptographie}
-		Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten vor Dritten unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegende Funktionsweise der Verschlüsselung untersucht, die zum Verständnis der weiteren Unterkapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
-		%Die Einleitung ist top, mehr Bezug zur E-Mail wäre toll, so das es essenziel für Sicherheit ist und die Basis zur Sicherstellung von sicherer Kommunikation Stufe 1-4 (Unsere niveaus) da nämlich auch öffentlich zumindest transport verschlüsselt sein sollte (wird ja auch als Standard durchgedrück (versucht) EmiG, TLS)
-		\section{Grundlagen}
+	\chapter{Technologien und Verfahren}
+		\section{Kyptographie Grundlagen}
+				Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten vor Dritten unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegende Funktionsweise der Verschlüsselung untersucht, die zum Verständnis der weiteren Unterkapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
+				%Die Einleitung ist top, mehr Bezug zur E-Mail wäre toll, so das es essenziel für Sicherheit ist und die Basis zur Sicherstellung von sicherer Kommunikation Stufe 1-4 (Unsere niveaus) da nämlich auch öffentlich zumindest transport verschlüsselt sein sollte (wird ja auch als Standard durchgedrück (versucht) EmiG, TLS)
 			\subsection{Symmetrische Verschlüsselung}
 				Bei der symmetrischen Verschlüsselung wird sowohl zur Verschlüsselung und Entschlüsselung ein gemeinsamer Schlüssel verwendet. Dieser Schlüssel wird auch Shared Secret genannt. Mithilfe dieses Schlüssels und einem kryptographischen Algorithmus wird die Information des Absenders, auch als Klartext bezeichnet, verschlüsselt. Ein Algorithmus transformiert dabei einen Eingabeparameter in einen Ausgabeparameter. Im Fall eines kryptographischen Algorithmus handelt es sich um eine mathematische Vorschrift, die aus dem Klartext einen sogenannten Geheimtext berechnet. Diesen verschlüsselten Text kann der Empfänger mit dem selben Schlüssel, der zur Verschlüsselung verwendet wurde, entschlüsseln. Die folgende Abbildung zeigt das Funktionsprinzip einer symmetrischen Verschlüsselung.
 				%Folgende Abbildung ist blöd, besser Wäre dann der Bezug, wenn sie drin ist wie "Die Abbildung 2 zeigt.." Also Referenzieren!
@@ -311,7 +311,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			
 			Andererseits kommt es immer wieder vor, dass \ac{CA} angegriffen werden und somit auch gefälschte Zertifikate illegal signiert werden.
 				
-		\section{Web of Trust}
+		\subsection{Web of Trust}
 			Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist dabei, dass die Nutzer die öffentlichen Schlüssel voneinander signieren. An einem Beispiel lässt sich das Grundprinzip dieses Modells verdeutlichen \footnote{Angewandte Kryptographie, S. 120}: Carol möchte Bob eine vertrauliche Nachricht schicken. Dazu besorgt sie sich Bobs öffentlichen Schlüssel. Zuvor hatte Alice den öffentlichen Schlüssel von Bob signiert. Da Carol Alice vertraut, beschafft sie sich die Signatur von Alice über den öffentlichen Schlüssel von Bob und entschlüsselt diesen mit Alices öffentlichem Schlüssel. Stimmen die Schlüssel überein, so kann Carol den öffentlichen Schlüssel von Bob vertrauen, weil dieser von Alice signiert wurde, der Carol vertraut. Die folgende Abbildung veranschaulicht das Funktionsprinzip:
 			\footnote{S. 121, Angewandte Kryptographie}.
 			%Ich denke die Abbildung ist notwendig. Aber so Steps dazu wären cool (1)..(2)..
@@ -329,7 +329,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				%Umsetzung
 				Das \ac{DHE} Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. ``Abgeschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.''\footcite[Vgl. ][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und IPsec beherrschen bereits \ac{PFS}.\medskip\\
 				%Vorteile
-				Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem \ac{MITM}-Angriff\ref{sec:mitm} manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie DANE (Vgl. Kapitel \ref{sec:dane}), die in Kombination mit \ac{PFS} aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizität der Kommunikation gewährleistet wird.\medskip\\
+				Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem \ac{MITM}-Angriff\ref{sec:mitm} manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie DANE (Vgl. Kapitel \ref{subsec:dane}), die in Kombination mit \ac{PFS} aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizität der Kommunikation gewährleistet wird.\medskip\\
 				%Nachteile
 				Nachteile gibt es lediglich bei der Verwendung des bereits überholten, und seit Jahren als geknackt bekannte \ac{DHE}-Verfahren, denn dabei verzögert sich zusätzlich der Verbindungsaufbau. Die Schlüssellänge ist Minimum 1024 Bit, und längere Schlüssel mit 2048 oder 4096 Bit sind dabei nicht sicherer.\footcite[Vgl.][]{Boeck2013} Der moderne Nachfolger mit elliptischen Kurven \ac{ECDH} gilt aktuell als sicher und benötigt dabei weniger als 1024 Bit und verzögert den Verbindungsaufbau nur unweigerlich.\medskip\\
 				%Grenzen
@@ -474,8 +474,8 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			%\acp erzeugt den Plural des Akronyms bzw. hängt ein "s" an
 			Auch die Authentifizierung der Kommunikationspartner mittels Zertifikaten weißt dieselben Schwachstellen durch die Vertrauensbeziehung zu bekannten \acp{CA}, die unzureichend gesichert sind, auf.  
 			%Hier noch ein kurzer Abschnitt zu Metadaten mit Bezug auf die Schwachstellen (sec:metadaten)
-	\chapter{DNS - Domain Name System}
-	\label{chap:dns}
+	\section{DNS - Domain Name System}
+	\label{sec:dns}
 		Das \ac{DNS} ist ein wichtiger Dienst im Internet, da er dafür zuständig ist, gut merkbare Domainnamen in \ac{IP}-Adressen, und umgekehrt, aufzulösen.
 		Um diese Auflösung bewerkstelligen zu können ist \ac{DNS} in einer Baumstruktur aufgebaut.
 		
@@ -501,8 +501,8 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 %		Dies wird beim sogenannten \ac{DNS} Cache Poisoning %Das unter "E-Mail-Kommunikation-Gefahren" einbauen.
 %	 	ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
 %		Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
-		\section{DNSSEC - Domain Name System Security Extensions}
-		\label{sec:dnssec}
+		\subsection{DNSSEC - Domain Name System Security Extensions}
+		\label{subsec:dnssec}
 			Bei \ac{DNSSEC} handelt es sich um eine Sicherheitserweiterung des \ac{DNS}.
 			Sie beruht auf der Einführung weiterer \ac{DNS}-Records.
 			Unter anderem gibt es einen Recordtyp, der einen öffentlichen Schlüssel enthält und einen weiteren, der die Signatur eines Ressource Records enthält.
@@ -515,8 +515,8 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Diese ist jedoch der benötigten Kompatibilität mit bestehenden Systemen geschuldet und momentan alternativlos.\footcite[Vgl.][S. 195]{Sorge2013}
 			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI} deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite{Koetter2014}. Der "Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden]."\footcite{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR} die an der Erstellung des root key und der Signierungsprozesse partizipieren.
 	
-		\section{DANE - DNS-based Authentication of Named Entities}
-		\label{sec:dane}                                             
+		\subsection{DANE - DNS-based Authentication of Named Entities}
+		\label{subsec:dane}                                             
 			Die Basis für die Applikation \ac{DANE} stellt \ac{DNSSEC} und soll dabei die Schwachstellen von \ac{TLS} beim Verschlüsseln des Datentransport entfernen. Denn die Authentizität der verwendeten Zertifikate kann nicht immer gewährleistet werden, und somit besteht die Gefahr der kompromittierten Daten durch \ac{MITM}-Angriffe oder \ac{DNS}-Cache-Poisoning.
 			Die Schwachstellen der Zertifikatsprüfung und -aussteller (Vgl. Kapitel \ref{sec:zertifikatsaussteller} und \ref{sec:zertifikatspruefung}) werden mittels \ac{DANE} eliminiert, denn es werden damit nicht mehr mehrere CA-Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
 			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail Protokolle beschränkt sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
@@ -554,7 +554,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Auch die Authentizität wird mittels dem selbst entwickelten, proprietären Verfahren \textit{\ac{IMPT}} sichergestellt. 
 			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client- und Server-Zertifikate gegen die herausgebende CA, sowie gegen die Infrastrukturlisten.
 			Sollten dabei Inkonsistenzen auftreten wird der Versand abgelehnt.\\
-			Dieses Vorgehen erinnert an ein geschlossene Variante von \ac{DANE} (\prettyref{sec:dane}), welches ähnlich zur Sicherstellung der Authentizität verfährt.
+			Dieses Vorgehen erinnert an ein geschlossene Variante von \ac{DANE} (\prettyref{subsec:dane}), welches ähnlich zur Sicherstellung der Authentizität verfährt.
 			Alle Partner der Initiative setzen \ac{PFS} ein
 			\footcite[Vgl.][]{Zivadino14-1}
 			und damit eine Eigenschaft um einem höheren Schutzbedarf in zu entsprechen.
@@ -788,7 +788,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Die Integrität einer De-Mail gewährleistet, indem der De-Mail-Anbieter nach Eingang der versendeten Nachricht eine Prüfsummer oder elektronische Signatur erzeugt und diese dem Empfänger übermittelt.
 			Die De-Mail kann daher während der Übertragung nicht modifiziert werden, ohne dass der Empfänger es merkt.
 			
-			\section{De-Mail Kritik}
+			\subsubsection{Kritik}
 			Linus Neumann vom \ac{CCC} im Jahre 2013 in zwei Stellungnahmen zu Gesetzesvorhaben der Bundesregierung bzgl. der rechtsverbindlichen Kommunikation Kritik gegenüber den gegebenen Anforderungen von De-Mail geäußert.\footcite{Neumann2013a} \footcite{Neumann2013b}
 			Zum einen sei die Authentizität beim Versenden einer De-Mail-Nachricht nicht immer gegeben. Lediglich einmalig bei der Registrierung wird die Identität des Nutzers überprüft. \footcite{Neumann2013b} 
 			Beim Versenden erfolge keine weitere Überprüfung der Authentizität.
