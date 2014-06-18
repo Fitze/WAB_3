@@ -253,6 +253,13 @@
   Urldate                  = {2014-06-15}
 }
 
+@Online{Posteo2013c,
+  Title                    = {Verschlüsselung},
+  Author                   = {Posteo-Team},
+  Url                      = {https://posteo.de/site/verschluesselung},
+  Urldate                  = {2014-06-17}
+}
+
 @Online{Posteo2013,
   Title                    = {Verschlüsselung bei Posteo},
   Author                   = {Posteo-Team},
