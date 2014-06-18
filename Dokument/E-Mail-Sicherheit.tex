@@ -311,7 +311,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			
 			Andererseits kommt es immer wieder vor, dass \ac{CA} angegriffen werden und somit auch gefälschte Zertifikate illegal signiert werden.
 				
-		\subsection{Web of Trust}
+		\section{Web of Trust}
 			Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist dabei, dass die Nutzer die öffentlichen Schlüssel voneinander signieren. An einem Beispiel lässt sich das Grundprinzip dieses Modells verdeutlichen \footnote{Angewandte Kryptographie, S. 120}: Carol möchte Bob eine vertrauliche Nachricht schicken. Dazu besorgt sie sich Bobs öffentlichen Schlüssel. Zuvor hatte Alice den öffentlichen Schlüssel von Bob signiert. Da Carol Alice vertraut, beschafft sie sich die Signatur von Alice über den öffentlichen Schlüssel von Bob und entschlüsselt diesen mit Alices öffentlichem Schlüssel. Stimmen die Schlüssel überein, so kann Carol den öffentlichen Schlüssel von Bob vertrauen, weil dieser von Alice signiert wurde, der Carol vertraut. Die folgende Abbildung veranschaulicht das Funktionsprinzip:
 			\footnote{S. 121, Angewandte Kryptographie}.
 			%Ich denke die Abbildung ist notwendig. Aber so Steps dazu wären cool (1)..(2)..
