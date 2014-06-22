@@ -592,13 +592,195 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 	\chapter{E-Mail-Sicherheit in der Praxis}
 		\section{Provider Vergleich}
 			\subsection{Internationale Provider}
+			
+			
+			
+			
+			
 			\subsubsection*{Googlemail}
 			\label{subsubsec:googlemail}
-			\color{darkred}
-				Googlemail\\
-				Hotmail\\
-				Yahoo Mail
-			\color{black}
+			Vertraulichkeit
+			Transportverschlüsselung Mailempfang
+			Transportverschlüsselung Mailversand
+			Zertifikat
+			
+			Integrität
+			E2EE Webmail
+			E2EE Einrichtung
+			
+			Authentizität
+			Digitale Signatur Webmail
+			Digitale Signatur E-Mailanwendung
+			Einrichtung digitale Signaturen
+			Mailserverauthentifizierung
+			
+			Sicherheitsrelevante Aspekte
+			Verschlüsselte Speicherung
+			Sicherheitsinformationen
+			
+			E-Mailauswertung
+			- Datenschutzbestimmungen erlaubt
+			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
+			
+			Sicherheits Zusatzfunktionen
+			
+			Transparenzbericht
+			- ist das schon ein Transparenzbericht?
+			%http://www.google.com/transparencyreport/saferemail/?hl=de
+			- google hat Transparenzbericht
+			%http://www.zeit.de/digital/datenschutz/2014-03/transparenzberichte-google-yahoo
+			
+			
+			
+			\subsubsection*{Hotmail}
+			\label{subsubsec:googlemail}
+			
+			Vertraulichkeit
+			Transportverschlüsselung Mailempfang:
+			-  	TLS is an option on this server
+			-  	Connection converted to SSL
+			- 	TLS successfully started on this server
+			- 	Cannot proof e-mail address (reason: MAIL FROM rejected)
+			- Note: This does not affect the CheckTLS Confidence Factor
+			% http://checktls.com/perl/TestReceiver.pl
+			
+			
+			
+			Transportverschlüsselung Mailversand
+			- SSL standardmäßig eingestellt, keine Möglichkeit das abzustellen
+			%http://windows.microsoft.com/de-de/windows/answers?tId=8d16e8b8-d565-4923-bd68-59dbe32aaf4d
+			- weitere Bestätigung:
+			%http://www.patshaping.de/hilfen_ta/pop3_smtp.htm
+			
+			
+			Zertifikat
+			- Certificate 1 of 4 in chain
+				- Signature Algorithm: sha1WithRSAEncryption
+				- Public Key Algorithm: rsaEncryption
+				- Public-Key: (2048 bit)
+				-  X509v3 Key Usage: 
+				        Digital Signature, Key Encipherment, Data Encipherment
+				- X509v3 Extended Key Usage: 
+				        TLS Web Client Authentication, TLS Web Server Authentication
+					
+			- Certificate 2 of 4 in chain:
+				- Signature Algorithm: sha1WithRSAEncryption
+				- Public Key Algorithm: rsaEncryption
+				- Public-Key: (2048 bit)
+				- X509v3 Key Usage: 
+				        Digital Signature, Certificate Sign, CRL Sign
+			- Certificate 3 of 4 in chain:
+				- Signature Algorithm: sha1WithRSAEncryption
+				- Public Key Algorithm: rsaEncryption
+				- Public-Key: (4096 bit)
+				- X509v3 Key Usage: critical
+				        Digital Signature, Certificate Sign, CRL Sign
+			- Certificate 4 of 4 in chain
+				- Signature Algorithm: sha1WithRSAEncryption
+				- Public Key Algorithm: rsaEncryption
+				- Public-Key: (2048 bit)
+			- X509v3 Key Usage: critical
+			        Certificate Sign, CRL Sign
+			        
+			        
+			-  	Cert VALIDATED: ok
+			%http://checktls.com/perl/TestReceiver.pl
+			\medskip
+			
+			Integrität
+			E2EE Webmail
+			- keine Angaben
+			E2EE Einrichtung
+			- keine Angaben
+			\medskip
+			
+			
+			Authentizität
+			Digitale Signatur Webmail
+			- gefunden in Hilfe, also nicht direkt
+			- nicht verfügbar %http://windows.microsoft.com/de-de/windows/answers?tId=75a5cabc-9533-4fe4-be2c-572a21032371
+			Digitale Signatur E-Mailanwendung
+			- gefunden in Hilfe, also nicht direkt
+			- möglich, es wird aber keine Auskunft gegeben, wie es einzurichten wäre
+			%http://windows.microsoft.com/de-de/windows/answers?tId=75a5cabc-9533-4fe4-be2c-572a21032371
+			
+			
+			Einrichtung digitale Signaturen
+			- Geht scheinbar nur mit Hilfe einer Einbindung anderer Mail Konten
+			%http://windows.microsoft.com/de-de/windows/answers?tId=d10213b3-2eff-44ea-92cc-60a47f3fd778
+			
+			
+			Mailserverauthentifizierung
+			- Mit outlook versucht und möglich
+			- Verwendet SMTP Authentifizierung:
+			%http://www.patshaping.de/hilfen_ta/pop3_smtp.htm
+			\medskip
+			
+			Sicherheitsrelevante Aspekte			
+			Verschlüsselte Speicherung
+			- dafür hat NSA direkte Zugriffmöglichkeiten auf die Mailserver:
+			%http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html
+			--> Damit wohl eher nicht
+			
+			Sicherheitsinformationen
+			- Punkt 2 aus dieser Quelle:
+			%http://www.microsoft.com/de-de/account/security/default.aspx#
+			- Mehr erfahren:
+			%http://windows.microsoft.com/de-de/windows-live/account-security-password-information
+			- Sicherheitsinfos setzen:
+				- Kennwort
+				- Hinterlegte Kontaktdaten zum Abprüfen von Sicherheitsinfos
+				- Prüfung in zwei Schritten 
+				- Identitätsüberprüfungs-Apps
+				- Wiederherstellungscode
+				- Vertrauenswürdige Geräte 
+			%https://account.live.com/Proofs/Manage
+			
+			E-Mailauswertung
+			- es gibt personalisierte Werbung
+			- Administratoren erhalten direkten Zugang zu den Postfächern
+			%https://mailbox.org/microsoft-liest-e-mails-seiner-hotmail-nutzer/
+			
+			Sicherheits Zusatzfunktionen
+			- Zwei Faktor Authentifizierung kann eingerichtet werden
+			
+			Transparenzbericht
+			- offenbar vorhanden
+			%http://www.areamobile.de/news/26765-indiskret-microsoft-schnueffelt-in-hotmail-konto
+			- aber keinen gefunden
+			- dafür hat NSA direkte Zugriffmöglichkeiten auf die Mailserver:
+			%http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html
+			
+			\subsubsection*{Yahoo Mail}
+			\label{subsubsec:googlemail}
+			
+			Vertraulichkeit
+			Transportverschlüsselung Mailempfang
+			Transportverschlüsselung Mailversand
+			Zertifikat
+			
+			Integrität
+			E2EE Webmail
+			E2EE Einrichtung
+			
+			Authentizität
+			Digitale Signatur Webmail
+			Digitale Signatur E-Mailanwendung
+			Einrichtung digitale Signaturen
+			Mailserverauthentifizierung
+			
+			Sicherheitsrelevante Aspekte
+			Verschlüsselte Speicherung
+			Sicherheitsinformationen
+			E-Mailauswertung
+			- geschieht und wird mit Datenschutzbestimmungen erlaubt
+			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
+			Sicherheits Zusatzfunktionen
+			
+			Transparenzbericht
+			- Yahoo hat Transparenzbericht:
+			%http://www.zeit.de/digital/datenschutz/2014-03/transparenzberichte-google-yahoo
+		
 			\pagebreak
 			\subsection{EmiG - E-Mail made in Germany}
 			EmiG ist eine Initiative der größten deutschen E-Mail Provider GMX, web.de und T-Online, die zusammen über 53\% (Stand: 2013) der aktiven E-Mail-Konten in Deutschland betreiben.
