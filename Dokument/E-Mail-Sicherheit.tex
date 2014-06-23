@@ -271,13 +271,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten vor Dritten unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegende Funktionsweise der Verschlüsselung untersucht, die zum Verständnis der weiteren Unterkapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
 				%Die Einleitung ist top, mehr Bezug zur E-Mail wäre toll, so das es essenziel für Sicherheit ist und die Basis zur Sicherstellung von sicherer Kommunikation Stufe 1-4 (Unsere niveaus) da nämlich auch öffentlich zumindest transport verschlüsselt sein sollte (wird ja auch als Standard durchgedrück (versucht) EmiG, TLS)
 			\subsection{Symmetrische Verschlüsselung}
-				Bei der symmetrischen Verschlüsselung wird sowohl zur Verschlüsselung und Entschlüsselung ein gemeinsamer Schlüssel verwendet. Dieser Schlüssel wird auch Shared Secret genannt. Mithilfe dieses Schlüssels und einem kryptographischen Algorithmus wird die Information des Absenders, auch als Klartext bezeichnet, verschlüsselt. Ein Algorithmus transformiert dabei einen Eingabeparameter in einen Ausgabeparameter. Im Fall eines kryptographischen Algorithmus handelt es sich um eine mathematische Vorschrift, die aus dem Klartext einen sogenannten Geheimtext berechnet. Diesen verschlüsselten Text kann der Empfänger mit dem selben Schlüssel, der zur Verschlüsselung verwendet wurde, entschlüsseln. Abbildung  zeigt das Funktionsprinzip einer symmetrischen Verschlüsselung.
-				%Folgende Abbildung ist blöd, besser Wäre dann der Bezug, wenn sie drin ist wie "Die Abbildung 2 zeigt.." Also Referenzieren!
-				\footnote{Kryptographie, S. 41}
-				\begin{center}
-					\includegraphics[width=0.4\textwidth]{images/WOT.png}
-				\end{center}
-				Entnommen aus: \footcite[S. 41]{Schmeh2013}
+				Bei der symmetrischen Verschlüsselung wird sowohl zur Verschlüsselung und Entschlüsselung ein gemeinsamer Schlüssel verwendet. Dieser Schlüssel wird auch Shared Secret genannt. Mithilfe dieses Schlüssels und einem kryptographischen Algorithmus wird die Information des Absenders, auch als Klartext bezeichnet, verschlüsselt. Ein Algorithmus transformiert dabei einen Eingabeparameter in einen Ausgabeparameter. Im Fall eines kryptographischen Algorithmus handelt es sich um eine mathematische Vorschrift, die aus dem Klartext einen sogenannten Geheimtext berechnet. Diesen verschlüsselten Text kann der Empfänger mit dem selben Schlüssel, der zur Verschlüsselung verwendet wurde, entschlüsseln.
 				Im elektronischen Mailverkehr wirkt sich die Funktionsweise der symmetrischen Verschlüsselung nachteilig auf deren Anwendung auf. Da beide Kommunikationspartner denselben Schlüssel benötigen, muss dieser zuvor ausgehandelt und übertragen werden. Dieser Umstand stellt ein Risiko bezüglich der Vertraulichkeit dar. Jeder, der über den Schlüssel verfügt, kann auf den Inhalt der Nachricht zugreifen. Dieses Sicherheitsrisiko wird durch die asymmetrische Verschlüsselung beseitigt.
 				%Wir benutzen scheinbar alle verschiedene Synonme für E-Mail Kommunikation. Elektronischer Briefverkehr klingt ganz neu für mich :D Vielleicht einigen wir uns einfach auch "E-Mail-Kommunikation"?
 				%Referenzieren (Schlüsselaustausch!)	
@@ -347,11 +341,12 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 		\section{Web of Trust}
 			Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist, dass die Nutzer dieses Modells gegenseitig ihre öffentlichen Schlüsseln signieren. Im Gegensatz zum hierarchischen Verfahren gibt es keine zentrale Zertifizierungsstelle.
 			Die Funktionsweise des Web of Trust wird anhand eines Beispiels erläutert.:
-			\begin{center}
+			\begin{wrapfigure}{l}{0.5\textwidth}
+			\centering
 				\includegraphics[width=0.4\textwidth]{images/WOT.png}
-			\end{center}
 			\caption[Web of Trust Vertrauensmodell]{Web of Trust Vertrauensmodell\footnotemark}
-			In Anlehnung an: \footcite[S. 120]{Ertel2012}
+			\end{wrapfigure}
+			\footnotetext{\cite[In Anlehnung an:][S. 120]{Ertel2012}}
 			Teilnehmer C möchte Teilnehmer B eine verschlüsselte Nachricht schicken. Dazu besorgt er sich zunächst das Zertifikat von Teilnehmer B. Dieser wurde zuvor von Teilnehmer A signiert. Da Teilnehmer C Teilnehmer A vertraut, beschafft sich Teilnehmer C den öffentlichen Schlüssel von Teilnehmer A und verifiziert mit damit das Zertifikat von Teilnehmer B. Ist die Verifizierung erfolgreich, so kann Teilnehmer C den öffentlichen Schlüssel von Teilnehmer B vertrauen.
 			
 			Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerseits existiert das Vertrauen in eine Person bzw. dessen Signatur. Andererseits besteht ein Vertrauen in einen signierten Schlüssel eines Dritten, der von einer vertrauensvollen Person signiert wurde. Beide Arten des Vertrauens können unabhängig voneinander existieren.
