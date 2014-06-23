@@ -352,18 +352,18 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerseits existiert das Vertrauen in eine Person bzw. dessen Signatur. Andererseits besteht ein Vertrauen in einen signierten Schlüssel eines Dritten, der von einer vertrauensvollen Person signiert wurde. Beide Arten des Vertrauens können unabhängig voneinander existieren.
 
 		\section{Schlüsselaustausch}
-			Für die sichere Kommunikation ist ein sicherer Schlüsselaustausch die Ausgangsbasis um Angriffe zu verhindern. ``Hierbei ist der geschützte Austausch geheimer Schlüssel symmetrischer Kryptosysteme von Interesse.''\footcite[S. 437]{Eckert2013}
+			Für die sichere Kommunikation ist ein sicherer Schlüsselaustausch die Ausgangsbasis um Angriffe zu verhindern. \glqq erbei ist der geschützte Austausch geheimer Schlüssel symmetrischer Kryptosysteme von Interesse.\grqq\footcite[S. 437]{Eckert2013}
 			\subsection{RSA - Rivest, Shamir und Adleman-Kryptosystem} 
 				%Problem
 				Beim klassischen Schlüsselaustausch werden die Sitzungsschlüssel durch den Public-Key innerhalb des Server-Zertifikat übertragen.\footcite[Vgl.][]{Boeck2013} Dies geschieht mittels \ac{RSA}-Verfahren. Verschlüsselte Kommunikation ist jedoch nur solang die Schlüssel geheim bleiben sicher. Die Gefahr beim klassischen \ac{RSA}-\ac{PKI}-Verfahren ist dass vergangene Kommunikation nachträglich zu jedem Zeitpunkt entschlüsselt werden kann, sobald Angreifer in Besitz des Private-Key sind.\medskip\\
 				%Idee
 			\subsection{PFS - Perfect Forward Secrecy}
-				Im Gegensatz zum klassischen RSA-Schlüsselaustausch ist es sinnvoller die Sitzungsschlüssel %REFERENZ Erklären was Sitzungsschlüssel sind
-				zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch \ac{PFS}\footcite[Vgl.][]{Boeck2013} genannt wird. Die ``Anforderung an die Verfahren und Protokolle zur Schlüsselerneuerung besteht darin dafür zu sorgen, dass die Kenntnis eines Schlüssels, also dessen Aufdeckung, nicht dazu führt, dass damit auch vorherige und nachfolgende Schlüssel direkt aufdeckbar sind.''\footcite[S. 439]{Eckert2013} Wie notwendig \ac{PFS} geworden ist zeigen die jüngsten Ereignisse im Zusammenhang mit dem OpenSSL-Bug "Heartbleed", mit dem es sehr einfach war Private Schlüssel von Server auszulesen.\footcite[Vgl. ][]{Zhu2014} \medskip\\
+				Im Gegensatz zum klassischen RSA-Schlüsselaustausch ist es sinnvoller die Sitzungsschlüssel
+				zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch \ac{PFS}\footcite[Vgl.][]{Boeck2013} genannt wird. Die \glqq forderung an die Verfahren und Protokolle zur Schlüsselerneuerung besteht darin dafür zu sorgen, dass die Kenntnis eines Schlüssels, also dessen Aufdeckung, nicht dazu führt, dass damit auch vorherige und nachfolgende Schlüssel direkt aufdeckbar sind.\grqq\footcite[S. 439]{Eckert2013} Wie notwendig \ac{PFS} geworden ist zeigen die jüngsten Ereignisse im Zusammenhang mit dem OpenSSL-Bug "Heartbleed", mit dem es sehr einfach war Private Schlüssel von Server auszulesen.\footcite[Vgl. ][]{Zhu2014} \medskip\\
 				%Umsetzung
-				Das \ac{DHE} Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. ``Abgeschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.''\footcite[Vgl. ][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und IPsec beherrschen bereits \ac{PFS}.\medskip\\
+				Das \ac{DHE} Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. \glqq geschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.\grqq''tcite[Vgl. ][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und IPsec beherrschen bereits \ac{PFS}.\medskip\\
 				%Vorteile
-				Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem \ac{MITM}-Angriff\ref{sec:mitm} manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie DANE (Vgl. Kapitel \ref{subsec:dane}), die in Kombination mit \ac{PFS} aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizität der Kommunikation gewährleistet wird.\medskip\\
+				Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem \ac{MITM}-Angriff manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie DANE (Vgl. Kapitel \ref{subsec:dane}), die in Kombination mit \ac{PFS} aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizität der Kommunikation gewährleistet wird.\medskip\\
 				%Nachteile
 				Nachteile gibt es lediglich bei der Verwendung des bereits überholten, und seit Jahren als geknackt bekannte \ac{DHE}-Verfahren, denn dabei verzögert sich zusätzlich der Verbindungsaufbau. Die Schlüssellänge ist Minimum 1024 Bit, und längere Schlüssel mit 2048 oder 4096 Bit sind dabei nicht sicherer.\footcite[Vgl.][]{Boeck2013} Der moderne Nachfolger mit elliptischen Kurven \ac{ECDH} gilt aktuell als sicher und benötigt dabei weniger als 1024 Bit und verzögert den Verbindungsaufbau nur unweigerlich.\medskip\\
 				%Grenzen
@@ -372,7 +372,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				Für die E-Mail Kommunikation ist \ac{PFS} essenziell für die Befriedigung hoher Sicherheitsbedürfnisse. Um die dazugehörigen Sicherheitsniveaus abzudecken müssen E-Mail-Server Forward Secrecy unterstützen. Im August 2013 war \ac{PFS} nur sporadisch verbreitet in der E-Mail-Kommunikationslandschaft.\footcite[Vgl. ][]{Schulz2014} Mittlerweile wird von vielen E-Mail-Providern auch \ac{PFS} angewandt. Die Umsetzung erfolgt jedoch noch zu zögerlich, wenn man die Tatsache betrachtet, dass \ac{PFS} im Zusammenhang mit Heartbleed der letzte Funken Hoffnung für betroffene Nutzer war, das zumindest vergangene Kommunikation nicht entschlüsselt werden kann.\footcite[Vgl.][]{Zhu2014}
 		
 		\section{Informationsverschlüsselung}
-			Für hohe Sicherheitsanforderungen entscheidend ist die Vertraulichkeit der Daten. Hierfür gilt es die Authentizität und Integrität einer E-Mail sicherzustellen. Die Methode zur Umsetzung dieser Sicherheitsanforderungen ist die verschlüsselte Kommunikation zwischen zwei Endpunkten. In der E-Mail-Kommunikation wird dies mit sog. Ende-zu-Ende-Verschlüsselung (englisch \ac{E2EE}) und den Diensten S/MIME und \ac{PGP} realisiert die im Nachgang beleuchtet werden.
+			Für hohe Sicherheitsanforderungen entscheidend ist die Vertraulichkeit und Integrität der Datommunikation zwischen zwei Endpunkten. In der E-Mail-Kommunikation wird dies mit sog. Ende-zu-Ende-Verschlüsselung (englisch \ac{E2EE}) und den Diensten S/MIME und \ac{PGP} realisiert, die im Nachgang beleuchtet werden.
 			Es gibt mittlerweile verschiedene Möglichkeiten \ac{E2EE} umzusetzen. Im Grunde müssen durch die Nutzer jedoch Einstellungen in den E-Mailprogrammen wie Thunderbird, Outlook oder Mail.app vorgenommen werden oder zusätzliche Software installiert werden. Demzufolge besteht ein erhöhter Einrichtungsaufwand für die Nutzer zur Sicherstellung der Vertraulichkeit und um in Sicherheitsniveaus der Grade 3 oder 4 zu kommunizieren.\medskip
 			Erste E-Mail-Provider gehen zum Teil eigene Wege wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013}. Aber auch kleinere Anbieter sind an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
 			
@@ -383,7 +383,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende Verschlüsselung, jedoch ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf den eigenen Server zwischenspeichert. Der Nutzer hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist. 
 				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modell. \medskip\\
 				Mit PGP werden kryptographische Dienste bereitgestellt die unter anderem Dateiverschlüsselung, Schlüssel-Recovery und das Signieren von Dokumenten umfassen.
-				Ab Version 5.0 wird in PGP neben \ac{RSA} auch \ac{DHE} zum Austausch symmetrischer Schlüssel und eine symmetrische Blockchiffre für die Mailverschlüsselung verwendet. Die Integrität der Daten ``... und Authentizität wird durch die Verwendung von \ac{SHA}-1 und \ac{MD5} als Hashfunktionen bzw. als \ac{MAC}s sichergestellt.''\footcite[][S.823]{Eckert2013}\medskip
+				Ab Version 5.0 wird in PGP neben \ac{RSA} auch \ac{DHE} zum Austausch symmetrischer Schlüssel und eine symmetrische Blockchiffre für die Mailverschlüsselung verwendet. Die Integrität \glqq Authentizität [der Daten] wird durch die Verwendung von \ac{SHA}-1 und \ac{MD5} als Hashfunktionen bzw. als \ac{MAC}s sichergestellt.\grqq\footcite[S.823]{Eckert2013}\medskip
 				Für das Format zur Verschlüsselung und Signierung von Daten nach \ac{PGP} 5 bietet OpenPGP einen Standard nach \acs{RFC} 4880. Ein entsprechendes Programm zur Implementierung dieses Standards ist \ac{GPG} für gängige E-Mail-Clients um die Verschlüsselung und den Schlüsselaustausch so benutzerfreundlich wie möglich zu gestalten. Zu Berücksichtigen ist hierbei der Faktor das Private Keys nur lokal gespeichert und durch sichere Passphrasen geschützt sind.
 				
 				
@@ -611,11 +611,11 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 		\subsection{DANE - DNS-based Authentication of Named Entities}
 		\label{subsec:dane}                                             
 			Die Basis für die Applikation \ac{DANE} stellt \ac{DNSSEC} und soll dabei die Schwachstellen von \ac{TLS} beim Verschlüsseln des Datentransport entfernen. Denn die Authentizität der verwendeten Zertifikate kann nicht immer gewährleistet werden, und somit besteht die Gefahr der kompromittierten Daten durch \ac{MITM}-Angriffe oder \ac{DNS}-Cache-Poisoning.
-			Die Schwachstellen der Zertifikatsprüfung und -aussteller (Vgl. Kapitel \ref{sec:zertifikatsaussteller} und \ref{sec:zertifikatspruefung}) werden mittels \ac{DANE} eliminiert, denn es werden damit nicht mehr mehrere CA-Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
+			Die Schwachstellen der Zertifikatsprüfung und -aussteller\footcite{Koetter2014}Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
 			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail Protokolle beschränkt sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
-			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen Publik Key des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch ist die Verbindung vertrauensvoll.
-			Ein durchgängig verfizierter Transport ist allerdings nur möglich wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt muss ``müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren''\footcite[S. 197]{Koetter2014}
-			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn ``die Verwendung [...] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,''\footcite[S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
+			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen PublicKey des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch ist die Verbindung vertrauensvoll.
+			Ein durchgängig verifizierter Transport ist allerdings nur möglich wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt \glqq müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren\grqq\footcite[][S. 197]{Koetter2014}
+			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn \glqq die Verwendung [...] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,\grqq\footcite[][S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
 	\pagebreak
 	\chapter{E-Mail-Sicherheit in der Praxis}
 		\section{Provider Vergleich}
@@ -629,78 +629,28 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\label{subsubsec:googlemail}
 			Vertraulichkeit
 			Transportverschlüsselung Mailempfang
-			- 90 Punkte
-			- Alle Protokoll Versionen bis auf SSL 2 verwendet
-			- Forward Secrecy mit modernen Browsern unterstützt
-			%Report Anhang
-			
 			Transportverschlüsselung Mailversand
-			- 90 Punkte
-			%Report Anhang
-			
-			- intern unter googles servern verschlüsselt
-			%http://google-produkte.blogspot.de/2014_04_01_archive.html
-			
-			
 			Zertifikat
-			- 100 Punkte
-			%Report Anhang
 			
 			Integrität
 			E2EE Webmail
-			- Alpha-Version eines Addons für Chrome für die PGP Verschlüsselung
-			%http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html
-			
-			
 			E2EE Einrichtung
-			- Keine Infos in Webmailer gefunden
-			- In Forum wird von anderen Nutzern über zusätzliche Apps gesprochen, aber es gibt keine wirkliche Lösung
-			%https://productforums.google.com/forum/#!topic/gmail/SLvkE9FLqXE
-			%https://productforums.google.com/forum/#!topic/gmail/oWhrJv5CfTE
-			- Auch über google Suche keine relevante Seite gefunden
-			
 			
 			Authentizität
 			Digitale Signatur Webmail
-			- nicht supported (Stand 2010)
-			%https://productforums.google.com/forum/#!topic/gmail/Gy72o1f3TYk
-			
-			
 			Digitale Signatur E-Mailanwendung
-			- nichts beschrieben
 			
-			Einrichtung digitale Signaturen
-			- nichts beschrieben
-			
-			Mailserverauthentifizierung (DANE)
-			- wird nicht unterstützt
-			%https://productforums.google.com/forum/#!topic/gmail/gjAaDPMVRhs
-			% Report Anlage
+Einrichtung digitale Signaturen
+			Mailserverauthentifizierung
 			
 			Sicherheitsrelevante Aspekte
 			Verschlüsselte Speicherung
-			- wohl eher nicht, zumindest keine quellen gefunden, die das Gegenteil beweisen
-	
-			
 			Sicherheitsinformationen
-			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook. 
-			%Report Anhang
 			
 			E-Mailauswertung
-			- Datenschutzbestimmungen erlauben es
-			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
-			- personalisierte Werbung
-			%s. Screenshot OneNote
-			
-			- Geschäftsmodell beruht darauf die Kommunikation seiner Nutzer zu analysieren
-			%http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html
+			- Datenschutzbestimmungen erlaubtttp://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
 			
 			Sicherheits Zusatzfunktionen
-			- 2 Faktor Authentifizierung
-		
-			- Einschränkung der Apps, die Zugriff  auf Daten erhalten
-			- SMS Benachrichtigung
-			%S. OneNote
 			
 			Transparenzbericht
 			- ist das schon ein Transparenzbericht?
@@ -711,7 +661,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			
 			
 			\subsubsection*{Hotmail}
-			\label{subsubsec:hotmail}
+			\label{subsubsec:googlemail}
 			
 			Vertraulichkeit
 			Transportverschlüsselung Mailempfang:
@@ -722,10 +672,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			- Note: This does not affect the CheckTLS Confidence Factor
 			% http://checktls.com/perl/TestReceiver.pl
 			
-			- 70\%, da nur ältere Protokolle verwendet werden
-			- nur bis TLS 1.0 und SSL 3.0
-			- no Forward Secrecy
-			%Anhang Report
+			
 			
 			Transportverschlüsselung Mailversand
 			- SSL standardmäßig eingestellt, keine Möglichkeit das abzustellen
@@ -767,11 +714,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			-  	Cert VALIDATED: ok
 			%http://checktls.com/perl/TestReceiver.pl
 			
-			- 100 Punkte
-			%Report Anhang
-			
-			- 
-			\medskip
+\medskip
 			
 			Integrität
 			E2EE Webmail
@@ -797,12 +740,11 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			
 			
 			Mailserverauthentifizierung
-			%- Mit outlook versucht und möglich
-			%- Verwendet SMTP Authentifizierung:
+			- Mit outlook versucht und möglich
+			- Verwendet SMTP Authentifizierung:
 			%http://www.patshaping.de/hilfen_ta/pop3_smtp.htm
 			
-			- es wird kein DANE verwendet, bzw keine Daten zu gefunden
-			\medskip
+\medskip
 			
 			Sicherheitsrelevante Aspekte			
 			Verschlüsselte Speicherung
@@ -824,17 +766,14 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				- Vertrauenswürdige Geräte 
 			%https://account.live.com/Proofs/Manage
 			
-			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook.
-			%Report aus Anhang
 			
-			E-Mailauswertung
+E-Mailauswertung
 			- es gibt personalisierte Werbung
 			- Administratoren erhalten direkten Zugang zu den Postfächern
 			%https://mailbox.org/microsoft-liest-e-mails-seiner-hotmail-nutzer/
 			
 			Sicherheits Zusatzfunktionen
 			- Zwei Faktor Authentifizierung kann eingerichtet werden
-			%http://windows.microsoft.com/de-de/windows-live/account-security-password-information
 			
 			Transparenzbericht
 			- offenbar vorhanden
@@ -844,75 +783,32 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			%http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html
 			
 			\subsubsection*{Yahoo Mail}
-			\label{subsubsec:yahoo}
-			
-			Vertraulichkeit
+			\label{subsubsec:yahoomail}			Vertraulichkeit
 			Transportverschlüsselung Mailempfang
-			- 90 Punkte
-			- Alle Protokoll Versionen außer SSL 2
-			- Forward Secrecy wird unterstützt in mordernen Browsers
-			%Report Anhang
-			
 			Transportverschlüsselung Mailversand
-			-  s.o.
-			- intern ist versand verschlüsselt
-			%http://www.heise.de/security/meldung/Yahoo-verschluesselt-jetzt-fast-alles-2161810.html
-			Sehr interessant allgemein
-			%http://www.heise.de/security/meldung/Schutz-fuer-E-Mails-Kleine-Mail-Dienste-ueberzeugen-2098281.html
-			
 			Zertifikat
-			- 100 Punkte
-			%Report Anhang
 			
 			Integrität
 			E2EE Webmail
-			- nicht vorhanden
-			
 			E2EE Einrichtung
-			- keine Hilfe gefunden über Webmailer
 			
 			Authentizität
 			Digitale Signatur Webmail
-			- keine Infos gefunden
 			
-			Digitale Signatur E-Mailanwendung
-			- keine Infos gefunden
+Digitale Signatur E-Mailanwendung
 			
-			Einrichtung digitale Signaturen
-			- keine Infos gefunden
+Einrichtung digitale Signaturen
 			
-			Mailserverauthentifizierung
-			- nicht unterstützt
-			%s. Anhang Report
+Mailserverauthentifizierung
 			
 			Sicherheitsrelevante Aspekte
 			Verschlüsselte Speicherung
-			- Personalisierte Werbung
-			%s. OneNote
-			
 			Sicherheitsinformationen
-			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook. 
-			%Report Anhang
-			- Anmeldesiegel, welches sicherstellt, dass man sich auf keienr Fake Seite befindet -> in Zusammenhang mit der Open ID
-			%Screen OneNote
-			- Darstellung aller Apps/externe Seiten, die Zugriff auf die eigenen Daten haben
-			%Screen OneNote
-			
-			- Darstellung aller Apps/externe Seiten, die Zugriff auf die eigenen Daten haben
-			%Screen OneNote
-			
-			- Wegwerfadresse
-			
-			- DKIM
-			%https://de.hilfe.yahoo.com/kb/mail-for-desktop/SLN3282.html?impressions=true
-			
 			E-Mailauswertung
 			- geschieht und wird mit Datenschutzbestimmungen erlaubt
 			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
 			
-			Sicherheits Zusatzfunktionen
-			- Personalisierte Werbung
-			%s. OneNote
+Sicherheits Zusatzfunktionen
 			
 			Transparenzbericht
 			- Yahoo hat Transparenzbericht:
@@ -1077,14 +973,10 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 					\medskip\\
 					
 					\paragraph{Vertraulichkeit und Integrität}
-						Der Zugriff auf den Server von Posteo erfolgt immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung, unabhängig davon, ob ein Mailprogramm oder der Webmailer genutzt wird.
-						Dies wird durch den Einsatz von \ac{HSTS} erzwungen.
-						Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt vor und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
+						Der Zugriff auf den Server von Posteo erfolgt immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung, unabhängig davon, ob ein Mailprogramm oder der Webmailer genutzt wird.             strikt um und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
 						Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.][]{Posteo2013c}\medskip\\
 					
-						Ein Versand von Mails mittels \ac{E2EE} mit dem Webmailer ist momentan nicht möglich.
-						An der Umsetzung wird jedoch bereits aktiv gearbeitet.
-						Momentan bereitet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.][]{Posteo2013c}
+						Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versendenet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.][]{Posteo2013c}
 						Über die Verschlüsselungsmöglichkeiten per \ac{PGP} und \ac{S/MIME} und die damit verbundenen Vor- und Nachteile in Bezug auf anonyme Kommunikation wird auf der Webseite von Posteo ausführlich informiert.
 						Eine konkrete Hilfestellung zur Einrichtung der Verschlüsselungsverfahren zur Nutzung mit einem Mailprogramm wird bisher nicht gegeben.
 						Stattdessen wird auf die Seite von \textit{Netzpolitik.org}\footnote{\url{https://netzpolitik.org/2013/anleitung-so-verschlusselt-ihr-eure-e-mails-mit-pgp}} und dem Mailprogramm \textit{Thunderbird} der Mozilla Foundation\footnote{\url{http://www.thunderbird-mail.de/wiki/Mailverschlüsselung_mit_S/MIME}} verlinkt.
@@ -1101,8 +993,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 						Hierdurch sind die gespeicherten Mails vor Zugriffen geschützt, falls die Festplatten geklaut oder beschlagnahmt werden sollten.
 						Die Mails selbst werden jedoch nicht extra verschlüsselt gespeichert, wodurch sie für Personen, die sich unberechtigten Zugriff auf die Server im laufenden Betrieb verschaffen können, auslesbar sind.
 						Die Möglichkeit für eine zusätzliche Verschlüsselung der Mails ist jedoch ebenfalls für die Zukunft geplant.\footcite[Vgl.][]{Posteo2013c}
-						Insgesamt wäre es wünschenswert, wenn Posteo bei dem geäußerten Anspruch auf hohen Datenschutz und Wahrung der Privatspähre seiner Nutzer, diesen gut verständliche Anleitungen für die Einrichtung und Nutzung von Verschlüsselungsverfahren und digitalen Signaturen geben würde.\medskip\\
-						
+						Insgesamt wäre es wünschenswert, wenn Posteo bei dem geäußerten Anspruch auf hohen Datenschutz und Wahrung der Privatspähre seiner Nutzer, diesen gut verständliche Anleitungen für die Einrichtung und Nutzung von Verschlüsselungsverfahren und digitalen Signaturen geben würde.
 						Wie bereits zu Beginn der Ausführungen zu den alternativen Providern erwähnt garantiert Posteo seinen Nutzern Werbefreiheit.
 						Aus diesem Grund werden die Mails weder beim Versand noch beim Empfang durch Posteo analysiert.
 						Eine weitere Sicherheitsfunktion ist das sogenannte \ac{IP}-Stripping.
@@ -1115,22 +1006,17 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				\label{subsubsec:mailbox}
 					Mailbox.org startete im Februar 2014 als neuer E-Maildienst der Heinlein Support GmbH, die mit JPBerlin bereits seit über 20 Jahren als \ac{ISP} auftritt und E-Mailpostfächer anbietet.
 					Die Abgrenzung zur Konkurrenz erfolgt, wie auch bei Posteo, über die explizite Betonung des Datenschutzes und der Privatsphäre des Kunden.
-					Dies ist unter anderem am Werbespruch zu erkennen, der \glqq damit Privates privat bleibt\grqq{} lautet.
+					Dies ist unter anderem am Werbespruch zu erkennen, der \glqq damit Privates privat bleibt\grqq lautet.
 					Auch bei Mailbox.org gibt es kein kostenloses Angebot zur Nutzung des E-Maildienstes, dafür aber ebenso das Versprechen von Werbe- und insbesondere auch hohem Spamschutz.\footcite[Vgl.][]{Mailbox2014}
 					In den folgenden Abschnitten wird die Durchführung der Nutzwertanalyse für Mailbox.org beschrieben.
 					
-					\paragraph{Vertraulichkeit und Integrität}
-						Bei Mailbox.org können die Nutzer nur auf verschlüsseltem Weg auf die Server zugreifen um ihre Mails abzurufen.
-						Hierbei werden die neuesten Versionen von \ac{TLS} unterstützt und der Aufbau von unverschlüsselten Verbindungen durch den Einsatz von \ac{HSTS} unterbunden.
-						Auch beim Versand der Mails bietet Mailbox.org die Möglichkeit einen unverschlüsselten Versand zu unterbinden.\footcite[Vgl.][]{Mailbox2014b}
-						Zur Authentifizierung seiner Mailserver setzt Mailbox.org \ac{DANE} ein und unterstreicht hiermit seinen Anspruch als Anbieter für sichere Kommunikation per E-Mail.\medskip\\
-						
-						
-						
-					\paragraph{Authentizität}
-						
-					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
-						
+				\paragraph{Vertraulichkeit und Integrität}
+					
+					
+				\paragraph{Authentizität}
+					
+				\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
+					
 					
 					
 			\subsection{De-Mail}
