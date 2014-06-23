@@ -629,28 +629,78 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\label{subsubsec:googlemail}
 			Vertraulichkeit
 			Transportverschlüsselung Mailempfang
+			- 90 Punkte
+			- Alle Protokoll Versionen bis auf SSL 2 verwendet
+			- Forward Secrecy mit modernen Browsern unterstützt
+			%Report Anhang
+			
 			Transportverschlüsselung Mailversand
+			- 90 Punkte
+			%Report Anhang
+			
+			- intern unter googles servern verschlüsselt
+			%http://google-produkte.blogspot.de/2014_04_01_archive.html
+			
+			
 			Zertifikat
+			- 100 Punkte
+			%Report Anhang
 			
 			Integrität
 			E2EE Webmail
+			- Alpha-Version eines Addons für Chrome für die PGP Verschlüsselung
+			%http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html
+			
+			
 			E2EE Einrichtung
+			- Keine Infos in Webmailer gefunden
+			- In Forum wird von anderen Nutzern über zusätzliche Apps gesprochen, aber es gibt keine wirkliche Lösung
+			%https://productforums.google.com/forum/#!topic/gmail/SLvkE9FLqXE
+			%https://productforums.google.com/forum/#!topic/gmail/oWhrJv5CfTE
+			- Auch über google Suche keine relevante Seite gefunden
+			
 			
 			Authentizität
 			Digitale Signatur Webmail
+			- nicht supported (Stand 2010)
+			%https://productforums.google.com/forum/#!topic/gmail/Gy72o1f3TYk
+			
+			
 			Digitale Signatur E-Mailanwendung
+			- nichts beschrieben
+			
 			Einrichtung digitale Signaturen
-			Mailserverauthentifizierung
+			- nichts beschrieben
+			
+			Mailserverauthentifizierung (DANE)
+			- wird nicht unterstützt
+			%https://productforums.google.com/forum/#!topic/gmail/gjAaDPMVRhs
+			% Report Anlage
 			
 			Sicherheitsrelevante Aspekte
 			Verschlüsselte Speicherung
+			- wohl eher nicht, zumindest keine quellen gefunden, die das Gegenteil beweisen
+	
+			
 			Sicherheitsinformationen
+			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook. 
+			%Report Anhang
 			
 			E-Mailauswertung
-			- Datenschutzbestimmungen erlaubt
+			- Datenschutzbestimmungen erlauben es
 			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
+			- personalisierte Werbung
+			%s. Screenshot OneNote
+			
+			- Geschäftsmodell beruht darauf die Kommunikation seiner Nutzer zu analysieren
+			%http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html
 			
 			Sicherheits Zusatzfunktionen
+			- 2 Faktor Authentifizierung
+		
+			- Einschränkung der Apps, die Zugriff  auf Daten erhalten
+			- SMS Benachrichtigung
+			%S. OneNote
 			
 			Transparenzbericht
 			- ist das schon ein Transparenzbericht?
@@ -661,7 +711,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			
 			
 			\subsubsection*{Hotmail}
-			\label{subsubsec:googlemail}
+			\label{subsubsec:hotmail}
 			
 			Vertraulichkeit
 			Transportverschlüsselung Mailempfang:
@@ -672,7 +722,10 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			- Note: This does not affect the CheckTLS Confidence Factor
 			% http://checktls.com/perl/TestReceiver.pl
 			
-			
+			- 70\%, da nur ältere Protokolle verwendet werden
+			- nur bis TLS 1.0 und SSL 3.0
+			- no Forward Secrecy
+			%Anhang Report
 			
 			Transportverschlüsselung Mailversand
 			- SSL standardmäßig eingestellt, keine Möglichkeit das abzustellen
@@ -713,6 +766,11 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			        
 			-  	Cert VALIDATED: ok
 			%http://checktls.com/perl/TestReceiver.pl
+			
+			- 100 Punkte
+			%Report Anhang
+			
+			- 
 			\medskip
 			
 			Integrität
@@ -739,9 +797,11 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			
 			
 			Mailserverauthentifizierung
-			- Mit outlook versucht und möglich
-			- Verwendet SMTP Authentifizierung:
+			%- Mit outlook versucht und möglich
+			%- Verwendet SMTP Authentifizierung:
 			%http://www.patshaping.de/hilfen_ta/pop3_smtp.htm
+			
+			- es wird kein DANE verwendet, bzw keine Daten zu gefunden
 			\medskip
 			
 			Sicherheitsrelevante Aspekte			
@@ -764,6 +824,9 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				- Vertrauenswürdige Geräte 
 			%https://account.live.com/Proofs/Manage
 			
+			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook.
+			%Report aus Anhang
+			
 			E-Mailauswertung
 			- es gibt personalisierte Werbung
 			- Administratoren erhalten direkten Zugang zu den Postfächern
@@ -771,6 +834,7 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			
 			Sicherheits Zusatzfunktionen
 			- Zwei Faktor Authentifizierung kann eingerichtet werden
+			%http://windows.microsoft.com/de-de/windows-live/account-security-password-information
 			
 			Transparenzbericht
 			- offenbar vorhanden
@@ -780,30 +844,75 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			%http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html
 			
 			\subsubsection*{Yahoo Mail}
-			\label{subsubsec:googlemail}
+			\label{subsubsec:yahoo}
 			
 			Vertraulichkeit
 			Transportverschlüsselung Mailempfang
+			- 90 Punkte
+			- Alle Protokoll Versionen außer SSL 2
+			- Forward Secrecy wird unterstützt in mordernen Browsers
+			%Report Anhang
+			
 			Transportverschlüsselung Mailversand
+			-  s.o.
+			- intern ist versand verschlüsselt
+			%http://www.heise.de/security/meldung/Yahoo-verschluesselt-jetzt-fast-alles-2161810.html
+			Sehr interessant allgemein
+			%http://www.heise.de/security/meldung/Schutz-fuer-E-Mails-Kleine-Mail-Dienste-ueberzeugen-2098281.html
+			
 			Zertifikat
+			- 100 Punkte
+			%Report Anhang
 			
 			Integrität
 			E2EE Webmail
+			- nicht vorhanden
+			
 			E2EE Einrichtung
+			- keine Hilfe gefunden über Webmailer
 			
 			Authentizität
 			Digitale Signatur Webmail
+			- keine Infos gefunden
+			
 			Digitale Signatur E-Mailanwendung
+			- keine Infos gefunden
+			
 			Einrichtung digitale Signaturen
+			- keine Infos gefunden
+			
 			Mailserverauthentifizierung
+			- nicht unterstützt
+			%s. Anhang Report
 			
 			Sicherheitsrelevante Aspekte
 			Verschlüsselte Speicherung
+			- Personalisierte Werbung
+			%s. OneNote
+			
 			Sicherheitsinformationen
+			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook. 
+			%Report Anhang
+			- Anmeldesiegel, welches sicherstellt, dass man sich auf keienr Fake Seite befindet -> in Zusammenhang mit der Open ID
+			%Screen OneNote
+			- Darstellung aller Apps/externe Seiten, die Zugriff auf die eigenen Daten haben
+			%Screen OneNote
+			
+			- Darstellung aller Apps/externe Seiten, die Zugriff auf die eigenen Daten haben
+			%Screen OneNote
+			
+			- Wegwerfadresse
+			
+			- DKIM
+			%https://de.hilfe.yahoo.com/kb/mail-for-desktop/SLN3282.html?impressions=true
+			
 			E-Mailauswertung
 			- geschieht und wird mit Datenschutzbestimmungen erlaubt
 			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
+			
 			Sicherheits Zusatzfunktionen
+			- Personalisierte Werbung
+			%s. OneNote
 			
 			Transparenzbericht
 			- Yahoo hat Transparenzbericht:
@@ -968,12 +1077,12 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 					\medskip\\
 					
 					\paragraph{Vertraulichkeit und Integrität}
-						Der Zugriff auf den Server von Posteo erfolgt unabhängig davon, ob mit einem Mailprogramm oder auf im Webmailer zugegriffen wird, immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung.
+						Der Zugriff auf den Server von Posteo erfolgt immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung, unabhängig davon, ob ein Mailprogramm oder der Webmailer genutzt wird.
 						Dies wird durch den Einsatz von \ac{HSTS} erzwungen.
-						Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt um und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
+						Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt vor und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
 						Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.][]{Posteo2013c}\medskip\\
 					
-						Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versenden.
+						Ein Versand von Mails mittels \ac{E2EE} mit dem Webmailer ist momentan nicht möglich.
 						An der Umsetzung wird jedoch bereits aktiv gearbeitet.
 						Momentan bereitet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.][]{Posteo2013c}
 						Über die Verschlüsselungsmöglichkeiten per \ac{PGP} und \ac{S/MIME} und die damit verbundenen Vor- und Nachteile in Bezug auf anonyme Kommunikation wird auf der Webseite von Posteo ausführlich informiert.
@@ -992,7 +1101,8 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 						Hierdurch sind die gespeicherten Mails vor Zugriffen geschützt, falls die Festplatten geklaut oder beschlagnahmt werden sollten.
 						Die Mails selbst werden jedoch nicht extra verschlüsselt gespeichert, wodurch sie für Personen, die sich unberechtigten Zugriff auf die Server im laufenden Betrieb verschaffen können, auslesbar sind.
 						Die Möglichkeit für eine zusätzliche Verschlüsselung der Mails ist jedoch ebenfalls für die Zukunft geplant.\footcite[Vgl.][]{Posteo2013c}
-						Insgesamt wäre es wünschenswert, wenn Posteo bei dem geäußerten Anspruch auf hohen Datenschutz und Wahrung der Privatspähre seiner Nutzer, diesen gut verständliche Anleitungen für die Einrichtung und Nutzung von Verschlüsselungsverfahren und digitalen Signaturen geben würde.
+						Insgesamt wäre es wünschenswert, wenn Posteo bei dem geäußerten Anspruch auf hohen Datenschutz und Wahrung der Privatspähre seiner Nutzer, diesen gut verständliche Anleitungen für die Einrichtung und Nutzung von Verschlüsselungsverfahren und digitalen Signaturen geben würde.\medskip\\
+						
 						Wie bereits zu Beginn der Ausführungen zu den alternativen Providern erwähnt garantiert Posteo seinen Nutzern Werbefreiheit.
 						Aus diesem Grund werden die Mails weder beim Versand noch beim Empfang durch Posteo analysiert.
 						Eine weitere Sicherheitsfunktion ist das sogenannte \ac{IP}-Stripping.
@@ -1005,17 +1115,22 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 				\label{subsubsec:mailbox}
 					Mailbox.org startete im Februar 2014 als neuer E-Maildienst der Heinlein Support GmbH, die mit JPBerlin bereits seit über 20 Jahren als \ac{ISP} auftritt und E-Mailpostfächer anbietet.
 					Die Abgrenzung zur Konkurrenz erfolgt, wie auch bei Posteo, über die explizite Betonung des Datenschutzes und der Privatsphäre des Kunden.
-					Dies ist unter anderem am Werbespruch zu erkennen, der \glqq damit Privates privat bleibt\grqq lautet.
+					Dies ist unter anderem am Werbespruch zu erkennen, der \glqq damit Privates privat bleibt\grqq{} lautet.
 					Auch bei Mailbox.org gibt es kein kostenloses Angebot zur Nutzung des E-Maildienstes, dafür aber ebenso das Versprechen von Werbe- und insbesondere auch hohem Spamschutz.\footcite[Vgl.][]{Mailbox2014}
 					In den folgenden Abschnitten wird die Durchführung der Nutzwertanalyse für Mailbox.org beschrieben.
 					
-				\paragraph{Vertraulichkeit und Integrität}
-					
-					
-				\paragraph{Authentizität}
-					
-				\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
-					
+					\paragraph{Vertraulichkeit und Integrität}
+						Bei Mailbox.org können die Nutzer nur auf verschlüsseltem Weg auf die Server zugreifen um ihre Mails abzurufen.
+						Hierbei werden die neuesten Versionen von \ac{TLS} unterstützt und der Aufbau von unverschlüsselten Verbindungen durch den Einsatz von \ac{HSTS} unterbunden.
+						Auch beim Versand der Mails bietet Mailbox.org die Möglichkeit einen unverschlüsselten Versand zu unterbinden.\footcite[Vgl.][]{Mailbox2014b}
+						Zur Authentifizierung seiner Mailserver setzt Mailbox.org \ac{DANE} ein und unterstreicht hiermit seinen Anspruch als Anbieter für sichere Kommunikation per E-Mail.\medskip\\
+						
+						
+						
+					\paragraph{Authentizität}
+						
+					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
+						
 					
 					
 			\subsection{De-Mail}
