@@ -816,58 +816,26 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Zusammen mit den Teilnehmern der freenet AG, 1\&1 Internet AG und STRATO AG\footnote{Die 1\&1 Internet AG ist wie GMX und web.de Teil des United-Internet-Konzern, sowie die STRATO AG eine Tochter des Betreiber von T-Online, der Deutschen Telekom AG ist.} deckt EmiG ca. zwei Drittel der aktiven E-Mail Konten in Deutschland ab.\\
 			Das Projekt wurde im August 2013 als Reaktion der damaligen NSA-Äffäre ins Leben gerufen und hat das Ziel E-Mails zwischen den teilnehmenden Providern auf dem Transportweg mit SSL/TLS verschlüsselt versendet werden.
 			Seit April 2014 ist das Projekt umgesetzt.
-			\medskip\\
-			Prinzipiell ist das Verfahren ausgelegt weitere Teilnehmer aufzunehmen.
-			Dabei beschreiben die Provider ihre Mail-Infrastruktur im JSON-Format mit \glqq Domainnamen, IP-Adressen, SSL-Zertifikate und Rollen der beteiligten Server.\grqq
-			\footcite[Vgl.][]{Zivadino14-1}
-			Die Teilnehmer spiegeln diese Infrastrukturlisten untereinander um Manipulationen derselben zu erschweren.\\
-			Ein zugehöriger Dienst prüft ob Syntax, IP-Adressen und Hostnamen auf Übereinstimmung um anschließend die SSL-Zertifikate zu verifizieren, die von einer Deutschen CA ausgestellt worden sein müssen.
-			Die Listen werden anschließend geprüft um im Nachgang an Teilnehmer der Initiative verteilt zu werden. 
-			Neue Teilnehmer müssen durch den TÜV Rheinland zertifiziert worden sein, damit die EmiG Teilnehmer die aktualisierte Infrastrukturliste laden.
-			\footnote{Vgl. ebd.}
-			\medskip\\
-			Auch die Authentizität wird mittels dem selbst entwickelten, proprietären Verfahren \textit{\ac{IMPT}} sichergestellt. 
-			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client- und Server-Zertifikate gegen die herausgebende CA, sowie gegen die Infrastrukturlisten.
-			Sollten dabei Inkonsistenzen auftreten wird der Versand abgelehnt.\\
-			Dieses Vorgehen erinnert an ein geschlossene Variante von \ac{DANE} (\prettyref{subsec:dane}), welches ähnlich zur Sicherstellung der Authentizität verfährt.
-			Alle Partner der Initiative setzen \ac{PFS} ein
-			\footcite[Vgl.][]{Zivadino14-1}
-			und damit eine Eigenschaft um einem höheren Schutzbedarf in zu entsprechen.
-			\footcite[Vgl.][]{Zivadino14-2} 
+%			\medskip\\
+%			Prinzipiell ist das Verfahren ausgelegt weitere Teilnehmer aufzunehmen.
+%			Dabei beschreiben die Provider ihre Mail-Infrastruktur im JSON-Format mit \glqq Domainnamen, IP-Adressen, SSL-Zertifikate und Rollen der beteiligten Server.\grqq
+%			\footcite[Vgl.][]{Zivadino14-1}
+%			Die Teilnehmer spiegeln diese Infrastrukturlisten untereinander um Manipulationen derselben zu erschweren.\\
+%			Ein zugehöriger Dienst prüft ob Syntax, IP-Adressen und Hostnamen auf Übereinstimmung um anschließend die SSL-Zertifikate zu verifizieren, die von einer Deutschen CA ausgestellt worden sein müssen.
+%			Die Listen werden anschließend geprüft um im Nachgang an Teilnehmer der Initiative verteilt zu werden. 
+%			Neue Teilnehmer müssen durch den TÜV Rheinland zertifiziert worden sein, damit die EmiG Teilnehmer die aktualisierte Infrastrukturliste laden.
+%			\footnote{Vgl. ebd.}
 			\medskip\\
 		%Nutzwertanalyse
 			Die Nutzwertanalyse (\prettyref{sec:nwa}) wird im Folgenden zusammenfassend für die Provider der Dienste \textit{GMX}, \textit{web.de} und \textit{T-online} beschrieben. 
 			Unterschiede, die sich auch auf die Bewertung auswirken werden explizit beschrieben.
-			\pagebreak
 		%NWA - Vertraulichkeit	
-		\subsubsection{Vertraulichkeit & Integrität}		
+		\subsubsection{Vertraulichkeit und Integrität}		
 			Bei den Providern der EmiG-Initative ist die Vertraulichkeit durch die TLS-Transport"-verschlüsselung gegeben. 
 			Die Transportverschlüsselung ist allerdings nur untereinander garantiert. 
 			Die Anwender besitzen keine TLS-Garantie wenn E-Mails von oder zu Providern außerhalb des Verbunds gesendet oder empfangen werden.\\
 
-			\color{darkred}
-				Ist der folgende Abschnitt nicht eher etwas für die Zusammenfassung?
-				Aber sehr schön ist er schon ;-) (Daniel)
-			\color{black}
-
-			Kritisch zu betrachten ist, dass die Umsetzung der Transportverschlüsselung 15 Jahre seit Verabschiedung des Standards 1999 und eine Datenschutzaffäre noch unabschätzbaren Ausmaßes benötigt, um von den größten E-Mail Providern Deutschlands obligatorisch und verantwortungsvoll umgesetzt zu werden. 
-			Konkurrent Google unterstützt bspw. beim eigenen E-Mail Dienst seit 2011 durch PFS.\footcite[Vgl.][]{Boeck2013}
-			
-			\begin{wrapfigure}{r}{0.5\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
-				\vspace{-24pt}
-				\centering
-				\begin{itemize}
-					\renewcommand{\labelitemi}{$\Rightarrow$}
-					\item smtp\_use\_tls=yes
-					\item smtpd\_use\_tls=yes
-				\end{itemize}
-				\caption[EmiG: SSL/TLS wurde aktiviert]{E-Mail-Server Einrichtung von obligatorischem SSL/TLS\footnotemark}
-				\label{fig:emig_tls} %für "\prettyref"s
-				\vspace{-12pt}
-			\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 9]{Rundfeldt14}}
-			Ferner wird der Aufwand der Einstellung als sehr gering Eingeschätzt. (\prettyref{fig:emig_tls})\\
-			Zertifikate müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.\medskip\\
-			Die Ergbnisse des SSL-Test (\prettyref{sec:nwa}) sind für die drei Provider ähnlich gut. GMX und WEB unterstützen Forward Secrecy mit den meisten Browsern, T-Online hingegen lässt den Schlüsselaustausch für ältere Browser über RC4 zu.
+			Die Ergebnisse des SSL-Test (\prettyref{sec:nwa}) sind für die drei Provider ähnlich gut. GMX und WEB unterstützen Forward Secrecy mit den meisten Browsern, T-Online hingegen lässt den Schlüsselaustausch für ältere Browser über RC4 zu.
 			Für die Anwender die innerhalb der EmiG Initiative E-Mails versenden bzw. empfangen ist die Vertraulichkeit des Kommunikationspartner im Webmailer und Outlook ersichtlich.
 			Die Anwender sehen in der Adresszeile die E-Mail-Adresse mit einem grünen Haken versehen, sofern sie im EmiG-Verbund sind, und bekommen so visualisiert, das die E-Mail Transportverschlüsselt versendet wird. Ein zusätzlicher Gewinn an Benutzerfreundlichkeit.
 			\footcite[Vgl.][]{Zivadino14-1}\medskip\\
@@ -890,6 +858,8 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Lediglich ein Hinweis über Einzelverbindungsnachweise und weshalb diese nur PGP-Verschlüsselt versendet werden dürfen ist zu finden. (\prettyref{fig:T-Online_Hilfe_PGP})
 			Eine Information das es sich um Ende-zu-Ende-Verschlüsselung handelt ist dem Suchergebnis nicht zu entnehmen.\\
 			Die Provider web.de und GMX stellen dem Nutzer eine solche Hilfestellung gut sichtbar in einem eigenen Menüpunkt bereit. (\prettyref{fig:Web-de_Hilfe_PGP})
+			Im Angebot von T-Online wird dem Nutzer, aufgrund fehlender PGP-Unterstützung, bei der Signierung von E-Mails in externen Mailanwendungen nicht geholfen. 
+			Web.de und GMX helfen zwar bei der Einrichtung von PGP, weisen jedoch nicht darauf hin, dass durch den Einsatz von PGP und E-Mail-Signierung auch die Authentizität des Empfänger und Sender ohne Verschlüsselung sichergestellt werden kann. \\
 			
 			\begin{wrapfigure}{r}{0.6\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
 				\vspace{-12pt}
@@ -906,8 +876,15 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 		%NWA - Authentizität
 		\subsubsection{Authentizität}
 		\label{subsubsec:emig-auth}	
-			Im Angebot von T-Online wird dem Nutzer, aufgrund fehlender PGP-Unterstützung, bei der Signierung von E-Mails in externen Mailanwendungen nicht geholfen. 
-			Web.de und GMX helfen zwar bei der Einrichtung von PGP, weisen jedoch nicht darauf hin, dass durch den Einsatz von PGP und E-Mail-Signierung auch die Authentizität des Empfänger und Sender ohne Verschlüsselung sichergestellt werden kann. \\
+			Die Serverseitige Authentizität der wird mittels dem selbst entwickelten, proprietären Verfahren \textit{\ac{IMPT}} sichergestellt. 
+			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client- und Server-Zertifikate gegen die herausgebende CA, sowie gegen die Infrastrukturlisten.
+			Sollten dabei Inkonsistenzen auftreten wird der Versand abgelehnt.\\
+			Dieses Vorgehen erinnert an ein geschlossene Variante von \ac{DANE} (\prettyref{subsec:dane}), welches ähnlich zur Sicherstellung der Authentizität verfährt.
+			Alle Partner der Initiative setzen \ac{PFS} ein
+			\footcite[Vgl.][]{Zivadino14-1}
+			und damit eine Eigenschaft um einem höheren Schutzbedarf in zu entsprechen.
+			\footcite[Vgl.][]{Zivadino14-2} 
+			\medskip\\
 			Der Verzicht auf den offenen Standard DANE als Standard-Instrument zur Sicherstellung der Authentizität hat gewiss Nachteile für die Nutzer. 
 			Mit Inter Mail Provider Trust existiert jedoch für den E-Mail-Versand unter den EmiG-Partnern ein ähnlicher Schutz, der allerdings auch nicht immer die Authentizität der verwendeten SSL-Zertifikate gewährleisten kann.
 			\footcite[Vgl.][]{Zivadino14-1}
@@ -915,11 +892,12 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			United Internet möchte ggf. den Einsatz von DNSSEC und DANE in einem Review-Prozess einer Neubewertung unterziehen.
 			\footcite[Vgl.][]{Zivadino14-2}
 		%NWA - Zusätzliche Sicherheitsrelevante Aspekte
-		\subsubsection{Zusätzliche Sicherheitsrelevante Aspekte}
-			Für die Mails auf den EmiG-Servern der EmiG-Provider besteht keine separate Verschlüsselung, insofern dies durch den Nutzer nicht selbst geschehen ist. (\prettyref{subsec:pgp})
+		\subsubsection{Sicherheitsrelevante Aspekte}
+			Für die Mails auf den EmiG-Servern der EmiG-Provider besteht keine separate verschlüsselte Speicherung der E-Mails, insofern dies durch den Nutzer nicht selbst geschehen ist. (\prettyref{subsec:pgp})
 			Festplatten werden nicht verschlüsselt um bei Diebstahl oder Beschlagnahmung das Auslesen der Inhalte zu verhindern.
-			E-Mails sind für Administratoren der Provider, als auch eventuell unberechtigte Dritte, die sich Zugang auf den Servern verschafft haben einsehbar. 
+			E-Mails sind für Administratoren der Provider, als auch eventuell unberechtigte Dritte, die sich Zugang auf den Servern verschafft haben einsehbar.\\
 			Die Mails werden durch Viren-Scanner, Spam-Filter und wahrscheinlich Analyse-Algorithmen untersucht und ausgewertet.\footcite[Vgl.][]{Kurz13}
+			Dazu stimmt der Nutzer den entsprechenden Datenschutz Passagen in den AGBs zu. Diese gewähren den Anbietern das \glqq [\dots] persönliche Daten [\dots] elektronisch verarbeitet werden, [und der Anbieter berechtigt ist] anonymisierte Nutzerinformationen Dritten - darunter Anzeigekunden - [\dots] zur Verfügung zu stellen. Die anonymisierten Daten dürfen [\dots] zur Erstellung von Statistiken und Trenderkennungen sowie zur Qualitätssicherung und Marktforschung verwendet werden.\grqq \footcite{Web2012}\\
 			Sicherheitsbezogene Informationen sind innerhalb des Webmail-Angebote von United Internet gut auffindbar, könnten allerdings weiterführende Informationen und Anleitungen enthalten.
 			T-Online ist beim Angebot von Informationen bzgl. E-Mailsicherheit für eigene Kunden deutlich ausbaufähig.\\
 			Einen kleinen Vorsprung besitzt T-Online gegenüber United Internet beim Versuch einen Transparenzbericht zu veröffentlichen, der Anfragen von Behörden offenlegen soll.
@@ -944,16 +922,34 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			Auch Vorwürfe, dass EmiG scheinbar keine kleineren E-Mail-Provider zulassen möchte wurden veröffentlicht.
 			\footcite[Vgl.][]{Zivadino14-4}
 			Ob EmiG tatsächlich ein offener Verbund ist, oder sich nur als solcher verkauft bleibt zur Zeit auch unbeantwortet. \medskip\\
-			Inwieweit die Initiative letztendlich die Hauptaufgabe hat Anwendern ein deutliches Plus an Sicherheit zu gewährleisten werden die nächsten Monate zeigen müssen.
+			Inwieweit die Initiative letztendlich die Hauptaufgabe hat Anwendern ein deutliches Plus an Sicherheit zu gewährleisten werden erst die nächsten Monate zeigen können.
 			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als RFC beim IETF \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite{Zivadino14-2}
 			standardisieren zu lassen ist der richtige Weg zur Beantwortung vieler Fragen.
-			Ob andere E-Mail-Provider diesen Standard nutzen werden, wenn man zusätzliche Kosten und Aufwand betrachtet bleibt abzuwarten. Auch die Kompatibilität zwischen DNSSEC und IMPT kann ein Entscheidungskriterium sein.
+			Ob andere E-Mail-Provider diesen Standard nutzen werden, wenn man zusätzliche Kosten und Aufwand betrachtet, bleibt abzuwarten. Auch die Kompatibilität zwischen DNSSEC und IMPT kann ein Entscheidungskriterium sein.
 			\medskip\\
 			Bisher betreibt EmiG einen hohen Marketingaufwand mit breitangelegter TV Kampagne und dazugehörigen, typisch unklaren Äußerungen, hinter denen vermutlich auch strategisch, politische Interessen der Anbieter liegen.\\
 			Die Haltung, Anwender auf der Internetseite\footnote{\url{http://www.e-mail-made-in-germany.de/Verschluesselung.html}} 
 			nicht über alle Sicherheitsaspekte zu informieren und im Werbespot\footnote{\url{http://www.e-mail-made-in-germany.de/Wechseln.html}} den Großteil technisch nicht versierter Anwender in falscher Sicherheit wiegt hinterlässt ebenfalls Fragen.
 			Für eine sichere und Provider-unabhängige E-Mail-Kommunikation sollte es im Informationszeitalter nicht 15 Jahre für den Einsatz von Sicherheitsstandards benötigen.
 			Ob EmiG sich nur als offener Verbund verkauft oder tatsächlich ist, wird gleichermaßen in den nächsten Monaten zuverlässiger beantwortet werden können.
+			
+%			Kritisch zu betrachten ist, dass die Umsetzung der Transportverschlüsselung 15 Jahre seit Verabschiedung des Standards 1999 und eine Datenschutzaffäre noch unabschätzbaren Ausmaßes benötigt, um von den größten E-Mail Providern Deutschlands obligatorisch und verantwortungsvoll umgesetzt zu werden. 
+%			Konkurrent Google unterstützt bspw. beim eigenen E-Mail Dienst seit 2011 durch PFS.\footcite[Vgl.][]{Boeck2013}
+%			
+%			\begin{wrapfigure}{r}{0.5\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
+%				\vspace{-24pt}
+%				\centering
+%				\begin{itemize}
+%					\renewcommand{\labelitemi}{$\Rightarrow$}
+%					\item smtp\_use\_tls=yes
+%					\item smtpd\_use\_tls=yes
+%				\end{itemize}
+%				\caption[EmiG: SSL/TLS wurde aktiviert]{E-Mail-Server Einrichtung von obligatorischem SSL/TLS\footnotemark}
+%				\label{fig:emig_tls} %für "\prettyref"s
+%				\vspace{-12pt}
+%			\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 9]{Rundfeldt14}}
+%			Ferner wird der Aufwand der Einstellung als sehr gering Eingeschätzt. (\prettyref{fig:emig_tls})\\
+%			Zertifikate müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.\medskip\\	
 
 			\subsection{Alternative Provider}
 			Als alternative Provider werden zwei kleine Anbieter, die bereits aktiv am Markt sind, untersucht.
@@ -1105,7 +1101,8 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 		(Trends/Fazit/Schlusswort -> proton Mail Provider vom CERN)
 		(Google hat die alpha eines Plugins für Chromebrowser vorgestellt, die E2E-Verschlüsselung im Browser durchführen und vereinfachen soll -> könnte nen Hinweis wert sein) 	
 		Da das Thema noch aktuell ist, und ständig weiter lebt macht es vll Sinn genau nochmal drauf aufmerksam zu machen das es nur um eine Moment-Aufnahme handelt. 
-		\color{black}	
+		\color{black}
+
 				
 						
 	\chapter*{Literaturverzeichnis}
