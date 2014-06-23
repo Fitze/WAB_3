@@ -973,7 +973,9 @@ Sicherheits Zusatzfunktionen
 					\medskip\\
 					
 					\paragraph{Vertraulichkeit und Integrität}
-						Der Zugriff auf den Server von Posteo erfolgt immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung, unabhängig davon, ob ein Mailprogramm oder der Webmailer genutzt wird.             strikt um und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
+						Der Zugriff auf den Server von Posteo erfolgt immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung, unabhängig davon, ob ein Mailprogramm oder der Webmailer genutzt wird.
+						Dies wird durch den Einsatz von \ac{HSTS} erzwungen.
+						Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt vor und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
 						Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.][]{Posteo2013c}\medskip\\
 					
 						Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versendenet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.][]{Posteo2013c}
