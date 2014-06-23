@@ -629,28 +629,79 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\label{subsubsec:googlemail}
 			Vertraulichkeit
 			Transportverschlüsselung Mailempfang
+			- 90 Punkte
+			- Alle Protokoll Versionen bis auf SSL 2 verwendet
+			- Forward Secrecy mit modernen Browsern unterstützt
+			%Report Anhang
+			
 			Transportverschlüsselung Mailversand
+			- 90 Punkte
+			%Report Anhang
+			
+			- intern unter googles servern verschlüsselt
+			%http://google-produkte.blogspot.de/2014_04_01_archive.html
+			
+			
 			Zertifikat
+			- 100 Punkte
+			%Report Anhang
 			
 			Integrität
 			E2EE Webmail
+			- Alpha-Version eines Addons für Chrome für die PGP Verschlüsselung
+			%http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html
+			
+			
 			E2EE Einrichtung
+			- Keine Infos in Webmailer gefunden
+			- In Forum wird von anderen Nutzern über zusätzliche Apps gesprochen, aber es gibt keine wirkliche Lösung
+			%https://productforums.google.com/forum/#!topic/gmail/SLvkE9FLqXE
+			%https://productforums.google.com/forum/#!topic/gmail/oWhrJv5CfTE
+			- Auch über google Suche keine relevante Seite gefunden
+			- --> zählt nicht!!!!!
+			
 			
 			Authentizität
 			Digitale Signatur Webmail
-			Digitale Signatur E-Mailanwendung
+			- nicht supported (Stand 2010)
+			%https://productforums.google.com/forum/#!topic/gmail/Gy72o1f3TYk
 			
-Einrichtung digitale Signaturen
-			Mailserverauthentifizierung
+			
+			Digitale Signatur E-Mailanwendung
+			- nichts beschrieben
+			
+			Einrichtung digitale Signaturen
+			- nichts beschrieben
+			
+			Mailserverauthentifizierung (DANE)
+			- wird nicht unterstützt
+			%https://productforums.google.com/forum/#!topic/gmail/gjAaDPMVRhs
+			% Report Anlage
 			
 			Sicherheitsrelevante Aspekte
 			Verschlüsselte Speicherung
+			- wohl eher nicht, zumindest keine quellen gefunden, die das Gegenteil beweisen
+	
+			
 			Sicherheitsinformationen
+			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook. 
+			%Report Anhang
 			
 			E-Mailauswertung
-			- Datenschutzbestimmungen erlaubtttp://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
+			- Datenschutzbestimmungen erlauben es
+			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
+			- personalisierte Werbung
+			%s. Screenshot OneNote
+			
+			- Geschäftsmodell beruht darauf die Kommunikation seiner Nutzer zu analysieren
+			%http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html
 			
 			Sicherheits Zusatzfunktionen
+			- 2 Faktor Authentifizierung
+		
+			- Einschränkung der Apps, die Zugriff  auf Daten erhalten
+			- SMS Benachrichtigung
+			%S. OneNote
 			
 			Transparenzbericht
 			- ist das schon ein Transparenzbericht?
@@ -661,7 +712,7 @@ Einrichtung digitale Signaturen
 			
 			
 			\subsubsection*{Hotmail}
-			\label{subsubsec:googlemail}
+			\label{subsubsec:hotmail}
 			
 			Vertraulichkeit
 			Transportverschlüsselung Mailempfang:
@@ -672,7 +723,10 @@ Einrichtung digitale Signaturen
 			- Note: This does not affect the CheckTLS Confidence Factor
 			% http://checktls.com/perl/TestReceiver.pl
 			
-			
+			- 70\%, da nur ältere Protokolle verwendet werden
+			- nur bis TLS 1.0 und SSL 3.0
+			- no Forward Secrecy
+			%Anhang Report
 			
 			Transportverschlüsselung Mailversand
 			- SSL standardmäßig eingestellt, keine Möglichkeit das abzustellen
@@ -714,7 +768,11 @@ Einrichtung digitale Signaturen
 			-  	Cert VALIDATED: ok
 			%http://checktls.com/perl/TestReceiver.pl
 			
-\medskip
+			- 100 Punkte
+			%Report Anhang
+			
+			- 
+			\medskip
 			
 			Integrität
 			E2EE Webmail
@@ -732,7 +790,7 @@ Einrichtung digitale Signaturen
 			- gefunden in Hilfe, also nicht direkt
 			- möglich, es wird aber keine Auskunft gegeben, wie es einzurichten wäre
 			%http://windows.microsoft.com/de-de/windows/answers?tId=75a5cabc-9533-4fe4-be2c-572a21032371
-			
+			- --> wieder raus
 			
 			Einrichtung digitale Signaturen
 			- Geht scheinbar nur mit Hilfe einer Einbindung anderer Mail Konten
@@ -740,11 +798,12 @@ Einrichtung digitale Signaturen
 			
 			
 			Mailserverauthentifizierung
-			- Mit outlook versucht und möglich
-			- Verwendet SMTP Authentifizierung:
+			%- Mit outlook versucht und möglich
+			%- Verwendet SMTP Authentifizierung:
 			%http://www.patshaping.de/hilfen_ta/pop3_smtp.htm
 			
-\medskip
+			- es wird kein DANE verwendet, bzw keine Daten zu gefunden
+			\medskip
 			
 			Sicherheitsrelevante Aspekte			
 			Verschlüsselte Speicherung
@@ -766,14 +825,17 @@ Einrichtung digitale Signaturen
 				- Vertrauenswürdige Geräte 
 			%https://account.live.com/Proofs/Manage
 			
+			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook.
+			%Report aus Anhang
 			
-E-Mailauswertung
+			E-Mailauswertung
 			- es gibt personalisierte Werbung
 			- Administratoren erhalten direkten Zugang zu den Postfächern
 			%https://mailbox.org/microsoft-liest-e-mails-seiner-hotmail-nutzer/
 			
 			Sicherheits Zusatzfunktionen
 			- Zwei Faktor Authentifizierung kann eingerichtet werden
+			%http://windows.microsoft.com/de-de/windows-live/account-security-password-information
 			
 			Transparenzbericht
 			- offenbar vorhanden
@@ -783,36 +845,80 @@ E-Mailauswertung
 			%http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html
 			
 			\subsubsection*{Yahoo Mail}
-			\label{subsubsec:yahoomail}			Vertraulichkeit
+			\label{subsubsec:yahoo}
+			
+			Vertraulichkeit
 			Transportverschlüsselung Mailempfang
+			- 90 Punkte
+			- Alle Protokoll Versionen außer SSL 2
+			- Forward Secrecy wird unterstützt in mordernen Browsers
+			%Report Anhang
+			
 			Transportverschlüsselung Mailversand
+			-  s.o.
+			- intern ist versand verschlüsselt
+			%http://www.heise.de/security/meldung/Yahoo-verschluesselt-jetzt-fast-alles-2161810.html
+			Sehr interessant allgemein
+			%http://www.heise.de/security/meldung/Schutz-fuer-E-Mails-Kleine-Mail-Dienste-ueberzeugen-2098281.html
+			
 			Zertifikat
+			- 100 Punkte
+			%Report Anhang
 			
 			Integrität
 			E2EE Webmail
+			- nicht vorhanden
+			
 			E2EE Einrichtung
+			- keine Hilfe gefunden über Webmailer
 			
 			Authentizität
 			Digitale Signatur Webmail
+			- keine Infos gefunden
 			
-Digitale Signatur E-Mailanwendung
+			Digitale Signatur E-Mailanwendung
+			- keine Infos gefunden
 			
-Einrichtung digitale Signaturen
+			Einrichtung digitale Signaturen
+			- keine Infos gefunden
 			
-Mailserverauthentifizierung
+			Mailserverauthentifizierung
+			- nicht unterstützt
+			%s. Anhang Report
 			
 			Sicherheitsrelevante Aspekte
 			Verschlüsselte Speicherung
+			- Personalisierte Werbung
+			%s. OneNote
+			
 			Sicherheitsinformationen
+			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook. 
+			%Report Anhang
+			- Anmeldesiegel, welches sicherstellt, dass man sich auf keienr Fake Seite befindet -> in Zusammenhang mit der Open ID
+			%Screen OneNote
+			- Darstellung aller Apps/externe Seiten, die Zugriff auf die eigenen Daten haben
+			%Screen OneNote
+			
+			- Darstellung aller Apps/externe Seiten, die Zugriff auf die eigenen Daten haben
+			%Screen OneNote
+			
+			- Wegwerfadresse
+			
+			- DKIM
+			%https://de.hilfe.yahoo.com/kb/mail-for-desktop/SLN3282.html?impressions=true
+			
 			E-Mailauswertung
 			- geschieht und wird mit Datenschutzbestimmungen erlaubt
 			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
 			
-Sicherheits Zusatzfunktionen
+			Sicherheits Zusatzfunktionen
+			- Personalisierte Werbung
+			%s. OneNote
 			
 			Transparenzbericht
 			- Yahoo hat Transparenzbericht:
 			%http://www.zeit.de/digital/datenschutz/2014-03/transparenzberichte-google-yahoo
+
 		
 			\pagebreak
 			\subsection{EmiG - E-Mail made in Germany}
