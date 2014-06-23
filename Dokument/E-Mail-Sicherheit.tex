@@ -1120,15 +1120,24 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 					
 					\paragraph{Vertraulichkeit und Integrität}
 						Bei Mailbox.org können die Nutzer nur auf verschlüsseltem Weg auf die Server zugreifen um ihre Mails abzurufen.
-						Hierbei werden die neuesten Versionen von \ac{TLS} unterstützt und der Aufbau von unverschlüsselten Verbindungen durch den Einsatz von \ac{HSTS} unterbunden.
-						Auch beim Versand der Mails bietet Mailbox.org die Möglichkeit einen unverschlüsselten Versand zu unterbinden.\footcite[Vgl.][]{Mailbox2014b}
-						Zur Authentifizierung seiner Mailserver setzt Mailbox.org \ac{DANE} ein und unterstreicht hiermit seinen Anspruch als Anbieter für sichere Kommunikation per E-Mail.\medskip\\
+						Hierbei werden die neuesten Versionen von \ac{TLS} mit \ac{PFS} unterstützt und der Aufbau von unverschlüsselten Verbindungen durch den Einsatz von \ac{HSTS} unterbunden.
+						Auch beim Versand und Empfang von Mails bietet Mailbox.org die Möglichkeit eine unverschlüsselte Kommunikation zu unterbinden.\footcite[Vgl.][]{Mailbox2014b}\medskip\\
 						
-						
+						Bei der Information der Nutzer über die Einrichtung und Nutzung von Verschlüsselungsmethoden zur \ac{E2EE} bietet Mailbox.org eine Anleitung für viele Plattformen und auch einen gut verständlichen Stiftfilm zur Erklärung, wie \ac{E2EE} funktioniert.
+						Eine Nutzung der \ac{E2EE} im Webmailer ist aber wie bei den anderen Providern nicht möglich.
 						
 					\paragraph{Authentizität}
+						Zur Authentifizierung seiner Mailserver setzt Mailbox.org \ac{DANE} ein und unterstreicht hiermit seinen Anspruch als Anbieter für die sichere Kommunikation per E-Mail.
+						Aus dem gleichen Grund scheint es selbstverständlich, dass Mailbox.org ebenfalls Informationen zu den Möglichkeiten der digitalen Signatur vermittelt.
+						Doch auch hier wäre eine genauere Anleitung zur Nutzung dieser wünschenswert um diese technische Maßnahme für die Nutzer einfach einsetzbar zu machen.
+						Dazu würde auch eine Implementierung dieser Funktion im Webmailer gehören.
+						Hierzu sind aber auf der Website des Mailproviders keine Angaben zu finden, ob eine Umsetzung geplant ist.
 						
 					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
+						Mit dem Möglichkeit der Zweifaktorauthentifizierung mit einem \ac{OTP} hebt sich Mailbox.org ebenfalls von vielen Konkurrenten ab.
+						Zur Nutzung dieser Funktion muss ein USB-Gerät, ein sogenannter Yubikey, mit dem Account verbunden werden.
+						Dadurch ist es möglich, sich auch von unbekannten und damit potenziell unsicheren Rechner sicher an seinem Account im Webfrontend anzumelden.
+						Ebenfalls positiv hervorzuheben ist die regelmäßige Berichterstattung über Probleme und Erweiterungen des Funktionsumfangs, auch gerade im Hinblick auf neu eingeführte Sicherheitsmaßnahmen.
 						
 					
 					
