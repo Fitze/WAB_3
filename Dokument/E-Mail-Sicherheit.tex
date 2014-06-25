@@ -625,167 +625,70 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			
 			\subsubsection{Vertraulichkeit und Integrität}
 			Alle betrachteten E-Mail Anbieter erhalten eine gute Punktzahl für die Transportwegverschlüsselung. Googlemail und Yahoo schneiden gegenüber Hotmail etwas besser ab, da sie sowohl \ac{PFS} für moderne Browser als auch die neuesten Versionen der \ac{TLS/SSL} Protokolle unterstützen. Hotmail hingegen bietet \ac{PFS} gar nicht an und unterstützt lediglich \ac{TLS} 1.0 und \ac{SSL} 3.0.
+			
 			Für die eingesetzten Zertifikate erhalten alle Provider wiederum volle Punktzahl.\footcite{vgl. Anhang SSL Reports}
 			\medskip
 			
-			Zwar haben nach den Enthüllungen von Edward Snowden zu den Machenschaften der NSA und anderen Geheimdiensten die meisten E-Mail Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footcite{???}. Ein voll umfänglichen Schutz durch eine \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite{Kirsch} Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail Clients war bei keinem der Provider aufzufinden.
+			Zwar haben seit den Enthüllungen von Edward Snowden zu den Machenschaften der NSA und anderen Geheimdiensten die meisten E-Mail Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footcite{vgl. Anhang SSL Reports}. Ein voll umfänglichen Schutz durch eine \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite{Kirsch} Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail Clients war nicht aufzufinden.
 			
 			
 			\subsubsection{Authentizität}
-			Im Bereich der Authentizität schneiden alle drei betrachteten internationalen E-Mail Provider sehr schlecht ab.
+			Im Bereich der Authentizität schneiden alle drei betrachteten internationalen E-Mail Provider schlecht ab.
 			Weder Googlemail, noch Hotmail oder Yahoomail unterstützen eine digitale Signatur für ihre Webmailer. Darüber hinaus ist bei keinem der Anbieter eine Beschreibung für die Einrichtung einer digitalen Signatur für externe Mail-Clients zu finden. 
 			\medskip
 			
-			Auch bei der Mailserver-Authentifizierung schneiden alle drei Provider mit schlechten Ergebnissen ab, wie der DNSSEC Analyzer von Verisign bestätigt.\footcite{vgl. Anhang DNSSEC Reports} 
+			Auch die Untersuchung der Mailserver-Authentifizierung führte zu schlechten Ergebnissen, wie der DNSSEC Analyzer von Verisign bestätigt.\footcite{vgl. Anhang DNSSEC Reports} 
 		
-		GMAIL 
-				
-										
-		Hotmail	
-						
-						
-				
-		Yahoo
-	
-					
+		
+			\subsubsection{Sicherheitsrelevante Aspekte}
+			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite{Kirsch}. Daher ist es nicht verwunderlich, das die Anbieter es sich vorenthalten in die E-Mails ihrer Nutzer schauen zu können\footcite{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke und wird in allen drei Fällen angewendet. Daraus lässt sich auch die Annahme schließen, dass die E-Mails nicht verschlüsselt gespeichert werden. Es konnten zwar keine Quellen herangezogen werden, die diese Annahme untermauern. Dafür wurden jedoch auch keine Quellen gefunden, die das Gegenteil beweisen.
+			Laut einer Berichterstattung auf RTL ist die Situation bei Hotmail sogar verschärft:
+			\begin{quote}
 
-					
-					Sicherheitsrelevante Aspekte
-					Verschlüsselte Speicherung
-					- Personalisierte Werbung
-					%s. OneNote
+			"Laut einem Bericht des 'Guardian' half der Software-Konzern (Microsoft, Anm. des Verf.) der NSA, die Verschlüsselung von Daten durch Nutzer seiner Dienste zu umgehen. So habe Microsoft vor dem Start des neuen Web-Mail-Portals 'Outlook.com' sichergestellt, dass die NSA stets einen Zugriff auf die Informationen bekommen könne, schrieb die britische Zeitung. Das Blatt beruft sich dabei auf Dokumente des Ex-Geheimdienst- Mitarbeiters Edward Snowden. In einem internen Schreiben heißt es demnach, die Behörde habe über das Überwachungsprogramm 'Prism' Zugriff auf E-Mails bei den Microsoft-Diensten 'Hotmail', 'Live' und 'Outlook.com'"\footcite{Guardian}
+			\end{quote}  
+			Circa ein dreiviertel Jahr später wird ein weiterer Vorfall veröffentlicht, in welchem Administratoren sich direktes Zugang zu den Mailinhalten der Nutzer verschafft hätten.\footcite{Mailbox2014Microsoft}
+			\medskip
+			
+			Darüber hinaus wurden auf den Seiten der Provider keinerlei Sicherheitsinformationen gefunden. Einzig und allein von Yahoomail wird ein kurzer Abschnitt zum Thema Phishing bereitgestellt.
+			
+			\begin{wrapfigure}[16]{r}[0cm]{0.5\textwidth} %[h]
+							\includegraphics[width=0.5\textwidth]{images/yahoo_anmeldesiegel.png}
+							\caption {Sicherheitsniveaus}
+							\label{fig:Yahoo_Anmeldesiegel}	
+						\end{wrapfigure}
+			In Bezug auf das Bereitstellen von Sicherheits-Zusatzfunktionen können die internationalen Mail-Anbieter etwas Punkten. Alle bieten eine 2-Faktor Authentifizierung an. Außerdem hat der Nutzer die Möglichkeit sich eine Liste mit jeglichen externen Anwendung und Webseiten anzeigen zu lassen. Mit dieser erhält er einen Überblick darüber, welche App Zugriff auf welche Nutzerdaten hat.
+			Yahoomail kann zusätzlich mit einer Wegwerfadresse, einem Anmeldesiegel (vgl. Abbildung \ref{fig:Yahoo_Anmeldesiegel}) sowie dem selbst entwickelten \ac{DKIM} Verfahren überzeugen. \ac{DKIM} basiert auf asymmetrischer Kommunikation und stellt die Authentizität von E-Mail Absendern sicher.\footcite{DKIM}.
+			
+			
+			
+%			\begin{wrapfigure}{r}{0.8\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
+%							\vspace{-16pt}
+%							\centering
+%							\includegraphics[width=0.6\textwidth]{images/yahoo_anmeldesiegel.png}
+%							\caption[Yahoo Anmeldesiegel]{Yahoo: Anmeldesiegel} 
+%							\label{fig:Yahoo_Anmeldeseigel} %für "\prettyref"s
+%							\vspace{-16pt}
+%			\end{wrapfigure} 
+			\medskip
+			
+			Um das Vertrauen der Nutzer in die Provider wieder zu stärken, veröffentlichen Yahoomail und Googlemail  so genannte Transparenzberichte.\footcite{Lokshin} In diesen wird dargestellt, welche Behörden welche Art von Auskunft bei den Providern ersucht haben. Microsoft folgt dem Trend und hat bereits angekündigt, die Behördenanfragen für seinen E-Mail Dienst in den Transparenzbericht des Konzerns mit aufzunehmen\footcite{Herget}.
+			\medskip			
 		
 		%Links verwendet
 						%http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html
+						%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
+						%http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html
+						%https://mailbox.org/microsoft-liest-e-mails-seiner-hotmail-nutzer/
 		
 		%Links (Backup)
 						%http://windows.microsoft.com/de-de/windows/answers?tId=8d16e8b8-d565-4923-bd68-59dbe32aaf4d
 						%http://www.patshaping.de/hilfen_ta/pop3_smtp.htm			
 						%http://www.heise.de/security/meldung/Yahoo-verschluesselt-jetzt-fast-alles-2161810.html
 						%http://www.heise.de/security/meldung/Schutz-fuer-E-Mails-Kleine-Mail-Dienste-ueberzeugen-2098281.html
-			
-			\subsubsection*{Googlemail}
-			\label{subsubsec:googlemail}
-					
-			Authentizität
+						
 		
 			
-			Sicherheitsrelevante Aspekte
-			Verschlüsselte Speicherung
-			- wohl eher nicht, zumindest keine quellen gefunden, die das Gegenteil beweisen
-	
-			
-			Sicherheitsinformationen
-			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook. 
-			%Report Anhang
-			
-			E-Mailauswertung
-			- Datenschutzbestimmungen erlauben es
-			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
-			- personalisierte Werbung
-			%s. Screenshot OneNote
-			
-			- Geschäftsmodell beruht darauf die Kommunikation seiner Nutzer zu analysieren
-			%http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html
-			
-			Sicherheits Zusatzfunktionen
-			- 2 Faktor Authentifizierung
-		
-			- Einschränkung der Apps, die Zugriff  auf Daten erhalten
-			- SMS Benachrichtigung
-			%S. OneNote
-			
-			Transparenzbericht
-			- ist das schon ein Transparenzbericht?
-			%http://www.google.com/transparencyreport/saferemail/?hl=de
-			- google hat Transparenzbericht
-			%http://www.zeit.de/digital/datenschutz/2014-03/transparenzberichte-google-yahoo
-			
-			
-			
-			\subsubsection*{Hotmail}
-			\label{subsubsec:hotmail}
-			
-			
-		
-			
-			Sicherheitsrelevante Aspekte			
-			Verschlüsselte Speicherung
-			- dafür hat NSA direkte Zugriffmöglichkeiten auf die Mailserver:
-			%http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html
-			--> Damit wohl eher nicht
-			
-			Sicherheitsinformationen
-			- Punkt 2 aus dieser Quelle:
-			%http://www.microsoft.com/de-de/account/security/default.aspx#
-			- Mehr erfahren:
-			%http://windows.microsoft.com/de-de/windows-live/account-security-password-information
-			- Sicherheitsinfos setzen:
-				- Kennwort
-				- Hinterlegte Kontaktdaten zum Abprüfen von Sicherheitsinfos
-				- Prüfung in zwei Schritten 
-				- Identitätsüberprüfungs-Apps
-				- Wiederherstellungscode
-				- Vertrauenswürdige Geräte 
-			%https://account.live.com/Proofs/Manage
-			
-			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook.
-			%Report aus Anhang
-			
-			E-Mailauswertung
-			- es gibt personalisierte Werbung
-			- Administratoren erhalten direkten Zugang zu den Postfächern
-			%https://mailbox.org/microsoft-liest-e-mails-seiner-hotmail-nutzer/
-			
-			Sicherheits Zusatzfunktionen
-			- Zwei Faktor Authentifizierung kann eingerichtet werden
-			%http://windows.microsoft.com/de-de/windows-live/account-security-password-information
-			
-			Transparenzbericht
-			- offenbar vorhanden
-			%http://www.areamobile.de/news/26765-indiskret-microsoft-schnueffelt-in-hotmail-konto
-			- aber keinen gefunden
-			- dafür hat NSA direkte Zugriffmöglichkeiten auf die Mailserver:
-			%http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html
-			
-			\subsubsection*{Yahoo Mail}
-			\label{subsubsec:yahoo}
-			
-	
-		
-			
-		
-			
-			Sicherheitsinformationen
-			- Documentation: SSL/TLS Deployment Best Practices, SSL Server Rating Guide, and OpenSSL Cookbook. 
-			%Report Anhang
-			- Anmeldesiegel, welches sicherstellt, dass man sich auf keienr Fake Seite befindet -> in Zusammenhang mit der Open ID
-			%Screen OneNote
-			- Darstellung aller Apps/externe Seiten, die Zugriff auf die eigenen Daten haben
-			%Screen OneNote
-			
-			- Darstellung aller Apps/externe Seiten, die Zugriff auf die eigenen Daten haben
-			%Screen OneNote
-			
-			- Wegwerfadresse
-			
-			- DKIM
-			%https://de.hilfe.yahoo.com/kb/mail-for-desktop/SLN3282.html?impressions=true
-			
-			E-Mailauswertung
-			- geschieht und wird mit Datenschutzbestimmungen erlaubt
-			%http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html
-			
-			Sicherheits Zusatzfunktionen
-			- Personalisierte Werbung
-			%s. OneNote
-			
-			Transparenzbericht
-			- Yahoo hat Transparenzbericht:
-			%http://www.zeit.de/digital/datenschutz/2014-03/transparenzberichte-google-yahoo
-
-		
-			\pagebreak
 			\subsection{EmiG - E-Mail made in Germany}
 			EmiG ist eine Initiative der größten deutschen E-Mail Provider GMX, web.de und T-Online, die zusammen über 53\% (Stand: 2013) der aktiven E-Mail-Konten in Deutschland betreiben.
 			\footcite[Vgl.][]{Brandt13} 

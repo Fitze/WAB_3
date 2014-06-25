@@ -149,6 +149,16 @@
   Urldate                  = {2014-06-02}
 }
 
+@Online{Kirsch,
+  Title                    = {Google experimentiert mit End-to-End-Verschlüsselung für GMail},
+  Author                   = {Christian Kirsch},
+  Date                     = {2014-06-04},
+  Url                      = {http://www.heise.de/ix/meldung/Google-experimentiert-mit-End-to-End-Verschluesselung-fuer-GMail-2215680.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-25}
+}
+
 @Article{Koetter2014,
   Title                    = {Geleitschutz},
   Author                   = {Patrick Ben Koetter and Carsten Strotmann},
@@ -188,6 +198,16 @@
   HowPublished             = {Online}
 }
 
+@Online{Lokshin,
+  Title                    = {Behörden verlangen wieder mehr Nutzerdaten von Google},
+  Author                   = {Pavel Lokshin},
+  Date                     = {2014-03-23},
+  Url                      = {http://www.zeit.de/digital/datenschutz/2014-03/transparenzberichte-google-yahoo},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-25}
+}
+
 @Online{Mailbox2014,
   Title                    = {Ihr E-Mail Postfach},
   Author                   = {Mailbox.org-Team},
@@ -211,6 +231,16 @@
   Url                      = {https://mailbox.org/mails-definitiv-sicher-versenden/},
   Year                     = {2014},
   Urldate                  = {2014-06-22}
+}
+
+@Online{Mailbox2014Microsoft,
+  Title                    = {Microsoft liest E-Mails seiner Hotmail-Nutzer},
+  Author                   = {Mailbox.org-Team},
+  Date                     = {2014-03-21},
+  Url                      = {https://mailbox.org/microsoft-liest-e-mails-seiner-hotmail-nutzer/},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-25}
 }
 
 @Book{Mueller2011,
@@ -246,6 +276,26 @@
   Year                     = {2013},
 
   Timestamp                = {2014-06-14}
+}
+
+@Online{DKIM,
+  Title                    = {DomainKeys Identified Mail (DKIM)},
+  Author                   = {o.V.},
+  Date                     = {2013-05-03},
+  Url                      = {http://www.dkim.org/},
+  Year                     = {2013},
+
+  Timestamp                = {2014-06-25}
+}
+
+@Online{Guardian,
+  Title                    = {Spitzel-Affäre in den USA: Microsoft lässt NSA in Outlook-Mails schnüffeln},
+  Author                   = {o.V.},
+  Date                     = {2013-07-12},
+  Url                      = {http://www.rtl.de/rtl-nachrichtenarchiv/1563673/spitzel-affaere-in-den-usa-microsoft-laesst-nsa-in-outlook-mails-schnueffeln.html},
+  Year                     = {2013},
+
+  Timestamp                = {2014-06-25}
 }
 
 @Online{Posteo2013a,
@@ -322,6 +372,16 @@
   Urldate                  = {2014-05-31},
 
   HowPublished             = {Online}
+}
+
+@Online{Schwan,
+  Title                    = {Auch Apple, Google und Yahoo wollen in E-Mails schauen},
+  Author                   = {Ben Schwan},
+  Date                     = {2014-03-24},
+  Url                      = {http://www.heise.de/mac-and-i/meldung/Auch-Apple-Google-und-Yahoo-wollen-in-E-Mails-schauen-2152971.html},
+  Year                     = {2014},
+
+  Timestamp                = {2014-06-25}
 }
 
 @Book{Schwenk,
