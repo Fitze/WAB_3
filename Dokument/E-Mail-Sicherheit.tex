@@ -209,63 +209,63 @@
 		
 		Somit kann als Resultat für dieses Beispiel unter dem beschriebenen Sicherheitsbedürfnis ein Sicherheitsniveau von \textit{Vertraulich} ermittelt werden. Welches Verschlüsselungsverfahren konkret für dieses Sicherheitsniveau anzuwenden ist, wird in den nachfolgenden Kapiteln beschrieben.
 		
-	\chapter{Gefahren und Schwachstellen}
-		\label{chap:gefahren}
-\color{darkred}
-		\section{Informationsgewinnung durch Provider}
-\textsl{
-warum ist E-Mail oft Kostenlos?\\
-Welchen Sinn hat das für die Provider?\\
-Welche Bots lassen die Provider über unsere Kommunikation laufen?\\
-Wie mächtig sind Meta-Daten?\\
-\\
-\\
-Überleitung... Neben den weniger gerichteten (Kein Angriff?) Maßnahmen der Informationsgewinnung aus E-Mail-Kommunikation gibt es auch klassische Angriffsmethoden Dritter.\\
-\\
-Internetquellen, die durch Literatur idealerweise belegt wird:\\
-\begin{itemize}
-\item \href{http://www.netzdurchblick.de/emails.html}{netzdurchblick.de}
-\item \href{https://www.eleven.de/aktuelle-pressemitteilungen.428/items/eleven-warnt-die-5-groessten-gefahren-fuer-e-mail-nutzer.html}{eleven.de}
-\item \href{https://www.bsi-fuer-buerger.de/BSIFB/DE/SicherheitImNetz/OnlineBanking/GefahrenUndSicherheitsrisiken/gefahren_sicherheitsrisiken_node.html}{BSI}
-\end{itemize}
-Diese Quellen dienen auch zur Übersicht. Belegt werden sollten diese noch durch Literatur, die ggf. zu suchen ist!}
-		 
-		\section{Angriffsarten}
-			\subsection{MITM - Man in the Middle}
-			\label{sec:mitm}
-\color{black}
-			\subsection{Umleitungsangriffe}
-			\label{sec:cache_poison}
-			Umleitungsangriffe werden mit dem sogenannten \ac{DNS} Cache Poisoning durchgeführt.
-			Bei diesem Angriff wird sich die Schwachstelle zu nutze gemacht, dass ältere oder falsch konfigurierte \ac{DNS}-Server auch nicht angeforderte Records in ihren Cache schreiben.
-			Ein Angreifer kann dies dazu nutzen im Cache eines \ac{DNS}-Servers mithilfe von gefälschten Paketen falsche Zuordnungen von Domainnamen zu \ac{IP}-Adressen zu hinterlegen.
-			Ein Opfer, das die Auflösung des Domainnamens jetzt vom kompromittierten Server anfordert, wird auf den Server des Angreifers umgeleitet.
-\color{darkred}
-			\subsection{Drive-By-Angriffe}
-\textsl{(eleven.de)}
-			\subsection{Phishing}
-\textsl{Auch Spear Phising (eleven.de)}
-			\subsection{Malware-E-Mails}
-\textsl{Auch: Lokalisierte Angriffe (eleven.de)}
-			\subsection{Spam}
-\textsl{Auch: Event-Spam (eleven.de)}
-
-		\section{Schwachstellen}
-			\subsection{Zertifikatsaussteller}
-			\label{sec:zertifikatsaussteller}
-\textsl{AUTHENTIZITÄT (DANE-Artikel)
-200 Aussteller (z.T. keine eigenen Private Keys der User) CAs können nachlässig werden. Angreifern können somit gültiges Zertifikat für einen Host erstellen dessen Besucher das Ziel sind.}
-			\subsection{Zertifikatsprüfung}
-			\label{sec:zertifikatspruefung}
-\textsl{AUTHENTIZITÄT (DANE-Artikel)
-Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. In der Praxis jedoch kein sog. "Identifiziertes TLS" (Kommunikationspartner eindeutig festgestellt) In der Praxis arbeiten Server jedoch nach "Opportunistischem TLS", dass bedeutet das lediglich wichtig ist, dass die Nachricht verschlüsselt übertragen wird, egal von wem.}
-			\subsection{Metadaten}
-			\label{sec:metadaten}
-\textsl{Quellen:
-\href{http://www.spiegel.de/netzwelt/netzpolitik/google-urteil-eugh-entscheidung-zu-suchmaschinen-a-969302.html}{google-urteil-eugh-entscheidung-zu-suchmaschinen} \\
-\href{http://www.golem.de/news/stanford-experiment-metadaten-verraten-intimste-details-des-privatlebens-1403-105253.html}{metadaten-verraten-intimste-details-des-privatlebens}\\
-\href{http://www.heise.de/ct/heft/2014-4-Die-Schwaechen-der-E-Mail-und-was-dagegen-hilft-2092851.html}{Schwaechen-der-E-Mail-und-was-dagegen-hilft}}
-\color{black}
+%	\chapter{Gefahren und Schwachstellen}
+%		\label{chap:gefahren}
+%\color{darkred}
+%		\section{Informationsgewinnung durch Provider}
+%\textsl{
+%warum ist E-Mail oft Kostenlos?\\
+%Welchen Sinn hat das für die Provider?\\
+%Welche Bots lassen die Provider über unsere Kommunikation laufen?\\
+%Wie mächtig sind Meta-Daten?\\
+%\\
+%\\
+%Überleitung... Neben den weniger gerichteten (Kein Angriff?) Maßnahmen der Informationsgewinnung aus E-Mail-Kommunikation gibt es auch klassische Angriffsmethoden Dritter.\\
+%\\
+%Internetquellen, die durch Literatur idealerweise belegt wird:\\
+%\begin{itemize}
+%\item \href{http://www.netzdurchblick.de/emails.html}{netzdurchblick.de}
+%\item \href{https://www.eleven.de/aktuelle-pressemitteilungen.428/items/eleven-warnt-die-5-groessten-gefahren-fuer-e-mail-nutzer.html}{eleven.de}
+%\item \href{https://www.bsi-fuer-buerger.de/BSIFB/DE/SicherheitImNetz/OnlineBanking/GefahrenUndSicherheitsrisiken/gefahren_sicherheitsrisiken_node.html}{BSI}
+%\end{itemize}
+%Diese Quellen dienen auch zur Übersicht. Belegt werden sollten diese noch durch Literatur, die ggf. zu suchen ist!}
+%		 
+%		\section{Angriffsarten}
+%			\subsection{MITM - Man in the Middle}
+%			\label{sec:mitm}
+%\color{black}
+%			\subsection{Umleitungsangriffe}
+%			\label{sec:cache_poison}
+%			Umleitungsangriffe werden mit dem sogenannten \ac{DNS} Cache Poisoning durchgeführt.
+%			Bei diesem Angriff wird sich die Schwachstelle zu nutze gemacht, dass ältere oder falsch konfigurierte \ac{DNS}-Server auch nicht angeforderte Records in ihren Cache schreiben.
+%			Ein Angreifer kann dies dazu nutzen im Cache eines \ac{DNS}-Servers mithilfe von gefälschten Paketen falsche Zuordnungen von Domainnamen zu \ac{IP}-Adressen zu hinterlegen.
+%			Ein Opfer, das die Auflösung des Domainnamens jetzt vom kompromittierten Server anfordert, wird auf den Server des Angreifers umgeleitet.
+%\color{darkred}
+%			\subsection{Drive-By-Angriffe}
+%\textsl{(eleven.de)}
+%			\subsection{Phishing}
+%\textsl{Auch Spear Phising (eleven.de)}
+%			\subsection{Malware-E-Mails}
+%\textsl{Auch: Lokalisierte Angriffe (eleven.de)}
+%			\subsection{Spam}
+%\textsl{Auch: Event-Spam (eleven.de)}
+%
+%		\section{Schwachstellen}
+%			\subsection{Zertifikatsaussteller}
+%			\label{sec:zertifikatsaussteller}
+%\textsl{AUTHENTIZITÄT (DANE-Artikel)
+%200 Aussteller (z.T. keine eigenen Private Keys der User) CAs können nachlässig werden. Angreifern können somit gültiges Zertifikat für einen Host erstellen dessen Besucher das Ziel sind.}
+%			\subsection{Zertifikatsprüfung}
+%			\label{sec:zertifikatspruefung}
+%\textsl{AUTHENTIZITÄT (DANE-Artikel)
+%Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. In der Praxis jedoch kein sog. "Identifiziertes TLS" (Kommunikationspartner eindeutig festgestellt) In der Praxis arbeiten Server jedoch nach "Opportunistischem TLS", dass bedeutet das lediglich wichtig ist, dass die Nachricht verschlüsselt übertragen wird, egal von wem.}
+%			\subsection{Metadaten}
+%			\label{sec:metadaten}
+%\textsl{Quellen:
+%\href{http://www.spiegel.de/netzwelt/netzpolitik/google-urteil-eugh-entscheidung-zu-suchmaschinen-a-969302.html}{google-urteil-eugh-entscheidung-zu-suchmaschinen} \\
+%\href{http://www.golem.de/news/stanford-experiment-metadaten-verraten-intimste-details-des-privatlebens-1403-105253.html}{metadaten-verraten-intimste-details-des-privatlebens}\\
+%\href{http://www.heise.de/ct/heft/2014-4-Die-Schwaechen-der-E-Mail-und-was-dagegen-hilft-2092851.html}{Schwaechen-der-E-Mail-und-was-dagegen-hilft}}
+%\color{black}
 	
 	\chapter{Technologien und Verfahren}
 		\section{Kyptographie Grundlagen}
@@ -575,10 +575,10 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 		Auf diese Weise kann der Client den dargestellten Baum traversieren, bis er die gewünschte Information erhält.
 		Die für diese Auskünfte benötigten Datensätze werden in sogenannten \ac{DNS}-Records abgelegt.
 		Das Problem ist hierbei, dass allein mit den \ac{DNS}-Records nicht die Authentizität des Absenders (vgl. \ref{sec:cache_poison}) und damit auch nicht die Integrität der Daten sicher gestellt werden kann.
-		Dies wird jedoch für eine sichere E-Mailkommunikation benötigt, da auch die Domainnamen der Mailserver einer Zone über \ac{DNS}-Records vom Typ \glqq MX\grqq aufgelöst werden.
-%		Dies wird beim sogenannten \ac{DNS} Cache Poisoning %Das unter "E-Mail-Kommunikation-Gefahren" einbauen.
-%	 	ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
-%		Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
+		Dies wird jedoch für eine sichere E-Mailkommunikation benötigt, da auch die Domainnamen der Mailserver einer Zone über \ac{DNS}-Records vom Typ \glqq MX\grqq{} aufgelöst werden.
+		Dies wird beim sogenannten \ac{DNS} Cache Poisoning ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
+		Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
+		
 		\subsection{DNSSEC - Domain Name System Security Extensions}
 		\label{subsec:dnssec}
 			Bei \ac{DNSSEC} handelt es sich um eine Sicherheitserweiterung des \ac{DNS}.
