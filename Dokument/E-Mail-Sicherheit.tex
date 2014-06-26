@@ -472,63 +472,49 @@ Ideal wäre: Alle Serverzertifikate der gesamten Komunikationskette zu prüfen. 
 			\subsection{S/MIME - Secure / Multipurpose Internet Mail Extensions}
 			
 				%Problem
-				- bisheriger Verfahren bieten keine Ende-zu-Ende Verschlüsselung
+				Die bislang betrachteten Verfahren bieten keine Möglichkeit einer \ac{E2EE}. \ac{PGP} hat als erstes Protokoll diese Lücke gefüllt. Mit \ac{SMIME} kam 4 Jahre später ein zweiter Standard hinzu.\footcite{Duevel}
+				\medskip\\
 							
 				%Idee
-				- S/MIME steht für Secure / Multipurpose Internet Mail Extensions
-				- Erweiterung des MIME Datentyp für signierte und verschlüsselte Nachrichten
-				- Signieren, Verschlüsseln oder beiden
-				- erst verschlüsseln, dann signieren, damit man weiß, welche daten man signiert, da man verschlüsselte daten nicht mehr lesen kann
+				\ac{SMIME} ist eine Erweiterung des MIME Datentyps, der für die Signierung und/oder Verschlüsselung von Nachrichten entwickelt worden ist.
+				Bislang konnten E-Mails nur im ASCII-Zeichensatz versendet werden. Mit dem Anbruch des digitalen Zeitaltern stieg jedoch die Forderung auch andere Datentypen austauschen zu können. \ac{SMIME} setzt dieses Bedürfnis um.\footcite[][S. 57-60]{Schwenk}
+				\medskip
 				
+				%Voraussetzung
+				Damit ein Nutzer \ac{SMIME} verwenden kann, benötigt er ein X.509 Zertifikat. Dieses wird in seiner einfachsten Form kostenlos von einer \ac{CA} ausgestellt.\footcite{Duevel}
 				
-				- MIME Datentyp ist Erweiterung des E-Mail Standards
-				-RFC 2045 - RFC 2049
-				- Ursache: Forderung E-Mails nicht nur in ASCII Zeichensatz versenden, sondern alle möglichen Datentypen versenden können
-				\footcite[][S. 57-60]{Schwenk}\medskip\\										
+				Das eigene Zertifikat kann Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[][S. 65 ff.]{Schwenk} beschrieben.
+				\medskip
+														
 				%Umsetzung
-				- Absender entscheidet sich für Verschlüsselung via S/MIME
-				- Mail Client sucht in Zertifikatsdatenbank nach dem Zertifikat, welches die Empfänger-Adresse enthält
-				- Falls keins gefunden, erhält der Absender eine Warnung, dass S/MIME Verschlüsselung nicht möglich ist
-				- Falls vorhanden, dann hybride Verschlüsselung
-				- Bedeutet, dass Nachricht symmetrisch verschlüsselt wird und das Shared Secret mit dem im Empfänger-Zertifikat angegebenen öffentlichen Schlüssel verschlüsselt wird
-				- Anschließend base64 codiert, damit Mailserver den Inhalt nicht unbeabsichtigt ändern kann
-				\footcite[][S. 65]{Schwenk}
+				Hat sich der Absender für die Verschlüsselung via \ac{SMIME} entschieden, sucht der Mail Client automatisch in der Zertifikatsdatenbank nach einem Zertifikat, welches die E-Mail Adresse des Empfängers enthält. Sollte ein solches Zertifikat nicht gefunden werden, wird der Nutzer darüber informiert, dass eine \ac{SMIME} Verschlüsselung nicht möglich sei. Ist ein entsprechendes Zertifikat vorhanden, wird die E-Mail hybrid verschlüsselt.\footcite[][S. 65]{Schwenk}
 				
-				- Für S/MIME braucht man ein X.509 Zertifikat
-				- Dieses kann man sich bei CAs besorgen
-				%Quelle: http://t3n.de/news/mails-verschlusseln-eigentlich-482381/
-				- CA beglaubigt den eigenen öffentlichen Schlüssel
+%				- Bedeutet, dass Nachricht symmetrisch verschlüsselt wird und das Shared Secret mit dem im Empfänger-Zertifikat angegebenen öffentlichen Schlüssel verschlüsselt wird
+%				- Anschließend base64 codiert, damit Mailserver den Inhalt nicht unbeabsichtigt ändern kann
 				
-				- Zertifikate können ausgetauscht werden, indem sie in signierte Mails eingefügt werden
-				- Der genaue Prozess in 	\footcite[][S. 65 ff.]{Schwenk} beschrieben
-				- E-Mail Client kann dann Zertifikat in seine Datenank übernehmen
+				Um die Lesbarkeit von \ac{SMIME} signierten E-Mails auch für Nutzer zu gewährleisten, die dieses Verfahren nicht verwenden, stehen zwei verschiedene Datentypen zur Verfügung. Auf eine genauere Beschreibung soll an dieser Stelle verzichtet und stattdessen auf den Schwenk\footcite[][S. 65]{Schwenk} verwiesen werden.
+				\medskip
 				
-				%Zwei verschiedene Datentypen für Signatur beschreiben?
-				- es stehen zwei Datentypen zur Verfügung: application/pkcs-mime signedData und multipart/signed
-				- application/pkcs-mime besteht aus einem einzigen Element, welches die verschlüsselten Daten, die Signatur + weitere Zusatzinformationen enthält
-				- liegt im PKCS\#7 Format vor und kann daher nur von Clients interpretiert werden, die dieses Format unterstützen
-				- Bietet dafür ein höheres Maß an Integrität und Authentizität, der Inhalt kann nicht versehentlich durch Mailserver verändert werden
-				- multipart/signed besteht aus zwei Elementen
-				- erster Teil sind signierte Daten in Form eines MIME-Objektes und daher von jedem Client interpretierbar
-				- zweiter Teil enthält die eigentliche Signatur in PKCS\#7 Format
-				- Dadurch ist die Nachricht für alle Clients interpretierbar, allerdings kann der erste Teil durch Mailserver versehentlich geändert werden
-				\footcite[][S. 65]{Schwenk}
-				\medskip\\											
+%Zwei verschiedene Datentypen für Signatur beschreiben?
+
+%				- es stehen zwei Datentypen zur Verfügung: application/pkcs-mime signedData und multipart/signed
+%				- application/pkcs-mime besteht aus einem einzigen Element, welches die verschlüsselten Daten, die Signatur + weitere Zusatzinformationen enthält
+%				- liegt im PKCS\#7 Format vor und kann daher nur von Clients interpretiert werden, die dieses Format unterstützen
+%				- Bietet dafür ein höheres Maß an Integrität und Authentizität, der Inhalt kann nicht versehentlich durch Mailserver verändert werden
+%				- multipart/signed besteht aus zwei Elementen
+%				- erster Teil sind signierte Daten in Form eines MIME-Objektes und daher von jedem Client interpretierbar
+%				- zweiter Teil enthält die eigentliche Signatur in PKCS\#7 Format
+%				- Dadurch ist die Nachricht für alle Clients interpretierbar, allerdings kann der erste Teil durch Mailserver versehentlich geändert werden
+%				\footcite[][S. 65]{Schwenk}
+
+				
+										
 				%Vorteile
-				liegt darin, "dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. () das Anfügen eines Attachments"\footcite[][S. 61]{Schwenk}
+				Der Vorteil von \ac{SMIME} liegt darin, "dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [..] das Anfügen eines Attachments"\footcite[][S. 61]{Schwenk}. Außerdem wird \ac{SMIME} durch viele Browser by Default unterstützt.\footcite{Duevel}
+				Durch die zwei verschiedenen Datentypen, können \ac{SMIME} signierte Nachrichten auch von E-Mail Clients interpretiert werden, die dieses Verfahren nicht verwenden. 
+				\newpage
 				
-				- S/MIME in vielen Browsern by Default eingebaut
-				%Quelle: http://t3n.de/news/mails-verschlusseln-eigentlich-482381/
 				
-				- Signatur auch lesbar, wenn Clients nicht S/MIME unterstützen\medskip\\	
-				%Nachteile
-				- \medskip\\
-				%Mail Bezug	
-						
-				\footcite[][S. 40]{Schwenk}
-			
-			
-		\newpage
 		\section{Transportwegverschlüsselung}
 			Das \ac{SSL}-Protokoll wurde zunächst durch die Firma Netscape entwickelt, um die Kommunikation über \ac{HTTP}-Verbindungen abzusichern.\footcite[Vgl.][S. 796]{Eckert2013} \ac{SSL} kann auf der Sitzungs- und Präsentationsschicht des \ac{OSI}-Referenzmodells angesiedelt werden und setzt meist auf dem \ac{TCP} auf. Es hat die Aufgabe den darüber liegenden Schichten die Möglichkeit für eine authentifizierte, integritätsgeschützte und verschlüsselte Kommunikation zu geben.\footcite[Vgl.][S. 799 ff.]{Eckert2013}
 			Die Version \ac{SSL} 3.0 hat sich mittlerweile als de facto Standard im Internet durchgesetzt und wird von allen gängigen Browsern unterstützt.\\
