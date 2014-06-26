@@ -377,94 +377,82 @@
 			
 			\subsection{PGP - Pretty Good Privacy}
 			\label{subsec:pgp}
+				%Problem + Idee
+				Im Jahre 1991 wurde dem US Senat ein Gesetz vorgelegt, welches vorsieht, dass jede Verschlüsselungssoftware staatliche Zugriffe ermöglichen müsse. Daraufhin entwickelte Phil Zimmermann noch im selben Jahr die erste Version von \ac{PGP}, die diese Hintertür nicht bot.\footcite[vgl.][S. 29]{Schwenk}
+			
 				Die Softwarefamilie \acl{PGP} stellt ``...Dienste zur digitalen Signatur und zur Verschlüsselung von Nachrichten...''\footcite{Mueller2011} zur Verfügung und ist damit für die Vertraulichkeit der Informationen verantwortlich.
-				Die größte Schwierigkeit beim Austausch von Schlüsselinformationen für \ac{E2EE} ist der für Privatanwender unbequeme Weg die öffentlichen Schlüssel auszutauschen. Dies muss noch manuell mit Hilfe von Software erfolgen und ist daher noch nicht Standard heutiger E-Mail-Kommunikation. 
-				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende Verschlüsselung, jedoch ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf den eigenen Server zwischenspeichert. Der Nutzer hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist. 
-				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite[Vgl.][]{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modell. \medskip\\
-				Mit PGP werden kryptographische Dienste bereitgestellt die unter anderem Dateiverschlüsselung, Schlüssel-Recovery und das Signieren von Dokumenten umfassen.
-				Ab Version 5.0 wird in PGP neben \ac{RSA} auch \ac{DHE} zum Austausch symmetrischer Schlüssel und eine symmetrische Blockchiffre für die Mailverschlüsselung verwendet. Die Integrität \glqq Authentizität [der Daten] wird durch die Verwendung von \ac{SHA}-1 und \ac{MD5} als Hashfunktionen bzw. als \ac{MAC}s sichergestellt.\grqq\footcite[Vgl.][S.823]{Eckert2013}\medskip
-				Für das Format zur Verschlüsselung und Signierung von Daten nach \ac{PGP} 5 bietet OpenPGP einen Standard nach \acs{RFC} 4880. Ein entsprechendes Programm zur Implementierung dieses Standards ist \ac{GPG} für gängige E-Mail-Clients um die Verschlüsselung und den Schlüsselaustausch so benutzerfreundlich wie möglich zu gestalten. Zu Berücksichtigen ist hierbei der Faktor, dass Private Keys nur lokal gespeichert und durch sichere Passphrasen geschützt sind.
 				
+				Allerdings wurden diese Bemühungen erst nach sieben Jahren Entwicklung, diversen Anklagen gegen Zimmermann und die anderen Beteiligten sowie das Herausbringen zahlreicher nationaler (US-Amerikanischer) und internationaler Versionen als internationaler Standard \textit{OpenPGP} angesehen.\footcite[][S. 29-35]{Schwenk}
+				\medskip
 				
-				%Problem
-				- Gesetz 266, welches dem US Senat 1991 vorgelegt wurde und vorsieht, dass jede Verschlüsselungssoftware eine Hintertür für den staatlichen Zugriff enthält
-				\footcite[][S. 29]{Schwenk}
+%				Mit PGP werden kryptographische Dienste bereitgestellt die unter anderem Dateiverschlüsselung, Schlüssel-Recovery und das Signieren von Dokumenten umfassen.
 				
-				%Idee
-				- Phil Zimmermann entwickelt im selben Jahr PGP 1.0, welches genau dies verhindert 
-				\footcite[][S. 29]{Schwenk}
-				
-				- Verfahren zur wahlweise
-				- Verschlüsselung von Daten
-				- und zum Signieren von Daten
-				- oder beidem
-				
-				
-				- Um Integrität zu gewährleisten
-				- Zufällig erzeugter Einmal-Schlüssel erzeugt
-				
-				- Eigentliche E-Mail Nachricht so genannte "Literal Data" wird mit Einmalschlüssel symmetrisch verschlüsselt
-				\footcite[][S. 43]{Schwenk}
-				
-				- Einmalschlüssel muss ebenfalls ausgetauscht werden -> geschieht asymmetrisch
-				- Verschlüsselter Einmalschlüssel wird der Nachricht vorangestellt
-				- so auch mehrere Empfänger gewährleistet
+				%Umsetzung
+				Um die Integrität einer E-Mail zu gewährleisten, wird zuerst ein zufälliger Schlüssel (Shared Secret) erzeugt. Anschließend wird die E-Mail Nachricht mit diesem symmetrisch verschlüsselt. Danach wird das Shared Secret selbst mit dem öffentlichen Schlüssel des Empfängers asymmetrisch verschlüsselt und der verschlüsselten E-Mail voran gehangen. Soll die E-Mail mehrere Empfänger erreichen, so wird der letzte Schritt wiederholt.\footcite[vgl.][S. 43]{Schwenk}
+				\medskip
 				
 				%Einfügen der Grafik Schwenk Seite 47
 				
-				- Um Authentizität zu gewährleisten kann auch Signiert werden
+				Ein entsprechendes Programm zur Implementierung des OpenPGP Standards ist \ac{GPG}. Dieses Tool ist für gängige E-Mail-Clients verfügbar und ermöglicht die Verschlüsselung und den Schlüsselaustausch so benutzerfreundlich wie möglich zu gestalten. Denn der Austausch der öffentlichen Schlüssel muss noch manuell erfolgen.
+				\medskip
+				%Zu Berücksichtigen ist hierbei der Faktor, dass Private Keys nur lokal gespeichert und durch sichere Passphrasen geschützt sind.
 				
-				- Für Austausch via Mail muss das entstandene Binärfile in ein Textfile umgewandelt werden, welches mit Hilfe der base64 codiert geschieht
-				\footcite[][S. 47]{Schwenk}			
-				\medskip\\
+							
+%				- dabei handelt es sich um RFC 2440, welcher "die Struktur aller PGP-Nachrichten und auch die Prozeduren zu ihrer Generierung" beschreibt
+%				- Basis ist Version 5.0 von PGP
+%				\footcite[][S. 42]{Schwenk}
+%				\medskip\\
+
+%				Für das Format zur Verschlüsselung und Signierung von Daten nach \ac{PGP} 5 bietet OpenPGP einen Standard nach \acs{RFC} 4880.
+
 				
-						
-				%Umsetzung
-				- Erst nach 7 Jahren Entwicklung, diversen Anklagen gegen Phil Zimmermann und die Beteiligten und das Herausbringen zahlreicher nationaler (US-Amerikanischer) und internationaler Versionen erscheint OpenPGP, welches als Internet-Standard angesehen wird
-				\footcite[][S. 29-35]{Schwenk}
-				- dabei handelt es sich um RFC 2440, welcher "die Struktur aller PGP-Nachrichten und auch die Prozeduren zu ihrer Generierung" beschreibt
-				- Basis ist Version 5.0 von PGP
-				\footcite[][S. 42]{Schwenk}
-				\medskip\\
+%				Ab Version 5.0 wird in PGP neben \ac{RSA} auch \ac{DHE} zum Austausch symmetrischer Schlüssel und eine symmetrische Blockchiffre für die Mailverschlüsselung verwendet. Die Integrität \glqq Authentizität [der Daten] wird durch die Verwendung von \ac{SHA}-1 und \ac{MD5} als Hashfunktionen bzw. als \ac{MAC}s sichergestellt.\grqq\footcite[S.823]{Eckert2013}\medskip				
 				
-										
+				
 				%Vorteile
-				- basiert sowohl auf dezentralen (Web of Trust) als auch auf hierarchischen Vertrauensmodellen (PKI)
-				\footcite[][S. 38f.]{Schwenk} 
-				- zu verschlüsselnde Nachricht wird komprimiert (kleiner und besserer Schutz vor Angreifern)
-				\footcite[][S. 45]{Schwenk}	
+				Ein Vorteil von \ac{PGP} liegt darin, dass es sowohl auf dem dezentralen Vertrauensmodell Web of Trust als auch auf dem hierarchischen Vertrauensmodell der \ac{PKI} basiert.\footcite[vgl][S. 38f.]{Schwenk}
+				Außerdem werden die verschlüsselten Nachrichten vor dem Versenden komprimiert und verringern dadurch nicht nur Traffic, sondern verbessern somit auch den Schutz vor Angreifern.\footcite[][S. 45]{Schwenk}	
+				Des Weiteren steht der Sourcecode von \ac{PGP} öffentlich zur Verfügung und kann beliebig auf Richtigkeit überprüft werden.\footcite[][S. 47]{Schwenk}
+				\medskip
+									
 				
-				- Sourcecode von PGP öffentlich bekannt und kann von jedem geprüft werden
-				\footcite[][S. 47]{Schwenk}			
+				%- ADK hinzufügen
+				%\footcite[][S. 32]{Schwenk}
+				%\medskip				
+			
+			
+				%Nachteil
+				Der öffentliche Sourcecode stellt jedoch gleichzeitig auch einen Schwachpunkt dar, da es somit Angreifern ermöglicht wird, potenzielle Schwachstellen und Sicherheitslücken in der Implementierung aufzufinden. Vor allem mit der Zunahme neuer Features wird dieser Nachteil erheblicher, was durch Angriffe von Senderek, Klíma und Rosza bewiesen wurde.\footcite[vgl.][S. 47-55]{Schwenk}
 				
-				- ADK
-				\footcite[][S. 32]{Schwenk}
-				\medskip\\
+				Ein weiterer Nachteil liegt in der Schwierigkeit beim Austausch von Schlüsselinformationen für \ac{E2EE}. Dies muss noch manuell mit Hilfe von Software erfolgen und ist daher noch nicht Standard heutiger E-Mail-Kommunikation. 
+				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende Verschlüsselung, allerdings ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf dem eigenen Server zwischenspeichert. Der Anwender hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist. 
+
+%				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modell. \medskip\\
+
+
 				
-				%Nachteile
-				- Offener Sourcecode ist gleichzeitig aber auch nachteil, da Schwachstellen oder Sicherheitslücken in der Implementierung aufgezeigt werden - vor allem mit Zunahme neuer Features
-				- Durch Angriffe von Senderek, Klíma und Rosza bewiesen
-				\footcite[][S. 47-55]{Schwenk}
+				
+				
+			 
+				
 				
 				
 				%Mail Bezug	
-				- Mail Plugin sucht in einer pubring.pkr Datei über die Mail Adresse des Empfängers nach dessen öffentlichen Schlüssel
-				- Vorteil hierbei ggü. S/MIME ist dass einem Öffentlichen Schlüssel mehrere Mail Adressen zugeordnet werden können
-				\footcite[][S. 40]{Schwenk}
-				
-				- PGP als Produkt liefert ein E-Mail Plugin mit für Outlook, Outlook Express und Eudora
-				%hier gibt es bestimmt mittlerweile noch weitere 	
-				- Buttons für 1 Klick Verschlüsselung/Entschlüsselung
-				- PGP Menü für spezifischere Einstellungen
-				\footcite[][S. 38]{Schwenk}
-				
-				
-				- eigenen öffentlichen Schlüssel versenden?
-				\footcite[][S. 40]{Schwenk}
-				
-				- Ende zu Ende Verschlüsselung und daher geeignet für Stufe 4
-				
-				
+%				- Mail Plugin sucht in einer pubring.pkr Datei über die Mail Adresse des Empfängers nach dessen öffentlichen Schlüssel
+%				- Vorteil hierbei ggü. S/MIME ist dass einem Öffentlichen Schlüssel mehrere Mail Adressen zugeordnet werden können
+%				\footcite[][S. 40]{Schwenk}
+%				
+%				- PGP als Produkt liefert ein E-Mail Plugin mit für Outlook, Outlook Express und Eudora
+%				%hier gibt es bestimmt mittlerweile noch weitere 	
+%				- Buttons für 1 Klick Verschlüsselung/Entschlüsselung
+%				- PGP Menü für spezifischere Einstellungen
+%				\footcite[][S. 38]{Schwenk}
+%				
+%				
+%				- eigenen öffentlichen Schlüssel versenden?
+%				\footcite[][S. 40]{Schwenk}
+%				
+%				- Ende zu Ende Verschlüsselung und daher geeignet für Stufe 4
 				
 				
 				
