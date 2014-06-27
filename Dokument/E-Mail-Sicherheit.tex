@@ -59,7 +59,7 @@
 		
 		In Bezug auf die Datensicherheit existieren vier verschiedene Aspekte, die unabhängig voneinander betrachtet werden können. Um ein gemeinsames Grundverständnis für die weitere Arbeit zu bekommen, werden diese Aspekte im nächsten kurz erläutert.
 		
-		Die von Privatpersonen versendeten Mails haben unterschiedliche Anforderungen an die Vertraulichkeit der Nachricht. Anhand dieser Anforderungen lassen sich Sicherheitsniveaus zuordnen, die in Kapitel 3 analysiert werden.
+		Die von Privatpersonen versendeten Mails haben unterschiedliche Anforderungen an die Vertraulichkeit der Nachricht. Anhand dieser Anforderungen lassen sich Sicherheitsniveaus zuordnen, die in Kapitel \ref{chap:sicherheitsniveaus} analysiert werden.
 		
 		Nachdem ein Grundverständnis für die verschiedenen Aspekte in der Datensicherheit und die unterschiedlichen Sicherheitsniveaus aufgebaut wurde, werden im fünften Kapitel die Technologien und Verfahren zum Schutz der Daten in der E-Mail-Kommunikation untersucht. In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodell erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport. Das Kapitel schließt mit einer Betrachtung des 
 		Namensdienstes DNS und seinen Sicherheit erhöhenden Erweiterungen ab.
@@ -96,7 +96,7 @@
 	
 	Bei der Authentizität geht es um den Nachweis, dass die beteiligten Kommunikationspartner tatsächlich diejenigen sind, für die sie sich ausgeben.
 	
-	\chapter{Sicherheitsniveaus}
+	\chapter{Sicherheitsniveaus}\label{chap:sicherheitsniveaus}
 		%Pascal: Wäre noch toll wenn wir hier nochmal sagen das wir eigtnlich nach einer Wissenschaftlichen Methode vorgehen müssten, also ähnlich wie bei der Festlegung der Zielgruppe. Nur das wir aus Zeitgründen eben Annahmen treffen. Aber einfach das wir hier sagen können, wenn wir Zeit hätten, hätten wir eine Umfrage gemacht und diese so und so gestaltet...
 	
 	
@@ -360,7 +360,7 @@
 				Im Gegensatz zum klassischen RSA-Schlüsselaustausch ist es sinnvoller, die Sitzungsschlüssel
 				zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch \ac{PFS}\footcite[Vgl.][]{Boeck2013} genannt wird. Die \glqq Forderung an die Verfahren und Protokolle zur Schlüsselerneuerung besteht darin dafür zu sorgen, dass die Kenntnis eines Schlüssels, also dessen Aufdeckung, nicht dazu führt, dass damit auch vorherige und nachfolgende Schlüssel direkt aufdeckbar sind.\grqq\footcite[Vgl.][S. 439]{Eckert2013} Wie notwendig \ac{PFS} geworden ist zeigen die jüngsten Ereignisse im Zusammenhang mit dem OpenSSL-Bug "Heartbleed", mit dem es sehr einfach war private Schlüssel von Servern auszulesen.\footcite[Vgl.][]{Zhu2014} \medskip\\
 				%Umsetzung
-				Das \ac{DHE} Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. \glqq geschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.\grqq \foottcite[Vgl.][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und \ac{IPsec} beherrschen bereits \ac{PFS}.\medskip\\
+				Das \ac{DHE} Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. \glqq geschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.\grqq \footcite[Vgl.][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und \ac{IPsec} beherrschen bereits \ac{PFS}.\medskip\\
 				%Vorteile
 				Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem \ac{MITM}-Angriff manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie \ac{DANE} (Vgl. Kapitel \ref{subsec:dane}), die in Kombination mit \ac{PFS} aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizität der Kommunikation gewährleistet wird.\medskip\\
 				%Nachteile
@@ -562,7 +562,7 @@
 		Auch der Nameserver der \ac{TLD} verweist den Client an für die Second-Level-Domain zuständigen Nameserver.
 		Auf diese Weise kann der Client den dargestellten Baum traversieren, bis er die gewünschte Information erhält.
 		Die für diese Auskünfte benötigten Datensätze werden in sogenannten \ac{DNS}-Records abgelegt.
-		Das Problem ist hierbei, dass allein mit den \ac{DNS}-Records nicht die Authentizität des Absenders (vgl. \ref{sec:cache_poison}) und damit auch nicht die Integrität der Daten sicher gestellt werden kann.
+		Das Problem ist hierbei, dass allein mit den \ac{DNS}-Records nicht die Authentizität des Absenders und damit auch nicht die Integrität der Daten sicher gestellt werden kann.
 		Dies wird jedoch für eine sichere E-Mailkommunikation benötigt, da auch die Domainnamen der Mailserver einer Zone über \ac{DNS}-Records vom Typ \glqq MX\grqq{} aufgelöst werden.
 		Dies wird beim sogenannten \ac{DNS} Cache Poisoning ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
 		Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
@@ -602,7 +602,7 @@
 			Für die eingesetzten Zertifikate erhalten alle Provider wiederum volle Punktzahl.\footnote{vgl. Anhang SSL Reports}
 			\medskip
 			
-			Zwar haben seit den Enthüllungen von Edward Snowden zu den Machenschaften der NSA und anderen Geheimdiensten die meisten E-Mail Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footnote{vgl. Anhang SSL Reports}. Ein voll umfänglichen Schutz durch eine \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite[Vgl.][]{Kirsch} Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail Clients war nicht aufzufinden.
+			Zwar haben seit den Enthüllungen von Edward Snowden zu den Machenschaften der \ac{NSA} und anderen Geheimdiensten die meisten E-Mail Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footnote{vgl. Anhang SSL Reports}. Ein voll umfänglichen Schutz durch eine \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite[Vgl.][]{Kirsch} Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail Clients war nicht aufzufinden.
 			
 			
 			\subsubsection{Authentizität}
@@ -614,13 +614,13 @@
 		
 		
 			\subsubsection{Sicherheitsrelevante Aspekte}
-			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite{Kirsch}. Daher ist es nicht verwunderlich, das die Anbieter es sich vorenthalten in die E-Mails ihrer Nutzer schauen zu können\footcite{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke und wird in allen drei Fällen angewendet. Daraus lässt sich auch die Annahme schließen, dass die E-Mails nicht verschlüsselt gespeichert werden. Es konnten zwar keine Quellen herangezogen werden, die diese Annahme untermauern. Dafür wurden jedoch auch keine Quellen gefunden, die das Gegenteil beweisen.
+			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite[Vgl.][]{Kirsch}. Daher ist es nicht verwunderlich, das die Anbieter es sich vorenthalten in die E-Mails ihrer Nutzer schauen zu können\footcite[Vgl.][]{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke und wird in allen drei Fällen angewendet. Daraus lässt sich auch die Annahme schließen, dass die E-Mails nicht verschlüsselt gespeichert werden. Es konnten zwar keine Quellen herangezogen werden, die diese Annahme untermauern. Dafür wurden jedoch auch keine Quellen gefunden, die das Gegenteil beweisen.
 			Laut einer Berichterstattung auf RTL ist die Situation bei Hotmail sogar verschärft:
 			\begin{quote}
 
-			\textit{ Laut einem Bericht des 'Guardian' half der Software-Konzern (Microsoft, Anm. des Verf.) der NSA, die Verschlüsselung von Daten durch Nutzer seiner Dienste zu umgehen. So habe Microsoft vor dem Start des neuen Web-Mail-Portals 'Outlook.com' sichergestellt, dass die NSA stets einen Zugriff auf die Informationen bekommen könne, schrieb die britische Zeitung. Das Blatt beruft sich dabei auf Dokumente des Ex-Geheimdienst- Mitarbeiters Edward Snowden. In einem internen Schreiben heißt es demnach, die Behörde habe über das Überwachungsprogramm 'Prism' Zugriff auf E-Mails bei den Microsoft-Diensten 'Hotmail', 'Live' und 'Outlook.com'.}\footcite{Guardian}
+			\textit{ Laut einem Bericht des 'Guardian' half der Software-Konzern (Microsoft, Anm. des Verf.) der NSA, die Verschlüsselung von Daten durch Nutzer seiner Dienste zu umgehen. So habe Microsoft vor dem Start des neuen Web-Mail-Portals 'Outlook.com' sichergestellt, dass die NSA stets einen Zugriff auf die Informationen bekommen könne, schrieb die britische Zeitung. Das Blatt beruft sich dabei auf Dokumente des Ex-Geheimdienst- Mitarbeiters Edward Snowden. In einem internen Schreiben heißt es demnach, die Behörde habe über das Überwachungsprogramm 'Prism' Zugriff auf E-Mails bei den Microsoft-Diensten 'Hotmail', 'Live' und 'Outlook.com'.}\footcite[Vgl.][]{Guardian}
 			\end{quote}  
-			Circa ein dreiviertel Jahr später wird ein weiterer Vorfall veröffentlicht, in welchem Administratoren sich direktes Zugang zu den Mailinhalten der Nutzer verschafft hätten.\footcite{Mailbox2014Microsoft}
+			Circa ein dreiviertel Jahr später wird ein weiterer Vorfall veröffentlicht, in welchem Administratoren sich direktes Zugang zu den Mailinhalten der Nutzer verschafft hätten.\footcite[Vgl.][]{Mailbox2014Microsoft}
 			\medskip
 			
 			Darüber hinaus wurden auf den Seiten der Provider keinerlei Sicherheitsinformationen gefunden. Einzig und allein von Yahoomail wird ein kurzer Abschnitt zum Thema Phishing bereitgestellt.
@@ -631,7 +631,7 @@
 							\label{fig:Yahoo_Anmeldesiegel}	
 						\end{wrapfigure}
 			In Bezug auf das Bereitstellen von Sicherheits-Zusatzfunktionen können die internationalen Mail-Anbieter etwas Punkten. Alle bieten eine 2-Faktor Authentifizierung an. Außerdem hat der Nutzer die Möglichkeit sich eine Liste mit jeglichen externen Anwendung und Webseiten anzeigen zu lassen. Mit dieser erhält er einen Überblick darüber, welche App Zugriff auf welche Nutzerdaten hat.
-			Yahoomail kann zusätzlich mit einer Wegwerfadresse, einem Anmeldesiegel (vgl. Abbildung \ref{fig:Yahoo_Anmeldesiegel}) sowie dem selbst entwickelten \ac{DKIM} Verfahren überzeugen. \ac{DKIM} basiert auf asymmetrischer Kommunikation und stellt die Authentizität von E-Mail Absendern sicher.\footcite{DKIM}.
+			Yahoomail kann zusätzlich mit einer Wegwerfadresse, einem Anmeldesiegel (vgl. Abbildung \ref{fig:Yahoo_Anmeldesiegel}) sowie dem selbst entwickelten \ac{DKIM} Verfahren überzeugen. \ac{DKIM} basiert auf asymmetrischer Kommunikation und stellt die Authentizität von E-Mail Absendern sicher.\footcite[Vgl.][]{DKIM}.
 			
 			
 			
@@ -645,7 +645,7 @@
 %			\end{wrapfigure} 
 			\medskip
 			
-			Um das Vertrauen der Nutzer in die Provider wieder zu stärken, veröffentlichen Yahoomail und Googlemail  so genannte Transparenzberichte.\footcite{Lokshin} In diesen wird dargestellt, welche Behörden welche Art von Auskunft bei den Providern ersucht haben. Microsoft folgt dem Trend und hat bereits angekündigt, die Behördenanfragen für seinen E-Mail Dienst in den Transparenzbericht des Konzerns mit aufzunehmen\footcite{Herget}.
+			Um das Vertrauen der Nutzer in die Provider wieder zu stärken, veröffentlichen Yahoomail und Googlemail  so genannte Transparenzberichte.\footcite[Vgl.][]{Lokshin} In diesen wird dargestellt, welche Behörden welche Art von Auskunft bei den Providern ersucht haben. Microsoft folgt dem Trend und hat bereits angekündigt, die Behördenanfragen für seinen E-Mail Dienst in den Transparenzbericht des Konzerns mit aufzunehmen\footcite[Vgl.][]{Herget}.
 			\medskip			
 		
 		%Links verwendet
@@ -663,10 +663,10 @@
 		
 			
 			\subsection{EmiG - E-Mail made in Germany}
-			EmiG ist eine Initiative der größten deutschen E-Mail Provider GMX, web.de und T-Online, die zusammen über 53\% (Stand: 2013) der aktiven E-Mail-Konten in Deutschland betreiben.
+			\ac{EmiG} ist eine Initiative der größten deutschen E-Mail Provider GMX, web.de und T-Online, die zusammen über 53\% (Stand: 2013) der aktiven E-Mail-Konten in Deutschland betreiben.
 			\footcite[Vgl.][]{Brandt13} 
 			Zusammen mit den Teilnehmern der freenet AG, 1\&1 Internet AG und STRATO AG\footnote{Die 1\&1 Internet AG ist wie GMX und web.de Teil des United-Internet-Konzern, sowie die STRATO AG eine Tochter des Betreiber von T-Online, der Deutschen Telekom AG ist.} deckt EmiG ca. zwei Drittel der aktiven E-Mail Konten in Deutschland ab.\\
-			Das Projekt wurde im August 2013 als Reaktion der damaligen NSA-Äffäre ins Leben gerufen und hat das Ziel E-Mails zwischen den teilnehmenden Providern auf dem Transportweg mit SSL/TLS verschlüsselt versendet werden.
+			Das Projekt wurde im August 2013 als Reaktion der damaligen \ac{NSA}-Äffäre ins Leben gerufen und hat das Ziel E-Mails zwischen den teilnehmenden Providern auf dem Transportweg mit \ac{TLS/SSL} verschlüsselt versendet werden.
 			Seit April 2014 ist das Projekt umgesetzt.
 %			\medskip\\
 %			Prinzipiell ist das Verfahren ausgelegt weitere Teilnehmer aufzunehmen.
@@ -685,15 +685,15 @@
 		\subsubsection{Vertraulichkeit und Integrität}		
 			Bei den Providern der EmiG-Initative ist die Vertraulichkeit durch die TLS-Transport"-verschlüsselung gegeben. 
 			Die Transportverschlüsselung ist allerdings nur untereinander garantiert. 
-			Die Anwender besitzen keine TLS-Garantie wenn E-Mails von oder zu Providern außerhalb des Verbunds gesendet oder empfangen werden.\\
+			Die Anwender besitzen keine \ac{TLS}-Garantie wenn E-Mails von oder zu Providern außerhalb des Verbunds gesendet oder empfangen werden.\\
 
-			Die Ergebnisse des SSL-Test (\prettyref{sec:nwa}) sind für die drei Provider ähnlich gut. GMX und WEB unterstützen Forward Secrecy mit den meisten Browsern, T-Online hingegen lässt den Schlüsselaustausch für ältere Browser über RC4 zu.
+			Die Ergebnisse des \ac{SSL}-Test (\prettyref{sec:nwa}) sind für die drei Provider ähnlich gut. GMX und WEB unterstützen Forward Secrecy mit den meisten Browsern, T-Online hingegen lässt den Schlüsselaustausch für ältere Browser über RC4 zu.
 			Für die Anwender die innerhalb der EmiG Initiative E-Mails versenden bzw. empfangen ist die Vertraulichkeit des Kommunikationspartner im Webmailer und Outlook ersichtlich.
-			Die Anwender sehen in der Adresszeile die E-Mail-Adresse mit einem grünen Haken versehen, sofern sie im EmiG-Verbund sind, und bekommen so visualisiert, das die E-Mail Transportverschlüsselt versendet wird. Ein zusätzlicher Gewinn an Benutzerfreundlichkeit.
+			Die Anwender sehen in der Adresszeile die E-Mail-Adresse mit einem grünen Haken versehen, sofern sie im \ac{EmiG}-Verbund sind, und bekommen so visualisiert, das die E-Mail transportverschlüsselt versendet wird. Ein zusätzlicher Gewinn an Benutzerfreundlichkeit.
 			\footcite[Vgl.][]{Zivadino14-1}\medskip\\
 		%NWA - Integrität
 		%\subsubsection{Integrität}	
-			Die Integrität der E-Mail-Inhalte sind für EmiG-Provider von unterschiedlicher Bedeutung.
+			Die Integrität der E-Mail-Inhalte sind für \ac{EmiG}-Provider von unterschiedlicher Bedeutung.
 			\acf{E2EE} ist mit keinem Webmail-Angebot der Provider möglich.
 
 			\begin{wrapfigure}{r}{0.6\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
@@ -705,13 +705,13 @@
 				\vspace{-12pt}
 			\end{wrapfigure}
 			Das liegt an einer komplizierten Implementierung und kaum existierender Ansätze für eine Realisierung von PGP im Webmail-Service.
-			Im \textit{Hilfe und Support} Bereich von T-Online ist generell keinerlei Hilfe zur Einrichtung von E2EE mittels PGP oder S/MIME zu finden.
-			Auch wenn hierfür eine externe Mail-Applikation verwendet werden müsste, könnte technisch versierten Anwendern eine Hilfestellung bei der Einrichtung von E2EE bereit gestellt werden.
-			Lediglich ein Hinweis über Einzelverbindungsnachweise und weshalb diese nur PGP-Verschlüsselt versendet werden dürfen ist zu finden. (\prettyref{fig:T-Online_Hilfe_PGP})
+			Im \textit{Hilfe und Support} Bereich von T-Online ist generell keinerlei Hilfe zur Einrichtung von \ac{E2EE} mittels \ac{PGP} oder \ac{S/MIME} zu finden.
+			Auch wenn hierfür eine externe Mail-Applikation verwendet werden müsste, könnte technisch versierten Anwendern eine Hilfestellung bei der Einrichtung von \ac{E2EE} bereit gestellt werden.
+			Lediglich ein Hinweis über Einzelverbindungsnachweise und weshalb diese nur \ac{PGP}-Verschlüsselt versendet werden dürfen ist zu finden. (\prettyref{fig:T-Online_Hilfe_PGP})
 			Eine Information, dass es sich um Ende-zu-Ende-Verschlüsselung handelt ist dem Suchergebnis nicht zu entnehmen.\\
 			Die Provider web.de und GMX stellen dem Nutzer eine solche Hilfestellung gut sichtbar in einem eigenen Menüpunkt bereit. (\prettyref{fig:Web-de_Hilfe_PGP})
-			Im Angebot von T-Online wird dem Nutzer, aufgrund fehlender PGP-Unterstützung, bei der Signierung von E-Mails in externen Mailanwendungen nicht geholfen. 
-			Web.de und GMX helfen zwar bei der Einrichtung von PGP, weisen jedoch nicht darauf hin, dass durch den Einsatz von PGP und E-Mail-Signierung auch die Authentizität des Empfänger und Sender ohne Verschlüsselung sichergestellt werden kann. \\
+			Im Angebot von T-Online wird dem Nutzer, aufgrund fehlender \ac{PGP}-Unterstützung, bei der Signierung von E-Mails in externen Mailanwendungen nicht geholfen. 
+			Web.de und GMX helfen zwar bei der Einrichtung von \ac{PGP}, weisen jedoch nicht darauf hin, dass durch den Einsatz von \ac{PGP} und E-Mail-Signierung auch die Authentizität des Empfänger und Sender ohne Verschlüsselung sichergestellt werden kann. \\
 			
 			\begin{wrapfigure}{r}{0.6\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
 				\vspace{-12pt}
@@ -722,14 +722,14 @@
 				\vspace{-24pt}
 			\end{wrapfigure}
 			Generell haben die Provider der United Internet Gruppe eine informative Sicherheits-Hilferubrik.
-			Anwendern wird bei der Einrichtung von PGP in der Mailapplikation Thunderbird aktiv unterstützt.
+			Anwendern wird bei der Einrichtung von \ac{PGP} in der Mailapplikation Thunderbird aktiv unterstützt.
 			Für die Applikationen Microsoft Outlook oder Mail.app für Mac besteht jedoch keine Hilfestellung.
 			Auch eine Begründung hierfür ist nicht zu finden.
 		%NWA - Authentizität
 		\subsubsection{Authentizität}
 		\label{subsubsec:emig-auth}	
 			Die Serverseitige Authentizität der wird mittels dem selbst entwickelten, proprietären Verfahren \textit{\ac{IMPT}} sichergestellt. 
-			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client- und Server-Zertifikate gegen die herausgebende CA, sowie gegen die Infrastrukturlisten.
+			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client- und Server-Zertifikate gegen die herausgebende \ac{CA}, sowie gegen die Infrastrukturlisten.
 			Sollten dabei Inkonsistenzen auftreten wird der Versand abgelehnt.\\
 			Dieses Vorgehen erinnert an ein geschlossene Variante von \ac{DANE} (\prettyref{subsec:dane}), welches ähnlich zur Sicherstellung der Authentizität verfährt.
 			Alle Partner der Initiative setzen \ac{PFS} ein
@@ -737,19 +737,19 @@
 			und damit eine Eigenschaft um einem höheren Schutzbedarf in zu entsprechen.
 			\footcite[Vgl.][]{Zivadino14-2} 
 			\medskip\\
-			Der Verzicht auf den offenen Standard DANE als Standard-Instrument zur Sicherstellung der Authentizität hat gewiss Nachteile für die Nutzer. 
-			Mit Inter Mail Provider Trust existiert jedoch für den E-Mail-Versand unter den EmiG-Partnern ein ähnlicher Schutz, der allerdings auch nicht immer die Authentizität der verwendeten SSL-Zertifikate gewährleisten kann.
+			Der Verzicht auf den offenen Standard \ac{DANE} als Standard-Instrument zur Sicherstellung der Authentizität hat gewiss Nachteile für die Nutzer. 
+			Mit \acl{IMPT} existiert jedoch für den E-Mail-Versand unter den \ac{EmiG}-Partnern ein ähnlicher Schutz, der allerdings auch nicht immer die Authentizität der verwendeten \ac{SSL}-Zertifikate gewährleisten kann.
 			\footcite[Vgl.][]{Zivadino14-1}
 			Die Vorgehensweise zur Entwicklung einer proprietären Lösung ist daher durchaus kritisch zu Hinterfragen. 
-			United Internet möchte ggf. den Einsatz von DNSSEC und DANE in einem Review-Prozess einer Neubewertung unterziehen.
+			United Internet möchte ggf. den Einsatz von \ac{DNSSEC} und \ac{DANE} in einem Review-Prozess einer Neubewertung unterziehen.
 			\footcite[Vgl.][]{Zivadino14-2}
 		%NWA - Zusätzliche Sicherheitsrelevante Aspekte
 		\subsubsection{Sicherheitsrelevante Aspekte}
-			Für die Mails auf den EmiG-Servern der EmiG-Provider besteht keine separate verschlüsselte Speicherung der E-Mails, insofern dies durch den Nutzer nicht selbst geschehen ist. (\prettyref{subsec:pgp})
+			Für die Mails auf den \ac{EmiG}-Servern der \ac{EmiG}-Provider besteht keine separate verschlüsselte Speicherung der E-Mails, insofern dies durch den Nutzer nicht selbst geschehen ist. (\prettyref{subsec:pgp})
 			Festplatten werden nicht verschlüsselt um bei Diebstahl oder Beschlagnahmung das Auslesen der Inhalte zu verhindern.
 			E-Mails sind für Administratoren der Provider, als auch eventuell unberechtigte Dritte, die sich Zugang auf den Servern verschafft haben einsehbar.\\
 			Die Mails werden durch Viren-Scanner, Spam-Filter und wahrscheinlich Analyse-Algorithmen untersucht und ausgewertet.\footcite[Vgl.][]{Kurz13}
-			Dazu stimmt der Nutzer den entsprechenden Datenschutz Passagen in den AGBs zu. Diese gewähren den Anbietern das \glqq [\dots] persönliche Daten [\dots] elektronisch verarbeitet werden, [und der Anbieter berechtigt ist] anonymisierte Nutzerinformationen Dritten - darunter Anzeigekunden - [\dots] zur Verfügung zu stellen. Die anonymisierten Daten dürfen [\dots] zur Erstellung von Statistiken und Trenderkennungen sowie zur Qualitätssicherung und Marktforschung verwendet werden.\grqq \footcite{Web2012}\\
+			Dazu stimmt der Nutzer den entsprechenden Datenschutz Passagen in den AGBs zu. Diese gewähren den Anbietern das \glqq [\dots] persönliche Daten [\dots] elektronisch verarbeitet werden, [und der Anbieter berechtigt ist] anonymisierte Nutzerinformationen Dritten - darunter Anzeigekunden - [\dots] zur Verfügung zu stellen. Die anonymisierten Daten dürfen [\dots] zur Erstellung von Statistiken und Trenderkennungen sowie zur Qualitätssicherung und Marktforschung verwendet werden.\grqq \footcite[Vgl.][]{Web2012}\\
 			Sicherheitsbezogene Informationen sind innerhalb des Webmail-Angebote von United Internet gut auffindbar, könnten allerdings weiterführende Informationen und Anleitungen enthalten.
 			T-Online ist beim Angebot von Informationen bzgl. E-Mailsicherheit für eigene Kunden deutlich ausbaufähig.\\
 			Einen kleinen Vorsprung besitzt T-Online gegenüber United Internet beim Versuch einen Transparenzbericht zu veröffentlichen, der Anfragen von Behörden offenlegen soll.
@@ -759,31 +759,31 @@
 			\footcite[Vgl.][]{Boehm14}
 		%Zusammenfassung
 		\subsubsection{Zusammenfassung}
-			EmiG ist im Prinzip ein deutlicher Gewinn an Sicherheit für die Kunden im Vergleich zur Zeit vor dem Projekt. 
+			\ac{EmiG} ist im Prinzip ein deutlicher Gewinn an Sicherheit für die Kunden im Vergleich zur Zeit vor dem Projekt. 
 			Mit Rückblick auf die Zeit vor der Initiative und dem damalig gebotenen Sicherheitsniveau im Jahre 2013 ist dieser Gewinn an Sicherheit jedoch kein stark herausragendes Merkmal.
-			Höher als Sicherheitsniveau-Stufe 2 ist die E-Mail-Kommunikation nicht zu bewerten, die auch erst seit dem TLS-Verbund erreicht wird.\footnote{Zum Vergleich: 2013 war Stufe 1 das maximale Sicherheitsniveau für Anwender der größten E-Mail-Provider Deutschlands.}
-			Dafür fehlen weiterhin Provider-übergreifende Bemühungen interessierten Anwendern die E2EE näher zu bringen.
-			Es könnte durchaus mehr Energie in die Umsetzung von E2EE im Webmailer aufgewendet werden, wie es im Vergleich zu anderen Anbietern geschieht (Vgl. \prettyref{subsubsec:googlemail} und \prettyref{subsubsec:mailbox}) \medskip\\
-			Vor allem der Entschluss zur Insellösung \ac{IMPT} und Vernachlässigung von Standards wie DNSSEC werfen Fragen auf. 
-			Ob DANE tatsächlich eine Chance auf eine spätere Implementierung bekommt bleibt abzuwarten, denn bisher ist mit \ac{IMPT} die Kommunikation mit internationalen Anbieter und garantierter Transportverschlüsselung rhetorisch ausgeschlossen.
+			Höher als Sicherheitsniveau-Stufe 2 ist die E-Mail-Kommunikation nicht zu bewerten, die auch erst seit dem \ac{TLS}-Verbund erreicht wird.\footnote{Zum Vergleich: 2013 war Stufe 1 das maximale Sicherheitsniveau für Anwender der größten E-Mail-Provider Deutschlands.}
+			Dafür fehlen weiterhin Provider-übergreifende Bemühungen interessierten Anwendern die \ac{E2EE} näher zu bringen.
+			Es könnte durchaus mehr Energie in die Umsetzung von \ac{E2EE} im Webmailer aufgewendet werden, wie es im Vergleich zu anderen Anbietern geschieht (Vgl. \prettyref{subsubsec:googlemail} und \prettyref{subsubsec:mailbox}) \medskip\\
+			Vor allem der Entschluss zur Insellösung \ac{IMPT} und Vernachlässigung von Standards wie \ac{DNSSEC} werfen Fragen auf. 
+			Ob \ac{DANE} tatsächlich eine Chance auf eine spätere Implementierung bekommt bleibt abzuwarten, denn bisher ist mit \ac{IMPT} die Kommunikation mit internationalen Anbieter und garantierter Transportverschlüsselung rhetorisch ausgeschlossen.
 			\footcite[Vgl.][]{Zivadino14-1}
 			Fakt ist bisher das die Aufnahme und Erstzertifizierung neuer Mail-Provider, die am Beitritt der Initiative interessiert sind, Kosten in Höhe von 9.500 bis 30.000 Euro
 			\footcite[Vgl.][]{Zivadino14-3} 
-			verursacht und mit zusätzlichen manuellen Aufwand bei der Konfiguration der SMTP-Mailserver verbunden sind.
+			verursacht und mit zusätzlichen manuellen Aufwand bei der Konfiguration der \ac{SMTP}-Mailserver verbunden sind.
 			Daher wächst die Initiative nur langsam.\\
-			Auch Vorwürfe, dass EmiG scheinbar keine kleineren E-Mail-Provider zulassen möchte wurden veröffentlicht.
+			Auch Vorwürfe, dass \ac{EmiG} scheinbar keine kleineren E-Mail-Provider zulassen möchte wurden veröffentlicht.
 			\footcite[Vgl.][]{Zivadino14-4}
-			Ob EmiG tatsächlich ein offener Verbund ist, oder sich nur als solcher verkauft bleibt zur Zeit auch unbeantwortet. \medskip\\
+			Ob \ac{EmiG} tatsächlich ein offener Verbund ist, oder sich nur als solcher verkauft bleibt zur Zeit auch unbeantwortet. \medskip\\
 			Inwieweit die Initiative letztendlich die Hauptaufgabe hat Anwendern ein deutliches Plus an Sicherheit zu gewährleisten werden erst die nächsten Monate zeigen können.
-			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als RFC beim IETF \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite{Zivadino14-2}
+			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[Vgl.][]{Zivadino14-2}
 			standardisieren zu lassen ist der richtige Weg zur Beantwortung vieler Fragen.
-			Ob andere E-Mail-Provider diesen Standard nutzen werden, wenn man zusätzliche Kosten und Aufwand betrachtet, bleibt abzuwarten. Auch die Kompatibilität zwischen DNSSEC und IMPT kann ein Entscheidungskriterium sein.
+			Ob andere E-Mail-Provider diesen Standard nutzen werden, wenn man zusätzliche Kosten und Aufwand betrachtet, bleibt abzuwarten. Auch die Kompatibilität zwischen \ac{DNSSEC} und \ac{IMPT} kann ein Entscheidungskriterium sein.
 			\medskip\\
-			Bisher betreibt EmiG einen hohen Marketingaufwand mit breitangelegter TV Kampagne und dazugehörigen, typisch unklaren Äußerungen, hinter denen vermutlich auch strategisch, politische Interessen der Anbieter liegen.\\
+			Bisher betreibt \ac{EmiG} einen hohen Marketingaufwand mit breitangelegter TV Kampagne und dazugehörigen, typisch unklaren Äußerungen, hinter denen vermutlich auch strategisch, politische Interessen der Anbieter liegen.\\
 			Die Haltung, Anwender auf der Internetseite\footnote{\url{http://www.e-mail-made-in-germany.de/Verschluesselung.html}} 
 			nicht über alle Sicherheitsaspekte zu informieren und im Werbespot\footnote{\url{http://www.e-mail-made-in-germany.de/Wechseln.html}} den Großteil technisch nicht versierter Anwender in falscher Sicherheit wiegt hinterlässt ebenfalls Fragen.
 			Für eine sichere und Provider-unabhängige E-Mail-Kommunikation sollte es im Informationszeitalter nicht 15 Jahre für den Einsatz von Sicherheitsstandards benötigen.
-			Ob EmiG sich nur als offener Verbund verkauft oder tatsächlich ist, wird gleichermaßen in den nächsten Monaten zuverlässiger beantwortet werden können.
+			Ob \ac{EmiG} sich nur als offener Verbund verkauft oder tatsächlich ist, wird gleichermaßen in den nächsten Monaten zuverlässiger beantwortet werden können.
 			
 %			Kritisch zu betrachten ist, dass die Umsetzung der Transportverschlüsselung 15 Jahre seit Verabschiedung des Standards 1999 und eine Datenschutzaffäre noch unabschätzbaren Ausmaßes benötigt, um von den größten E-Mail Providern Deutschlands obligatorisch und verantwortungsvoll umgesetzt zu werden. 
 %			Konkurrent Google unterstützt bspw. beim eigenen E-Mail Dienst seit 2011 durch PFS.\footcite[Vgl.][]{Boeck2013}
@@ -880,6 +880,7 @@
 						Dadurch ist es möglich, sich auch von unbekannten und damit potenziell unsicheren Rechner sicher an seinem Account im Webfrontend anzumelden.
 						Ebenfalls positiv hervorzuheben ist die regelmäßige Berichterstattung über Probleme und Erweiterungen des Funktionsumfangs, auch gerade im Hinblick auf neu eingeführte Sicherheitsmaßnahmen.
 						
+				\subsubsection{Zusammenfassung}
 					
 					
 			\subsection{De-Mail}
