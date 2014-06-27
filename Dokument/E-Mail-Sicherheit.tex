@@ -73,7 +73,7 @@
 		
 
 	%Dies ist die Vorlage für die einzelnen Kapitel, die jeweils mit Chapter als Kapiteltitel starten
-	\chapter{Datensicherheit Einmaleins}
+	\chapter{Datensicherheit Einmaleins}\label{sec:datensicherheit-einmaleins}
 	Unter Datensicherheit wird der Schutz von Daten in den Aspekten Verfügbarkeit, Vertraulichkeit und Integrität verstanden.\footcite[Vgl.][]{BSI2014} Im Gegensatz dazu beschreibt Datenschutz den Schutz von und den vertrauensvollen Umgang mit persönlichen Daten. In der IT-Sicherheit wird zusätzlich des Aspekt der Authentizität berücksichtigt.\footcite[Vgl.][]{Berliner2014} In diesem Abschnitt werden diese Aspekte näher betrachtet, da diese für das Verständnis der vorgestellten Techniken in den späteren Kapitel notwendig sind.
 	
 	%mit \section{title} wird ein Unterkapitel der ersten Gliederungsebene überschrieben
@@ -594,14 +594,17 @@
 	\chapter{E-Mail-Sicherheit in der Praxis}
 		\section{Nutzwertanalyse E-Mail-Provider}
 		\label{sec:nwa}
-			Die nachfolgende Nutzwertanalyse besitzt die Auswahl der Oberkriterien Vertraulichkeit und Integrität, Authentizität sowie sicherheitsrelevante Aspekte.
-			
-			
-			<Hier Nutzwertanalyse beschreiben und einbetten, ggf. im Anhang darauf verweisen>
-			SSL-Labs-Test und CheckTLS-Test beschreiben und als Beleg nutzen
+			Die nachfolgende Nutzwertanalyse bewertet eine Auswahl von E-Mailprovider anhand ihrer Umsetzung von sicherheitsrelevanter Technologien wie bspw. \ac{TLS}, \ac{PGP}, oder Verfahren wie \ac{DNSSEC} bzw. \ac{DANE}.
+			Verglichen werden drei große internationale Anbieter, drei Anbieter des \ac{EmiG}-Verbundes und zwei alternative, kleinere Anbieter mit Fokus auf E-Mail-Sicherheit.\\		
+			Die Auswahl der Oberkriterien lehnt sich an die Datenschutz Schutzziele \textit{Vertraulichkeit und Integrität}, \textit{Authentizität} (\prettyref{sec:datensicherheit-einmaleins}) sowie \textit{sicherheitsrelevante Aspekte}. \medskip\\
+			Ausgangspunkt der Bewertung sind hauptsächlich die Analyse-Werkzeuge \textit{SSL Server Test} von QUALYS SSL LABS\footnote{\url{https://dev.ssllabs.com/ssltest/}} und der \textit{DNSSEC Debugger} der \ac{CA} VERISIGN LABS\footnote{\url{http://dnssec-debugger.verisignlabs.com/}}.
+			Mit beiden Werkzeugen ist es möglich Server hinsichtlich ihrer unterstützen Protokolle und Verfahren zu analysieren.\medskip\\
+			Die Ergebnisse der entsprechenden Test-Protokolle (\prettyref{sec:anhang}) der ausgewählten E-Mail-Anbieter sind unter Berücksichtigung der zuvor beschriebenen Zielgruppe und Sicherheitsniveaus verglichen und bewertet wurden.\\
+			Ebenso beachtet wurden die individuellen Angebote der E-Mail-Anbieter durch sicherheitsgerichtete Recherche auf den Anbieter-Webseiten, Webmail-Diensten sowie in unabhängigen und entsprechend zitierten Quellen.\\
+			Die Bewertung der E-Mail-Anbieter erfolgt nachfolgend \prettyref{sec:provider-vergleich} textlich beschrieben und auf die relevanten Faktoren beschränkt.
 			
 			\include{Nutzwertanalyse}
-		\section{Provider Vergleich}
+		\section{Provider Vergleich}\label{sec:provider-vergleich}
 			\subsection{Internationale Provider}
 			Im Rahmen der Nutzwertanalyse wurden unter anderem drei der bekanntesten internationalen E-Mail Provider betrachtet: Yahoomail, Googlemail und Hotmail. Die folgenden Aussagen treffen auf alle Provider gleichermaßen zu, sofern nicht ein E-Mail Anbieter explizit genannt wird.
 			\medskip
@@ -1011,7 +1014,7 @@
 		%Literaturverzeichnis
 		\printbibliography[heading=offline,nottype=online]
 		\printbibliography[heading=online,type=online]
-	\chapter*{Anhang}
+	\chapter*{Anhang}\label{sec:anhang}
 		\addcontentsline{toc}{chapter}{Anhang}
 		\label{LastPage}
 		\includepdf[pages=1-4]{anlagen/SSLServerTest-yahoo.pdf}
