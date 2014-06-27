@@ -17,6 +17,7 @@
 %\begingroup
 %  \renewcommand*{\chapterpagestyle}{empty}
   \pagestyle{plain}
+\begin{small}
   \tableofcontents
 %  \clearpage
 %\endgroup	
@@ -27,6 +28,7 @@
 	\pagebreak
 	\include{Akronyme} %einbinden des in Akronyme.tex erstellten Abbildungsverzeichnisses
 	\pagebreak
+\end{small}
 	\pagenumbering{arabic}\setcounter{page}{1} %ändern der Seitennummerierung auf arabische Zahlen und Beginn bei Seite 1
 	% % % Kopf-und Fußzeilenumgebung / Einstellung % % %
 		\pagestyle{fancyplain}
@@ -591,6 +593,15 @@
 			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn \glqq die Verwendung [...] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,\grqq\footcite[Vgl.][S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
 	\pagebreak
 	\chapter{E-Mail-Sicherheit in der Praxis}
+		\section{Nutzwertanalyse E-Mail-Provider}
+		\label{sec:nwa}
+			Die nachfolgende Nutzwertanalyse besitzt die Auswahl der Oberkriterien Vertraulichkeit und Integrität, Authentizität sowie sicherheitsrelevante Aspekte.
+			
+			
+			<Hier Nutzwertanalyse beschreiben und einbetten, ggf. im Anhang darauf verweisen>
+			SSL-Labs-Test und CheckTLS-Test beschreiben und als Beleg nutzen
+			
+			\include{Nutzwertanalyse}
 		\section{Provider Vergleich}
 			\subsection{Internationale Provider}
 			Im Rahmen der Nutzwertanalyse wurden unter anderem drei der bekanntesten internationalen E-Mail Provider betrachtet: Yahoomail, Googlemail und Hotmail. Die folgenden Aussagen treffen auf alle Provider gleichermaßen zu, sofern nicht ein E-Mail Anbieter explizit genannt wird.
@@ -955,13 +966,7 @@
 			Laut Neumann sei es noch nicht zu spät für die Nachbesserung des De-Mail-Gesetztes. \footcite[Vgl.][S. 6f]{Neumann2013a}
 			Er empfiehlt eine standardmäßige Ende-zu-Ende-Verschlüsslung\footcite[Vgl.][S. 7,o.S.]{Neumann2013a,Neumann2013b} sowie die Einhaltung der Vorgaben des Signaturgesetzes.\footcite[Vgl.][S. 4]{Neumann2013a}
 				
-				
-		\section{Nutzwertanalyse E-Mail-Provider}
-		\label{sec:nwa}
-			<Hier Nutzwertanalyse beschreiben und einbetten, ggf. im Anhang darauf verweisen>
-			SSL-Labs-Test und CheckTLS-Test beschreiben und als Beleg nutzen
 			
-			\include{Nutzwertanalyse}
 	\chapter{Ausblick}
 %		(Trends/Fazit/Schlusswort -> proton Mail Provider vom CERN)
 %		(Google hat die alpha eines Plugins für Chromebrowser vorgestellt, die E2E-Verschlüsselung im Browser durchführen und vereinfachen soll -> könnte nen Hinweis wert sein) 	
