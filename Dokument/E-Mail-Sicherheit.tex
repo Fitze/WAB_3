@@ -64,7 +64,7 @@
 		
 		Die von Privatpersonen versendeten Mails haben unterschiedliche Anforderungen an die Vertraulichkeit der Nachricht. Anhand dieser Anforderungen lassen sich Sicherheitsniveaus zuordnen, die in Kapitel \ref{chap:sicherheitsniveaus} analysiert werden.
 		
-		Nachdem ein Grundverständnis für die verschiedenen Aspekte in der Datensicherheit und die unterschiedlichen Sicherheitsniveaus aufgebaut wurde, werden im fünften Kapitel die Technologien und Verfahren zum Schutz der Daten in der E-Mail-Kommunikation untersucht. In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodell erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport. Das Kapitel schließt mit einer Betrachtung des 
+		Nachdem ein Grundverständnis für die verschiedenen Aspekte in der Datensicherheit und die unterschiedlichen Sicherheitsniveaus aufgebaut wurde, werden im fünften Kapitel die Technologien und Verfahren zum Schutz der Daten in der E-Mail-Kommunikation untersucht. In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodell erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. Das Kapitel schließt mit einer Betrachtung des 
 		Namensdienstes DNS und seinen Sicherheit erhöhenden Erweiterungen ab.
 		
 		Im sechsten Kapitel werden ausgewählte Mail-Provider in der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. Aus dieser Analyse wird eine Nutzwertanalyse erstellt, die die Anforderungen der verschiedenen Sicherheitsniveaus anhand der vorgestellten Provider übersichtlich in tabellarischer Form darstellt.
@@ -278,40 +278,40 @@
 	
 	\chapter{Technologien und Verfahren}
 		\section{Kyptographie Grundlagen}
-				Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten vor Dritten unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegende Funktionsweise der Verschlüsselung untersucht, die zum Verständnis der weiteren Kapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
+				Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten für Dritte unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegenden Funktionsweisen der Verschlüsselung untersucht, die zum Verständnis der weiteren Kapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
 				%Die Einleitung ist top, mehr Bezug zur E-Mail wäre toll, so das es essenziel für Sicherheit ist und die Basis zur Sicherstellung von sicherer Kommunikation Stufe 1-4 (Unsere niveaus) da nämlich auch öffentlich zumindest transport verschlüsselt sein sollte (wird ja auch als Standard durchgedrück (versucht) EmiG, TLS)
 			\subsection{Symmetrische Verschlüsselung}
-				Bei der symmetrischen Verschlüsselung wird sowohl zur Verschlüsselung und Entschlüsselung ein gemeinsamer Schlüssel verwendet. Dieser Schlüssel wird auch Shared Secret genannt. Mithilfe dieses Schlüssels und einem kryptographischen Algorithmus wird die Information des Absenders, auch als Klartext bezeichnet, verschlüsselt. Ein Algorithmus transformiert dabei einen Eingabeparameter in einen Ausgabeparameter. Im Fall eines kryptographischen Algorithmus handelt es sich um eine mathematische Vorschrift, die aus dem Klartext einen sogenannten Geheimtext berechnet. Diesen verschlüsselten Text kann der Empfänger mit dem selben Schlüssel, der zur Verschlüsselung verwendet wurde, entschlüsseln.
-				Im elektronischen Mailverkehr wirkt sich die Funktionsweise der symmetrischen Verschlüsselung nachteilig auf deren Anwendung auf. Da beide Kommunikationspartner denselben Schlüssel benötigen, muss dieser zuvor ausgehandelt und übertragen werden. Dieser Umstand stellt ein Risiko bezüglich der Vertraulichkeit dar. Jeder, der über den Schlüssel verfügt, kann auf den Inhalt der Nachricht zugreifen. Dieses Sicherheitsrisiko wird durch die asymmetrische Verschlüsselung beseitigt.
+				Bei der symmetrischen Verschlüsselung wird sowohl zur Verschlüsselung als auch Entschlüsselung ein gemeinsamer Schlüssel verwendet. Dieser Schlüssel wird auch Shared Secret genannt. Mithilfe dieses Schlüssels und einem kryptographischen Algorithmus wird die Information des Absenders, auch als Klartext bezeichnet, verschlüsselt. Ein Algorithmus transformiert dabei einen Eingabeparameter in einen Ausgabeparameter. Im Fall eines kryptographischen Algorithmus handelt es sich um eine mathematische Vorschrift, die aus dem Klartext einen sogenannten Geheimtext berechnet. Diesen verschlüsselten Text kann der Empfänger mit dem selben Schlüssel, der zur Verschlüsselung verwendet wurde, entschlüsseln.
+				Im elektronischen Mailverkehr wirkt sich die Funktionsweise der symmetrischen Verschlüsselung nachteilig auf deren Anwendung aus. Da beide Kommunikationspartner denselben Schlüssel benötigen, muss dieser zuvor ausgehandelt und übertragen werden. Dieser Umstand stellt ein Risiko bezüglich der Vertraulichkeit dar. Jeder, der über den Schlüssel verfügt, kann auf den Inhalt der Nachricht zugreifen. Dieses Sicherheitsrisiko wird durch die asymmetrische Verschlüsselung beseitigt.
 				%Wir benutzen scheinbar alle verschiedene Synonme für E-Mail Kommunikation. Elektronischer Briefverkehr klingt ganz neu für mich :D Vielleicht einigen wir uns einfach auch "E-Mail-Kommunikation"?
 				%Referenzieren (Schlüsselaustausch!)	
 			\subsection{Asymmetrische Verschlüsselung}
-				Wie bei der symmetrischen Verschlüsselung kommt auch bei der asymmetrischen Verschlüsselung, die auch Public-Key-Kryptography genannt wird, ein kryptographischer Algorithmus zum Einsatz. Hierbei wird jedoch wird statt eines gemeinsamen Schlüssels ein Schlüsselpaar verwendet. Dieser besteht aus einem öffentlichen und einem privaten Schlüssel, die mathematisch zusammenhängen. Jeder, der verschlüsselte Nachrichten empfangen möchte, verfügt über ein solches Schlüsselpaar. Der private Schlüssel wird niemals bekanntgegeben, wohingegen der öffentliche Schlüssel jedem zugänglich gemacht werden kann. Obwohl die Schlüssel zusammenhängen, kann aus der Kenntnis des öffentlichen Schlüssels nicht auf den privaten Schlüssel geschlossen werden.\footcite[S. 177]{Schmeh2013}
+				Wie bei der symmetrischen Verschlüsselung kommt auch bei der asymmetrischen Verschlüsselung, die auch Public-Key-Kryptography genannt wird, ein kryptographischer Algorithmus zum Einsatz. Hierbei wird jedoch wird statt eines gemeinsamen Schlüssels ein Schlüsselpaar verwendet. Dieser besteht aus einem öffentlichen und einem privaten Schlüssel, die mathematisch zusammenhängen. Jeder, der verschlüsselte Nachrichten empfangen möchte, verfügt über ein solches Schlüsselpaar. Der private Schlüssel wird niemals bekanntgegeben, wohingegen der öffentliche Schlüssel jedem zugänglich gemacht werden kann. Obwohl die Schlüssel zusammenhängen, kann aus der Kenntnis des öffentlichen Schlüssels nicht auf den privaten Schlüssel geschlossen werden.\footcite[Vgl.][S. 177]{Schmeh2013}
 				Soll eine Nachricht durch ein asymmetrisches Verschlüsselungsverfahren verschlüsselt verschickt werden, wird zunächst der öffentliche Schlüssel des Empfängers benötigt. Zusammen mit der Nachricht wird der Geheimtext erzeugt und an den Empfänger geschickt. Zum Entschlüsseln der Nachricht wird der private Schlüssel des Empfängers verwendet, der zu dem öffentlichen Schlüssel gehört, der bei der Verschlüsselung der Nachricht verwendet wurde.
 				
 				Mit diesem Verfahren wurde das Sicherheitsrisiko der symmetrischen Verschlüsselung gelöst, da der öffentliche Schlüssel zum Verschlüsseln jedem bekannt sein darf. Zur Entschlüsselung wird der dazugehörige private Schlüssel benötigt, der im Besitz des Empfängers ist und niemals veröffentlicht wird.
-				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt. Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss "bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden."\footcite[S. 90]{Ertel2012}
+				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt. Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss "bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden."\footcite[Vgl.][S. 90]{Ertel2012}
 				
-				Zwei Aspekte sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Der im Jahr 1978 erfundene asymmetrische RSA-Algorithmus, der nach seinen Erfindern R. Rivest, A Shamir und L Adleman benannt, hebt sich vor allem durch seine Einfachheit hervor\footcite[S. 79]{Ertel2012} und der Diffie-Hellman-Schlüsselaustausch. Mit diesem Protokoll, das Eigenschaften von asymmetrischer Verschlüsselung aufweist, können geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel\footcite[S. 129]{Stephan2011}
+				Zwei Aspekte sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Der im Jahr 1978 erfundene asymmetrische RSA-Algorithmus, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist, hebt sich vor allem durch seine Einfachheit hervor\footcite[Vgl.][S. 79]{Ertel2012} und der Diffie-Hellman-Schlüsselaustausch. Mit diesem Protokoll, das Eigenschaften von asymmetrischer Verschlüsselung aufweist, können geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
 			\subsection{Digitale Signaturen}\label{chp: Signatur}	
-				Asymmetrische Verschlüsselungsverfahren ermöglichen, die menschliche Unterschrift in der digitalen Welt abzubilden. Diese Funktionalität wird mit digitalen Signaturen umgesetzt. Damit eine digitale Signatur den Anforderungen einer menschlichen Unterschrift erfüllt, müssen einige Bedingungen eingehalten werden:\footcite[S. 202]{Schmeh2013}
+				Asymmetrische Verschlüsselungsverfahren ermöglichen, die menschliche Unterschrift in der digitalen Welt abzubilden. Diese Funktionalität wird mit digitalen Signaturen umgesetzt. Damit eine digitale Signatur den Anforderungen einer menschlichen Unterschrift erfüllt, müssen einige Bedingungen eingehalten werden:\footcite[Vgl.][S. 202]{Schmeh2013}
 				\begin{itemize}
 					\item Sie darf nicht zu fälschen sein.
-					\item Ihre Echtzeit muss überprüfbar sein
+					\item Ihre Echtheit muss überprüfbar sein.
 					\item Sie darf nicht unbemerkt von einem Dokument zum anderen übertragen werden können.
 					\item Das dazugehörende Dokument darf nicht unbemerkt verändert werden können.
 				\end{itemize}
 				Diese Voraussetzungen dienen dazu, die Verbindlichkeit des Absenders sowie die Integrität der Nachricht zu gewährleisten. Beim Signieren verschlüsselt der Absender seine Nachricht mit seinem privaten Schlüssel. Die resultierende Nachricht ist die digitale Signatur. In der Regel wird	beim Signieren aufgrund des Rechenaufwandes für lange Nachrichten nicht die gesamte Nachricht verschlüsselt, sondern ein sogenannter Hashwert. Hashwerte sind eine Zeichenfolge mit einer bestimmten Länge, die durch eine mathematische Einweg-Hashfunktion generiert werden. Diese Funktionen haben einen Eingabeparameter und berechnen daraus einen Hashwert. Aus der Kenntnis des Hashwertes oder der Hashfunktion lässt sich der Eingabeparameter nicht ableiten, wodurch die Integrität einer signierten Nachricht gewährleistet ist.
-				Die signierte Nachricht wird im nächsten Schritt an den Empfänger geschickt. Dieser kann nun die Verbindlichkeit der Nachricht überprüfen, indem er die Signatur mit dem öffentlichen Schlüssel des Absenders entschlüsselt. Anschließend berechnet er den Hashwert der erhaltenen Nachricht und vergleicht diesen mit dem zuvor entschlüsselten Signatur des Absenders. Diese Überprüfung wird dabei auch Verifizierung genannt. Stimmen beide Werte überein, kann er sicher sein, dass die Nachricht von dem Absender stammt, da nur mit dessen privatem Schlüssel die Nachricht verschlüsselt werden konnte. Zusätzlich ist damit garantiert, dass die Nachricht vollständig und ungeändert beim Absender angekommen ist.
+				Die signierte Nachricht wird im nächsten Schritt an den Empfänger geschickt. Dieser kann nun die Verbindlichkeit der Nachricht überprüfen, indem er die Signatur mit dem öffentlichen Schlüssel des Absenders entschlüsselt. Anschließend berechnet er den Hashwert der erhaltenen Nachricht und vergleicht diesen mit der zuvor entschlüsselten Signatur des Absenders. Diese Überprüfung wird dabei auch Verifizierung genannt. Stimmen beide Werte überein, kann er sicher sein, dass die Nachricht von dem Absender stammt, da nur mit dessen privatem Schlüssel die Nachricht verschlüsselt werden konnte. Zusätzlich ist damit garantiert, dass die Nachricht vollständig und unverändert beim Absender angekommen ist.
 				
-				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört\grqq{}.\footcite[S. 506]{Schmeh2013}
+				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört\grqq{}.\footcite[Vgl.][S. 506]{Schmeh2013}
 	
 			\subsection{Zertifikate}\label{chp: zertifikate}
 				Bei den bisher genannten Verfahren wurde davon ausgegangen, dass der öffentliche Schlüssel wirklich dem beabsichtigten Kommunikationspartner gehört. Die Authentizität des öffentlichen Schlüssels ist durch Szenarien wie dem Man-In-The-Middle-Angriff nicht immer garantiert. Um die Authentizität des öffentlichen Schlüssels sicherzustellen, werden Zertifikate verwendet.
 				
 				Ein Zertifikat ist ein elektronisches Dokument, das einer Person zugeordnet werden kann. Dieses Dokument enthält neben den persönlichen und weiteren Informationen des Inhabers dessen öffentlichen Schlüssel. Außerdem enthält ein Zertifikat eine Signatur über all den genannten Angaben. Das Signieren wird dabei von einer vertrauenswürdigen Instanz durchgeführt, die auch \ac{CA} oder Zertifizierungsstelle genannt wird.
 				
-				Zum Versenden einer verschlüsselten Nachricht wird zunächst das Zertifikat vom Empfänger besorgt. Der Absender überprüft die Authentizität des öffentlichen Schlüssels des Empfängers, indem er die Signatur unter Verwendung des öffentlichen Schlüsses der \ac{CA} verifiziert. Mit der Verifizierung ist gewährleistet, dass der öffentliche Schlüssel auf dem Zertifikat dem Zertifikatsinhaber gehört.
+				Zum Versenden einer verschlüsselten Nachricht wird zunächst das Zertifikat vom Empfänger besorgt. Der Absender überprüft die Authentizität des öffentlichen Schlüssels des Empfängers, indem er die Signatur unter Verwendung des öffentlichen Schlüssels der \ac{CA} verifiziert. Mit der Verifizierung ist gewährleistet, dass der öffentliche Schlüssel auf dem Zertifikat dem Zertifikatsinhaber gehört.
 				
 				Das Sicherheitsrisiko bezüglich der Authentizität des öffentlichen Schlüssels der signierenden Zertifizierungsstelle wird gelöst, indem ein Zertifikat über den seinen öffentlichen Schlüssel erstellt wird, das von der \ac{CA} selbst signiert wurde. Dieses Zertifikat wird als self-signed bezeichnet.
 	
@@ -417,9 +417,9 @@
 				
 				
 				%Vorteile
-				Ein Vorteil von \ac{PGP} liegt darin, dass es sowohl auf dem dezentralen Vertrauensmodell Web of Trust als auch auf dem hierarchischen Vertrauensmodell der \ac{PKI} basiert.\footcite[vgl][S. 38f.]{Schwenk}
-				Außerdem werden die verschlüsselten Nachrichten vor dem Versenden komprimiert und verringern dadurch nicht nur Traffic, sondern verbessern somit auch den Schutz vor Angreifern.\footcite[][S. 45]{Schwenk}	
-				Des Weiteren steht der Sourcecode von \ac{PGP} öffentlich zur Verfügung und kann beliebig auf Richtigkeit überprüft werden.\footcite[][S. 47]{Schwenk}
+				Ein Vorteil von \ac{PGP} liegt darin, dass es sowohl auf dem dezentralen Vertrauensmodell Web of Trust als auch auf dem hierarchischen Vertrauensmodell der \ac{PKI} basiert.\footcite[Vgl.][S. 38f.]{Schwenk}
+				Außerdem werden die verschlüsselten Nachrichten vor dem Versenden komprimiert und verringern dadurch nicht nur Traffic, sondern verbessern somit auch den Schutz vor Angreifern.\footcite[Vgl.][S. 45]{Schwenk}	
+				Des Weiteren steht der Sourcecode von \ac{PGP} öffentlich zur Verfügung und kann beliebig auf Richtigkeit überprüft werden.\footcite[Vgl.][S. 47]{Schwenk}
 				\medskip
 									
 				
@@ -429,11 +429,11 @@
 			
 			
 				%Nachteil
-				Der öffentliche Sourcecode stellt jedoch gleichzeitig auch einen Schwachpunkt dar, da es somit Angreifern ermöglicht wird, potenzielle Schwachstellen und Sicherheitslücken in der Implementierung aufzufinden. Vor allem mit der Zunahme neuer Features wird dieser Nachteil erheblicher, was durch Angriffe von Senderek, Klíma und Rosza bewiesen wurde.\footcite[vgl.][S. 47-55]{Schwenk}
+				Der öffentliche Sourcecode stellt jedoch gleichzeitig auch einen Schwachpunkt dar, da es somit Angreifern ermöglicht wird, potenzielle Schwachstellen und Sicherheitslücken in der Implementierung aufzufinden. Vor allem mit der Zunahme neuer Features wird dieser Nachteil erheblicher, was durch Angriffe von Senderek, Klíma und Rosza bewiesen wurde.\footcite[Vgl.][S. 47-55]{Schwenk}
 				
 				Ein weiterer Nachteil liegt in der Schwierigkeit beim Austausch von Schlüsselinformationen für \ac{E2EE}. Dies muss noch manuell mit Hilfe von Software erfolgen und ist daher noch nicht Standard heutiger E-Mail-Kommunikation. 
 				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende Verschlüsselung, allerdings ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf dem eigenen Server zwischenspeichert. Der Anwender hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist.\\
-				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modell. \medskip\\
+				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite[Vgl.][]{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modell. \medskip\\
 				
 				%Bezug zu Sicherheitsniveaus
 				Nichtsdestotrotz ermöglicht \ac{PGP} durch die  Ende-zu-Ende-Verschlüsselung, dass die Inhalte der E-Mail nur für den Sender und den rechtmäßigen Empfänger einsehbar sind. Daher ist es geeignet streng vertrauliche Informationen zu versenden.
@@ -471,11 +471,11 @@
 				%Voraussetzung
 				Damit ein Nutzer \ac{S/MIME} verwenden kann, benötigt er ein X.509 Zertifikat. Dieses wird in seiner einfachsten Form kostenlos von einer \ac{CA} ausgestellt.\footcite[Vgl.][]{Duevel}
 				
-				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[][S. 65 ff.]{Schwenk} beschrieben.
+				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[Vgl.][S. 65 ff.]{Schwenk} beschrieben.
 				\medskip
 														
 				%Umsetzung
-				Hat sich der Absender für die Verschlüsselung via \ac{S/MIME} entschieden, sucht der Mail Client automatisch in der Zertifikatsdatenbank nach einem Zertifikat, welches die E-Mail Adresse des Empfängers enthält. Sollte ein solches Zertifikat nicht gefunden werden, wird der Nutzer darüber informiert, dass eine \ac{S/MIME} Verschlüsselung nicht möglich sei. Ist ein entsprechendes Zertifikat vorhanden, wird die E-Mail hybrid verschlüsselt.\footcite[][S. 65]{Schwenk}
+				Hat sich der Absender für die Verschlüsselung via \ac{S/MIME} entschieden, sucht der Mail Client automatisch in der Zertifikatsdatenbank nach einem Zertifikat, welches die E-Mail Adresse des Empfängers enthält. Sollte ein solches Zertifikat nicht gefunden werden, wird der Nutzer darüber informiert, dass eine \ac{S/MIME} Verschlüsselung nicht möglich sei. Ist ein entsprechendes Zertifikat vorhanden, wird die E-Mail hybrid verschlüsselt.\footcite[Vgl.][S. 65]{Schwenk}
 				
 %				- Bedeutet, dass Nachricht symmetrisch verschlüsselt wird und das Shared Secret mit dem im Empfänger-Zertifikat angegebenen öffentlichen Schlüssel verschlüsselt wird
 %				- Anschließend base64 codiert, damit Mailserver den Inhalt nicht unbeabsichtigt ändern kann
@@ -556,7 +556,7 @@
 			\caption[Baumstruktur des DNS]{Beispielhafte Abbildung der Baumstruktur des \ac{DNS}\footnotemark}
 			\label{img:baumstruktur_dns}
 			\vspace{-12pt}
-		\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 180]{Sorge2013}}
+		\end{wrapfigure}\footnotetext{\cite[In Anlehnung an:][S. 180]{Sorge2013}}
 		
 		Wie in Abbildung \ref{img:baumstruktur_dns} veranschaulicht, ist auf der obersten Ebene der Knoten \glqq root\grqq{} zu finden.
 		Dies ist sozusagen die Wurzel des \ac{DNS} und hier finden sich auch die Root-Server des \ac{DNS}.
@@ -583,7 +583,7 @@
 %			Daher wird dieser Schlüssel auch als Secure Entry Point bezeichnet.
 			Ein Kritikpunkt an \ac{DNSSEC} ist die hohe Komplexität des Systems, die durch den Aufbau der Zertifikatsketten und dem aufwändigen Austausch der Schlüssel auf Zonenebene entsteht.
 			Diese ist jedoch der benötigten Kompatibilität mit bestehenden Systemen geschuldet und momentan alternativlos.\footcite[Vgl.][S. 195]{Sorge2013}
-			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI} deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite{Koetter2014}. Der \glqq Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden].\grqq\footcite{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR} die an der Erstellung des root key und der Signierungsprozesse partizipieren.
+			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI} deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite[Vgl.][]{Koetter2014}. Der \glqq Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden].\grqq\footcite[Vgl.][]{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR} die an der Erstellung des root key und der Signierungsprozesse partizipieren.
 	
 		\subsection{DANE - DNS-based Authentication of Named Entities}
 		\label{subsec:dane}                                             
@@ -597,7 +597,7 @@
 	\chapter{E-Mail-Sicherheit in der Praxis}
 		\section{Nutzwertanalyse E-Mail-Provider}
 		\label{sec:nwa}
-			Die nachfolgende Nutzwertanalyse bewertet eine Auswahl von E-Mailprovider anhand ihrer Umsetzung von sicherheitsrelevanter Technologien wie bspw. \ac{TLS}, \ac{PGP}, oder Verfahren wie \ac{DNSSEC} bzw. \ac{DANE}.
+			Die nachfolgende Nutzwertanalyse bewertet eine Auswahl von E-Mailprovider anhand ihrer Umsetzung von sicherheitsrelevanter Technologien wie bspw. \ac{TLS}, \ac{PGP} oder Verfahren wie \ac{DNSSEC} bzw. \ac{DANE}.
 			Verglichen werden drei große internationale Anbieter, drei Anbieter des \ac{EmiG}-Verbundes und zwei alternative, kleinere Anbieter mit Fokus auf E-Mail-Sicherheit.\\		
 			Die Auswahl der Oberkriterien lehnt sich an die Datenschutz Schutzziele \textit{Vertraulichkeit und Integrität}, \textit{Authentizität} (\prettyref{sec:datensicherheit-einmaleins}) sowie \textit{sicherheitsrelevante Aspekte}.\\
 			Ausgangspunkt der Bewertung sind hauptsächlich die Analyse-Werkzeuge \textit{SSL Server Test} von Qualys SSL Labs\footnote{\url{https://dev.ssllabs.com/ssltest/}} und der \textit{DNSSEC Debugger} der \ac{CA} Verisign Labs\footnote{\url{http://dnssec-debugger.verisignlabs.com/}}.
@@ -657,9 +657,9 @@
 
 			Eine Verbindung der erreichten Punktzahl und den beschriebenen Sicherheitsniveaus ist nicht Gegenstand des Ergebnisses.\medskip\\
 			Im Nachhinein lassen sich die E-Mail-Anbieter nur bedingt in die Sicherheitsniveaus der Stufen 1 bis 4 kategorisieren, denn prinzipiell ist es bspw. möglich auch mit Punktzahlen zwischen 2,0 und 4,0 ein Sicherheitsniveau von Stufe 3 bis 4 zu erreichen.\footnote{Bspw. durch selbständige Konfiguration von Ende-zu-Ende-Verschlüsselung durch den Endnutzer.}
-			Auch individuelle Gegebenheiten der Endnutzer wie die Verwendung von E-Mail-Software oder Version des Webbrowser sind wichtige Faktoren die nur in Verbindung eine konkrete Aussage über die endgültig erreichte Sicherheitsniveau-Stufe zulassen.\medskip\\
-			Das Sicherheitsniveau hängt damit generell zum Einen vom technischen Verständnis und zum Anderen von der Bereitwilligkeit des Endnutzers ab.
-			Nur wenn Endanwender über die Standardeinstellungen des E-Mail-Anbieters hinaus manuelle Konfigurationen vornehmen kann Sicherheitsniveau Stufe 4 erreicht werden.\medskip\\
+			Auch individuelle Gegebenheiten der Endnutzer wie die Verwendung von E-Mail-Software oder Version des Webbrowser sind wichtige Faktoren, die nur in Verbindung eine konkrete Aussage über die endgültig erreichte Sicherheitsniveau-Stufe zulassen.\medskip\\
+			Das Sicherheitsniveau hängt damit generell zum Einen vom technischen Verständnis und zum Anderen von der Bereitwilligkeit des Endnutzers ab. %Daniel: Hier müssen wir uns auf Endnutzer oder Endanwender einigen...
+			Nur wenn Endanwender über die Standardeinstellungen des E-Mail-Anbieters hinaus manuelle Konfigurationen vornehmen, kann Sicherheitsniveau Stufe 4 erreicht werden.\medskip\\
 			Die Punkteskala von 1 bis 10 fasst jedoch die technische Ausgangsbasis der E-Mail-Infrastruktur und die Implementierung offener und moderner Standards für eine möglichst unabhängige und sichere Kommunikation der E-Mail-Anbieter untereinander zusammen.
 			Außerdem fließen in die Punktzahl Unterstützungsmaßnahmen des E-Mail-Anbieters ein, um Auskunft über den Schwierigkeitsgrad zur Erreichung hoher Sicherheitsniveaus zu geben.
 			Die Privatsphäre der Endnutzer wird ebenfalls durch die Bewertung der Auswertungsmöglichkeit und Transparenzberichte berücksichtigt.\medskip\\
@@ -674,10 +674,10 @@
 			\subsubsection{Vertraulichkeit und Integrität}
 			Alle betrachteten E-Mail Anbieter erhalten eine gute Punktzahl für die Transportwegverschlüsselung. Googlemail und Yahoo schneiden gegenüber Hotmail etwas besser ab, da sie sowohl \ac{PFS} für moderne Browser als auch die neuesten Versionen der \ac{TLS/SSL} Protokolle unterstützen. Hotmail hingegen bietet \ac{PFS} gar nicht an und unterstützt lediglich \ac{TLS} 1.0 und \ac{SSL} 3.0.
 			
-			Für die eingesetzten Zertifikate erhalten alle Provider wiederum volle Punktzahl.\footnote{vgl. Anhang SSL Reports}
+			Für die eingesetzten Zertifikate erhalten alle Provider wiederum volle Punktzahl.\footnote{Vgl. Anhang SSL Reports}
 			\medskip
 			
-			Zwar haben seit den Enthüllungen von Edward Snowden zu den Machenschaften der \ac{NSA} und anderen Geheimdiensten die meisten E-Mail Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footnote{vgl. Anhang SSL Reports}. Ein voll umfänglichen Schutz durch eine \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite[Vgl.][]{Kirsch} Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail Clients war nicht aufzufinden.
+			Zwar haben seit den Enthüllungen von Edward Snowden zu den Machenschaften der \ac{NSA} und anderen Geheimdiensten die meisten E-Mail Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footnote{Vgl. Anhang SSL Reports}. Ein voll umfänglichen Schutz durch eine \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite[Vgl.][]{Kirsch} Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail Clients war nicht aufzufinden.
 			
 			
 			\subsubsection{Authentizität}
@@ -685,7 +685,7 @@
 			Weder Googlemail, noch Hotmail oder Yahoomail unterstützen eine digitale Signatur für ihre Webmailer. Darüber hinaus ist bei keinem der Anbieter eine Beschreibung für die Einrichtung einer digitalen Signatur für externe Mail-Clients zu finden. 
 			\medskip
 			
-			Auch die Untersuchung der Mailserver-Authentifizierung führte zu schlechten Ergebnissen, wie der \ac{DNSSEC} Analyzer von Verisign bestätigt.\footnote{vgl. Anhang DNSSEC Reports} 
+			Auch die Untersuchung der Mailserver-Authentifizierung führte zu schlechten Ergebnissen, wie der \ac{DNSSEC} Analyzer von Verisign bestätigt.\footnote{Vgl. Anhang DNSSEC Reports} 
 		
 		
 			\subsubsection{Sicherheitsrelevante Aspekte}
@@ -896,7 +896,7 @@
 					
 					\paragraph{Vertraulichkeit und Integrität}
 						Der Zugriff auf den Server von Posteo erfolgt immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung, unabhängig davon, ob ein Mailprogramm oder der Webmailer genutzt wird.
-						Dies wird durch den Einsatz von \ac{HSTS} erzwungen.
+						Dies wird durch den Einsatz von \ac{HSTS} erzwungen.\footnote{Vgl. Anhang SSL Reports}
 						Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt vor und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
 						Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.][]{Posteo2013c}\medskip\\
 					
@@ -936,7 +936,7 @@
 					
 					\paragraph{Vertraulichkeit und Integrität}
 						Bei Mailbox.org können die Nutzer nur auf verschlüsseltem Weg auf die Server zugreifen um ihre Mails abzurufen.
-						Hierbei werden die neuesten Versionen von \ac{TLS} mit \ac{PFS} unterstützt und der Aufbau von unverschlüsselten Verbindungen durch den Einsatz von \ac{HSTS} unterbunden.
+						Hierbei werden die neuesten Versionen von \ac{TLS} mit \ac{PFS} unterstützt und der Aufbau von unverschlüsselten Verbindungen durch den Einsatz von \ac{HSTS} unterbunden.\footnote{Vgl. Anhang SSL Report}
 						Auch beim Versand und Empfang von Mails bietet Mailbox.org die Möglichkeit eine unverschlüsselte Kommunikation zu unterbinden.\footcite[Vgl.][]{Mailbox2014b}\medskip\\
 						
 						Bei der Information der Nutzer über die Einrichtung und Nutzung von Verschlüsselungsmethoden zur \ac{E2EE} bietet Mailbox.org eine Anleitung für viele Plattformen und auch einen gut verständlichen Stiftfilm zur Erklärung, wie \ac{E2EE} funktioniert.
@@ -1042,7 +1042,7 @@
 		
 		Trotzdem muss man die in der Nutzwertanalyse festgestellte Situation als Momentaufnahme werten, da in diesem Markt, wie generell im IT-Bereich, sehr viel Bewegung ist.
 		Dies lässt sich daran festmachen, dass neben den untersuchten, alternativen Mailprovidern, die in Deutschland ansässig sind, auch weitere Anbieter wie \textit{Protonmail.ch} aus der Schweiz oder \textit{startmail.com} der Suchmaschine \textit{ixquick} demnächst in den Markt eintreten und eine automatische \ac{E2EE} der E-Mails versprechen, ohne dass der Nutzer zusätzliche Software benötigt.\footnote{Vgl. \url{http://www.protonmail.ch} und \url{http://beta.startmail.com}}
-		Dadurch soll die Privatsphäre der Nutzer geschützt werden und das Mitlesen von Mails durch unberechtigte Dritte verhindert beziehungsweise erschwert werden.\medskip\\
+		Dadurch soll die Privatsphäre der Nutzer besser geschützt werden und das Mitlesen von Mails durch unberechtigte Dritte verhindert beziehungsweise erschwert werden.\medskip\\
 		
 		Doch auch die großen Provider probieren hier nicht in den Anschluss zu verlieren.
 		So hat Google bereits eine erste Testversion eines Browser-Addons zur Mailverschlüsselung im Browser veröffentlicht, die eine \ac{E2EE} stark vereinfachen soll.		
