@@ -419,7 +419,7 @@
 				\medskip
 									
 				
-				%- ADK hinzufügen
+				%- ADK hinzufügen --> bezieht sich auf Unternehmen, daher nicht mit eingefügt
 				%\footcite[][S. 32]{Schwenk}
 				%\medskip				
 			
@@ -430,6 +430,10 @@
 				Ein weiterer Nachteil liegt in der Schwierigkeit beim Austausch von Schlüsselinformationen für \ac{E2EE}. Dies muss noch manuell mit Hilfe von Software erfolgen und ist daher noch nicht Standard heutiger E-Mail-Kommunikation. 
 				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende Verschlüsselung, allerdings ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf dem eigenen Server zwischenspeichert. Der Anwender hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist.\\
 				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modell. \medskip\\
+				
+				%Bezug zu Sicherheitsniveaus
+				Nichtsdestotrotz ermöglicht \ac{PGP} durch die  Ende-zu-Ende-Verschlüsselung, dass die Inhalte der E-Mail nur für den Sender und den rechtmäßigen Empfänger einsehbar sind. Daher ist es geeignet streng vertrauliche Informationen zu versenden.
+				\medskip
 
 				%Mail Bezug	
 %				- Mail Plugin sucht in einer pubring.pkr Datei über die Mail Adresse des Empfängers nach dessen öffentlichen Schlüssel
@@ -463,7 +467,7 @@
 				%Voraussetzung
 				Damit ein Nutzer \ac{S/MIME} verwenden kann, benötigt er ein X.509 Zertifikat. Dieses wird in seiner einfachsten Form kostenlos von einer \ac{CA} ausgestellt.\footcite[Vgl.][]{Duevel}
 				
-				Das eigene Zertifikat kann Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[][S. 65 ff.]{Schwenk} beschrieben.
+				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[][S. 65 ff.]{Schwenk} beschrieben.
 				\medskip
 														
 				%Umsetzung
@@ -492,6 +496,9 @@
 				%Vorteile
 				Der Vorteil von \ac{S/MIME} liegt darin, "dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [..] das Anfügen eines Attachments"\footcite[Vgl.][S. 61]{Schwenk}. Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
 				Durch die zwei verschiedenen Datentypen, können \ac{S/MIME} signierte Nachrichten auch von E-Mail Clients interpretiert werden, die dieses Verfahren nicht verwenden. 
+				\medskip
+				
+				Da \ac{S/MIME} genau wie \ac{PGP} eine \ac{E2EE} ermöglicht, ist auch dieses Verschlüsselungsverfahren für das Versenden von streng vertraulichen Informationen geeignet.
 				\newpage
 				
 				
