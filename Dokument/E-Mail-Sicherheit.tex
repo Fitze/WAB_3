@@ -647,15 +647,15 @@
 			Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail-Clients war nicht aufzufinden.
 			\subsubsection{Authentizität}
 			Im Bereich der Authentizität schneiden alle drei betrachteten internationalen E-Mail-Provider schlecht ab.
-			Weder Googlemail, noch Hotmail oder Yahoomail unterstützen eine digitale Signatur für ihre Webmailer. Darüber hinaus ist bei keinem der Anbieter eine Beschreibung für die Einrichtung einer digitalen Signatur für externe Mail-Clients zu finden. 
-			\medskip
-			Auch die Untersuchung der Mailserver-Authentifizierung führte zu schlechten Ergebnissen, wie der \ac{DNSSEC} Analyzer von Verisign bestätigt.\footnote{Vgl. Anhang DNSSEC Reports} 
-			\color{darkred}Untersuchung basiert auf dem DNSSEC Report und bestätigt sie nicht. Jetzt würde ich lesen das wir selbst den Server analysiert haben. ( bspw. durch Komandozeile)\color{black}
+			Weder Googlemail, noch Hotmail oder Yahoomail unterstützen eine digitale Signatur für ihre Webmailer. Darüber hinaus ist bei keinem der Anbieter eine Beschreibung für die Einrichtung einer digitalen Signatur für externe Mail-Clients zu finden.\medskip
+			
+			Auch die Untersuchung der Mailserver-Authentifizierung führte zu schlechten Ergebnissen. Diese Analyse basiert auf den Reports des \ac{DNSSEC} Analyzer von Verisign.\footnote{Vgl. Anhang DNSSEC Reports} 
+			
 			\subsubsection{Sicherheitsrelevante Aspekte}
 			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite[Vgl.][]{Kirsch}. Daher ist es nicht \textbf{verwunderlich}, das die Anbieter es sich vorenthalten in die E-Mails ihrer Nutzer \textbf{schauen} zu können\footcite[Vgl.][]{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke 
 			%eigentlich keien Sicherheitslücke, sonern "nur" Verletzung (des Datenschutz für) Sicherheitsniveaus ab Stufe 2 (Privat)
 			und wird in allen drei Fällen angewendet. Daraus lässt sich auch die Annahme schließen, dass die E-Mails nicht verschlüsselt gespeichert werden. Es konnten zwar keine Quellen herangezogen werden, die diese Annahme untermauern, dafür wurden jedoch auch keine Quellen gefunden, die das Gegenteil beweisen.
-			Laut einer Berichterstattung auf RTL \color{darkred}Ferseher, Webseite, Radio?\color{black}ist die Situation bei Hotmail sogar verschärft:
+			Laut einer Berichterstattung auf der Webseite von RTL ist die Situation bei Hotmail sogar verschärft:
 			\begin{quote}
 
 			\textit{Laut einem Bericht des 'Guardian' half der Software-Konzern (Microsoft, Anm. des Verf.) der NSA, die Verschlüsselung von Daten durch Nutzer seiner Dienste zu umgehen. So habe Microsoft vor dem Start des neuen Web-Mail-Portals 'Outlook.com' sichergestellt, dass die NSA stets einen Zugriff auf die Informationen bekommen könne, schrieb die britische Zeitung. Das Blatt beruft sich dabei auf Dokumente des Ex-Geheimdienst- Mitarbeiters Edward Snowden. In einem internen Schreiben heißt es demnach, die Behörde habe über das Überwachungsprogramm 'Prism' Zugriff auf E-Mails bei den Microsoft-Diensten 'Hotmail', 'Live' und 'Outlook.com'.}\footcite[Vgl.][]{Guardian}
