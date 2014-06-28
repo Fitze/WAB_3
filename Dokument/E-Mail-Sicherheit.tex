@@ -287,7 +287,7 @@
 				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt (auch bezeichnet als \ac{MITM}-Szenario). Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss \glqq bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden.\grqq\footcite[][S. 90]{Ertel2012}
 				
 				Zwei Aspekte sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Der im Jahr 1978 erfundene asymmetrische \ac{RSA}-Algorithmus, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist, hebt sich vor allem durch seine Einfachheit hervor\footcite[Vgl.][S. 79]{Ertel2012} \color{darkred}und der Diffie-Hellman-Schlüsselaustausch\color{black}. Mit diesem Protokoll, das Eigenschaften von asymmetrischer Verschlüsselung aufweist, können geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
-			\subsection{Digitale Signaturen}\label{chap: Signatur}	
+		\subsection{Digitale Signaturen}\label{chap:Signatur}	
 				Asymmetrische Verschlüsselungsverfahren ermöglichen, die menschliche Unterschrift in der digitalen Welt abzubilden. Diese Funktionalität wird mit digitalen Signaturen umgesetzt. Damit eine digitale Signatur den Anforderungen einer menschlichen Unterschrift erfüllt, müssen einige Bedingungen eingehalten werden:\footcite[Vgl.][S. 202]{Schmeh2013}
 				\begin{itemize}
 					\item Sie darf nicht zu fälschen sein.
@@ -300,7 +300,7 @@
 				
 				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört\grqq{}.\footcite[][S. 506]{Schmeh2013}
 	
-			\subsection{Zertifikate}\label{chap:ertifikate}
+			\subsection{Zertifikate}\label{chap:zertifikate}
 				Bei den bisher genannten Verfahren wurde davon ausgegangen, dass der öffentliche Schlüssel wirklich dem beabsichtigten Kommunikationspartner gehört. Die Authentizität des öffentlichen Schlüssels ist durch Szenarien wie dem \ac{MITM}-Angriff nicht immer garantiert. Um die Authentizität des öffentlichen Schlüssels sicherzustellen, werden Zertifikate verwendet.
 				
 				Ein Zertifikat ist ein elektronisches Dokument, das einer Person zugeordnet werden kann. Dieses Dokument enthält neben den persönlichen und weiteren Informationen des Inhabers dessen öffentlichen Schlüssel. Außerdem enthält ein Zertifikat eine Signatur über all den genannten Angaben. Das Signieren wird dabei von einer vertrauenswürdigen Instanz durchgeführt, die auch \ac{CA} oder Zertifizierungsstelle genannt wird.
@@ -311,7 +311,7 @@
 	
 		\section{Public Key Infrastruktur}
 			%Problem
-			In Kapitel \ref*{chap:ertifikate} wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[][]{BSI}
+			In Kapitel \ref*{chap:zertifikate} wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[][]{BSI}
 			%Idee
 			An dieser Stelle setzt die so genannte \ac{PKI} an, die eine Vertrauenskette darstellt und den Austausch von Zertifikaten zweier Kommunikationspartner erleichtern soll.
 			\newpage
