@@ -145,7 +145,7 @@
 		Der \textit{Wert der Information} und deren \textit{Schutzwürdigkeit} beschreiben, wie wertvoll die zu versendende E-Mail für einen nicht rechtmäßigen Empfänger ist und welche Notwendigkeit des Schutzes daraus erfolgt.
 		
 		Der \textit{potentielle Schaden} stellt das Ausmaß dar, welches eintritt für den Fall, dass die E-Mail durch 			%unberechtigte 
-		Dritte (klassische Angreifer sowie  E-Mail-Provider) gelesen wird. Dieser Schaden kann verschiedener Art sein. Zum Beispiel können daraus rechtliche Konsequenzen erfolgen, es kann zu einem finanziellen Verlust führen oder mit einer Schädigung des Images des Senders einhergehen.\footcite[Vgl.][S. 6]{ReinhausenGmbH} Aus dem potentiellen Schaden lässt sich außerdem gut der Einfluss auf die eigene \textit{Privatsphäre} ableiten.
+		Dritte (klassische Angreifer sowie  E-Mail-Provider) gelesen wird. Dieser Schaden kann verschiedener Art sein. Zum Beispiel können daraus rechtliche Konsequenzen erfolgen, es kann zu einem finanziellen Verlust führen oder mit einer Schädigung des Images des Senders einhergehen.\footcite[Vgl.][S. 6]{Reinhausen12} Aus dem potentiellen Schaden lässt sich außerdem gut der Einfluss auf die eigene \textit{Privatsphäre} ableiten.
 		
 	\pagebreak
 %	\begin{figure}[h] %{wrapfigure}[36]{l}{1.0\textwidth}
@@ -185,7 +185,7 @@
 		
 		
 		%Evtl die Beschreibungen mehr gleidern, in Absätzen oder Bullets? Weil so mitten im Text ist allg. der Text so als "Batzen" schwer zu lesen, und man kann sich auch nicht eben man die Beschreibung zur Tabelle 'heraussuchen'
-		Der \textit{Autorisierte Personenkreis} ist eine weitere Eigenschaft, anhand derer der Nutzer ein passendes Sicherheitsniveau bestimmen kann. Grundsätzlich gilt: je wertvoller die Information, desto geringer ist der Personenkreis, der Einblick in die zu versendende E-Mail erhalten darf.\footcite[Vgl.][]{TSE} Daraus folgt, dass eine streng vertrauliche Nachricht ausschließlich zwischen dem Sender und dem Empfänger ausgetauscht wird und in der Regel keine weitere Person über den Inhalt erfahren sollte. Eine Ausnahme an dieser Stelle sind allenfalls engste Verwandte. Dahingegen ist für eine Nachricht, deren Inhalt prinzipiell jedermann erfahren darf, das Sicherheitsniveau \textit{Öffentlich} zu wählen.\footcite[Vgl.][S. 10]{ReinhausenGmbH}
+		Der \textit{Autorisierte Personenkreis} ist eine weitere Eigenschaft, anhand derer der Nutzer ein passendes Sicherheitsniveau bestimmen kann. Grundsätzlich gilt: je wertvoller die Information, desto geringer ist der Personenkreis, der Einblick in die zu versendende E-Mail erhalten darf.\footcite[Vgl.][]{TSE} Daraus folgt, dass eine streng vertrauliche Nachricht ausschließlich zwischen dem Sender und dem Empfänger ausgetauscht wird und in der Regel keine weitere Person über den Inhalt erfahren sollte. Eine Ausnahme an dieser Stelle sind allenfalls engste Verwandte. Dahingegen ist für eine Nachricht, deren Inhalt prinzipiell jedermann erfahren darf, das Sicherheitsniveau \textit{Öffentlich} zu wählen.\footcite[Vgl.][S. 10]{Reinhausen12}
 		
 		
 		%Nachfolgend: Hier ist eindeutig ein Cut, aber deutlicher würde ich mir wünschen, eine section o.ä. wäre doch fast angebracht wenn jetzt die Auswirkungen kommen
@@ -557,7 +557,7 @@
 		\subsection{DANE - DNS-based Authentication of Named Entities}
 		\label{subsec:dane}                                             
 			Die Basis für die Applikation \ac{DANE} stellt \ac{DNSSEC} und soll dabei die Schwachstellen von \ac{TLS} beim Verschlüsseln des Datentransport entfernen. Denn die Authentizität der verwendeten Zertifikate kann nicht immer gewährleistet werden, und somit besteht die Gefahr der kompromittierten Daten durch \ac{MITM}-Angriffe oder \ac{DNS}-Cache-Poisoning.
-			Die Schwachstellen der Zertifikatsprüfung und -aussteller\footcite[Vgl.][]{Koetter2014}Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
+			Die Schwachstellen der Zertifikatsprüfung und -aussteller werden mittels \ac{DANE} eliminiert, denn es werden damit nicht mehr mehrere CA-Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
 			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail-Protokolle beschränkt, sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
 			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein, damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen PublicKey des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch, so ist die Verbindung vertrauensvoll.
 			Ein durchgängig verifizierter Transport ist allerdings nur möglich, wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt \glqq müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren\grqq\footcite[][S. 197]{Koetter2014}
@@ -664,7 +664,7 @@
 
 			\textit{ Laut einem Bericht des 'Guardian' half der Software-Konzern (Microsoft, Anm. des Verf.) der NSA, die Verschlüsselung von Daten durch Nutzer seiner Dienste zu umgehen. So habe Microsoft vor dem Start des neuen Web-Mail-Portals 'Outlook.com' sichergestellt, dass die NSA stets einen Zugriff auf die Informationen bekommen könne, schrieb die britische Zeitung. Das Blatt beruft sich dabei auf Dokumente des Ex-Geheimdienst- Mitarbeiters Edward Snowden. In einem internen Schreiben heißt es demnach, die Behörde habe über das Überwachungsprogramm 'Prism' Zugriff auf E-Mails bei den Microsoft-Diensten 'Hotmail', 'Live' und 'Outlook.com'.}\footcite[Vgl.][]{Guardian}
 			\end{quote}  
-			Circa ein dreiviertel Jahr später wird ein weiterer Vorfall veröffentlicht, in welchem Administratoren sich direktes Zugang zu den Mailinhalten der Nutzer verschafft hätten.\footcite[Vgl.][]{Mailbox2014Microsoft}
+			Circa ein dreiviertel Jahr später wird ein weiterer Vorfall veröffentlicht, in welchem Administratoren sich direktes Zugang zu den Mailinhalten der Nutzer verschafft hätten.\footcite[Vgl.][]{Mailbox2014M}
 			\medskip
 			
 			Darüber hinaus wurden auf den Seiten der Provider keinerlei Sicherheitsinformationen gefunden. Einzig und allein von Yahoomail wird ein kurzer Abschnitt zum Thema Phishing bereitgestellt.
@@ -715,7 +715,7 @@
 %			\medskip\\
 %			Prinzipiell ist das Verfahren ausgelegt weitere Teilnehmer aufzunehmen.
 %			Dabei beschreiben die Provider ihre Mail-Infrastruktur im JSON-Format mit \glqq Domainnamen, IP-Adressen, SSL-Zertifikate und Rollen der beteiligten Server.\grqq
-%			\footcite[Vgl.][]{Zivadino14-1}
+%			\footcite[Vgl.][]{Zivadino14a}
 %			Die Teilnehmer spiegeln diese Infrastrukturlisten untereinander um Manipulationen derselben zu erschweren.\\
 %			Ein zugehöriger Dienst prüft ob Syntax, IP-Adressen und Hostnamen auf Übereinstimmung um anschließend die SSL-Zertifikate zu verifizieren, die von einer Deutschen CA ausgestellt worden sein müssen.
 %			Die Listen werden anschließend geprüft um im Nachgang an Teilnehmer der Initiative verteilt zu werden. 
@@ -734,7 +734,7 @@
 			Die Ergebnisse des \ac{SSL}-Test (\prettyref{sec:nwa}) sind für die drei Provider ähnlich gut. GMX und WEB unterstützen Forward Secrecy mit den meisten Browsern, T-Online hingegen lässt den Schlüsselaustausch für ältere Browser über RC4 zu.
 			Für die Anwender die innerhalb der EmiG Initiative E-Mails versenden bzw. empfangen ist die Vertraulichkeit des Kommunikationspartner im Webmailer und Outlook ersichtlich.
 			Die Anwender sehen in der Adresszeile die E-Mail-Adresse mit einem grünen Haken versehen, sofern sie im \ac{EmiG}-Verbund sind, und bekommen so visualisiert, das die E-Mail transportverschlüsselt versendet wird. Ein zusätzlicher Gewinn an Benutzerfreundlichkeit.
-			\footcite[Vgl.][]{Zivadino14-1}\medskip\\
+			\footcite[Vgl.][]{Zivadino14a}\medskip\\
 		%NWA - Integrität
 		%\subsubsection{Integrität}	
 			Die Integrität der E-Mail-Inhalte sind für \ac{EmiG}-Provider von unterschiedlicher Bedeutung.
@@ -777,16 +777,16 @@
 			Sollten dabei Inkonsistenzen auftreten wird der Versand abgelehnt.\\
 			Dieses Vorgehen erinnert an ein geschlossene Variante von \ac{DANE} (\prettyref{subsec:dane}), welches ähnlich zur Sicherstellung der Authentizität verfährt.
 			Alle Partner der Initiative setzen \ac{PFS} ein
-			\footcite[Vgl.][]{Zivadino14-1}
+			\footcite[Vgl.][]{Zivadino14a}
 			und damit eine Eigenschaft um einem höheren Schutzbedarf in zu entsprechen.
-			\footcite[Vgl.][]{Zivadino14-2} 
+			\footcite[Vgl.][]{Zivadino14b} 
 			\medskip\\
 			Der Verzicht auf den offenen Standard \ac{DANE} als Standard-Instrument zur Sicherstellung der Authentizität hat gewiss Nachteile für die Nutzer. 
 			Mit \acl{IMPT} existiert jedoch für den E-Mail-Versand unter den \ac{EmiG}-Partnern ein ähnlicher Schutz, der allerdings auch nicht immer die Authentizität der verwendeten \ac{SSL}-Zertifikate gewährleisten kann.
-			\footcite[Vgl.][]{Zivadino14-1}
+			\footcite[Vgl.][]{Zivadino14a}
 			Die Vorgehensweise zur Entwicklung einer proprietären Lösung ist daher durchaus kritisch zu Hinterfragen. 
 			United Internet möchte ggf. den Einsatz von \ac{DNSSEC} und \ac{DANE} in einem Review-Prozess einer Neubewertung unterziehen.
-			\footcite[Vgl.][]{Zivadino14-2}
+			\footcite[Vgl.][]{Zivadino14b}
 		%NWA - Zusätzliche Sicherheitsrelevante Aspekte
 		\subsubsection{Sicherheitsrelevante Aspekte}
 			Für die Mails auf den \ac{EmiG}-Servern der \ac{EmiG}-Provider besteht keine separate verschlüsselte Speicherung der E-Mails, insofern dies durch den Nutzer nicht selbst geschehen ist. (\prettyref{subsec:pgp})
@@ -810,16 +810,16 @@
 			Es könnte durchaus mehr Energie in die Umsetzung von \ac{E2EE} im Webmailer aufgewendet werden, wie es im Vergleich zu anderen Anbietern geschieht (Vgl. \prettyref{subsubsec:googlemail} und \prettyref{subsubsec:mailbox}) \medskip\\
 			Vor allem der Entschluss zur Insellösung \ac{IMPT} und Vernachlässigung von Standards wie \ac{DNSSEC} werfen Fragen auf. 
 			Ob \ac{DANE} tatsächlich eine Chance auf eine spätere Implementierung bekommt bleibt abzuwarten, denn bisher ist mit \ac{IMPT} die Kommunikation mit internationalen Anbieter und garantierter Transportverschlüsselung rhetorisch ausgeschlossen.
-			\footcite[Vgl.][]{Zivadino14-1}
+			\footcite[Vgl.][]{Zivadino14a}
 			Fakt ist bisher das die Aufnahme und Erstzertifizierung neuer Mail-Provider, die am Beitritt der Initiative interessiert sind, Kosten in Höhe von 9.500 bis 30.000 Euro
-			\footcite[Vgl.][]{Zivadino14-3} 
+			\footcite[Vgl.][]{Zivadino14c} 
 			verursacht und mit zusätzlichen manuellen Aufwand bei der Konfiguration der \ac{SMTP}-Mailserver verbunden sind.
 			Daher wächst die Initiative nur langsam.\\
 			Auch Vorwürfe, dass \ac{EmiG} scheinbar keine kleineren E-Mail-Provider zulassen möchte wurden veröffentlicht.
-			\footcite[Vgl.][]{Zivadino14-4}
+			\footcite[Vgl.][]{Zivadino14d}
 			Ob \ac{EmiG} tatsächlich ein offener Verbund ist, oder sich nur als solcher verkauft bleibt zur Zeit auch unbeantwortet. \medskip\\
 			Inwieweit die Initiative letztendlich die Hauptaufgabe hat Anwendern ein deutliches Plus an Sicherheit zu gewährleisten werden erst die nächsten Monate zeigen können.
-			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[][]{Zivadino14-2}
+			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[][]{Zivadino14b}
 			standardisieren zu lassen ist der richtige Weg zur Beantwortung vieler Fragen.
 			Ob andere E-Mail-Provider diesen Standard nutzen werden, wenn man zusätzliche Kosten und Aufwand betrachtet, bleibt abzuwarten. Auch die Kompatibilität zwischen \ac{DNSSEC} und \ac{IMPT} kann ein Entscheidungskriterium sein.
 			\medskip\\
@@ -879,7 +879,7 @@
 						Eine Anleitung, wie das Signieren durchgeführt wird sucht der Nutzer allerdings vergeblich.
 						Auch die Tatsache, dass eine Verschlüsselung im Webmailer bisher nicht möglich ist, lässt darauf schließen, dass ebenfalls keine Signaturen erstellt werden können.
 						Eine direkte Information hierzu gibt es aber nicht.
-						Bei der Authentifizierung ihrer Server ist Posteo jedoch hochaktuell und hat als einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein(\cite[Vgl.][]{Mailbox2014a}), so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter in Deutschland \ac{DANE} umgesetzt.\footcite[Vgl.][]{Zivadino14-5}\medskip\\
+						Bei der Authentifizierung ihrer Server ist Posteo jedoch hochaktuell und hat als einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein(\cite[Vgl.][]{Mailbox2014a}), so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter in Deutschland \ac{DANE} umgesetzt.\footcite[Vgl.][]{Zivadino14e}\medskip\\
 					
 					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
 						Im Bereich der zusätzlichen sicherheitsrelevanten Aspekte kann Posteo durch die Verschlüsselung seiner Festplatten mit \ac{AES} punkten.
@@ -1043,12 +1043,15 @@
 	\fancyhead{}
 	\renewcommand{\headrulewidth}{0pt}	
 		\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+	\begin{footnotesize}
 		%Literaturverzeichnis
 		\printbibliography[heading=offline,nottype=online]
 		\printbibliography[heading=online,type=online]
+	\end{footnotesize}
 	\chapter*{Anhang}\label{sec:anhang}
 		\addcontentsline{toc}{chapter}{Anhang}
 		\label{LastPage}
+		\pagestyle{empty}
 		\includepdf[pages=1-4]{anlagen/SSLServerTest-yahoo.pdf}
 		\includepdf[pages=1-4]{anlagen/SSLServerTest-gmail.pdf}
 		\includepdf[pages=1-5]{anlagen/SSLServerTest-hotmail.pdf}
