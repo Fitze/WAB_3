@@ -47,9 +47,9 @@
 		E-Mails werden in der Regel unverschlüsselt und im Klartext übertragen. Somit wird es Dritten ermöglicht, an den Inhalt dieser Mails zu gelangen. Nicht nur im geschäftlichen elektronischen Schriftverkehr ist es wichtig, dass ausgetauschte Nachrichten Dritten gegenüber unzugänglich gemacht werden. Im privaten Bereich ist es unter Umständen gewünscht oder gar erforderlich, dass die elektronische Kommunikation über E-Mails verschlüsselt wird, etwa bei vertraulichen Inhalten mit dem Arzt oder Behörden. Vielen Privatpersonen ist es mitunter unklar, welche Daten mitgelesen werden können. Zudem kennt nur eine geringe Anzahl der betroffenen Personen die verschiedenen Möglichkeiten zum Schutz bei der E-Mail-Kommunikation. Diese Thematik ist durch die jüngsten Enthüllen von Edward Snowden (Stand 2014) verstärkt in das Interesse der Öffentlichkeit gerückt und hat auch im privaten Umfeld die Menschen für eine gesicherte Kommunikation sensibilisiert.
 		
 		\section{Zielsetzung}
-		Diese wissenschaftliche Arbeit setzt sich damit auseinander, welche Sicherheitsvorkehrungen eine private Person treffen kann, damit Dritten der Inhalt ihrer Mails verwehrt bleibt und damit der Empfänger sicherstellen kann, dass er die Mail vollständig und unverändert erhalten hat. Darüber hinaus wird die Funktionsweise dieser Maßnahmen erläutert. Ergänzend wird auf den Aspekt der Authentizität eingegangen, d. h. ob der Kommunikationspartner wirklich derjenige ist, für den er sich ausgibt. \medskip\\
+		Diese wissenschaftliche Arbeit setzt sich damit auseinander, welche Sicherheitsvorkehrungen eine private Person treffen kann, damit Dritten der Inhalt ihrer E-Mails verwehrt bleibt und damit der Empfänger sicherstellen kann, dass er die E-Mail vollständig und unverändert erhalten hat. Darüber hinaus wird die Funktionsweise dieser Maßnahmen erläutert. Ergänzend wird auf den Aspekt der Authentizität eingegangen, d. h. ob der Kommunikationspartner wirklich derjenige ist, für den er sich ausgibt. \medskip\\
 		Ziel dieser wissenschaftlichen Arbeit ist die Analyse der verschiedenen Möglichkeiten zum Datenschutz der E-Mail-Kommunikation sowie die Bewertung ihrer Implementierungen im Privatanwenderbereich.
-		Dabei werden gängige ausgewählte E-Mail-Provider anhand einer Nutzwertanalyse untersucht, wie Verfahren und Möglichkeiten hinsichtlich Datensicherheit angewendet bzw. angeboten werden.
+		Dabei werden gängige ausgewählte E-Mail-Provider anhand einer Nutzwertanalyse dahingehend untersucht, inwiefern Verfahren und Möglichkeiten hinsichtlich Datensicherheit angewendet bzw. angeboten werden.
 		
 		\section{Aufbau der Arbeit}
 		% \color{darkred}
@@ -59,13 +59,14 @@
 		% Was ist Sicherheitsniveau, Kategorie, Bedürfnis?
 		% \color{black}
 		In Bezug auf die Datensicherheit existieren vier verschiedene Datenschutzziele, die unabhängig voneinander betrachtet werden können. 
-		Um ein gemeinsames Grundverständnis für die weitere Arbeit zu bekommen, werden diese Schutzziele im nächsten kurz erläutert.
+		Um ein gemeinsames Grundverständnis für die weitere Arbeit zu bekommen, werden diese Schutzziele im  Kapitel \ref{sec:datensicherheit-einmaleins} kurz erläutert.
+		
 		Die von Privatpersonen versendeten E-Mails haben unterschiedliche Anforderungen an die Vertraulichkeit der Nachricht. 
 		Anhand dieser Anforderungen lassen sich Sicherheitsniveaus zuordnen, die in Kapitel \ref{chap:sicherheitsniveaus} analysiert werden.\medskip\\		
 		Nachdem ein Grundverständnis für die verschiedenen Aspekte in der Datensicherheit und die unterschiedlichen Sicherheitsniveaus aufgebaut wurde, werden in Kapitel \ref{chap:technologien-und-verfahren} die Technologien und Verfahren zum Schutz der Daten in der E-Mail-Kommunikation untersucht. 
-		In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodell erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. 
-		Das Kapitel schließt mit einer Betrachtung des Namensdienstes DNS und seinen Sicherheitserweiterungen ab.\medskip\\		
-		In Kapitel \ref{chap:e-mail-sicherheit-in-der-praxis} werden ausgewählte Mail-Provider in der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. 
+		In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodells erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. 
+		Das Kapitel schließt mit einer Betrachtung des Namensdienstes \ac{DNS} und seinen Sicherheitserweiterungen ab.\medskip\\		
+		In Kapitel \ref{chap:e-mail-sicherheit-in-der-praxis} werden ausgewählte Mail-Provider aus der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. 
 		Aus dieser Analyse wird eine Nutzwertanalyse erstellt, die die Anforderungen der verschiedenen Sicherheitsniveaus anhand der vorgestellten Provider übersichtlich in tabellarischer Form darstellt.\\
 		Das letzte Kapitel schließt die Arbeit thematisch mit einer Zusammenfassung und einem Ausblick über die gegenwärtigen und möglichen Entwicklungen ab.
 		
@@ -121,10 +122,10 @@
 		%Beispielsweise ist aus Sicht der Autoren der potentielle Schaden gering, wenn eine E-Card zu den Weihnachtsfeiertagen an den nicht rechtmäßigen Empfänger gerät, sodass für die Versendung einer solchen Information der Grad der Verschlüsselung niedrig und somit der Aufwand niedrig ausfällt. Dahingegen ist der potentielle Schaden größer, wenn es sich bei der versendeten Information um beispielsweise die eigenen Kontodaten handelt, was wiederum bedeutet, dass der Nutzer bereit ist einen höheren Aufwand zu betreiben, um diese Inhalte auf eine sichere Art und Weise via E-Mail zu übermitteln.
 	
 		%Das Sicherheitsbedürfnis einer jeden Person kann unterschiedlich stark ausgeprägt sein. 
-		Der Wert einer Information ist durch das eigene Sicherheitsbedürfnis geprägt, welches jedoch von Person zu Person in unterschiedlicher Form ausgeprägt ist.
+		Der Wert einer Information wird durch das eigene Sicherheitsbedürfnis beeinflusst, welches jedoch von Person zu Person in unterschiedlicher Form ausgeprägt ist.
 		Daher ist es den Verfassern dieser Arbeit nicht möglich, eine allgemein gültige Auflistung aller möglichen Szenarien der E-Mail Kommunikation bereitzustellen, aus welcher die Teilnehmer der Zielgruppe lediglich das richtige Szenario heraussuchen müssen und dadurch den optimalen Grad der Verschlüsselung erhalten. 
 		
-		Stattdessen wird eine Übersicht (\prettyref{tab:sicherheitsniveaus}) präsentiert, die es dem Nutzer erlaubt auf Basis seines eigenen Sicherheitsbedürfnisses und mit Hilfe festgelegter Kriterien für die Übermittlung einer ganz bestimmten Information ein geeignetes Sicherheitsniveau zu bestimmen. 
+		Stattdessen wird eine Übersicht (\prettyref{tab:sicherheitsniveaus}) in Anlehnung an typische Sicherheitsniveaus in Unternehmen präsentiert, die es dem Nutzer erlaubt auf Basis seines eigenen Sicherheitsbedürfnisses und mit Hilfe festgelegter Kriterien für die Übermittlung einer ganz bestimmten Information ein geeignetes Sicherheitsniveau zu bestimmen. 
 		\medskip
 		
 		
@@ -667,7 +668,7 @@
 			
 			\begin{wrapfigure}[16]{r}[0cm]{0.5\textwidth} %[h]
 							\includegraphics[width=0.5\textwidth]{images/yahoo_anmeldesiegel.png}
-							\caption {Sicherheitsniveaus}
+							\caption{Anmeldesiegel Yahoo}
 							\label{fig:Yahoo_Anmeldesiegel}	
 						\end{wrapfigure}
 			In Bezug auf das Bereitstellen von Sicherheits-Zusatzfunktionen können die internationalen Mail-Anbieter etwas Punkten. Alle bieten eine 2-Faktor Authentifizierung an. Außerdem hat der Nutzer die Möglichkeit sich eine Liste mit jeglichen externen Anwendung und Webseiten anzeigen zu lassen. Mit dieser erhält er einen Überblick darüber, welche App Zugriff auf welche Nutzerdaten hat.
