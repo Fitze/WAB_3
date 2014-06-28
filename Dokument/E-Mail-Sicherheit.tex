@@ -66,7 +66,7 @@
 		Nachdem ein Grundverständnis für die verschiedenen Aspekte in der Datensicherheit und die unterschiedlichen Sicherheitsniveaus aufgebaut wurde, werden in Kapitel \ref{chap:technologien-und-verfahren} die Technologien und Verfahren zum Schutz der Daten in der E-Mail-Kommunikation untersucht. 
 		In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodells erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. 
 		Das Kapitel schließt mit einer Betrachtung des Namensdienstes \ac{DNS} und seinen Sicherheitserweiterungen ab.\medskip\\		
-		In Kapitel \ref{chap:e-mail-sicherheit-in-der-praxis} werden ausgewählte Mail-Provider aus der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. 
+		In Kapitel \ref{chap:e-mail-sicherheit-in-der-praxis} werden ausgewählte E-Mail-Provider aus der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. 
 		Aus dieser Analyse wird eine Nutzwertanalyse erstellt, die die Anforderungen der verschiedenen Sicherheitsniveaus anhand der vorgestellten Provider übersichtlich in tabellarischer Form darstellt.\\
 		Das letzte Kapitel schließt die Arbeit thematisch mit einer Zusammenfassung und einem Ausblick über die gegenwärtigen und möglichen Entwicklungen ab.
 		
@@ -115,7 +115,7 @@
 	
 		%Das nachfolgende Kapitel geht auf verschiedene Sicherheitsbedürfnisse eines Nutzers ein. 
 		
-		Gerade im Hinblick auf den Grad der Verschlüsselung bei der E-Mail Kommunikation ist es wichtig sich darüber bewusst zu werden, wie sensibel die Information ist, die man versenden möchte. Denn jede Verschlüsselung ist mit einem bestimmten Aufwand verbunden und folglich ist abzuwägen, welcher Verschlüsselungsaufwand dem Nutzer die zu versendende Information wert ist. 
+		Gerade im Hinblick auf den Grad der Verschlüsselung bei der E-Mail-Kommunikation ist es wichtig sich darüber bewusst zu werden, wie sensibel die Information ist, die man versenden möchte. Denn jede Verschlüsselung ist mit einem bestimmten Aufwand verbunden und folglich ist abzuwägen, welcher Verschlüsselungsaufwand dem Nutzer die zu versendende Information wert ist. 
 		\medskip
 		
 		%Beispielsweise ist aus Sicht der Autoren der potentielle Schaden gering, wenn eine E-Card zu den Weihnachtsfeiertagen an den nicht rechtmäßigen Empfänger gerät, sodass für die Versendung einer solchen Information der Grad der Verschlüsselung niedrig und somit der Aufwand niedrig ausfällt. Dahingegen ist der potentielle Schaden größer, wenn es sich bei der versendeten Information um beispielsweise die eigenen Kontodaten handelt, was wiederum bedeutet, dass der Nutzer bereit ist einen höheren Aufwand zu betreiben, um diese Inhalte auf eine sichere Art und Weise via E-Mail zu übermitteln.
@@ -162,7 +162,8 @@
 		\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|} 
 			\hline Stufe & \multicolumn{1}{c|}{\textbf{4}} & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{\textbf{1}} \\
 			  & \multicolumn{1}{c|}{\textbf{Streng Vertraulich}} & \multicolumn{1}{c|}{\textbf{Vertraulich}} & \multicolumn{1}{c|}{\textbf{Privat}} & \multicolumn{1}{c|}{\textbf{Öffentlich}} \\ 
-			\hline Wert der Information, Schutzwürdigkeit & Äußerst hoch & Hoch & Gering & kein hoher Wert; kein Schutz notwendig \\ 
+			\hline Wert der Information, Schutzwürdigkeit & Äußerst hoch & Hoch & Gering & kein hoher Wert; kein Schutz notwendig \\
+			\hline Potentieller Schaden & Äußerst hoch & Hoch & Gering & Nicht vorhanden \\  
 			\hline Personenbezogene Daten & Ja & Ja & Teilweise & Nein \\ 
 			\hline Einfluss auf Privatsphäre & Äußerst hoch & Hoch & Gering & Nicht vorhanden \\ 
 			\hline Autorisierter Personenkreis & Sender + Empfänger; evtl. zusätzlich engste Verwandte & Verwandtschaft & Freunde + Bekannte & Jeder \\ 
@@ -192,7 +193,7 @@
 		Die \textit{Auswirkung bei Integritätsverletzung} beschreibt das eingetretene Ausmaß, wenn die E-Mail in die Hände eines Angreifers gelangt ist.
 		
 		
-		Eine weitere Möglichkeit ein geeignetes Sicherheitsniveau zu ermitteln ist die Überlegung, wie der Inhalt der E-Mail auf dem \textit{Postweg} versandt werden würde. Für eine streng vertrauliche Information würde ein Einschreiben gewählt werden oder gänzlich auf den Postweg verzichtet und stattdessen die Nachricht persönlich überbracht werden. Dahingegen ist für Information, die ohne Bedenken  auf einer Postkarte übermittelt werden können, das Sicherheitsniveau \textit{Öffentlich} zu wählen. 
+		Eine weitere Möglichkeit ein geeignetes Sicherheitsniveau zu ermitteln ist die Überlegung, wie der Inhalt der E-Mail auf dem \textit{Postweg} versandt werden würde. Für eine streng vertrauliche Information würde ein Einschreiben gewählt werden oder gänzlich auf den Postweg verzichtet und stattdessen die Nachricht persönlich überbracht werden. Dahingegen ist für Informationen, die ohne Bedenken  auf einer Postkarte übermittelt werden können, das Sicherheitsniveau \textit{Öffentlich} zu wählen. 
 		
 		
 		Das letzte Merkmal beschreibt die Häufigkeit der einzelnen Sicherheitsniveaus. Streng vertrauliche Informationen sind sehr selten und am häufigsten werden öffentliche Nachrichten ausgetauscht.\footcite[Vgl.][]{TSE}
@@ -365,14 +366,14 @@
 		
 		\section{Informationsverschlüsselung}
 			Für hohe Sicherheitsanforderungen entscheidend ist die Vertraulichkeit und Integrität der Datenkommunikation zwischen zwei Endpunkten. In der E-Mail-Kommunikation wird dies mit sog. \textit{Ende-zu-Ende-Verschlüsselung} (englisch \ac{E2EE}) und den Diensten \ac{S/MIME} und \ac{PGP} realisiert, die im Nachgang beleuchtet werden.
-			Es gibt mittlerweile verschiedene Möglichkeiten \ac{E2EE} umzusetzen. Im Grunde müssen durch die Nutzer jedoch Einstellungen in den E-Mailprogrammen wie Thunderbird, Outlook oder Mail.app vorgenommen oder zusätzliche Software installiert werden. Demzufolge besteht ein erhöhter Einrichtungsaufwand für die Endnutzer zur Sicherstellung der Vertraulichkeit und um in Sicherheitsniveaus der Stufe 3 oder 4 (Vgl. \prettyref{tab:sicherheitsniveaus}) zu kommunizieren. Allerdings ist \ac{E2EE} \textit{essenziell} zur Erreichung dieser Stufen.\medskip\\
-			Erste E-Mail-Anbieter gehen zum Teil eigene Wege, wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013}. Aber auch kleinere Anbieter arbeiten an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
+			Es gibt mittlerweile verschiedene Möglichkeiten \ac{E2EE} umzusetzen. Im Grunde müssen durch die Nutzer jedoch Einstellungen in den E-Mail-Programmen wie Thunderbird, Outlook oder Mail.app vorgenommen oder zusätzliche Software installiert werden. Demzufolge besteht ein erhöhter Einrichtungsaufwand für die Endnutzer zur Sicherstellung der Vertraulichkeit und um in Sicherheitsniveaus der Stufe 3 oder 4 (Vgl. \prettyref{tab:sicherheitsniveaus}) zu kommunizieren. Allerdings ist \ac{E2EE} \textit{essenziell} zur Erreichung dieser Stufen.\medskip\\
+			Erste E-Mail-Anbieter gehen zum Teil eigene Wege, wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser, um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013}. Aber auch kleinere Anbieter arbeiten an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
 			
 			\subsection{PGP - Pretty Good Privacy}
 			\label{subsec:pgp}
 				%Problem + Idee
 				Im Jahre 1991 wurde dem US Senat ein Gesetz vorgelegt, welches vorsieht, dass jede Verschlüsselungssoftware staatliche Zugriffe ermöglichen müsse. Daraufhin entwickelte Phil Zimmermann noch im selben Jahr die erste Version von \ac{PGP}, die diese Hintertür nicht bot.\footcite[vgl.][S. 29]{Schwenk}\newpage
-				Die Softwarefamilie \acl{PGP} stellt \glqq[...]Dienste zur digitalen Signatur und zur Verschlüsselung von Nachrichten[...]\grqq\footcite{Mueller2011} zur Verfügung und ist damit für die Vertraulichkeit der Informationen verantwortlich.				
+				Die Softwarefamilie \acl{PGP} stellt \glqq[\dots]Dienste zur digitalen Signatur und zur Verschlüsselung von Nachrichten[\dots]\grqq\footcite{Mueller2011} zur Verfügung und ist damit für die Vertraulichkeit der Informationen verantwortlich.				
 				Allerdings wurden diese Bemühungen erst nach sieben Jahren Entwicklung, diversen Anklagen gegen Zimmermann und die anderen Beteiligten sowie das Herausbringen zahlreicher nationaler (US-Amerikanischer) und internationaler Versionen als internationaler Standard \textit{OpenPGP} angesehen.\footcite[][S. 29-35]{Schwenk}
 				\medskip
 				
@@ -451,7 +452,7 @@
 				%Voraussetzung
 				Damit ein Nutzer \ac{S/MIME} verwenden kann, benötigt er ein X.509 Zertifikat. Dieses wird in seiner einfachsten Form kostenlos von einer \ac{CA} ausgestellt.\footcite[Vgl.][]{Duevel}
 				
-				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail-Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[Vgl.][S. 65 ff.]{Schwenk} beschrieben.
+				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail-Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist in der referenzierten Literatur\footcite[Vgl.][S. 65 ff.]{Schwenk} beschrieben.
 				\medskip
 														
 				%Umsetzung
@@ -460,7 +461,7 @@
 %				- Bedeutet, dass Nachricht symmetrisch verschlüsselt wird und das Shared Secret mit dem im Empfänger-Zertifikat angegebenen öffentlichen Schlüssel verschlüsselt wird
 %				- Anschließend base64 codiert, damit Mailserver den Inhalt nicht unbeabsichtigt ändern kann
 				
-				Um die Lesbarkeit von \ac{S/MIME} signierten E-Mails auch für Nutzer zu gewährleisten, die dieses Verfahren nicht verwenden, stehen zwei verschiedene Datentypen zur Verfügung. Auf eine genauere Beschreibung soll an dieser Stelle verzichtet und stattdessen auf den Schwenk\footcite[Vgl.][S. 65]{Schwenk} verwiesen werden.
+				Um die Lesbarkeit von \ac{S/MIME} signierten E-Mails auch für Nutzer zu gewährleisten, die dieses Verfahren nicht verwenden, stehen zwei verschiedene Datentypen zur Verfügung. Auf eine genauere Beschreibung soll an dieser Stelle verzichtet und stattdessen auf die referenzierte Literatur\footcite[Vgl.][S. 65]{Schwenk} verwiesen werden.
 				\medskip
 %Zwei verschiedene Datentypen für Signatur beschreiben?
 
@@ -474,7 +475,7 @@
 %				- Dadurch ist die Nachricht für alle Clients interpretierbar, allerdings kann der erste Teil durch Mailserver versehentlich geändert werden
 %				\footcite[][S. 65]{Schwenk}			
 				%Vorteile
-				Der Vorteil von \ac{S/MIME} liegt darin, "dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [..] das Anfügen eines Attachments"\footcite[Vgl.][S. 61]{Schwenk}. Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
+				Der Vorteil von \ac{S/MIME} liegt darin, \glqq dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [\dots] das Anfügen eines Attachments\grqq\footcite[Vgl.][S. 61]{Schwenk}. Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
 				Durch die zwei verschiedenen Datentypen, können \ac{S/MIME} signierte Nachrichten auch von E-Mail-Clients interpretiert werden, die dieses Verfahren nicht verwenden. 
 				\medskip
 				
@@ -638,9 +639,10 @@
 			Im Rahmen der Nutzwertanalyse wurden unter anderem drei der bekanntesten internationalen E-Mail-Provider betrachtet: Yahoomail, Googlemail und Hotmail. Die folgenden Aussagen treffen auf alle Provider gleichermaßen zu, sofern nicht ein E-Mail-Anbieter explizit genannt wird.
 			\subsubsection{Vertraulichkeit und Integrität}
 			Alle betrachteten E-Mail-Anbieter erhalten eine hohe Punktzahl für die Transportwegverschlüsselung. Googlemail und Yahoomail schneiden gegenüber Hotmail besser ab, da beide Anbieter sowohl \ac{PFS} für moderne Browser als auch die neuesten Versionen der \ac{TLS/SSL} Protokolle unterstützen. Hotmail hingegen bietet \ac{PFS} nicht an und unterstützt lediglich \ac{TLS} 1.0 und \ac{SSL} 3.0.
-			Für die eingesetzten Zertifikate erhalten alle Provider wiederum volle Punktzahl.\footnote{Vgl. Anhang SSL Reports}
-			\medskip
+			Für die eingesetzten Zertifikate erhalten alle Provider wiederum volle Punktzahl.\footnote{Vgl. Anhang SSL Reports}\medskip
+			
 			Zwar haben seit den Enthüllungen von Edward Snowden zu den Machenschaften der \ac{NSA} und anderen Geheimdiensten die meisten E-Mail-Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footnote{Vgl. Anhang SSL Reports}, ein voll umfänglichen Schutz durch \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail-Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite[Vgl.][]{Kirsch} 
+			
 			Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail-Clients war nicht aufzufinden.
 			\subsubsection{Authentizität}
 			Im Bereich der Authentizität schneiden alle drei betrachteten internationalen E-Mail-Provider schlecht ab.
@@ -649,15 +651,15 @@
 			Auch die Untersuchung der Mailserver-Authentifizierung führte zu schlechten Ergebnissen. Diese Analyse basiert auf den Reports des \ac{DNSSEC} Analyzer von Verisign.\footnote{Vgl. Anhang DNSSEC Reports} 
 			
 			\subsubsection{Sicherheitsrelevante Aspekte}
-			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite[Vgl.][]{Kirsch}. Daher ist es nicht verwunderlich, das die Anbieter es sich vorenthalten in die E-Mails ihrer Nutzer schauen zu können\footcite[Vgl.][]{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke 
+			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite[Vgl.][]{Kirsch}. Daher ist es nicht überraschend, dass die Anbieter es sich vorenthalten Einblick in die E-Mails ihrer Nutzer nehmen zu können\footcite[Vgl.][]{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke 
 			%eigentlich keien Sicherheitslücke, sonern "nur" Verletzung (des Datenschutz für) Sicherheitsniveaus ab Stufe 2 (Privat)
 			und wird in allen drei Fällen angewendet. Daraus lässt sich auch die Annahme schließen, dass die E-Mails nicht verschlüsselt gespeichert werden. Es konnten zwar keine Quellen herangezogen werden, die diese Annahme untermauern, dafür wurden jedoch auch keine Quellen gefunden, die das Gegenteil beweisen.
 			Laut einer Berichterstattung auf der Webseite von RTL ist die Situation bei Hotmail sogar verschärft:
 			\begin{quote}
 
-			\textit{Laut einem Bericht des 'Guardian' half der Software-Konzern (Microsoft, Anm. des Verf.) der NSA, die Verschlüsselung von Daten durch Nutzer seiner Dienste zu umgehen. So habe Microsoft vor dem Start des neuen Web-Mail-Portals 'Outlook.com' sichergestellt, dass die NSA stets einen Zugriff auf die Informationen bekommen könne, schrieb die britische Zeitung. Das Blatt beruft sich dabei auf Dokumente des Ex-Geheimdienst- Mitarbeiters Edward Snowden. In einem internen Schreiben heißt es demnach, die Behörde habe über das Überwachungsprogramm 'Prism' Zugriff auf E-Mails bei den Microsoft-Diensten 'Hotmail', 'Live' und 'Outlook.com'.}\footcite[Vgl.][]{Guardian}
+			\textit{Laut einem Bericht des 'Guardian' half der Software-Konzern (Microsoft) der NSA, die Verschlüsselung von Daten durch Nutzer seiner Dienste zu umgehen. So habe Microsoft vor dem Start des neuen Web-Mail-Portals 'Outlook.com' sichergestellt, dass die NSA stets einen Zugriff auf die Informationen bekommen könne, schrieb die britische Zeitung. Das Blatt beruft sich dabei auf Dokumente des Ex-Geheimdienst- Mitarbeiters Edward Snowden. In einem internen Schreiben heißt es demnach, die Behörde habe über das Überwachungsprogramm 'Prism' Zugriff auf E-Mails bei den Microsoft-Diensten 'Hotmail', 'Live' und 'Outlook.com'.}\footcite[][]{Guardian}
 			\end{quote}  
-			Circa ein dreiviertel Jahr später wird ein weiterer Vorfall veröffentlicht, in welchem Administratoren sich direktes Zugang zu den Mailinhalten der Nutzer verschafft hätten.\footcite[Vgl.][]{Mailbox2014M}
+			Circa ein dreiviertel Jahr später wird ein weiterer Vorfall veröffentlicht, in welchem Administratoren sich direktes Zugang zu den E-Mail-Inhalten der Nutzer verschafft hätten.\footcite[Vgl.][]{Mailbox2014M}
 			\medskip
 			
 			Darüber hinaus wurden auf den Seiten der Provider keinerlei Sicherheitsinformationen gefunden. Einzig und allein von Yahoomail wird ein kurzer Abschnitt zum Thema Phishing angeboten.
@@ -667,7 +669,7 @@
 							\caption{Anmeldesiegel Yahoo}
 							\label{fig:Yahoo_Anmeldesiegel}	
 						\end{wrapfigure}
-			In Bezug auf das Bereitstellen von Sicherheits-Zusatzfunktionen können die internationalen Mail-Anbieter etwas Punkten. Alle bieten eine 2-Faktor-Authentifizierung an. Außerdem hat der Nutzer die Möglichkeit sich eine Liste mit jeglichen externen Anwendung und Webseiten anzeigen zu lassen. Mit dieser erhält er einen Überblick darüber, welche Anwendung Zugriff auf welche Nutzerdaten hat.
+			In Bezug auf das Bereitstellen von Sicherheits-Zusatzfunktionen können die internationalen Mail-Anbieter etwas Punkten. Alle bieten eine Zwei-Faktor-Authentifizierung an. Außerdem hat der Nutzer die Möglichkeit sich eine Liste mit jeglichen externen Anwendung und Webseiten anzeigen zu lassen. Mit dieser erhält er einen Überblick darüber, welche Anwendung Zugriff auf welche Nutzerdaten hat.
 			Yahoomail kann zusätzlich mit einer Wegwerfadresse, einem Anmeldesiegel (vgl. Abbildung \ref{fig:Yahoo_Anmeldesiegel}) sowie dem selbst entwickelten \ac{DKIM}-Verfahren punkten. \ac{DKIM} basiert auf asymmetrischer Kommunikation und stellt die Authentizität von E-Mail-Absendern sicher.\footcite[Vgl.][]{DKIM}.
 			
 			
@@ -908,7 +910,7 @@
 						Hierzu sind aber auf der Website des Mailproviders keine Angaben zu finden, ob eine Umsetzung geplant ist.
 	
 					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
-						Mit der Möglichkeit der Zweifaktorauthentifizierung mit einem \ac{OTP} hebt sich Mailbox.org ebenfalls von vielen Konkurrenten ab.
+						Mit der Möglichkeit der Zwei-Faktor-Authentifizierung mit einem \ac{OTP} hebt sich Mailbox.org ebenfalls von vielen Konkurrenten ab.
 						Zur Nutzung dieser Funktion muss ein USB-Gerät, ein sogenannter Yubikey, mit dem Account verbunden werden.
 						Dadurch ist es möglich, sich auch von unbekannten und damit potenziell unsicheren Rechner sicher an seinem Account im Webfrontend anzumelden.
 						Ebenfalls positiv hervorzuheben ist die regelmäßige Berichterstattung über Probleme und Erweiterungen des Funktionsumfangs, auch gerade im Hinblick auf neu eingeführte Sicherheitsmaßnahmen.
