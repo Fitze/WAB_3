@@ -64,7 +64,9 @@
 		Die von Privatpersonen versendeten E-Mails haben unterschiedliche Anforderungen an die Vertraulichkeit der Nachricht. 
 		Anhand dieser Anforderungen lassen sich Sicherheitsniveaus zuordnen, die in Kapitel \ref{chap:sicherheitsniveaus} analysiert werden.\medskip\\		
 		Nachdem ein Grundverständnis für die verschiedenen Aspekte in der Datensicherheit und die unterschiedlichen Sicherheitsniveaus aufgebaut wurde, werden in Kapitel \ref{chap:technologien-und-verfahren} die Technologien und Verfahren zum Schutz der Daten in der E-Mail-Kommunikation untersucht. 
-		In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodells erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. 
+		In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodells erläutert.
+		\newpage
+		Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. 
 		Das Kapitel schließt mit einer Betrachtung des Namensdienstes \ac{DNS} und seinen Sicherheitserweiterungen ab.\medskip\\		
 		In Kapitel \ref{chap:e-mail-sicherheit-in-der-praxis} werden ausgewählte E-Mail-Provider aus der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. 
 		Aus dieser Analyse wird eine Nutzwertanalyse erstellt, die die Anforderungen der verschiedenen Sicherheitsniveaus anhand der vorgestellten Provider übersichtlich in tabellarischer Form darstellt.\\
@@ -104,7 +106,6 @@
 	
 	\chapter{Sicherheitsniveaus}\label{chap:sicherheitsniveaus}
 		%Pascal: Wäre noch toll wenn wir hier nochmal sagen das wir eigtnlich nach einer Wissenschaftlichen Methode vorgehen müssten, also ähnlich wie bei der Festlegung der Zielgruppe. Nur das wir aus Zeitgründen eben Annahmen treffen. Aber einfach das wir hier sagen können, wenn wir Zeit hätten, hätten wir eine Umfrage gemacht und diese so und so gestaltet...
-	
 		In diesem Kapitel werden vier unterschiedliche Sicherheitsniveaus vorgestellt, die nachfolgend den verschiedenen Technologien und Verfahren zugeordnet werden.
 		%In den nachfolgenden Kapiteln dieser Arbeit werden verschiedene Möglichkeiten der Verschlüsselung von E-Mail Kommunikation vorgestellt und jeweils passende Sicherheitsniveaus zugeordnet. 
 		%das eher so ein Einleitungs-Einsatz
@@ -299,7 +300,7 @@
 				Diese Voraussetzungen dienen dazu, die Verbindlichkeit des Absenders sowie die Integrität der Nachricht zu gewährleisten. Beim Signieren verschlüsselt der Absender seine Nachricht mit seinem privaten Schlüssel. Die resultierende Nachricht ist die digitale Signatur. In der Regel wird	beim Signieren aufgrund des Rechenaufwandes für lange Nachrichten nicht die gesamte Nachricht verschlüsselt, sondern ein sogenannter \textit{Hashwert}. Hashwerte, auch Prüfsummen genannt, sind eine Zeichenfolge mit einer bestimmten Länge, die durch eine mathematische Einweg-Hashfunktion generiert werden. Diese Funktionen haben einen Eingabeparameter und berechnen daraus einen Hashwert. Aus der Kenntnis des Hashwertes oder der Hashfunktion lässt sich der Eingabeparameter nicht ableiten, wodurch die Integrität einer signierten Nachricht gewährleistet ist.
 				Die signierte Nachricht wird im nächsten Schritt an den Empfänger geschickt. Dieser kann nun die Verbindlichkeit der Nachricht überprüfen, indem er die Signatur mit dem öffentlichen Schlüssel des Absenders entschlüsselt. Anschließend berechnet der Empfänger den Hashwert der erhaltenen Nachricht und vergleicht diesen mit der zuvor entschlüsselten Signatur des Absenders. Diese Überprüfung wird dabei auch Verifizierung genannt. Stimmen beide Werte überein, kann der Empfänger sicher sein, dass die Nachricht von dem Absender stammt, da nur mit dessen privatem Schlüssel die Nachricht verschlüsselt werden konnte. Zusätzlich ist damit garantiert, dass die Nachricht vollständig und unverändert beim Absender angekommen ist.
 				
-				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört\grqq{}.\footcite[][S. 506]{Schmeh2013}
+				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört.\grqq{}\footcite[][S. 506]{Schmeh2013}
 	
 			\subsection{Zertifikate}\label{chap:zertifikate}
 				Bei den bisher genannten Verfahren wurde davon ausgegangen, dass der öffentliche Schlüssel wirklich dem beabsichtigten Kommunikationspartner gehört. Die Authentizität des öffentlichen Schlüssels ist durch Szenarien wie dem \ac{MITM}-Angriff nicht immer garantiert. Um die Authentizität des öffentlichen Schlüssels sicherzustellen, werden Zertifikate verwendet.
@@ -312,7 +313,7 @@
 	
 		\section{Public Key Infrastruktur}
 			%Problem
-			In Kapitel \ref*{chap:zertifikate} wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[][]{BSI}
+			In Kapitel \ref*{chap:zertifikate} wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden.\grqq\footcite[][]{BSI}
 			%Idee
 			An dieser Stelle setzt die so genannte \ac{PKI} an, die eine Vertrauenskette darstellt und den Austausch von Zertifikaten zweier Kommunikationspartner erleichtern soll.
 			\newpage
@@ -367,20 +368,20 @@
 		\section{Informationsverschlüsselung}
 			Für hohe Sicherheitsanforderungen entscheidend ist die Vertraulichkeit und Integrität der Datenkommunikation zwischen zwei Endpunkten. In der E-Mail-Kommunikation wird dies mit sog. \textit{Ende-zu-Ende-Verschlüsselung} (englisch \ac{E2EE}) und den Diensten \ac{S/MIME} und \ac{PGP} realisiert, die im Nachgang beleuchtet werden.
 			Es gibt mittlerweile verschiedene Möglichkeiten \ac{E2EE} umzusetzen. Im Grunde müssen durch die Nutzer jedoch Einstellungen in den E-Mail-Programmen wie Thunderbird, Outlook oder Mail.app vorgenommen oder zusätzliche Software installiert werden. Demzufolge besteht ein erhöhter Einrichtungsaufwand für die Endnutzer zur Sicherstellung der Vertraulichkeit und um in Sicherheitsniveaus der Stufe 3 oder 4 (Vgl. \prettyref{tab:sicherheitsniveaus}) zu kommunizieren. Allerdings ist \ac{E2EE} \textit{essenziell} zur Erreichung dieser Stufen.\medskip\\
-			Erste E-Mail-Anbieter gehen zum Teil eigene Wege, wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser, um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013}. Aber auch kleinere Anbieter arbeiten an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
+			Erste E-Mail-Anbieter gehen zum Teil eigene Wege, wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser, um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013} Aber auch kleinere Anbieter arbeiten an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
 			
 			\subsection{PGP - Pretty Good Privacy}
 			\label{subsec:pgp}
 				%Problem + Idee
-				Im Jahre 1991 wurde dem US Senat ein Gesetz vorgelegt, welches vorsieht, dass jede Verschlüsselungssoftware staatliche Zugriffe ermöglichen müsse. Daraufhin entwickelte Phil Zimmermann noch im selben Jahr die erste Version von \ac{PGP}, die diese Hintertür nicht bot.\footcite[vgl.][S. 29]{Schwenk}\newpage
+				Im Jahre 1991 wurde dem US Senat ein Gesetz vorgelegt, welches vorsieht, dass jede Verschlüsselungssoftware staatliche Zugriffe ermöglichen müsse. Daraufhin entwickelte Phil Zimmermann noch im selben Jahr die erste Version von \ac{PGP}, die diese Hintertür nicht bot.\footcite[Vgl.][S. 29]{Schwenk}\newpage
 				Die Softwarefamilie \acl{PGP} stellt \glqq[\dots]Dienste zur digitalen Signatur und zur Verschlüsselung von Nachrichten[\dots]\grqq\footcite{Mueller2011} zur Verfügung und ist damit für die Vertraulichkeit der Informationen verantwortlich.				
-				Allerdings wurden diese Bemühungen erst nach sieben Jahren Entwicklung, diversen Anklagen gegen Zimmermann und die anderen Beteiligten sowie das Herausbringen zahlreicher nationaler (US-Amerikanischer) und internationaler Versionen als internationaler Standard \textit{OpenPGP} angesehen.\footcite[][S. 29-35]{Schwenk}
+				Allerdings wurden diese Bemühungen erst nach sieben Jahren Entwicklung, diversen Anklagen gegen Zimmermann und die anderen Beteiligten sowie das Herausbringen zahlreicher nationaler (US-Amerikanischer) und internationaler Versionen als internationaler Standard \textit{OpenPGP} angesehen.\footcite[Vgl.][S. 29-35]{Schwenk}
 				\medskip
 				
 %				Mit PGP werden kryptographische Dienste bereitgestellt die unter anderem Dateiverschlüsselung, Schlüssel-Recovery und das Signieren von Dokumenten umfassen.
 				
 				%Umsetzung
-				Um die Integrität einer E-Mail zu gewährleisten, wird zuerst ein zufälliger Schlüssel (Shared Secret) erzeugt. Anschließend wird die E-Mail-Nachricht mit diesem symmetrisch verschlüsselt. Danach wird das Shared Secret selbst mit dem öffentlichen Schlüssel des Empfängers asymmetrisch verschlüsselt und der verschlüsselten E-Mail voran gehangen. Soll die E-Mail mehrere Empfänger erreichen, so wird der letzte Schritt wiederholt.\footcite[vgl.][S. 43]{Schwenk}
+				Um die Integrität einer E-Mail zu gewährleisten, wird zuerst ein zufälliger Schlüssel (Shared Secret) erzeugt. Anschließend wird die E-Mail-Nachricht mit diesem symmetrisch verschlüsselt. Danach wird das Shared Secret selbst mit dem öffentlichen Schlüssel des Empfängers asymmetrisch verschlüsselt und der verschlüsselten E-Mail voran gehangen. Soll die E-Mail mehrere Empfänger erreichen, so wird der letzte Schritt wiederholt.\footcite[Vgl.][S. 43]{Schwenk}
 				\medskip
 				
 				
@@ -416,7 +417,7 @@
 				Der öffentliche Sourcecode stellt jedoch gleichzeitig auch einen Schwachpunkt dar, da es somit Angreifern ermöglicht wird, potenzielle Schwachstellen und Sicherheitslücken in der Implementierung aufzufinden. Vor allem mit der Zunahme neuer Features wird dieser Nachteil erheblicher, was durch Angriffe von Senderek, Klíma und Rosza bewiesen wurde.\footcite[Vgl.][S. 47-55]{Schwenk}
 				
 				Ein weiterer Nachteil liegt in der Schwierigkeit beim Austausch von Schlüsselinformationen für \ac{E2EE}. Dies muss noch manuell mit Hilfe von Software erfolgen und ist daher noch nicht Standard heutiger E-Mail-Kommunikation. 
-				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende-Verschlüsselung, allerdings ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf dem eigenen Server zwischenspeichert. Der Anwender hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist.\\
+				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende-Verschlüsselung, allerdings ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf dem eigenen Server zwischenspeichert. Der Anwender hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist.
 				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite[Vgl.][]{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modells.		
 				%Bezug zu Sicherheitsniveaus
 				%im allgemeinen Abscnitt schon vorhanden, daher wieder rausgenommen
@@ -456,12 +457,12 @@
 				\medskip
 														
 				%Umsetzung
-				Hat sich der Absender für die Verschlüsselung via \ac{S/MIME} entschieden, sucht der E-Mail-Client automatisch in der Zertifikatsdatenbank nach einem Zertifikat, welches die E-Mail-Adresse des Empfängers enthält. Sollte ein solches Zertifikat nicht gefunden werden, wird der Nutzer darüber informiert, dass eine \ac{S/MIME} Verschlüsselung nicht möglich sei. Ist ein entsprechendes Zertifikat vorhanden, wird die E-Mail hybrid verschlüsselt.\footcite[Vgl.][S. 65]{Schwenk}
+				Hat sich der Absender für die Verschlüsselung via \ac{S/MIME} entschieden, sucht der E-Mail-Client automatisch in der Zertifikatsdatenbank nach einem Zertifikat, welches die E-Mail-Adresse des Empfängers enthält. Sollte ein solches Zertifikat nicht gefunden werden, wird der Nutzer darüber informiert, dass eine \ac{S/MIME} Verschlüsselung nicht möglich sei. Ist ein entsprechendes Zertifikat vorhanden, wird die E-Mail hybrid verschlüsselt.\footnote{Vgl. ebd.}
 				
 %				- Bedeutet, dass Nachricht symmetrisch verschlüsselt wird und das Shared Secret mit dem im Empfänger-Zertifikat angegebenen öffentlichen Schlüssel verschlüsselt wird
 %				- Anschließend base64 codiert, damit Mailserver den Inhalt nicht unbeabsichtigt ändern kann
 				
-				Um die Lesbarkeit von \ac{S/MIME} signierten E-Mails auch für Nutzer zu gewährleisten, die dieses Verfahren nicht verwenden, stehen zwei verschiedene Datentypen zur Verfügung. Auf eine genauere Beschreibung soll an dieser Stelle verzichtet und stattdessen auf die referenzierte Literatur\footcite[Vgl.][S. 65]{Schwenk} verwiesen werden.
+				Um die Lesbarkeit von \ac{S/MIME} signierten E-Mails auch für Nutzer zu gewährleisten, die dieses Verfahren nicht verwenden, stehen zwei verschiedene Datentypen zur Verfügung. Auf eine genauere Beschreibung soll an dieser Stelle verzichtet und stattdessen auf die referenzierte Literatur\footnote{Vgl. ebd.} verwiesen werden.
 				\medskip
 %Zwei verschiedene Datentypen für Signatur beschreiben?
 
@@ -475,7 +476,7 @@
 %				- Dadurch ist die Nachricht für alle Clients interpretierbar, allerdings kann der erste Teil durch Mailserver versehentlich geändert werden
 %				\footcite[][S. 65]{Schwenk}			
 				%Vorteile
-				Der Vorteil von \ac{S/MIME} liegt darin, \glqq dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [\dots] das Anfügen eines Attachments\grqq\footcite[Vgl.][S. 61]{Schwenk}. Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
+				Der Vorteil von \ac{S/MIME} liegt darin, \glqq dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [\dots] das Anfügen eines Attachments.\grqq\footcite[Vgl.][S. 61]{Schwenk} Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
 				Durch die zwei verschiedenen Datentypen, können \ac{S/MIME} signierte Nachrichten auch von E-Mail-Clients interpretiert werden, die dieses Verfahren nicht verwenden. 
 				\medskip
 				
@@ -550,7 +551,7 @@
 %			Daher wird dieser Schlüssel auch als Secure Entry Point bezeichnet.
 			Ein Kritikpunkt an \ac{DNSSEC} ist die hohe Komplexität des Systems, die durch den Aufbau der Zertifikatsketten und dem aufwändigen Austausch der Schlüssel auf Zonenebene entsteht.
 			Diese ist jedoch der benötigten Kompatibilität mit bestehenden Systemen geschuldet und momentan alternativlos.\footcite[Vgl.][S. 195]{Sorge2013}
-			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI}, deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite[Vgl.][]{Koetter2014}. Der \glqq Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden].\grqq\footcite[][]{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR}, die an der Erstellung des root key und der Signierungsprozesse partizipieren.
+			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI}, deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite[Vgl.][]{Koetter2014} Der \glqq Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden].\grqq\footcite[][]{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR}, die an der Erstellung des root key und der Signierungsprozesse partizipieren.
 	
 		\subsection{DANE - DNS-based Authentication of Named Entities}
 		\label{subsec:dane}                                             
@@ -559,6 +560,7 @@
 			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail-Protokolle beschränkt, sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
 			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein, damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen PublicKey des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch, so ist die Verbindung vertrauensvoll.
 			Ein durchgängig verifizierter Transport ist allerdings nur möglich, wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt \glqq müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren\grqq\footcite[][S. 197]{Koetter2014}
+			\newpage
 			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn \glqq die Verwendung [..] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,\grqq\footcite[][S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
 	\pagebreak
 	\chapter{E-Mail-Sicherheit in der Praxis}\label{chap:e-mail-sicherheit-in-der-praxis}
@@ -567,7 +569,7 @@
 			Die nachfolgende Nutzwertanalyse bewertet eine Auswahl von E-Mail-Anbietern anhand ihrer Umsetzung von sicherheitsrelevanten Technologien wie bspw. \ac{TLS}, \ac{PGP} oder Verfahren wie \ac{DNSSEC} bzw. \ac{DANE}.
 			Verglichen werden drei große internationale Anbieter, drei Anbieter des \ac{EmiG}-Verbundes und zwei alternative, kleinere Anbieter mit Fokus auf E-Mail-Sicherheit.\\		
 			Die Auswahl der Oberkriterien lehnt sich an die Datenssicherheit-Schutzziele \textit{Vertraulichkeit und Integrität}, \textit{Authentizität} (\prettyref{sec:datensicherheit-einmaleins}) sowie \textit{sicherheitsrelevante Aspekte}.\\
-			Ausgangspunkt der Bewertung sind hauptsächlich die Analyse-Werkzeuge \textit{SSL Server Test} von Qualys SSL Labs\footnote{\url{https://dev.ssllabs.com/ssltest/}} und der \textit{DNSSEC Debugger} der \ac{CA} Verisign Labs\footnote{\url{http://dnssec-debugger.verisignlabs.com/}}.
+			Ausgangspunkt der Bewertung sind hauptsächlich die Analyse-Werkzeuge \textit{SSL Server Test} von Qualys SSL Labs\footnote{\url{https://dev.ssllabs.com/ssltest/}} und der \textit{DNSSEC Debugger} der \ac{CA} Verisign Labs.\footnote{\url{http://dnssec-debugger.verisignlabs.com/}}
 			Mit beiden Werkzeugen ist es möglich Server hinsichtlich ihrer unterstützten Protokolle und Verfahren zu analysieren.\medskip\\
 			Die Ergebnisse der entsprechenden Test-Protokolle (\prettyref{sec:anhang}) \textit{SSL Report} und \textit{DNSSEC Report} der ausgewählten E-Mail-Anbieter sind unter Berücksichtigung der zuvor beschriebenen Zielgruppe und Sicherheitsniveaus verglichen und bewertet worden.\\
 			Ebenso beachtet wurden die individuellen Angebote der E-Mail-Anbieter durch sicherheitsgerichtete Recherche auf den Anbieter-Webseiten, Webmail-Diensten sowie in unabhängigen und entsprechend zitierten Quellen.\\
@@ -651,7 +653,10 @@
 			Auch die Untersuchung der Mailserver-Authentifizierung führte zu schlechten Ergebnissen. Diese Analyse basiert auf den Reports des \ac{DNSSEC} Analyzer von Verisign.\footnote{Vgl. Anhang DNSSEC Reports} 
 			
 			\subsubsection{Sicherheitsrelevante Aspekte}
-			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite[Vgl.][]{Kirsch}. Daher ist es nicht überraschend, dass die Anbieter es sich vorenthalten Einblick in die E-Mails ihrer Nutzer nehmen zu können\footcite[Vgl.][]{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke 
+			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite[Vgl.][]{Kirsch}
+			Daher ist es nicht überraschend, dass die Anbieter es sich vorenthalten Einblick in die E-Mails ihrer Nutzer nehmen zu können.\footcite[Vgl.][]{Schwan} 
+			\newpage 
+			Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke 
 			%eigentlich keien Sicherheitslücke, sonern "nur" Verletzung (des Datenschutz für) Sicherheitsniveaus ab Stufe 2 (Privat)
 			und wird in allen drei Fällen angewendet. Daraus lässt sich auch die Annahme schließen, dass die E-Mails nicht verschlüsselt gespeichert werden. Es konnten zwar keine Quellen herangezogen werden, die diese Annahme untermauern, dafür wurden jedoch auch keine Quellen gefunden, die das Gegenteil beweisen.
 			Laut einer Berichterstattung auf der Webseite von RTL ist die Situation bei Hotmail sogar verschärft:
@@ -670,7 +675,7 @@
 							\label{fig:Yahoo_Anmeldesiegel}	
 						\end{wrapfigure}
 			In Bezug auf das Bereitstellen von Sicherheits-Zusatzfunktionen können die internationalen Mail-Anbieter etwas Punkten. Alle bieten eine Zwei-Faktor-Authentifizierung an. Außerdem hat der Nutzer die Möglichkeit sich eine Liste mit jeglichen externen Anwendung und Webseiten anzeigen zu lassen. Mit dieser erhält er einen Überblick darüber, welche Anwendung Zugriff auf welche Nutzerdaten hat.
-			Yahoomail kann zusätzlich mit einer Wegwerfadresse, einem Anmeldesiegel (vgl. Abbildung \ref{fig:Yahoo_Anmeldesiegel}) sowie dem selbst entwickelten \ac{DKIM}-Verfahren punkten. \ac{DKIM} basiert auf asymmetrischer Kommunikation und stellt die Authentizität von E-Mail-Absendern sicher.\footcite[Vgl.][]{DKIM}.
+			Yahoomail kann zusätzlich mit einer Wegwerfadresse, einem Anmeldesiegel (vgl. Abbildung \ref{fig:Yahoo_Anmeldesiegel}) sowie dem selbst entwickelten \ac{DKIM}-Verfahren punkten. \ac{DKIM} basiert auf asymmetrischer Kommunikation und stellt die Authentizität von E-Mail-Absendern sicher.\footcite[Vgl.][]{DKIM}
 			
 			
 			
@@ -684,7 +689,7 @@
 %			\end{wrapfigure} 
 			\medskip
 			
-			Um das Vertrauen der Nutzer in die Provider wieder zu stärken, veröffentlichen Yahoomail und Googlemail  sog. Transparenzberichte.\footcite[Vgl.][]{Lokshin} In diesen wird dargestellt, welche Behörden welche Art von Auskunft bei den Providern ersucht haben. Microsoft folgt dem Trend und hat bereits angekündigt, die Behördenanfragen für seinen E-Mail-Dienst in den Transparenzbericht des Konzerns mit aufzunehmen\footcite[Vgl.][]{Herget}.
+			Um das Vertrauen der Nutzer in die Provider wieder zu stärken, veröffentlichen Yahoomail und Googlemail  sog. Transparenzberichte.\footcite[Vgl.][]{Lokshin} In diesen wird dargestellt, welche Behörden welche Art von Auskunft bei den Providern ersucht haben. Microsoft folgt dem Trend und hat bereits angekündigt, die Behördenanfragen für seinen E-Mail-Dienst in den Transparenzbericht des Konzerns mit aufzunehmen.\footcite[Vgl.][]{Herget}
 			\medskip			
 		
 		%Links verwendet
@@ -805,6 +810,7 @@
 			Vor allem der Entschluss zur Insellösung \ac{IMPT} und Vernachlässigung von Standards wie \ac{DNSSEC} werfen Fragen auf. 
 			Ob \ac{DANE} tatsächlich eine Chance auf eine spätere Implementierung bekommt, bleibt abzuwarten, denn bisher ist mit \ac{IMPT} die Kommunikation mit internationalen Anbieter und garantierter Transportverschlüsselung rhetorisch ausgeschlossen.
 			\footcite[Vgl.][]{Zivadino14a}
+			\newpage
 			Fakt ist bisher, dass die Aufnahme und Erstzertifizierung neuer Mail-Provider, die am Beitritt der Initiative interessiert sind, Kosten in Höhe von 9.500 bis 30.000 Euro
 			\footcite[Vgl.][]{Zivadino14c} 
 			verursacht und mit zusätzlichen manuellen Aufwand bei der Konfiguration der \ac{SMTP}-Mailserver verbunden sind.
@@ -840,13 +846,12 @@
 %			\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 9]{Rundfeldt14}}
 %			Ferner wird der Aufwand der Einstellung als sehr gering Eingeschätzt. (\prettyref{fig:emig_tls})\\
 %			Zertifikate müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.\medskip\\
-				
-
+			\newpage
 			\subsection{Alternative Provider}
 			Als alternative Provider werden zwei kleine Anbieter, die bereits aktiv am Markt sind, untersucht.
 			Hierbei handelt es sich um die beiden in Berlin ansässigen Provider \textit{Posteo} und \textit{mailbox.org}.
 			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutzer nicht auswerten.\footcite[Vgl.][]{Posteo2013a, Mailbox2014}
-			\newpage
+			%\newpage
 				\subsubsection{Posteo}
 				\label{subsubsec:posteo}
 					Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde und von der Posteo e.K. betrieben wird. \footcite[Vgl.][]{Posteo2013b}
@@ -866,7 +871,7 @@
 						Über die Verschlüsselungsmöglichkeiten per \ac{PGP} und \ac{S/MIME} und die damit verbundenen Vor- und Nachteile in Bezug auf anonyme Kommunikation wird auf der Webseite von Posteo ausführlich informiert.
 						Eine konkrete Hilfestellung zur Einrichtung der Verschlüsselungsverfahren zur Nutzung mit einem Mailprogramm wird bisher nicht gegeben.
 						Stattdessen wird auf die Seite von \textit{Netzpolitik.org}\footnote{\url{https://netzpolitik.org/2013/anleitung-so-verschlusselt-ihr-eure-e-mails-mit-pgp}} und dem Mailprogramm \textit{Thunderbird} der Mozilla Foundation\footnote{\url{http://www.thunderbird-mail.de/wiki/Mailverschlüsselung_mit_S/MIME}} verlinkt.
-					\newpage
+	
 					\paragraph{Authentizität}
 						Auf die Möglichkeiten, die Mails vor dem Versand digital zu signieren und wie dies im Mailprogramm durchgeführt werden kann, werden auf der Posteo-Seite ein paar Informationen gegeben.
 						Eine Anleitung, wie das Signieren durchgeführt wird sucht der Nutzer allerdings vergeblich.
