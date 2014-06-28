@@ -628,7 +628,7 @@
 			Im Nachhinein lassen sich die E-Mail-Anbieter nur bedingt in die Sicherheitsniveaus der Stufen 1 bis 4 kategorisieren, denn prinzipiell ist es bspw. möglich auch mit Punktzahlen zwischen 2,0 und 4,0 ein Sicherheitsniveau von Stufe 3 bis 4 zu erreichen.\footnote{Bspw. durch selbständige Konfiguration von Ende-zu-Ende-Verschlüsselung durch den Endnutzer.}
 			Auch individuelle Gegebenheiten der Endnutzer wie die Verwendung von E-Mail-Software oder Version des Webbrowser sind wichtige Faktoren, die nur in Verbindung eine konkrete Aussage über die endgültig erreichte Sicherheitsniveau-Stufe zulassen.\medskip\\
 			Das Sicherheitsniveau hängt damit generell zum einen vom technischen Verständnis und zum anderen von der Bereitwilligkeit des Endnutzers ab. %Daniel: Hier müssen wir uns auf Endnutzer oder Endanwender einigen...
-			Nur wenn Endanwender über die Standardeinstellungen des E-Mail-Anbieters hinaus manuelle Konfigurationen vornehmen, kann Sicherheitsniveau Stufe 4 erreicht werden.\medskip\\
+			Nur wenn Endanwender über die Standardeinstellungen des E-Mail-Anbieters hinaus manuelle Konfigurationen vornehmen, kann Sicherheitsniveau-Stufe 4 erreicht werden.\medskip\\
 			Die Punkteskala von 1 bis 10 fasst jedoch die technische Ausgangsbasis der E-Mail-Infrastruktur und die Implementierung offener und moderner Standards für eine möglichst unabhängige und sichere Kommunikation der E-Mail-Anbieter untereinander zusammen.
 			Außerdem fließen in die Punktzahl Unterstützungsmaßnahmen des E-Mail-Anbieters ein, um Auskunft über den Schwierigkeitsgrad zur Erreichung hoher Sicherheitsniveaus zu geben.
 			Die Privatsphäre der Endnutzer wird ebenfalls durch die Bewertung der Auswertungsmöglichkeit und Transparenzberichte berücksichtigt.\medskip\\
@@ -847,36 +847,33 @@
 			Als alternative Provider werden zwei kleine Anbieter, die bereits aktiv am Markt sind, untersucht.
 			Hierbei handelt es sich um die beiden in Berlin ansässigen Provider \textit{Posteo} und \textit{mailbox.org}.
 			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutzer nicht auswerten.\footcite[Vgl.][]{Posteo2013a, Mailbox2014}
-			
+			\newpage
 				\subsubsection{posteo}
 				\label{subsubsec:posteo}
 					Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde und von der Posteo e.K. betrieben wird. \footcite[Vgl.][]{Posteo2013b}
 					Laut eigenen Angaben verzeichnet das Unternehmen einen Nutzerzuwachs um mehr als 100\% pro Jahr.\footcite[Vgl.][]{Posteo2013b}
 					Er probiert sich bewusst von den Konkurrenten abzusetzen durch das Angebot von innovativen Sicherheitsfunktionen und die garantierte Werbefreiheit.
 					Die Kosten deckt Posteo dadurch, dass für die Nutzung des Dienstes eine monatliche Gebühr erhoben wird.
-					Diese kann auf unterschiedliche Weise bezahlt werden und kann durch die Löschung der Beziehungsdaten zwischen Zahlungseingang und Postfach nach erfolgter Zahlung nciht zurückverfolgt werden.
+					Diese kann auf unterschiedliche Weise bezahlt werden und kann durch die Löschung der Beziehungsdaten zwischen Zahlungseingang und Postfach nach erfolgter Zahlung nicht zurückverfolgt werden.
 					Dadurch soll eine anonyme Nutzung des Postfachs ermöglicht werden, da auch bei der Registrierung keine persönlichen Daten angegeben werden müssen.\footcite[Vgl.][]{Posteo2013a}
 					Nachfolgend wird die durchgeführte Nutzwertanalyse für Posteo beschrieben.
-					\medskip\\
-					
+					\vspace{-6pt}					
 					\paragraph{Vertraulichkeit und Integrität}
 						Der Zugriff auf den Server von Posteo erfolgt immer über eine mit \ac{TLS} und \ac{PFS} gesicherte Verbindung, unabhängig davon, ob ein Mailprogramm oder der Webmailer genutzt wird.
 						Dies wird durch den Einsatz von \ac{HSTS} erzwungen.\footnote{Vgl. Anhang SSL Reports}
 						Beim eigentlichen Versand und Empfang von Mails geht Posteo jedoch nicht ganz so strikt vor und nutzt eine verschlüsselte Verbindung lediglich, wenn dies durch den Kommunikationspartner ebenfalls unterstützt wird.
 						Das Zertifikat, dass Posteo bei der Transportverschlüsselung einsetzt, ist ein sogenanntes erweitertes Zertifikat, das es dem Anwender auf einen Blick ermöglichen soll den Betreiber der aufgerufenen Webseite bzw. des Servers zu identifizieren.\footcite[Vgl.][]{Posteo2013c}\medskip\\
-					
-						Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versendenet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footcite[Vgl.][]{Posteo2013c}
+						Im Webmailer ist es momentan nicht möglich, die Mails mittels \ac{E2EE} zu versendenet aber die sichere Speicherung des privaten Schlüssels des Nutzers noch Probleme, so dass nicht feststeht zu welchem Zeitpunkt diese Funktion zur Verfügung stehen wird.\footnote{Vgl. ebd.}
 						Über die Verschlüsselungsmöglichkeiten per \ac{PGP} und \ac{S/MIME} und die damit verbundenen Vor- und Nachteile in Bezug auf anonyme Kommunikation wird auf der Webseite von Posteo ausführlich informiert.
 						Eine konkrete Hilfestellung zur Einrichtung der Verschlüsselungsverfahren zur Nutzung mit einem Mailprogramm wird bisher nicht gegeben.
 						Stattdessen wird auf die Seite von \textit{Netzpolitik.org}\footnote{\url{https://netzpolitik.org/2013/anleitung-so-verschlusselt-ihr-eure-e-mails-mit-pgp}} und dem Mailprogramm \textit{Thunderbird} der Mozilla Foundation\footnote{\url{http://www.thunderbird-mail.de/wiki/Mailverschlüsselung_mit_S/MIME}} verlinkt.
-					
+					\newpage
 					\paragraph{Authentizität}
 						Auf die Möglichkeiten, die Mails vor dem Versand digital zu signieren und wie dies im Mailprogramm durchgeführt werden kann, werden auf der Posteo-Seite ein paar Informationen gegeben.
 						Eine Anleitung, wie das Signieren durchgeführt wird sucht der Nutzer allerdings vergeblich.
 						Auch die Tatsache, dass eine Verschlüsselung im Webmailer bisher nicht möglich ist, lässt darauf schließen, dass ebenfalls keine Signaturen erstellt werden können.
 						Eine direkte Information hierzu gibt es aber nicht.
-						Bei der Authentifizierung ihrer Server ist Posteo jedoch hochaktuell und hat als einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein(\cite[Vgl.][]{Mailbox2014a}), so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter in Deutschland \ac{DANE} umgesetzt.\footcite[Vgl.][]{Zivadino14e}\medskip\\
-					
+						Bei der Authentifizierung ihrer Server ist Posteo jedoch hochaktuell und hat als einer der ersten\footnote{Auch Mailbox.org setzt seit Mai 2014 \ac{DANE} ein(\cite[Vgl.][]{Mailbox2014a}), so dass nicht zweifelsfrei belegt werden kann, wer diese Funktion zuerst genutzt hat.} Anbieter in Deutschland \ac{DANE} umgesetzt.\footcite[Vgl.][]{Zivadino14e}
 					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
 						Im Bereich der zusätzlichen sicherheitsrelevanten Aspekte kann Posteo durch die Verschlüsselung seiner Festplatten mit \ac{AES} punkten.
 						Hierdurch sind die gespeicherten Mails vor Zugriffen geschützt, falls die Festplatten geklaut oder beschlagnahmt werden sollten.
@@ -889,8 +886,7 @@
 						Hierbei wird die \ac{IP}-Adresse des Absenders durch die \ac{IP}-Adresse des Mailservers von Posteo ersetzt.
 						Somit ist eine Rückverfolgung zum Absender aufgrund der \ac{IP}-Adresse nicht möglich.\footcite[Vgl.][]{Posteo2013a}
 						Auch was die Veröffentlichung eines Transparenzberichts angeht ist Posteo vorbildlich und hat als erster deutscher Anbieter diesen veröffentlicht und damit die großen Konkurrenten wie beispielsweise die \ac{DTAG} als Betreiber von T-Online unter Zugzwang gesetzt.
-					
-					
+				\newpage
 				\subsubsection{mailbox.org}
 				\label{subsubsec:mailbox}
 					Mailbox.org startete im Februar 2014 als neuer E-Maildienst der Heinlein Support GmbH, die mit JPBerlin bereits seit über 20 Jahren als \ac{ISP} auftritt und E-Mailpostfächer anbietet.
@@ -1004,17 +1000,14 @@
 		Die Durchführung der Nutzwertanalyse hat gezeigt, dass es große Unterschiede zwischen den Angeboten der Mailprovider hinsichtlich der Umsetzung von Sicherheitsverfahren gibt.
 		Den meisten Providern scheinen aber die Sicherheitsprobleme bewusst zu sein und auch die Enthüllungen durch Edward Snowden haben sie veranlasst, die in den Protokollen vorhandenen Sicherheitsverfahren auch einzusetzen.
 		Dies wird nicht zuletzt durch die Gründung der \ac{EmiG}-Initiative deutlich.\medskip\\
-		
 		Trotzdem muss man die in der Nutzwertanalyse festgestellte Situation als Momentaufnahme werten, da in diesem Markt, wie generell im IT-Bereich, sehr viel Bewegung ist.
-		Dies lässt sich daran festmachen, dass neben den untersuchten, alternativen Mailprovidern, die in Deutschland ansässig sind, auch weitere Anbieter wie \textit{Protonmail.ch} aus der Schweiz oder \textit{startmail.com} der Suchmaschine \textit{ixquick} demnächst in den Markt eintreten und eine automatische \ac{E2EE} der E-Mails versprechen, ohne dass der Nutzer zusätzliche Software benötigt.\footnote{Vgl. \url{http://www.protonmail.ch} und \url{http://beta.startmail.com}}
+		Dies lässt sich daran erkennen, dass neben den untersuchten, alternativen Mailprovidern, die in Deutschland ansässig sind, auch weitere Anbieter wie \textit{Protonmail.ch} aus der Schweiz oder \textit{startmail.com} der Suchmaschine \textit{ixquick} demnächst in den Markt eintreten und eine automatische \ac{E2EE} der E-Mails versprechen, ohne dass der Nutzer zusätzliche Software benötigt.\footnote{Vgl. \url{http://www.protonmail.ch} und \url{http://beta.startmail.com}}
 		Dadurch soll die Privatsphäre der Nutzer besser geschützt werden und das Mitlesen von Mails durch unberechtigte Dritte verhindert beziehungsweise erschwert werden.\medskip\\
-		
 		Doch auch die großen Provider probieren hier nicht in den Anschluss zu verlieren.
 		So hat Google bereits eine erste Testversion eines Browser-Addons zur Mailverschlüsselung im Browser veröffentlicht, die eine \ac{E2EE} stark vereinfachen soll.		
 		Die Entwicklung in der nächsten Zeit wird zeigen, ob die großen Mailprovider durch die alternativen Provider dazu gezwungen werden, ebenfalls verstärkt Informationen und Unterstützung bei der Verschlüsselung von E-Mails zu bieten oder ob sich das Interesse der Öffentlichkeit für Themen des Datenschutz wieder legen wird.\medskip\\
-		
 		Insgesamt lässt sich sagen, dass die bisher durchgeführten Schritte der meisten Provider zur Transportverschlüsselung von E-Mails ein Schritt in die richtige Richtung sind, diese den Nutzer jedoch nicht in falscher Sicherheit wiegen dürfen.
-		Aufgrund der Tatsache, dass eine \ac{E2EE} momentan noch mit einigen technischen Hürden verbunden ist und einen Komfortverlust, in Bezug auf die Lesbarkeit der Nachrichten auf unterschiedlichen Endgeräten mit sich bringt, ist der Einsatz der E-Mail zur Kommunikation auf der definierten Sicherheitsstufe 4 nur in manchen Fällen geeignet.
+		Aufgrund der Tatsache, dass eine \ac{E2EE} momentan noch mit einigen technischen Hürden verbunden ist und einen Komfortverlust in Bezug auf die Lesbarkeit der Nachrichten auf unterschiedlichen Endgeräten mit sich bringt, ist der Einsatz der E-Mail zur Kommunikation auf der definierten Sicherheitsniveau-Stufe 4 nur in manchen Fällen geeignet.
 		An dieser Stelle muss jeder einzelne Nutzer selbst abwägen, wie wichtig für ihn die übermittelte Information ist und ob er zu deren Schutz die bestehenden Komforteinbußen hinnehmen kann und will.
 		
 %		
