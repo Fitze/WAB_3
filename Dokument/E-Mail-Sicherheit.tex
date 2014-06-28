@@ -47,10 +47,9 @@
 		E-Mails werden in der Regel unverschlüsselt und im Klartext übertragen. Somit wird es Dritten ermöglicht, an den Inhalt dieser Mails zu gelangen. Nicht nur im geschäftlichen elektronischen Schriftverkehr ist es wichtig, dass ausgetauschte Nachrichten Dritten gegenüber unzugänglich gemacht werden. Im privaten Bereich ist es unter Umständen gewünscht oder gar erforderlich, dass die elektronische Kommunikation über E-Mails verschlüsselt wird, etwa bei vertraulichen Inhalten mit dem Arzt oder Behörden. Vielen Privatpersonen ist es mitunter unklar, welche Daten mitgelesen werden können. Zudem kennt nur eine geringe Anzahl der betroffenen Personen die verschiedenen Möglichkeiten zum Schutz bei der E-Mail-Kommunikation. Diese Thematik ist durch die jüngsten Enthüllen von Edward Snowden (Stand 2014) verstärkt in das Interesse der Öffentlichkeit gerückt und hat auch im privaten Umfeld die Menschen für eine gesicherte Kommunikation sensibilisiert.
 		
 		\section{Zielsetzung}
-		Diese wissenschaftliche Arbeit setzt sich damit auseinander, welche Sicherheitsvorkehrungen eine private Person treffen kann, damit Dritten der Inhalt ihrer Mails verwahrt bleibt und damit der Empfänger sicherstellen kann, dass er die Mail vollständig und unverändert erhalten hat. Darüber hinaus wird die Funktionsweise dieser Maßnahmen erläutert. Ergänzend wird auf den Aspekt der Authentizität eingegangen, d. h. ob der Kommunikationspartner wirklich derjenige ist, für den er sich ausgibt. \\
-		
-	
-		Ziel dieser wissenschaftlichen Arbeit ist die Untersuchung der verschiedenen Möglichkeiten zum Schutz der Daten in der E-Mail-Kommunikation sowie die Analyse ihrer Funktionsweise. Zudem werden gängige ausgewählte E-Mail-Provider anhand einer Nutzwertanalyse dahingehend untersucht, ob sie die Verfahren und Möglichkeiten hinsichtlich der Datensicherheit anwenden bzw. anbieten.
+		Diese wissenschaftliche Arbeit setzt sich damit auseinander, welche Sicherheitsvorkehrungen eine private Person treffen kann, damit Dritten der Inhalt ihrer Mails verwehrt bleibt und damit der Empfänger sicherstellen kann, dass er die Mail vollständig und unverändert erhalten hat. Darüber hinaus wird die Funktionsweise dieser Maßnahmen erläutert. Ergänzend wird auf den Aspekt der Authentizität eingegangen, d. h. ob der Kommunikationspartner wirklich derjenige ist, für den er sich ausgibt. \medskip\\
+		Ziel dieser wissenschaftlichen Arbeit ist die Analyse der verschiedenen Möglichkeiten zum Datenschutz der E-Mail-Kommunikation sowie die Bewertung ihrer Implementierungen im Privatanwenderbereich.
+		Dabei werden gängige ausgewählte E-Mail-Provider anhand einer Nutzwertanalyse untersucht, wie Verfahren und Möglichkeiten hinsichtlich Datensicherheit angewendet bzw. angeboten werden.
 		
 		\section{Aufbau der Arbeit}
 		% \color{darkred}
@@ -59,16 +58,15 @@
 		% Bzw. In Anlehnung an...(Unternehmen) hervorheben
 		% Was ist Sicherheitsniveau, Kategorie, Bedürfnis?
 		% \color{black}
-		
-		In Bezug auf die Datensicherheit existieren vier verschiedene Aspekte, die unabhängig voneinander betrachtet werden können. Um ein gemeinsames Grundverständnis für die weitere Arbeit zu bekommen, werden diese Aspekte im nächsten kurz erläutert.
-		
-		Die von Privatpersonen versendeten Mails haben unterschiedliche Anforderungen an die Vertraulichkeit der Nachricht. Anhand dieser Anforderungen lassen sich Sicherheitsniveaus zuordnen, die in Kapitel \ref{chap:sicherheitsniveaus} analysiert werden.
-		
-		Nachdem ein Grundverständnis für die verschiedenen Aspekte in der Datensicherheit und die unterschiedlichen Sicherheitsniveaus aufgebaut wurde, werden im fünften Kapitel die Technologien und Verfahren zum Schutz der Daten in der E-Mail-Kommunikation untersucht. In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodell erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. Das Kapitel schließt mit einer Betrachtung des 
-		Namensdienstes DNS und seinen Sicherheit erhöhenden Erweiterungen ab.
-		
-		Im sechsten Kapitel werden ausgewählte Mail-Provider in der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. Aus dieser Analyse wird eine Nutzwertanalyse erstellt, die die Anforderungen der verschiedenen Sicherheitsniveaus anhand der vorgestellten Provider übersichtlich in tabellarischer Form darstellt.
-		
+		In Bezug auf die Datensicherheit existieren vier verschiedene Datenschutzziele, die unabhängig voneinander betrachtet werden können. 
+		Um ein gemeinsames Grundverständnis für die weitere Arbeit zu bekommen, werden diese Schutzziele im nächsten kurz erläutert.
+		Die von Privatpersonen versendeten E-Mails haben unterschiedliche Anforderungen an die Vertraulichkeit der Nachricht. 
+		Anhand dieser Anforderungen lassen sich Sicherheitsniveaus zuordnen, die in Kapitel \ref{chap:sicherheitsniveaus} analysiert werden.\medskip\\		
+		Nachdem ein Grundverständnis für die verschiedenen Aspekte in der Datensicherheit und die unterschiedlichen Sicherheitsniveaus aufgebaut wurde, werden in Kapitel \ref{chap:technologien-und-verfahren} die Technologien und Verfahren zum Schutz der Daten in der E-Mail-Kommunikation untersucht. 
+		In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodell erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. 
+		Das Kapitel schließt mit einer Betrachtung des Namensdienstes DNS und seinen Sicherheitserweiterungen ab.\medskip\\		
+		In Kapitel \ref{chap:e-mail-sicherheit-in-der-praxis} werden ausgewählte Mail-Provider in der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. 
+		Aus dieser Analyse wird eine Nutzwertanalyse erstellt, die die Anforderungen der verschiedenen Sicherheitsniveaus anhand der vorgestellten Provider übersichtlich in tabellarischer Form darstellt.
 		Das letzte Kapitel schließt die Arbeit thematisch mit einer Zusammenfassung und einem Ausblick über die gegenwärtigen und möglichen Entwicklungen ab.
 		
 		
@@ -276,7 +274,7 @@
 %\href{http://www.heise.de/ct/heft/2014-4-Die-Schwaechen-der-E-Mail-und-was-dagegen-hilft-2092851.html}{Schwaechen-der-E-Mail-und-was-dagegen-hilft}}
 %\color{black}
 	
-	\chapter{Technologien und Verfahren}
+	\chapter{Technologien und Verfahren}\label{chap:technologien-und-verfahren}
 		\section{Kyptographie Grundlagen}
 				Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten für Dritte unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegenden Funktionsweisen der Verschlüsselung untersucht, die zum Verständnis der weiteren Kapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
 				%Die Einleitung ist top, mehr Bezug zur E-Mail wäre toll, so das es essenziel für Sicherheit ist und die Basis zur Sicherstellung von sicherer Kommunikation Stufe 1-4 (Unsere niveaus) da nämlich auch öffentlich zumindest transport verschlüsselt sein sollte (wird ja auch als Standard durchgedrück (versucht) EmiG, TLS)
@@ -594,7 +592,7 @@
 			Ein durchgängig verifizierter Transport ist allerdings nur möglich wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt \glqq müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren\grqq\footcite[Vgl.][S. 197]{Koetter2014}
 			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn \glqq die Verwendung [...] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,\grqq\footcite[Vgl.][S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
 	\pagebreak
-	\chapter{E-Mail-Sicherheit in der Praxis}
+	\chapter{E-Mail-Sicherheit in der Praxis}\label{chap:e-mail-sicherheit-in-der-praxis}
 		\section{Nutzwertanalyse E-Mail-Provider}
 		\label{sec:nwa}
 			Die nachfolgende Nutzwertanalyse bewertet eine Auswahl von E-Mailprovider anhand ihrer Umsetzung von sicherheitsrelevanter Technologien wie bspw. \ac{TLS}, \ac{PGP} oder Verfahren wie \ac{DNSSEC} bzw. \ac{DANE}.
