@@ -286,7 +286,7 @@
 				Mit diesem Verfahren wurde das Sicherheitsrisiko der symmetrischen Verschlüsselung gelöst, da der öffentliche Schlüssel zum Verschlüsseln jedem bekannt sein darf. Zur Entschlüsselung wird der dazugehörige private Schlüssel benötigt, der im Besitz des Empfängers ist und niemals veröffentlicht wird.
 				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt (auch bezeichnet als \ac{MITM}-Szenario). Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss \glqq bei der Verwendung eines fremden Schlüssels [\dots] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden.\grqq\footcite[][S. 90]{Ertel2012}
 				
-				Zwei Verfahren sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Zum Einen der im Jahr 1978 erfundene asymmetrische \acs{RSA}-Algorithmus, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist und sich vor allem durch seine Einfachheit hervorhebt.\footcite[Vgl.][S. 79]{Ertel2012} Zum Anderen der Diffie-Hellman-Schlüsselaustausch, der Eigenschaften asymmetrischer Verschlüsselung aufweist und mit dem geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden können. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
+				Zwei Verfahren sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Zum Einen der im Jahr 1978 erfundene asymmetrische RSA-Algorithmus\footnote{\acl{RSA}}, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist und sich vor allem durch seine Einfachheit hervorhebt.\footcite[Vgl.][S. 79]{Ertel2012} Zum Anderen der Diffie-Hellman-Schlüsselaustausch, der Eigenschaften asymmetrischer Verschlüsselung aufweist und mit dem geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden können. Nach Ablauf der Vereinbarung kennen nur die beiden Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
 		\subsection{Digitale Signaturen}\label{chap:Signatur}	
 				Asymmetrische Verschlüsselungsverfahren ermöglichen, die menschliche Unterschrift in der digitalen Welt abzubilden. Diese Funktionalität wird mit digitalen Signaturen umgesetzt. Damit eine digitale Signatur den Anforderungen einer menschlichen Unterschrift erfüllt, müssen einige Bedingungen eingehalten werden:\footcite[Vgl.][S. 202]{Schmeh2013}
 				\begin{itemize}
@@ -329,7 +329,7 @@
 			\newpage	
 	
 		\section{Web of Trust}
-			Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist, dass die Nutzer dieses Modells gegenseitig ihre öffentlichen Schlüsseln signieren. Im Gegensatz zum hierarchischen Verfahren gibt es keine zentrale Zertifizierungsstelle.
+			Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entsteht. Die Grundidee ist, dass die Nutzer dieses Modells gegenseitig ihre öffentlichen Schlüsseln signieren. Im Gegensatz zum hierarchischen Verfahren gibt es keine zentrale Zertifizierungsstelle.
 			Die Funktionsweise des Web of Trust wird anhand eines Beispiels erläutert:
 			
 			\begin{wrapfigure}{l}{0.5\textwidth}
@@ -845,7 +845,7 @@
 			Hierbei handelt es sich um die beiden in Berlin ansässigen Provider \textit{Posteo} und \textit{mailbox.org}.
 			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutzer nicht auswerten.\footcite[Vgl.][]{Posteo2013a, Mailbox2014}
 			\newpage
-				\subsubsection{posteo}
+				\subsubsection{Posteo}
 				\label{subsubsec:posteo}
 					Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde und von der Posteo e.K. betrieben wird. \footcite[Vgl.][]{Posteo2013b}
 					Laut eigenen Angaben verzeichnet das Unternehmen einen Nutzerzuwachs um mehr als 100\% pro Jahr.\footcite[Vgl.][]{Posteo2013b}
@@ -884,7 +884,7 @@
 						Somit ist eine Rückverfolgung zum Absender aufgrund der \ac{IP}-Adresse nicht möglich.\footcite[Vgl.][]{Posteo2013a}
 						Auch was die Veröffentlichung eines Transparenzberichts angeht ist Posteo vorbildlich und hat als erster deutscher Anbieter diesen veröffentlicht und damit die großen Konkurrenten wie beispielsweise die \ac{DTAG} als Betreiber von T-Online unter Zugzwang gesetzt.
 				\newpage
-				\subsubsection{mailbox.org}
+				\subsubsection{Mailbox.org}
 				\label{subsubsec:mailbox}
 					Mailbox.org startete im Februar 2014 als neuer E-Maildienst der Heinlein Support GmbH, die mit JPBerlin bereits seit über 20 Jahren als \ac{ISP} auftritt und E-Mailpostfächer anbietet.
 					Die Abgrenzung zur Konkurrenz erfolgt, wie auch bei Posteo, über die explizite Betonung des Datenschutzes und der Privatsphäre des Kunden.
@@ -908,7 +908,7 @@
 						Hierzu sind aber auf der Website des Mailproviders keine Angaben zu finden, ob eine Umsetzung geplant ist.
 	
 					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
-						Mit dem Möglichkeit der Zweifaktorauthentifizierung mit einem \ac{OTP} hebt sich Mailbox.org ebenfalls von vielen Konkurrenten ab.
+						Mit der Möglichkeit der Zweifaktorauthentifizierung mit einem \ac{OTP} hebt sich Mailbox.org ebenfalls von vielen Konkurrenten ab.
 						Zur Nutzung dieser Funktion muss ein USB-Gerät, ein sogenannter Yubikey, mit dem Account verbunden werden.
 						Dadurch ist es möglich, sich auch von unbekannten und damit potenziell unsicheren Rechner sicher an seinem Account im Webfrontend anzumelden.
 						Ebenfalls positiv hervorzuheben ist die regelmäßige Berichterstattung über Probleme und Erweiterungen des Funktionsumfangs, auch gerade im Hinblick auf neu eingeführte Sicherheitsmaßnahmen.
@@ -994,16 +994,16 @@
 %		(Google hat die alpha eines Plugins für Chromebrowser vorgestellt, die E2E-Verschlüsselung im Browser durchführen und vereinfachen soll -> könnte nen Hinweis wert sein) 	
 %		Da das Thema noch aktuell ist, und ständig weiter lebt macht es vll Sinn genau nochmal drauf aufmerksam zu machen das es nur um eine Moment-Aufnahme handelt. 
 		\color{black}
-		Die Durchführung der Nutzwertanalyse hat gezeigt, dass es große Unterschiede zwischen den Angeboten der Mailprovider hinsichtlich der Umsetzung von Sicherheitsverfahren gibt.
+		Die Durchführung der Nutzwertanalyse hat gezeigt, dass es große Unterschiede zwischen den Angeboten der E-Mail-Provider hinsichtlich der Umsetzung von Sicherheitsverfahren gibt.
 		Den meisten Providern scheinen aber die Sicherheitsprobleme bewusst zu sein und auch die Enthüllungen durch Edward Snowden haben sie veranlasst, die in den Protokollen vorhandenen Sicherheitsverfahren auch einzusetzen.
 		Dies wird nicht zuletzt durch die Gründung der \ac{EmiG}-Initiative deutlich.\medskip\\
-		Trotzdem muss man die in der Nutzwertanalyse festgestellte Situation als Momentaufnahme werten, da in diesem Markt, wie generell im IT-Bereich, sehr viel Bewegung ist.
-		Dies lässt sich daran erkennen, dass neben den untersuchten, alternativen Mailprovidern, die in Deutschland ansässig sind, auch weitere Anbieter wie \textit{Protonmail.ch} aus der Schweiz oder \textit{startmail.com} der Suchmaschine \textit{ixquick} demnächst in den Markt eintreten und eine automatische \ac{E2EE} der E-Mails versprechen, ohne dass der Nutzer zusätzliche Software benötigt.\footnote{Vgl. \url{http://www.protonmail.ch} und \url{http://beta.startmail.com}}
-		Dadurch soll die Privatsphäre der Nutzer besser geschützt werden und das Mitlesen von Mails durch unberechtigte Dritte verhindert beziehungsweise erschwert werden.\medskip\\
-		Doch auch die großen Provider probieren hier nicht in den Anschluss zu verlieren.
-		So hat Google bereits eine erste Testversion eines Browser-Addons zur Mailverschlüsselung im Browser veröffentlicht, die eine \ac{E2EE} stark vereinfachen soll.		
-		Die Entwicklung in der nächsten Zeit wird zeigen, ob die großen Mailprovider durch die alternativen Provider dazu gezwungen werden, ebenfalls verstärkt Informationen und Unterstützung bei der Verschlüsselung von E-Mails zu bieten oder ob sich das Interesse der Öffentlichkeit für Themen des Datenschutz wieder legen wird.\medskip\\
-		Insgesamt lässt sich sagen, dass die bisher durchgeführten Schritte der meisten Provider zur Transportverschlüsselung von E-Mails ein Schritt in die richtige Richtung sind, diese den Nutzer jedoch nicht in falscher Sicherheit wiegen dürfen.
+		Trotzdem muss man die in der Nutzwertanalyse festgestellte Situation als Momentaufnahme werten, da in diesem Markt, wie generell im IT-Bereich, sehr viel Bewegung vorherrscht.
+		Dies lässt sich daran erkennen, dass neben den untersuchten, alternativen E-Mail-Providern, die in Deutschland ansässig sind, auch weitere Anbieter wie \textit{Protonmail.ch} aus der Schweiz oder \textit{startmail.com} der Suchmaschine \textit{ixquick} demnächst in den Markt eintreten und eine automatische \ac{E2EE} der E-Mails versprechen, ohne dass der Nutzer zusätzliche Software benötigt.\footnote{Vgl. \url{http://www.protonmail.ch} und \url{http://beta.startmail.com}}
+		Dadurch soll die Privatsphäre der Nutzer besser geschützt werden und das Mitlesen von E-Mails durch unberechtigte Dritte verhindert beziehungsweise erschwert werden.\medskip\\
+		Doch auch die großen Provider versuchen hier nicht in den Anschluss zu verlieren.
+		So hat Google bereits eine erste Testversion eines Browser-Addons zur E-Mail-Verschlüsselung für seinen Webmailer veröffentlicht, die eine \ac{E2EE} stark vereinfachen soll.		
+		Die Entwicklung in der nächsten Zeit wird zeigen, ob die großen E-Mail-Provider durch die alternativen Anbieter dazu gezwungen werden, ebenfalls verstärkt Informationen und Unterstützung bei der Verschlüsselung von E-Mails zu bieten oder ob sich das Interesse der Öffentlichkeit für Themen des Datenschutz wieder legen wird.\medskip\\
+		Insgesamt lässt sich sagen, dass die bisher durchgeführten Maßnahmen der meisten Provider zur Transportverschlüsselung von E-Mails ein Schritt in die richtige Richtung sind, diese den Nutzer jedoch nicht in falscher Sicherheit wiegen dürfen.
 		Aufgrund der Tatsache, dass eine \ac{E2EE} momentan noch mit einigen technischen Hürden verbunden ist und einen Komfortverlust in Bezug auf die Lesbarkeit der Nachrichten auf unterschiedlichen Endgeräten mit sich bringt, ist der Einsatz der E-Mail zur Kommunikation auf der definierten Sicherheitsniveau-Stufe 4 nur in manchen Fällen geeignet.
 		An dieser Stelle muss jeder einzelne Nutzer selbst abwägen, wie wichtig für ihn die übermittelte Information ist und ob er zu deren Schutz die bestehenden Komforteinbußen hinnehmen kann und will.
 		
