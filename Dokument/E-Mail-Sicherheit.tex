@@ -638,20 +638,22 @@
 		
 		\section{Provider Vergleich}\label{sec:provider-vergleich}
 			\subsection{Internationale Provider}
-			Im Rahmen der Nutzwertanalyse wurden unter anderem drei der bekanntesten internationalen E-Mail Provider betrachtet: Yahoomail, Googlemail und Hotmail. Die folgenden Aussagen treffen auf alle Provider gleichermaßen zu, sofern nicht ein E-Mail Anbieter explizit genannt wird.
+			Im Rahmen der Nutzwertanalyse wurden unter anderem drei der bekanntesten internationalen E-Mail-Provider betrachtet: Yahoomail, Googlemail und Hotmail. Die folgenden Aussagen treffen auf alle Provider gleichermaßen zu, sofern nicht ein E-Mail-Anbieter explizit genannt wird.
 			\medskip
 			
 			\subsubsection{Vertraulichkeit und Integrität}
-			Alle betrachteten E-Mail Anbieter erhalten eine gute Punktzahl für die Transportwegverschlüsselung. Googlemail und Yahoo schneiden gegenüber Hotmail etwas besser ab, da sie sowohl \ac{PFS} für moderne Browser als auch die neuesten Versionen der \ac{TLS/SSL} Protokolle unterstützen. Hotmail hingegen bietet \ac{PFS} gar nicht an und unterstützt lediglich \ac{TLS} 1.0 und \ac{SSL} 3.0.
+			Alle betrachteten E-Mail-Anbieter erhalten eine gute Punktzahl für die Transportwegverschlüsselung. Googlemail und Yahoomail schneiden gegenüber Hotmail etwas besser ab, da sie sowohl \ac{PFS} für moderne Browser als auch die neuesten Versionen der \ac{TLS/SSL} Protokolle unterstützen. Hotmail hingegen bietet \ac{PFS} gar nicht an und unterstützt lediglich \ac{TLS} 1.0 und \ac{SSL} 3.0.
 			
 			Für die eingesetzten Zertifikate erhalten alle Provider wiederum volle Punktzahl.\footnote{Vgl. Anhang SSL Reports}
 			\medskip
 			
-			Zwar haben seit den Enthüllungen von Edward Snowden zu den Machenschaften der \ac{NSA} und anderen Geheimdiensten die meisten E-Mail Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footnote{Vgl. Anhang SSL Reports}. Ein voll umfänglichen Schutz durch eine \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite[Vgl.][]{Kirsch} Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail Clients war nicht aufzufinden.
+			Zwar haben seit den Enthüllungen von Edward Snowden zu den Machenschaften der \ac{NSA} und anderen Geheimdiensten die meisten E-Mail-Provider die Initiative ergriffen und  auf sicherere Verfahren umgestellt\footnote{Vgl. Anhang SSL Reports}. Ein voll umfänglichen Schutz durch eine \ac{E2EE} wird bislang jedoch noch nicht geboten. Einzig und alleine Google hat bereits für seinen E-Mail-Dienst ein AddOn in einer Alpha Version entwickelt, mit Hilfe dessen eine PGP Verschlüsselung für den Webmailer ermöglicht werde.\footcite[Vgl.][]{Kirsch} 
+			
+			Eine Beschreibung für die Einrichtung einer \ac{E2EE} unter Verwendung eines Mail-Clients war nicht aufzufinden.
 			
 			
 			\subsubsection{Authentizität}
-			Im Bereich der Authentizität schneiden alle drei betrachteten internationalen E-Mail Provider schlecht ab.
+			Im Bereich der Authentizität schneiden alle drei betrachteten internationalen E-Mail-Provider schlecht ab.
 			Weder Googlemail, noch Hotmail oder Yahoomail unterstützen eine digitale Signatur für ihre Webmailer. Darüber hinaus ist bei keinem der Anbieter eine Beschreibung für die Einrichtung einer digitalen Signatur für externe Mail-Clients zu finden. 
 			\medskip
 			
@@ -668,15 +670,15 @@
 			Circa ein dreiviertel Jahr später wird ein weiterer Vorfall veröffentlicht, in welchem Administratoren sich direktes Zugang zu den Mailinhalten der Nutzer verschafft hätten.\footcite[Vgl.][]{Mailbox2014Microsoft}
 			\medskip
 			
-			Darüber hinaus wurden auf den Seiten der Provider keinerlei Sicherheitsinformationen gefunden. Einzig und allein von Yahoomail wird ein kurzer Abschnitt zum Thema Phishing bereitgestellt.
+			Darüber hinaus wurden auf den Seiten der Provider keinerlei Sicherheitsinformationen gefunden. Einzig und allein von Yahoomail wird ein kurzer Abschnitt zum Thema Phishing angeboten.
 			
 			\begin{wrapfigure}[16]{r}[0cm]{0.5\textwidth} %[h]
 							\includegraphics[width=0.5\textwidth]{images/yahoo_anmeldesiegel.png}
 							\caption{Anmeldesiegel Yahoo}
 							\label{fig:Yahoo_Anmeldesiegel}	
 						\end{wrapfigure}
-			In Bezug auf das Bereitstellen von Sicherheits-Zusatzfunktionen können die internationalen Mail-Anbieter etwas Punkten. Alle bieten eine 2-Faktor Authentifizierung an. Außerdem hat der Nutzer die Möglichkeit sich eine Liste mit jeglichen externen Anwendung und Webseiten anzeigen zu lassen. Mit dieser erhält er einen Überblick darüber, welche App Zugriff auf welche Nutzerdaten hat.
-			Yahoomail kann zusätzlich mit einer Wegwerfadresse, einem Anmeldesiegel (vgl. Abbildung \ref{fig:Yahoo_Anmeldesiegel}) sowie dem selbst entwickelten \ac{DKIM} Verfahren überzeugen. \ac{DKIM} basiert auf asymmetrischer Kommunikation und stellt die Authentizität von E-Mail Absendern sicher.\footcite[Vgl.][]{DKIM}.
+			In Bezug auf das Bereitstellen von Sicherheits-Zusatzfunktionen können die internationalen Mail-Anbieter etwas Punkten. Alle bieten eine 2-Faktor- Authentifizierung an. Außerdem hat der Nutzer die Möglichkeit sich eine Liste mit jeglichen externen Anwendung und Webseiten anzeigen zu lassen. Mit dieser erhält er einen Überblick darüber, welche Anwendung Zugriff auf welche Nutzerdaten hat.
+			Yahoomail kann zusätzlich mit einer Wegwerfadresse, einem Anmeldesiegel (vgl. Abbildung \ref{fig:Yahoo_Anmeldesiegel}) sowie dem selbst entwickelten \ac{DKIM}-Verfahren überzeugen. \ac{DKIM} basiert auf asymmetrischer Kommunikation und stellt die Authentizität von E-Mail-Absendern sicher.\footcite[Vgl.][]{DKIM}.
 			
 			
 			
@@ -690,7 +692,7 @@
 %			\end{wrapfigure} 
 			\medskip
 			
-			Um das Vertrauen der Nutzer in die Provider wieder zu stärken, veröffentlichen Yahoomail und Googlemail  so genannte Transparenzberichte.\footcite[Vgl.][]{Lokshin} In diesen wird dargestellt, welche Behörden welche Art von Auskunft bei den Providern ersucht haben. Microsoft folgt dem Trend und hat bereits angekündigt, die Behördenanfragen für seinen E-Mail Dienst in den Transparenzbericht des Konzerns mit aufzunehmen\footcite[Vgl.][]{Herget}.
+			Um das Vertrauen der Nutzer in die Provider wieder zu stärken, veröffentlichen Yahoomail und Googlemail  so genannte Transparenzberichte.\footcite[Vgl.][]{Lokshin} In diesen wird dargestellt, welche Behörden welche Art von Auskunft bei den Providern ersucht haben. Microsoft folgt dem Trend und hat bereits angekündigt, die Behördenanfragen für seinen E-Mail-Dienst in den Transparenzbericht des Konzerns mit aufzunehmen\footcite[Vgl.][]{Herget}.
 			\medskip			
 		
 		%Links verwendet
