@@ -300,7 +300,7 @@
 				
 				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört\grqq{}.\footcite[Vgl.][S. 506]{Schmeh2013}
 	
-			\subsection{Zertifikate}\label{chp: zertifikate}
+			\subsection{Zertifikate}\label{chap: zertifikate}
 				Bei den bisher genannten Verfahren wurde davon ausgegangen, dass der öffentliche Schlüssel wirklich dem beabsichtigten Kommunikationspartner gehört. Die Authentizität des öffentlichen Schlüssels ist durch Szenarien wie dem \ac{MITM}-Angriff nicht immer garantiert. Um die Authentizität des öffentlichen Schlüssels sicherzustellen, werden Zertifikate verwendet.
 				
 				Ein Zertifikat ist ein elektronisches Dokument, das einer Person zugeordnet werden kann. Dieses Dokument enthält neben den persönlichen und weiteren Informationen des Inhabers dessen öffentlichen Schlüssel. Außerdem enthält ein Zertifikat eine Signatur über all den genannten Angaben. Das Signieren wird dabei von einer vertrauenswürdigen Instanz durchgeführt, die auch \ac{CA} oder Zertifizierungsstelle genannt wird.
@@ -566,7 +566,7 @@
 	\chapter{E-Mail-Sicherheit in der Praxis}\label{chap:e-mail-sicherheit-in-der-praxis}
 		\section{Nutzwertanalyse E-Mail-Provider}
 		\label{sec:nwa}
-			Die nachfolgende Nutzwertanalyse bewertet eine Auswahl von E-Mailprovider anhand ihrer Umsetzung von sicherheitsrelevanter Technologien wie bspw. \ac{TLS}, \ac{PGP} oder Verfahren wie \ac{DNSSEC} bzw. \ac{DANE}.
+			Die nachfolgende Nutzwertanalyse bewertet eine Auswahl von E-Mail-Anbietern anhand ihrer Umsetzung von sicherheitsrelevanter Technologien wie bspw. \ac{TLS}, \ac{PGP} oder Verfahren wie \ac{DNSSEC} bzw. \ac{DANE}.
 			Verglichen werden drei große internationale Anbieter, drei Anbieter des \ac{EmiG}-Verbundes und zwei alternative, kleinere Anbieter mit Fokus auf E-Mail-Sicherheit.\\		
 			Die Auswahl der Oberkriterien lehnt sich an die Datenssicherheit-Schutzziele \textit{Vertraulichkeit und Integrität}, \textit{Authentizität} (\prettyref{sec:datensicherheit-einmaleins}) sowie \textit{sicherheitsrelevante Aspekte}.\\
 			Ausgangspunkt der Bewertung sind hauptsächlich die Analyse-Werkzeuge \textit{SSL Server Test} von Qualys SSL Labs\footnote{\url{https://dev.ssllabs.com/ssltest/}} und der \textit{DNSSEC Debugger} der \ac{CA} Verisign Labs\footnote{\url{http://dnssec-debugger.verisignlabs.com/}}.
