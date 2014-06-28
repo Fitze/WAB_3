@@ -514,8 +514,8 @@
 			%Hier noch ein kurzer Abschnitt zu Metadaten mit Bezug auf die Schwachstellen (sec:metadaten)
 	\section{DNS - Domain Name System}
 	\label{sec:dns}
-		Das \ac{DNS} ist ein wichtiger Dienst im Internet, da er dafür zuständig ist, gut merkbare Domainnamen in \ac{IP}-Adressen, und umgekehrt, aufzulösen.
-		Um diese Auflösung bewerkstelligen zu können ist \ac{DNS} in einer Baumstruktur aufgebaut.
+		Das \ac{DNS} ist ein wichtiger Dienst im Internet, da es dafür zuständig ist, gut merkbare Domainnamen in \ac{IP}-Adressen, und umgekehrt, aufzulösen.
+		Um diese Auflösung bewerkstelligen zu können, ist \ac{DNS} in einer Baumstruktur aufgebaut.
 		
 		\begin{wrapfigure}{l}{0.55\textwidth}
 			\vspace{-12pt}
@@ -529,13 +529,13 @@
 		Wie in Abbildung \ref{img:baumstruktur_dns} veranschaulicht, ist auf der obersten Ebene der Knoten \glqq root\grqq{} zu finden.
 		Dies ist sozusagen die Wurzel des \ac{DNS} und hier finden sich auch die Root-Server des \ac{DNS}.
 		Auf der nächsten Ebene kommen die \ac{TLD}, anschließend folgen die Second-Level-Domains und zum Aufbau einer gängigen \ac{URL} für \ac{HTTP} fehlt noch eine weitere Ebene, die den Hostnamen enthält.
-		Soll ein Domainnamen aufgelöst werden, so fragt der Host zunächst einen Root-Server.
+		Soll ein Domainname aufgelöst werden, so fragt der Host zunächst einen Root-Server.
 		Dieser sendet ihm die Adresse des für die entsprechende \ac{TLD} zuständigen Nameservers mit, an die der Client eine erneute Anfrage stellt.
 		Auch der Nameserver der \ac{TLD} verweist den Client an für die Second-Level-Domain zuständigen Nameserver.
 		Auf diese Weise kann der Client den dargestellten Baum traversieren, bis er die gewünschte Information erhält.
 		Die für diese Auskünfte benötigten Datensätze werden in sogenannten \ac{DNS}-Records abgelegt.
 		Das Problem ist hierbei, dass allein mit den \ac{DNS}-Records nicht die Authentizität des Absenders und damit auch nicht die Integrität der Daten sicher gestellt werden kann.
-		Dies wird jedoch für eine sichere E-Mailkommunikation benötigt, da auch die Domainnamen der Mailserver einer Zone über \ac{DNS}-Records vom Typ \glqq MX\grqq{} aufgelöst werden.
+		Dies wird jedoch für eine sichere E-Mail-Kommunikation benötigt, da auch die Domainnamen der Mailserver einer Zone über \ac{DNS}-Records vom Typ \glqq MX\grqq{} aufgelöst werden.
 		Dies wird beim sogenannten \ac{DNS} Cache Poisoning ausgenutzt und der Cache eines \ac{DNS}-Servers manipuliert.
 		Zumeist werden dabei mittels gefälschter Pakete an einen \ac{DNS}-Server falsche Zuordnungen von Domainnamen auf \ac{IP}-Adressen hinterlegt, um ein Opfer auf den Server des Angreifers umzuleiten.
 		
@@ -545,22 +545,23 @@
 			Sie beruht auf der Einführung weiterer \ac{DNS}-Records.
 			Unter anderem gibt es einen Recordtyp, der einen öffentlichen Schlüssel enthält und einen weiteren, der die Signatur eines Ressource Records enthält.
 			Ein autoritativer Nameserver kann eine Zone an einen anderen Nameserver delegieren und hält dann einen Verweis auf den entsprechenden Nameserver vor.
-			Dadurch gibt es pro Zone des \ac{DNS} maximal einen \ac{ZSK} mit dem die Ressource Records dieser Zone signiert werden, dies ist jedoch nicht zwingend notwendig.
-			Mithilfe dieser Schlüssel und Signaturen kann nun eine Zertifikatskette aufgebaut werden.
+			Dadurch gibt es pro Zone des \ac{DNS} maximal einen \ac{ZSK} mit dem die Ressource Records dieser Zone signiert werden.  Dies ist jedoch nicht zwingend notwendig.
+			Mithilfe dieser Schlüssel und Signaturen kann nun eine Zertifikatskette aufgebaut werden.\\
+			
 %			Ein Schwachpunkt dabei ist, dass mindestens ein öffentlicher Schlüssel, der als \ac{KSK} fungiert und den \ac{ZSK} einer Zone signiert, auf einem sicheren Weg zum Client kommen muss.
 %			Daher wird dieser Schlüssel auch als Secure Entry Point bezeichnet.
 			Ein Kritikpunkt an \ac{DNSSEC} ist die hohe Komplexität des Systems, die durch den Aufbau der Zertifikatsketten und dem aufwändigen Austausch der Schlüssel auf Zonenebene entsteht.
 			Diese ist jedoch der benötigten Kompatibilität mit bestehenden Systemen geschuldet und momentan alternativlos.\footcite[Vgl.][S. 195]{Sorge2013}
-			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI} deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite[Vgl.][]{Koetter2014}. Der \glqq Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden].\grqq\footcite[Vgl.][]{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR} die an der Erstellung des root key und der Signierungsprozesse partizipieren.
+			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI}, deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite[Vgl.][]{Koetter2014}. Der \glqq Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden].\grqq\footcite[Vgl.][]{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR}, die an der Erstellung des root key und der Signierungsprozesse partizipieren.
 	
 		\subsection{DANE - DNS-based Authentication of Named Entities}
 		\label{subsec:dane}                                             
 			Die Basis für die Applikation \ac{DANE} stellt \ac{DNSSEC} und soll dabei die Schwachstellen von \ac{TLS} beim Verschlüsseln des Datentransport entfernen. Denn die Authentizität der verwendeten Zertifikate kann nicht immer gewährleistet werden, und somit besteht die Gefahr der kompromittierten Daten durch \ac{MITM}-Angriffe oder \ac{DNS}-Cache-Poisoning.
 			Die Schwachstellen der Zertifikatsprüfung und -aussteller\footcite[Vgl.][]{Koetter2014}Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
-			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail Protokolle beschränkt sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
-			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen PublicKey des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch ist die Verbindung vertrauensvoll.
-			Ein durchgängig verifizierter Transport ist allerdings nur möglich wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt \glqq müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren\grqq\footcite[Vgl.][S. 197]{Koetter2014}
-			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn \glqq die Verwendung [...] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,\grqq\footcite[Vgl.][S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
+			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail-Protokolle beschränkt, sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
+			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein, damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen PublicKey des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch, so ist die Verbindung vertrauensvoll.
+			Ein durchgängig verifizierter Transport ist allerdings nur möglich, wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt \glqq müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren\grqq\footcite[Vgl.][S. 197]{Koetter2014}
+			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn \glqq die Verwendung [..] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,\grqq\footcite[Vgl.][S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
 	\pagebreak
 	\chapter{E-Mail-Sicherheit in der Praxis}\label{chap:e-mail-sicherheit-in-der-praxis}
 		\section{Nutzwertanalyse E-Mail-Provider}
