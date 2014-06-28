@@ -38,7 +38,7 @@
 		\renewcommand{\chaptermark}[1]{\markboth{#1}{}}	%"Kapitel 2." in Kopfzeile entfernen
 		\rhead{\nouppercase{\leftmark}}	
 		\lhead{E-Mail-Sicherheit}
-		\lfoot{v1.0 \\ \today}
+		\lfoot{\today}
 		\cfoot{\thepage\ / \pageref{LastPage}}
 	% % % % % % % % % % % % % % % % % % % % % % % % % % %
 
@@ -284,7 +284,7 @@
 				Soll eine Nachricht durch ein asymmetrisches Verschlüsselungsverfahren verschlüsselt verschickt werden, wird zunächst der öffentliche Schlüssel des Empfängers benötigt. Zusammen mit der Nachricht wird der Geheimtext erzeugt und an den Empfänger geschickt. Zum Entschlüsseln der Nachricht wird der private Schlüssel des Empfängers verwendet, der zu dem öffentlichen Schlüssel gehört, der bei der Verschlüsselung der Nachricht verwendet wurde.
 				
 				Mit diesem Verfahren wurde das Sicherheitsrisiko der symmetrischen Verschlüsselung gelöst, da der öffentliche Schlüssel zum Verschlüsseln jedem bekannt sein darf. Zur Entschlüsselung wird der dazugehörige private Schlüssel benötigt, der im Besitz des Empfängers ist und niemals veröffentlicht wird.
-				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt (auch bezeichnet als \ac{MITM}-Szenario). Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss \glqq bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden.\grqq\footcite[Vgl.][S. 90]{Ertel2012}
+				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt (auch bezeichnet als \ac{MITM}-Szenario). Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss \glqq bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden.\grqq\footcite[][S. 90]{Ertel2012}
 				
 				Zwei Aspekte sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Der im Jahr 1978 erfundene asymmetrische \ac{RSA}-Algorithmus, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist, hebt sich vor allem durch seine Einfachheit hervor\footcite[Vgl.][S. 79]{Ertel2012} \color{darkred}und der Diffie-Hellman-Schlüsselaustausch\color{black}. Mit diesem Protokoll, das Eigenschaften von asymmetrischer Verschlüsselung aufweist, können geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
 			\subsection{Digitale Signaturen}\label{chap: Signatur}	
@@ -298,9 +298,9 @@
 				Diese Voraussetzungen dienen dazu, die Verbindlichkeit des Absenders sowie die Integrität der Nachricht zu gewährleisten. Beim Signieren verschlüsselt der Absender seine Nachricht mit seinem privaten Schlüssel. Die resultierende Nachricht ist die digitale Signatur. In der Regel wird	beim Signieren aufgrund des Rechenaufwandes für lange Nachrichten nicht die gesamte Nachricht verschlüsselt, sondern ein sogenannter \textit{Hashwert}. Hashwerte, auch Prüfsummen genannt, sind eine Zeichenfolge mit einer bestimmten Länge, die durch eine mathematische Einweg-Hashfunktion generiert werden. Diese Funktionen haben einen Eingabeparameter und berechnen daraus einen Hashwert. Aus der Kenntnis des Hashwertes oder der Hashfunktion lässt sich der Eingabeparameter nicht ableiten, wodurch die Integrität einer signierten Nachricht gewährleistet ist.
 				Die signierte Nachricht wird im nächsten Schritt an den Empfänger geschickt. Dieser kann nun die Verbindlichkeit der Nachricht überprüfen, indem er die Signatur mit dem öffentlichen Schlüssel des Absenders entschlüsselt. Anschließend berechnet der Empfänger den Hashwert der erhaltenen Nachricht und vergleicht diesen mit der zuvor entschlüsselten Signatur des Absenders. Diese Überprüfung wird dabei auch Verifizierung genannt. Stimmen beide Werte überein, kann der Empfänger sicher sein, dass die Nachricht von dem Absender stammt, da nur mit dessen privatem Schlüssel die Nachricht verschlüsselt werden konnte. Zusätzlich ist damit garantiert, dass die Nachricht vollständig und unverändert beim Absender angekommen ist.
 				
-				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört\grqq{}.\footcite[Vgl.][S. 506]{Schmeh2013}
+				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört\grqq{}.\footcite[][S. 506]{Schmeh2013}
 	
-			\subsection{Zertifikate}\label{chap: zertifikate}
+			\subsection{Zertifikate}\label{chap:ertifikate}
 				Bei den bisher genannten Verfahren wurde davon ausgegangen, dass der öffentliche Schlüssel wirklich dem beabsichtigten Kommunikationspartner gehört. Die Authentizität des öffentlichen Schlüssels ist durch Szenarien wie dem \ac{MITM}-Angriff nicht immer garantiert. Um die Authentizität des öffentlichen Schlüssels sicherzustellen, werden Zertifikate verwendet.
 				
 				Ein Zertifikat ist ein elektronisches Dokument, das einer Person zugeordnet werden kann. Dieses Dokument enthält neben den persönlichen und weiteren Informationen des Inhabers dessen öffentlichen Schlüssel. Außerdem enthält ein Zertifikat eine Signatur über all den genannten Angaben. Das Signieren wird dabei von einer vertrauenswürdigen Instanz durchgeführt, die auch \ac{CA} oder Zertifizierungsstelle genannt wird.
@@ -311,7 +311,7 @@
 	
 		\section{Public Key Infrastruktur}
 			%Problem
-			In Kapitel \ref*{chp: zertifikate} wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[Vgl.][]{BSI}
+			In Kapitel \ref*{chap:ertifikate} wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[][]{BSI}
 			%Idee
 			An dieser Stelle setzt die so genannte \ac{PKI} an, die eine Vertrauenskette darstellt und den Austausch von Zertifikaten zweier Kommunikationspartner erleichtern soll.
 			\newpage
@@ -343,16 +343,16 @@
 			Bei diesem Modell wird zwischen zwei Arten des Vertrauens unterschieden. Einerseits existiert das Vertrauen in eine Person bzw. dessen Signatur. Andererseits besteht ein Vertrauen in einen signierten Schlüssel eines Dritten, der von einer vertrauensvollen Person signiert wurde. Beide Arten des Vertrauens können unabhängig voneinander existieren.
 
 		\section{Schlüsselaustausch}
-			Für die sichere Kommunikation ist ein sicherer Schlüsselaustausch die Ausgangsbasis um Angriffe zu verhindern. \glqq Hierbei ist der geschützte Austausch geheimer Schlüssel symmetrischer Kryptosysteme von Interesse.\grqq\footcite[Vgl.][S. 437]{Eckert2013}
+			Für die sichere Kommunikation ist ein sicherer Schlüsselaustausch die Ausgangsbasis um Angriffe zu verhindern. \glqq Hierbei ist der geschützte Austausch geheimer Schlüssel symmetrischer Kryptosysteme von Interesse.\grqq\footcite[][S. 437]{Eckert2013}
 			\subsection{RSA - Rivest, Shamir und Adleman-Kryptosystem} 
 				%Problem
 				Beim klassischen Schlüsselaustausch werden die Sitzungsschlüssel durch den Public-Key innerhalb des Server-Zertifikat übertragen.\footcite[Vgl.][]{Boeck2013} Dies geschieht mittels \ac{RSA}-Verfahren. Verschlüsselte Kommunikation ist jedoch nur sicher, solange die Schlüssel geheim bleiben. Die Gefahr beim klassischen \ac{RSA}-\ac{PKI}-Verfahren ist, dass vergangene Kommunikation nachträglich zu jedem Zeitpunkt entschlüsselt werden kann, sobald Angreifer in Besitz des Private-Key sind.\medskip\\
 				%Idee
 			\subsection{PFS - Perfect Forward Secrecy}
 				Im Gegensatz zum klassischen RSA-Schlüsselaustausch ist es sinnvoller, die Sitzungsschlüssel
-				zum einen nicht mehr zu übertragen und zum anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft \textit{Forward Secrecy}, die im kryptographischen Fachjargon auch \ac{PFS}\footcite[Vgl.][]{Boeck2013} genannt wird. Die \glqq Forderung an die Verfahren und Protokolle zur Schlüsselerneuerung besteht darin dafür zu sorgen, dass die Kenntnis eines Schlüssels, also dessen Aufdeckung, nicht dazu führt, dass damit auch vorherige und nachfolgende Schlüssel direkt aufdeckbar sind.\grqq\footcite[Vgl.][S. 439]{Eckert2013} Wie notwendig \ac{PFS} geworden ist zeigen die jüngsten Ereignisse im Zusammenhang mit dem OpenSSL-Bug "Heartbleed", mit dem es sehr einfach war private Schlüssel von Servern auszulesen.\footcite[Vgl.][]{Zhu2014} \medskip\\
+				zum einen nicht mehr zu übertragen und zum anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft \textit{Forward Secrecy}, die im kryptographischen Fachjargon auch \ac{PFS}\footcite[Vgl.][]{Boeck2013} genannt wird. Die \glqq Forderung an die Verfahren und Protokolle zur Schlüsselerneuerung besteht darin dafür zu sorgen, dass die Kenntnis eines Schlüssels, also dessen Aufdeckung, nicht dazu führt, dass damit auch vorherige und nachfolgende Schlüssel direkt aufdeckbar sind.\grqq\footcite[Vgl.][S. 439]{Eckert2013} Wie notwendig \ac{PFS} geworden ist zeigen die jüngsten Ereignisse im Zusammenhang mit dem OpenSSL-Bug "Heartbleed", mit dem es sehr einfach war private Schlüssel von Servern auszulesen.\footcite[][]{Zhu2014} \medskip\\
 				%Umsetzung
-				Das \ac{DHE}-Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels, bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren - \glqq geschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.\grqq \footcite[Vgl.][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und \ac{IPsec} beherrschen bereits \ac{PFS}.\medskip\\
+				Das \ac{DHE}-Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels, bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren - \glqq geschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.\grqq \footcite[][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und \ac{IPsec} beherrschen bereits \ac{PFS}.\medskip\\
 				%Vorteile
 				Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem \ac{MITM}-Angriff manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie \ac{DANE} (Vgl. Kapitel \ref{subsec:dane}), die in Kombination mit \ac{PFS} aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizität der Kommunikation gewährleistet wird.\medskip\\
 				%Nachteile
@@ -454,7 +454,7 @@
 				%Voraussetzung
 				Damit ein Nutzer \ac{S/MIME} verwenden kann, benötigt er ein X.509 Zertifikat. Dieses wird in seiner einfachsten Form kostenlos von einer \ac{CA} ausgestellt.\footcite[Vgl.][]{Duevel}
 				
-				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail-Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist in der referenzierten Literatur \footcite[Vgl.][S. 65 ff.]{Schwenk} beschrieben.
+				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail-Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[Vgl.][S. 65 ff.]{Schwenk} beschrieben.
 				\medskip
 														
 				%Umsetzung
@@ -463,7 +463,7 @@
 %				- Bedeutet, dass Nachricht symmetrisch verschlüsselt wird und das Shared Secret mit dem im Empfänger-Zertifikat angegebenen öffentlichen Schlüssel verschlüsselt wird
 %				- Anschließend base64 codiert, damit Mailserver den Inhalt nicht unbeabsichtigt ändern kann
 				
-				Um die Lesbarkeit von \ac{S/MIME} signierten E-Mails auch für Nutzer zu gewährleisten, die dieses Verfahren nicht verwenden, stehen zwei verschiedene Datentypen zur Verfügung. Auf eine genauere Beschreibung soll an dieser Stelle verzichtet und stattdessen auf referenzierte Literatur\footcite[Vgl.][S. 65]{Schwenk} verwiesen werden.
+				Um die Lesbarkeit von \ac{S/MIME} signierten E-Mails auch für Nutzer zu gewährleisten, die dieses Verfahren nicht verwenden, stehen zwei verschiedene Datentypen zur Verfügung. Auf eine genauere Beschreibung soll an dieser Stelle verzichtet und stattdessen auf den Schwenk\footcite[Vgl.][S. 65]{Schwenk} verwiesen werden.
 				\medskip
 %Zwei verschiedene Datentypen für Signatur beschreiben?
 
@@ -477,7 +477,7 @@
 %				- Dadurch ist die Nachricht für alle Clients interpretierbar, allerdings kann der erste Teil durch Mailserver versehentlich geändert werden
 %				\footcite[][S. 65]{Schwenk}			
 				%Vorteile
-				Der Vorteil von \ac{S/MIME} liegt darin, \glqq dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [..] das Anfügen eines Attachments\grqq\footcite[Vgl.][S. 61]{Schwenk}. Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
+				Der Vorteil von \ac{S/MIME} liegt darin, "dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [..] das Anfügen eines Attachments"\footcite[Vgl.][S. 61]{Schwenk}. Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
 				Durch die zwei verschiedenen Datentypen, können \ac{S/MIME} signierte Nachrichten auch von E-Mail-Clients interpretiert werden, die dieses Verfahren nicht verwenden. 
 				\medskip
 				
@@ -552,7 +552,7 @@
 %			Daher wird dieser Schlüssel auch als Secure Entry Point bezeichnet.
 			Ein Kritikpunkt an \ac{DNSSEC} ist die hohe Komplexität des Systems, die durch den Aufbau der Zertifikatsketten und dem aufwändigen Austausch der Schlüssel auf Zonenebene entsteht.
 			Diese ist jedoch der benötigten Kompatibilität mit bestehenden Systemen geschuldet und momentan alternativlos.\footcite[Vgl.][S. 195]{Sorge2013}
-			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI}, deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite[Vgl.][]{Koetter2014}. Der \glqq Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden].\grqq\footcite[Vgl.][]{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR}, die an der Erstellung des root key und der Signierungsprozesse partizipieren.
+			\ac{DNSSEC} ist im Prinzip eine eigene \ac{PKI}, deren Hauptschlüssel Root DNSSEC Key die Non-Profit-Organisation \ac{ICANN} verwaltet.\footcite[Vgl.][]{Koetter2014}. Der \glqq Hauptschlüssel und damit die \ac{DNSSEC}-\ac{PKI} [kann] als vertrauenswürdig [angesehen werden].\grqq\footcite[][]{Koetter2014} Entscheidender Grund hierfür sind die 21 \ac{TCR}, die an der Erstellung des root key und der Signierungsprozesse partizipieren.
 	
 		\subsection{DANE - DNS-based Authentication of Named Entities}
 		\label{subsec:dane}                                             
@@ -560,8 +560,8 @@
 			Die Schwachstellen der Zertifikatsprüfung und -aussteller\footcite[Vgl.][]{Koetter2014}Stellen benötigt. Lediglich das DNS der Empfängerdomain benennt das gültige Zertifikat. Die somit  veröffentlichte Prüfsumme aus dem Server-Zertifikat des Ziels kann durch den sendenden Server zutreffend identifiziert werden.\medskip\\
 			Die Aufgabe von \ac{DANE} besteht darin \ac{TLS}-Zertifikate über das \ac{DNS} automatisch zu verteilen und zu prüfen. Dabei ist \ac{DANE} nicht auf E-Mail-Protokolle beschränkt, sondern ist vielmehr für sämtlichen verschlüsselten Datenverkehr einsetzbar.
 			Serverbetreiber tragen den Hash (Fingerabdruck) vom eigenen Public Key in die \ac{DNS}-Zone ein, damit das eigene Zertifikat prüfbar wird. Ein Sender erhält bei einer \ac{DNSSEC} gesicherten \ac{DNS}-Anfrage den passenden \ac{TLSA}-Record. Für die Zertifikatsprüfung wird anschließend aus dem empfangenen PublicKey des \ac{TLS}-Verbindungsaufbau auf dem Sender der Hash berechnet. Ist der Fingerabdruck dem Hash aus der \ac{DNS}-Abfrage identisch, so ist die Verbindung vertrauensvoll.
-			Ein durchgängig verifizierter Transport ist allerdings nur möglich, wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt \glqq müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren\grqq\footcite[Vgl.][S. 197]{Koetter2014}
-			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn \glqq die Verwendung [..] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,\grqq\footcite[Vgl.][S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
+			Ein durchgängig verifizierter Transport ist allerdings nur möglich, wenn alle beteiligten Mail-Server \ac{TLSA}-Records vorhalten. Wenn eine Prüfstelle keinen besitzt \glqq müssen [die Server] auf ungeprüftes \ac{TLS} zurückfallen oder gar unverschlüsselt kommunizieren\grqq\footcite[][S. 197]{Koetter2014}
+			Bisher ist \ac{DNSSEC} noch kein Durchbruch gelungen. Aber die Situation für identifizierte, sichere E-Mail-Kommunikation ist dank \ac{DANE} deutlich besser, denn \glqq die Verwendung [..] ist u.a. schon bei \ac{IPsec}, \ac{SSH}, \ac{PGP} und \ac{S/MIME} angedacht,\grqq\footcite[][S. 196]{Koetter2014} und für \ac{HTTPS} bereits 2012 standardisiert worden. Die \ac{SMTP}-Standardisierung ist in der Finalisierungsphase. Wenn sich \ac{DANE} durchsetzt ist die Kommunikation nicht nur unter E-Mail-Verbünden wie \ac{EmiG} gewährleistet, sondern auch mit der restlichen Welt. Bisher scheitert \ac{DANE} allerdings an der Unterstützung der Browser, von denen kein gängiger \ac{DANE} ohne Add-on umsetzt.
 	\pagebreak
 	\chapter{E-Mail-Sicherheit in der Praxis}\label{chap:e-mail-sicherheit-in-der-praxis}
 		\section{Nutzwertanalyse E-Mail-Provider}
@@ -793,7 +793,7 @@
 			Festplatten werden nicht verschlüsselt um bei Diebstahl oder Beschlagnahmung das Auslesen der Inhalte zu verhindern.
 			E-Mails sind für Administratoren der Provider, als auch eventuell unberechtigte Dritte, die sich Zugang auf den Servern verschafft haben einsehbar.\\
 			Die Mails werden durch Viren-Scanner, Spam-Filter und wahrscheinlich Analyse-Algorithmen untersucht und ausgewertet.\footcite[Vgl.][]{Kurz13}
-			Dazu stimmt der Nutzer den entsprechenden Datenschutz Passagen in den AGBs zu. Diese gewähren den Anbietern das \glqq [\dots] persönliche Daten [\dots] elektronisch verarbeitet werden, [und der Anbieter berechtigt ist] anonymisierte Nutzerinformationen Dritten - darunter Anzeigekunden - [\dots] zur Verfügung zu stellen. Die anonymisierten Daten dürfen [\dots] zur Erstellung von Statistiken und Trenderkennungen sowie zur Qualitätssicherung und Marktforschung verwendet werden.\grqq \footcite[Vgl.][]{Web2012}\\
+			Dazu stimmt der Nutzer den entsprechenden Datenschutz Passagen in den AGBs zu. Diese gewähren den Anbietern das \glqq [\dots] persönliche Daten [\dots] elektronisch verarbeitet werden, [und der Anbieter berechtigt ist] anonymisierte Nutzerinformationen Dritten - darunter Anzeigekunden - [\dots] zur Verfügung zu stellen. Die anonymisierten Daten dürfen [\dots] zur Erstellung von Statistiken und Trenderkennungen sowie zur Qualitätssicherung und Marktforschung verwendet werden.\grqq \footcite[][]{Web2012}\\
 			Sicherheitsbezogene Informationen sind innerhalb des Webmail-Angebote von United Internet gut auffindbar, könnten allerdings weiterführende Informationen und Anleitungen enthalten.
 			T-Online ist beim Angebot von Informationen bzgl. E-Mailsicherheit für eigene Kunden deutlich ausbaufähig.\\
 			Einen kleinen Vorsprung besitzt T-Online gegenüber United Internet beim Versuch einen Transparenzbericht zu veröffentlichen, der Anfragen von Behörden offenlegen soll.
@@ -819,7 +819,7 @@
 			\footcite[Vgl.][]{Zivadino14-4}
 			Ob \ac{EmiG} tatsächlich ein offener Verbund ist, oder sich nur als solcher verkauft bleibt zur Zeit auch unbeantwortet. \medskip\\
 			Inwieweit die Initiative letztendlich die Hauptaufgabe hat Anwendern ein deutliches Plus an Sicherheit zu gewährleisten werden erst die nächsten Monate zeigen können.
-			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[Vgl.][]{Zivadino14-2}
+			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[][]{Zivadino14-2}
 			standardisieren zu lassen ist der richtige Weg zur Beantwortung vieler Fragen.
 			Ob andere E-Mail-Provider diesen Standard nutzen werden, wenn man zusätzliche Kosten und Aufwand betrachtet, bleibt abzuwarten. Auch die Kompatibilität zwischen \ac{DNSSEC} und \ac{IMPT} kann ein Entscheidungskriterium sein.
 			\medskip\\
@@ -852,7 +852,7 @@
 			Hierbei handelt es sich um die beiden in Berlin ansässigen Provider \textit{Posteo} und \textit{mailbox.org}.
 			Diese Anbieter positionieren sich bewusst im Kontrast zu den großen Mailprovidern als Alternativen, die einen hohen Wert auf die Privatsphäre ihrer Kunden legen und daher möglichst wenig Daten ihrer Nutzer protokollieren und die Mails der Nutzer nicht auswerten.\footcite[Vgl.][]{Posteo2013a, Mailbox2014}
 			
-				\subsubsection{Posteo}
+				\subsubsection{posteo}
 				\label{subsubsec:posteo}
 					Posteo ist ein kleiner, deutscher Mailprovider, der 2009 gegründet wurde und von der Posteo e.K. betrieben wird. \footcite[Vgl.][]{Posteo2013b}
 					Laut eigenen Angaben verzeichnet das Unternehmen einen Nutzerzuwachs um mehr als 100\% pro Jahr.\footcite[Vgl.][]{Posteo2013b}
@@ -895,7 +895,7 @@
 						Auch was die Veröffentlichung eines Transparenzberichts angeht ist Posteo vorbildlich und hat als erster deutscher Anbieter diesen veröffentlicht und damit die großen Konkurrenten wie beispielsweise die \ac{DTAG} als Betreiber von T-Online unter Zugzwang gesetzt.
 					
 					
-				\subsubsection{Mailbox.org}
+				\subsubsection{mailbox.org}
 				\label{subsubsec:mailbox}
 					Mailbox.org startete im Februar 2014 als neuer E-Maildienst der Heinlein Support GmbH, die mit JPBerlin bereits seit über 20 Jahren als \ac{ISP} auftritt und E-Mailpostfächer anbietet.
 					Die Abgrenzung zur Konkurrenz erfolgt, wie auch bei Posteo, über die explizite Betonung des Datenschutzes und der Privatsphäre des Kunden.
