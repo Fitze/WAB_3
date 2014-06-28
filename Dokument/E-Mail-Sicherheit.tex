@@ -311,7 +311,7 @@
 	
 		\section{Public Key Infrastruktur}
 			%Problem
-			In Kapitel \ref*{chp: zertifikate} Zertifikate wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[Vgl.][]{BSI}
+			In Kapitel \ref*{chp: zertifikate} wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[Vgl.][]{BSI}
 			%Idee
 			An dieser Stelle setzt die so genannte \ac{PKI} an, die eine Vertrauenskette darstellt und den Austausch von Zertifikaten zweier Kommunikationspartner erleichtern soll.
 			\newpage
@@ -320,12 +320,12 @@
 			Die Wurzelinstanz wird durch die \ac{PCA} verkörpert, die  für alle vertrauenswürdig ist und ein so genanntes Wurzelzertifikat erstellt. \footcite[Vgl. ][]{ITWissen2012} 
 			Alle weiteren Zertifikate dieser Vertrauenskette werden mit dem privaten Schlüssel des Wurzelzertifikats signiert.\medskip\\ %(vgl. Kapitel \ref{chp: Signatur} Digitale Signaturen).\\	
 			%Vorteile
-			Dies bringt eine Reihe von Vorteilen mit sich. Zum einen können der \ac{PCA} verschieden artige \ac{CA} untergeordnet sein. Beispielsweise könnte eine \ac{CA} SSL-Zertifikate für Webserver signieren, eine weitere \ac{CA} \ac{S/MIME}-Zertifikate ausstellen und eine dritte \ac{CA} für die E-Mail Kommunikation zuständig sein.\\
-			Zum anderen können verschiedene Sicherheitspolicies für unterschiedliche \acp{CA} hinterlegt werden. So stellt die eine \ac{CA} Zertifikate unter Voraussetzung einer gültigen E-Mail Adresse aus, wohingegen eine andere \ac{CA} erst nach Vorlage eines Personalausweises ein Zertifikat signiert.\footcite[Vgl.][S. 24]{Schwenk}\\
-			Ein dritter Vorteil liegt darin, dass mit Hilfe der \ac{PKI} organisatorische Strukturen, zum Beispiel die einer Unternehmung, abgebildet werden können. In solchem Falle können verschiedene CA für unterschiedliche Standorte eines Unternehmens einberufen werden, die wiederum die Zertifikate der Mitarbeiter am jeweiligen Standort signieren und deren eigenes Zertifikat durch eine übergeordnete \ac{CA} oder \ac{PCA} signiert wurde.\medskip\\
+			Dies bringt eine Reihe von Vorteilen mit sich. Zum einen können der \ac{PCA} verschieden artige \ac{CA} untergeordnet sein. Beispielsweise könnte eine \ac{CA} SSL-Zertifikate für Webserver signieren, eine weitere \ac{CA} \ac{S/MIME}-Zertifikate ausstellen und eine dritte \ac{CA} für die E-Mail-Kommunikation zuständig sein.\\
+			Zum anderen können verschiedene Sicherheitspolicies für unterschiedliche \acp{CA} hinterlegt werden. So stellt die eine \ac{CA} Zertifikate unter Voraussetzung einer gültigen E-Mail-Adresse aus, wohingegen eine andere \ac{CA} erst nach Vorlage eines Personalausweises ein Zertifikat signiert.\footcite[Vgl.][S. 24]{Schwenk}\\
+			Ein dritter Vorteil liegt darin, dass mit Hilfe der \ac{PKI} organisatorische Strukturen, zum Beispiel die einer Unternehmung, abgebildet werden können. In einem solchen Falle können verschiedene \ac{CA}s für unterschiedliche Standorte eines Unternehmens einberufen werden, die wiederum die Zertifikate der Mitarbeiter am jeweiligen Standort signieren und deren eigenes Zertifikat durch eine übergeordnete \ac{CA} oder \ac{PCA} signiert wurde.\medskip\\
 			Diese Vertrauenskette kann beliebig lang fortgesetzt werden, sodass zwei Kommunikationspartner sich nicht mehr gegenseitig kennen müssen um ihre Zertifikate einander auszutauschen, sondern es ausreichend ist, wenn das Zertifikat des Kommunikationspartners entlang der \ac{PKI} von einer Instanz signiert wurde, die man selbst für vertrauenswürdig befindet.\medskip\\
 			%Nachteile
-			Jedoch liegen genau in dieser Vertrauenswürdigkeit auch die Nachteile der \ac{PKI}. Einerseits muss eine neue \ac{CA} oder \ac{PCA} erst bekannt gemacht werden und auf diesem Weg Vertrauen erlangen,\footcite[Vgl.][S. 24]{Schwenk} andererseits kommt es immer wieder vor, dass \ac{CA} angegriffen werden und somit auch gefälschte Zertifikate illegal signiert werden.
+			Jedoch liegen genau in dieser Vertrauenswürdigkeit auch die Nachteile der \ac{PKI}. Einerseits muss eine neue \ac{CA} oder \ac{PCA} erst bekannt gemacht werden und auf diesem Weg Vertrauen erlangen,\footcite[Vgl.][S. 24]{Schwenk} andererseits kommt es immer wieder vor, dass \ac{CA}s angegriffen werden und somit auch gefälschte Zertifikate illegal signiert werden.
 			\newpage	
 		\section{Web of Trust}
 			Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist, dass die Nutzer dieses Modells gegenseitig ihre öffentlichen Schlüsseln signieren. Im Gegensatz zum hierarchischen Verfahren gibt es keine zentrale Zertifizierungsstelle.
