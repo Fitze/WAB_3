@@ -701,17 +701,16 @@
 						%http://www.heise.de/security/meldung/Schutz-fuer-E-Mails-Kleine-Mail-Dienste-ueberzeugen-2098281.html
 						
 		
-			
 			\subsection{EmiG - E-Mail made in Germany}
-			\ac{EmiG} ist eine Initiative der größten deutschen E-Mail Provider GMX, web.de und T-Online, die zusammen über 53\% (Stand: 2013) der aktiven E-Mail-Konten in Deutschland betreiben.
+			\ac{EmiG} ist eine Initiative der größten deutschen E-Mail-Provider GMX, web.de und T-Online, die zusammen über 53\% (Stand: 2013) der aktiven E-Mail-Konten in Deutschland betreiben.
 			\footcite[Vgl.][]{Brandt13} 
-			Zusammen mit den Teilnehmern der freenet AG, 1\&1 Internet AG und STRATO AG\footnote{Die 1\&1 Internet AG ist wie GMX und web.de Teil des United-Internet-Konzern, sowie die STRATO AG eine Tochter des Betreiber von T-Online, der Deutschen Telekom AG ist.} deckt EmiG ca. zwei Drittel der aktiven E-Mail Konten in Deutschland ab.\\
-			Das Projekt wurde im August 2013 als Reaktion der damaligen \ac{NSA}-Äffäre ins Leben gerufen und hat das Ziel E-Mails zwischen den teilnehmenden Providern auf dem Transportweg mit \ac{TLS/SSL} verschlüsselt versendet werden.
+			Zusammen mit den Teilnehmern der freenet AG, 1\&1 Internet AG und STRATO AG\footnote{Die 1\&1 Internet AG ist wie GMX und web.de Teil des United-Internet-Konzern, sowie die STRATO AG eine Tochter des Betreiber von T-Online, der Deutschen Telekom AG ist.} deckt EmiG ca. zwei Drittel der aktiven E-Mail-Konten in Deutschland ab.\\
+			Das Projekt wurde im August 2013 als Reaktion der damaligen \ac{NSA}-Äffäre ins Leben gerufen und hat das Ziel, dass E-Mails zwischen den teilnehmenden Providern auf dem Transportweg mit \ac{TLS/SSL} verschlüsselt versendet werden.
 			Seit April 2014 ist das Projekt umgesetzt.
 %			\medskip\\
 %			Prinzipiell ist das Verfahren ausgelegt weitere Teilnehmer aufzunehmen.
 %			Dabei beschreiben die Provider ihre Mail-Infrastruktur im JSON-Format mit \glqq Domainnamen, IP-Adressen, SSL-Zertifikate und Rollen der beteiligten Server.\grqq
-%			\footcite[Vgl.][]{Zivadino14a}
+%			\footcite[Vgl.][]{Zivadino14-1}
 %			Die Teilnehmer spiegeln diese Infrastrukturlisten untereinander um Manipulationen derselben zu erschweren.\\
 %			Ein zugehöriger Dienst prüft ob Syntax, IP-Adressen und Hostnamen auf Übereinstimmung um anschließend die SSL-Zertifikate zu verifizieren, die von einer Deutschen CA ausgestellt worden sein müssen.
 %			Die Listen werden anschließend geprüft um im Nachgang an Teilnehmer der Initiative verteilt zu werden. 
@@ -728,13 +727,13 @@
 			Die Anwender besitzen keine \ac{TLS}-Garantie wenn E-Mails von oder zu Providern außerhalb des Verbunds gesendet oder empfangen werden.\\
 
 			Die Ergebnisse des \ac{SSL}-Test (\prettyref{sec:nwa}) sind für die drei Provider ähnlich gut. GMX und WEB unterstützen Forward Secrecy mit den meisten Browsern, T-Online hingegen lässt den Schlüsselaustausch für ältere Browser über RC4 zu.
-			Für die Anwender die innerhalb der EmiG Initiative E-Mails versenden bzw. empfangen ist die Vertraulichkeit des Kommunikationspartner im Webmailer und Outlook ersichtlich.
+			Für die Anwender, die innerhalb der EmiG Initiative E-Mails versenden bzw. empfangen, ist die Vertraulichkeit des Kommunikationspartner im Webmailer und Outlook ersichtlich.
 			Die Anwender sehen in der Adresszeile die E-Mail-Adresse mit einem grünen Haken versehen, sofern sie im \ac{EmiG}-Verbund sind, und bekommen so visualisiert, das die E-Mail transportverschlüsselt versendet wird. Ein zusätzlicher Gewinn an Benutzerfreundlichkeit.
-			\footcite[Vgl.][]{Zivadino14a}\medskip\\
+			\footcite[Vgl.][]{Zivadino14-1}\medskip\\
 		%NWA - Integrität
 		%\subsubsection{Integrität}	
 			Die Integrität der E-Mail-Inhalte sind für \ac{EmiG}-Provider von unterschiedlicher Bedeutung.
-			\acf{E2EE} ist mit keinem Webmail-Angebot der Provider möglich.
+			\ac{E2EE} ist mit keinem Webmail-Angebot der Provider möglich.
 
 			\begin{wrapfigure}{r}{0.6\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
 				\vspace{-12pt}
@@ -748,7 +747,7 @@
 			Im \textit{Hilfe und Support} Bereich von T-Online ist generell keinerlei Hilfe zur Einrichtung von \ac{E2EE} mittels \ac{PGP} oder \ac{S/MIME} zu finden.
 			Auch wenn hierfür eine externe Mail-Applikation verwendet werden müsste, könnte technisch versierten Anwendern eine Hilfestellung bei der Einrichtung von \ac{E2EE} bereit gestellt werden.
 			Lediglich ein Hinweis über Einzelverbindungsnachweise und weshalb diese nur \ac{PGP}-Verschlüsselt versendet werden dürfen ist zu finden. (\prettyref{fig:T-Online_Hilfe_PGP})
-			Eine Information, dass es sich um Ende-zu-Ende-Verschlüsselung handelt ist dem Suchergebnis nicht zu entnehmen.\\
+			Eine Information, dass es sich um Ende-zu-Ende-Verschlüsselung handelt, ist dem Suchergebnis nicht zu entnehmen.\\
 			Die Provider web.de und GMX stellen dem Nutzer eine solche Hilfestellung gut sichtbar in einem eigenen Menüpunkt bereit. (\prettyref{fig:Web-de_Hilfe_PGP})
 			Im Angebot von T-Online wird dem Nutzer, aufgrund fehlender \ac{PGP}-Unterstützung, bei der Signierung von E-Mails in externen Mailanwendungen nicht geholfen. 
 			Web.de und GMX helfen zwar bei der Einrichtung von \ac{PGP}, weisen jedoch nicht darauf hin, dass durch den Einsatz von \ac{PGP} und E-Mail-Signierung auch die Authentizität des Empfänger und Sender ohne Verschlüsselung sichergestellt werden kann. \\
@@ -762,40 +761,40 @@
 				\vspace{-24pt}
 			\end{wrapfigure}
 			Generell haben die Provider der United Internet Gruppe eine informative Sicherheits-Hilferubrik.
-			Anwendern wird bei der Einrichtung von \ac{PGP} in der Mailapplikation Thunderbird aktiv unterstützt.
+			Anwender werden bei der Einrichtung von \ac{PGP} in der Mailapplikation Thunderbird aktiv unterstützt.
 			Für die Applikationen Microsoft Outlook oder Mail.app für Mac besteht jedoch keine Hilfestellung.
 			Auch eine Begründung hierfür ist nicht zu finden.
 		%NWA - Authentizität
 		\subsubsection{Authentizität}
 		\label{subsubsec:emig-auth}	
-			Die Serverseitige Authentizität der wird mittels dem selbst entwickelten, proprietären Verfahren \textit{\ac{IMPT}} sichergestellt. 
-			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client- und Server-Zertifikate gegen die herausgebende \ac{CA}, sowie gegen die Infrastrukturlisten.
-			Sollten dabei Inkonsistenzen auftreten wird der Versand abgelehnt.\\
+			Die Serverseitige Authentizität wird mittels dem selbst entwickelten, proprietären Verfahren \textit{\ac{IMPT}} sichergestellt. 
+			Dabei prüfen die Mail-Server der Teilnehmer beim Mail-Versand und -Empfang die Client- und Server-Zertifikate gegen die herausgebende \ac{CA} sowie gegen die Infrastrukturlisten.
+			Sollten dabei Inkonsistenzen auftreten, wird der Versand abgelehnt.\\
 			Dieses Vorgehen erinnert an ein geschlossene Variante von \ac{DANE} (\prettyref{subsec:dane}), welches ähnlich zur Sicherstellung der Authentizität verfährt.
 			Alle Partner der Initiative setzen \ac{PFS} ein
-			\footcite[Vgl.][]{Zivadino14a}
-			und damit eine Eigenschaft um einem höheren Schutzbedarf in zu entsprechen.
-			\footcite[Vgl.][]{Zivadino14b} 
+			\footcite[Vgl.][]{Zivadino14-1}
+			und damit eine Eigenschaft um einem höheren Schutzbedarf zu entsprechen.
+			\footcite[Vgl.][]{Zivadino14-2} 
 			\medskip\\
 			Der Verzicht auf den offenen Standard \ac{DANE} als Standard-Instrument zur Sicherstellung der Authentizität hat gewiss Nachteile für die Nutzer. 
 			Mit \acl{IMPT} existiert jedoch für den E-Mail-Versand unter den \ac{EmiG}-Partnern ein ähnlicher Schutz, der allerdings auch nicht immer die Authentizität der verwendeten \ac{SSL}-Zertifikate gewährleisten kann.
-			\footcite[Vgl.][]{Zivadino14a}
-			Die Vorgehensweise zur Entwicklung einer proprietären Lösung ist daher durchaus kritisch zu Hinterfragen. 
+			\footcite[Vgl.][]{Zivadino14-1}
+			Die Vorgehensweise zur Entwicklung einer proprietären Lösung ist daher durchaus kritisch zu hinterfragen. 
 			United Internet möchte ggf. den Einsatz von \ac{DNSSEC} und \ac{DANE} in einem Review-Prozess einer Neubewertung unterziehen.
-			\footcite[Vgl.][]{Zivadino14b}
+			\footcite[Vgl.][]{Zivadino14-2}
 		%NWA - Zusätzliche Sicherheitsrelevante Aspekte
 		\subsubsection{Sicherheitsrelevante Aspekte}
 			Für die Mails auf den \ac{EmiG}-Servern der \ac{EmiG}-Provider besteht keine separate verschlüsselte Speicherung der E-Mails, insofern dies durch den Nutzer nicht selbst geschehen ist. (\prettyref{subsec:pgp})
 			Festplatten werden nicht verschlüsselt um bei Diebstahl oder Beschlagnahmung das Auslesen der Inhalte zu verhindern.
-			E-Mails sind für Administratoren der Provider, als auch eventuell unberechtigte Dritte, die sich Zugang auf den Servern verschafft haben einsehbar.\\
+			E-Mails sind für Administratoren der Provider, als auch eventuell unberechtigte Dritte, die sich Zugang auf den Servern verschafft haben, einsehbar.\\
 			Die Mails werden durch Viren-Scanner, Spam-Filter und wahrscheinlich Analyse-Algorithmen untersucht und ausgewertet.\footcite[Vgl.][]{Kurz13}
 			Dazu stimmt der Nutzer den entsprechenden Datenschutz Passagen in den AGBs zu. Diese gewähren den Anbietern das \glqq [\dots] persönliche Daten [\dots] elektronisch verarbeitet werden, [und der Anbieter berechtigt ist] anonymisierte Nutzerinformationen Dritten - darunter Anzeigekunden - [\dots] zur Verfügung zu stellen. Die anonymisierten Daten dürfen [\dots] zur Erstellung von Statistiken und Trenderkennungen sowie zur Qualitätssicherung und Marktforschung verwendet werden.\grqq \footcite[][]{Web2012}\\
 			Sicherheitsbezogene Informationen sind innerhalb des Webmail-Angebote von United Internet gut auffindbar, könnten allerdings weiterführende Informationen und Anleitungen enthalten.
-			T-Online ist beim Angebot von Informationen bzgl. E-Mailsicherheit für eigene Kunden deutlich ausbaufähig.\\
+			T-Online ist beim Angebot von Informationen bzgl. E-Mail-Sicherheit für eigene Kunden deutlich ausbaufähig.\\
 			Einen kleinen Vorsprung besitzt T-Online gegenüber United Internet beim Versuch einen Transparenzbericht zu veröffentlichen, der Anfragen von Behörden offenlegen soll.
-			Allerdings ist der Transparenzbericht ein halbherziger Versuch offener, transparenter Kommunikation, denn  die exakte Anzahl der Verkehrsdatensätze bleibt weiterhin unklar.
+			Allerdings ist der Transparenzbericht ein halbherziger Versuch offener, transparenter Kommunikation, denn die exakte Anzahl der Verkehrsdatensätze bleibt weiterhin unklar.
 			\footcite[Vgl.][]{Beuth14}
-			United Internet erarbeitet derzeit noch an einem Modell, um Transparenz zu schaffen.
+			United Internet erarbeitet derzeit noch an einem Modell um Transparenz zu schaffen.
 			\footcite[Vgl.][]{Boehm14}
 		%Zusammenfassung
 		\subsubsection{Zusammenfassung}
@@ -805,23 +804,23 @@
 			Dafür fehlen weiterhin Provider-übergreifende Bemühungen interessierten Anwendern die \ac{E2EE} näher zu bringen.
 			Es könnte durchaus mehr Energie in die Umsetzung von \ac{E2EE} im Webmailer aufgewendet werden, wie es im Vergleich zu anderen Anbietern geschieht (Vgl. \prettyref{subsubsec:googlemail} und \prettyref{subsubsec:mailbox}) \medskip\\
 			Vor allem der Entschluss zur Insellösung \ac{IMPT} und Vernachlässigung von Standards wie \ac{DNSSEC} werfen Fragen auf. 
-			Ob \ac{DANE} tatsächlich eine Chance auf eine spätere Implementierung bekommt bleibt abzuwarten, denn bisher ist mit \ac{IMPT} die Kommunikation mit internationalen Anbieter und garantierter Transportverschlüsselung rhetorisch ausgeschlossen.
-			\footcite[Vgl.][]{Zivadino14a}
-			Fakt ist bisher das die Aufnahme und Erstzertifizierung neuer Mail-Provider, die am Beitritt der Initiative interessiert sind, Kosten in Höhe von 9.500 bis 30.000 Euro
-			\footcite[Vgl.][]{Zivadino14c} 
+			Ob \ac{DANE} tatsächlich eine Chance auf eine spätere Implementierung bekommt, bleibt abzuwarten, denn bisher ist mit \ac{IMPT} die Kommunikation mit internationalen Anbieter und garantierter Transportverschlüsselung rhetorisch ausgeschlossen.
+			\footcite[Vgl.][]{Zivadino14-1}
+			Fakt ist bisher, dass die Aufnahme und Erstzertifizierung neuer Mail-Provider, die am Beitritt der Initiative interessiert sind, Kosten in Höhe von 9.500 bis 30.000 Euro
+			\footcite[Vgl.][]{Zivadino14-3} 
 			verursacht und mit zusätzlichen manuellen Aufwand bei der Konfiguration der \ac{SMTP}-Mailserver verbunden sind.
 			Daher wächst die Initiative nur langsam.\\
-			Auch Vorwürfe, dass \ac{EmiG} scheinbar keine kleineren E-Mail-Provider zulassen möchte wurden veröffentlicht.
-			\footcite[Vgl.][]{Zivadino14d}
-			Ob \ac{EmiG} tatsächlich ein offener Verbund ist, oder sich nur als solcher verkauft bleibt zur Zeit auch unbeantwortet. \medskip\\
-			Inwieweit die Initiative letztendlich die Hauptaufgabe hat Anwendern ein deutliches Plus an Sicherheit zu gewährleisten werden erst die nächsten Monate zeigen können.
-			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[][]{Zivadino14b}
-			standardisieren zu lassen ist der richtige Weg zur Beantwortung vieler Fragen.
+			Auch Vorwürfe, dass \ac{EmiG} scheinbar keine kleineren E-Mail-Provider zulassen möchte, wurden veröffentlicht.
+			\footcite[Vgl.][]{Zivadino14-4}
+			Ob \ac{EmiG} tatsächlich ein offener Verbund ist oder sich nur als solcher verkauft, bleibt zur Zeit auch unbeantwortet. \medskip\\
+			Inwieweit die Initiative letztendlich die Hauptaufgabe hat Anwendern ein deutliches Plus an Sicherheit zu gewährleisten, werden erst die nächsten Monate zeigen können.
+			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[][]{Zivadino14-2}
+			standardisieren zu lassen, ist der richtige Weg zur Beantwortung vieler Fragen.
 			Ob andere E-Mail-Provider diesen Standard nutzen werden, wenn man zusätzliche Kosten und Aufwand betrachtet, bleibt abzuwarten. Auch die Kompatibilität zwischen \ac{DNSSEC} und \ac{IMPT} kann ein Entscheidungskriterium sein.
 			\medskip\\
 			Bisher betreibt \ac{EmiG} einen hohen Marketingaufwand mit breitangelegter TV Kampagne und dazugehörigen, typisch unklaren Äußerungen, hinter denen vermutlich auch strategisch, politische Interessen der Anbieter liegen.\\
 			Die Haltung, Anwender auf der Internetseite\footnote{\url{http://www.e-mail-made-in-germany.de/Verschluesselung.html}} 
-			nicht über alle Sicherheitsaspekte zu informieren und im Werbespot\footnote{\url{http://www.e-mail-made-in-germany.de/Wechseln.html}} den Großteil technisch nicht versierter Anwender in falscher Sicherheit wiegt hinterlässt ebenfalls Fragen.
+			nicht über alle Sicherheitsaspekte zu informieren und im Werbespot\footnote{\url{http://www.e-mail-made-in-germany.de/Wechseln.html}} den Großteil technisch nicht versierter Anwender in falscher Sicherheit wiegt, hinterlässt ebenfalls Fragen.
 			Für eine sichere und Provider-unabhängige E-Mail-Kommunikation sollte es im Informationszeitalter nicht 15 Jahre für den Einsatz von Sicherheitsstandards benötigen.
 			Ob \ac{EmiG} sich nur als offener Verbund verkauft oder tatsächlich ist, wird gleichermaßen in den nächsten Monaten zuverlässiger beantwortet werden können.
 			
@@ -841,7 +840,8 @@
 %				\vspace{-12pt}
 %			\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 9]{Rundfeldt14}}
 %			Ferner wird der Aufwand der Einstellung als sehr gering Eingeschätzt. (\prettyref{fig:emig_tls})\\
-%			Zertifikate müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.\medskip\\	
+%			Zertifikate müssen für Teilnehmer der Provider von deutschen \acp{CA} ausgestellt sein.\medskip\\
+				
 
 			\subsection{Alternative Provider}
 			Als alternative Provider werden zwei kleine Anbieter, die bereits aktiv am Markt sind, untersucht.
