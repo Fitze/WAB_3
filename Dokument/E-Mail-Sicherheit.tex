@@ -73,7 +73,7 @@
 
 	%Dies ist die Vorlage für die einzelnen Kapitel, die jeweils mit Chapter als Kapiteltitel starten
 	\chapter{Datensicherheit Einmaleins}\label{sec:datensicherheit-einmaleins}
-	Unter Datensicherheit wird der Schutz von Daten in den Aspekten Verfügbarkeit, Vertraulichkeit und Integrität verstanden.\footcite[Vgl.][]{BSI2014} Im Gegensatz dazu beschreibt Datenschutz den Schutz von und den vertrauensvollen Umgang mit persönlichen Daten. In der IT-Sicherheit wird zusätzlich des Aspekt der Authentizität berücksichtigt.\footcite[Vgl.][]{Berliner2014} In diesem Abschnitt werden diese Aspekte näher betrachtet, da sie für das Verständnis der vorgestellten Techniken in den späteren Kapitel notwendig sind.
+	Unter Datensicherheit wird der Schutz von Daten in den Schutzzielen Verfügbarkeit, Vertraulichkeit und Integrität verstanden.\footcite[Vgl.][]{BSI2014} Im Gegensatz dazu beschreibt Datenschutz den Schutz von und den vertrauensvollen Umgang mit persönlichen Daten. In der IT-Sicherheit wird zusätzlich des Aspekt der Authentizität berücksichtigt.\footcite[Vgl.][]{Berliner2014} In diesem Abschnitt werden diese Aspekte näher betrachtet, da sie für das Verständnis der vorgestellten Techniken in den späteren Kapitel notwendig sind.
 	
 %	
 %	\chapter{Datensicherheit Einmaleins}
@@ -358,22 +358,20 @@
 				Nachteile gibt es lediglich bei der Verwendung des bereits überholten, und seit Jahren als geknackt bekannten \ac{DHE}-Verfahren, denn dabei verzögert sich zusätzlich der Verbindungsaufbau. Die Schlüssellänge ist Minimum 1024 Bit, und längere Schlüssel mit 2048 oder 4096 Bit sind dabei nicht sicherer.\footcite[Vgl.][]{Boeck2013} Der moderne Nachfolger mit elliptischen Kurven, \ac{ECDH} gilt aktuell als sicher und benötigt dabei weniger als 1024 Bit und verzögert den Verbindungsaufbau damit nur unweigerlich.\medskip\\
 				%Grenzen
 				Obwohl es Forward Secrecy bereits seit 1999 im \ac{TLS} Standard 1.0\footnote{Vgl. ebd.} vorgesehen ist, und somit essentieller Bestandteil von Verschlüsselung ist, hat sich \ac{PFS} noch nicht als Standard durchgesetzt.\footcite[Vgl.][]{SSLLabs} Dies liegt zum einen an den Webservern. Mit einem Apache Webserver ist nur eine Länge des Modulo (Modulus) von 1024 Bit vorgesehen.\newpage
-				Unter Einsatz von \ac{DHE} würden Provider folglich ihre Server unsicher betreiben. Zum Anderen sind es auf Client-Seite die Browser die \ac{DHE} bzw. \ac{ECDH} lange Zeit ignoriert haben. Der Internet Explorer verschlüsselte nur nach \ac{DSS}, wobei der de-facto Standard für Verschlüsselung bereits \ac{RSA} war. Opera unterstützte lediglich das überholte \ac{DHE}-Verfahren und Safari priorisiert Forward Secrecy niedrig und bevorzugt bei gegebener Option sogar die unverschlüsselte Kommunikation. Lediglich Firefox und Chrome unterstützen \ac{PFS} in vollem Umfang.\medskip\\
+				Unter Einsatz von \ac{DHE} würden Provider folglich ihre Server unsicher betreiben. Zum Anderen sind es auf Client-Seite die Browser die \ac{DHE} bzw. \ac{ECDH} lange Zeit ignoriert haben. Der Internet Explorer verschlüsselte nur nach \ac{DSS}, wobei der De-facto-Standard für Verschlüsselung bereits \ac{RSA} war. Opera unterstützte lediglich das überholte \ac{DHE}-Verfahren und Safari priorisiert Forward Secrecy niedrig und bevorzugt bei gegebener Option sogar die unverschlüsselte Kommunikation. Lediglich Firefox und Chrome unterstützen \ac{PFS} in vollem Umfang.\medskip\\
 				%Browser prüfen und mit eigenen Quellen versehen
 				Für die E-Mail Kommunikation ist \ac{PFS} essenziell für die Befriedigung hoher Sicherheitsbedürfnisse. Um die dazugehörigen Sicherheitsniveaus ab Stufe 2 abzudecken, müssen E-Mail-Server Forward Secrecy unterstützen. Im August 2013 war \ac{PFS} in der E-Mail-Kommunikationslandschaft nur sporadisch verbreitet.\footcite[Vgl.][]{Schulz2014} Mittlerweile wird von vielen E-Mail-Anbietern auch \ac{PFS} angewandt. Die Umsetzung erfolgt jedoch noch zu zögerlich, wenn man die Tatsache betrachtet, dass \ac{PFS} im Zusammenhang mit Heartbleed der letzte Funken Hoffnung für betroffene Nutzer war, dass zumindest vergangene Kommunikation nicht entschlüsselt werden kann.\footcite[Vgl.][]{Zhu2014}
 		
 		\section{Informationsverschlüsselung}
-			Für hohe Sicherheitsanforderungen entscheidend ist die Vertraulichkeit und Integrität der Datenkommunikation zwischen zwei Endpunkten. In der E-Mail-Kommunikation wird dies mit sog. Ende-zu-Ende-Verschlüsselung (englisch \ac{E2EE}) und den Diensten \ac{S/MIME} und \ac{PGP} realisiert, die im Nachgang beleuchtet werden.
-			Es gibt mittlerweile verschiedene Möglichkeiten \ac{E2EE} umzusetzen. Im Grunde müssen durch die Nutzer jedoch Einstellungen in den E-Mailprogrammen wie Thunderbird, Outlook oder Mail.app vorgenommen werden oder zusätzliche Software installiert werden. Demzufolge besteht ein erhöhter Einrichtungsaufwand für die Endnutzer zur Sicherstellung der Vertraulichkeit und um in Sicherheitsniveaus der Stufe 3 oder 4 (Vgl. \prettyref{tab:sicherheitsniveaus}) zu kommunizieren. Allerdings ist \ac{E2EE} \textit{essenziell} zur Erreichung dieser Stufen\medskip
-			Erste E-Mail-Provider gehen zum Teil eigene Wege wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013}. Aber auch kleinere Anbieter sind an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
+			Für hohe Sicherheitsanforderungen entscheidend ist die Vertraulichkeit und Integrität der Datenkommunikation zwischen zwei Endpunkten. In der E-Mail-Kommunikation wird dies mit sog. \textit{Ende-zu-Ende-Verschlüsselung} (englisch \ac{E2EE}) und den Diensten \ac{S/MIME} und \ac{PGP} realisiert, die im Nachgang beleuchtet werden.
+			Es gibt mittlerweile verschiedene Möglichkeiten \ac{E2EE} umzusetzen. Im Grunde müssen durch die Nutzer jedoch Einstellungen in den E-Mailprogrammen wie Thunderbird, Outlook oder Mail.app vorgenommen werden oder zusätzliche Software installiert werden. Demzufolge besteht ein erhöhter Einrichtungsaufwand für die Endnutzer zur Sicherstellung der Vertraulichkeit und um in Sicherheitsniveaus der Stufe 3 oder 4 (Vgl. \prettyref{tab:sicherheitsniveaus}) zu kommunizieren. Allerdings ist \ac{E2EE} \textit{essenziell} zur Erreichung dieser Stufen.\medskip\\
+			Erste E-Mail-Anbieter gehen zum Teil eigene Wege wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013}. Aber auch kleinere Anbieter arbeiten an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
 			
 			\subsection{PGP - Pretty Good Privacy}
 			\label{subsec:pgp}
 				%Problem + Idee
-				Im Jahre 1991 wurde dem US Senat ein Gesetz vorgelegt, welches vorsieht, dass jede Verschlüsselungssoftware staatliche Zugriffe ermöglichen müsse. Daraufhin entwickelte Phil Zimmermann noch im selben Jahr die erste Version von \ac{PGP}, die diese Hintertür nicht bot.\footcite[vgl.][S. 29]{Schwenk}
-			
-				Die Softwarefamilie \acl{PGP} stellt ``...Dienste zur digitalen Signatur und zur Verschlüsselung von Nachrichten...''\footcite{Mueller2011} zur Verfügung und ist damit für die Vertraulichkeit der Informationen verantwortlich.
-				
+				Im Jahre 1991 wurde dem US Senat ein Gesetz vorgelegt, welches vorsieht, dass jede Verschlüsselungssoftware staatliche Zugriffe ermöglichen müsse. Daraufhin entwickelte Phil Zimmermann noch im selben Jahr die erste Version von \ac{PGP}, die diese Hintertür nicht bot.\footcite[vgl.][S. 29]{Schwenk}\newpage
+				Die Softwarefamilie \acl{PGP} stellt \glqq[...]Dienste zur digitalen Signatur und zur Verschlüsselung von Nachrichten[...]\grqq\footcite{Mueller2011} zur Verfügung und ist damit für die Vertraulichkeit der Informationen verantwortlich.				
 				Allerdings wurden diese Bemühungen erst nach sieben Jahren Entwicklung, diversen Anklagen gegen Zimmermann und die anderen Beteiligten sowie das Herausbringen zahlreicher nationaler (US-Amerikanischer) und internationaler Versionen als internationaler Standard \textit{OpenPGP} angesehen.\footcite[][S. 29-35]{Schwenk}
 				\medskip
 				
@@ -420,7 +418,7 @@
 				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite[Vgl.][]{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modell. \medskip\\
 				
 				%Bezug zu Sicherheitsniveaus
-				Nichtsdestotrotz ermöglicht \ac{PGP} durch die  Ende-zu-Ende-Verschlüsselung, dass die Inhalte der E-Mail nur für den Sender und den rechtmäßigen Empfänger einsehbar sind. Daher ist es geeignet streng vertrauliche Informationen zu versenden.
+				\ac{PGP} ermöglicht zusammengefasst durch Ende-zu-Ende-Verschlüsselung, dass die Inhalte der E-Mail nur für den Sender und dem rechtmäßigen Empfänger einsehbar sind. Daher ist es geeignet streng vertrauliche Informationen zu versenden.
 				\medskip
 
 				%Mail Bezug	
@@ -445,13 +443,11 @@
 			
 				%Problem
 				Die bislang betrachteten Verfahren bieten keine Möglichkeit einer \ac{E2EE}. \ac{PGP} hat als erstes Protokoll diese Lücke gefüllt. Mit \ac{S/MIME} kam 4 Jahre später ein zweiter Standard hinzu.\footcite[Vgl.][]{Duevel}
-				\medskip\\
-							
+				\medskip\\	
 				%Idee
 				\ac{S/MIME} ist eine Erweiterung des MIME Datentyps, der für die Signierung und/oder Verschlüsselung von Nachrichten entwickelt worden ist.
 				Bislang konnten E-Mails nur im ASCII-Zeichensatz versendet werden. Mit dem Anbruch des digitalen Zeitaltern stieg jedoch die Forderung auch andere Datentypen austauschen zu können. \ac{S/MIME} setzt dieses Bedürfnis um.\footcite[Vgl.][S. 57-60]{Schwenk}
-				\medskip
-				
+				\medskip\\
 				%Voraussetzung
 				Damit ein Nutzer \ac{S/MIME} verwenden kann, benötigt er ein X.509 Zertifikat. Dieses wird in seiner einfachsten Form kostenlos von einer \ac{CA} ausgestellt.\footcite[Vgl.][]{Duevel}
 				
@@ -466,7 +462,6 @@
 				
 				Um die Lesbarkeit von \ac{S/MIME} signierten E-Mails auch für Nutzer zu gewährleisten, die dieses Verfahren nicht verwenden, stehen zwei verschiedene Datentypen zur Verfügung. Auf eine genauere Beschreibung soll an dieser Stelle verzichtet und stattdessen auf den Schwenk\footcite[Vgl.][S. 65]{Schwenk} verwiesen werden.
 				\medskip
-				
 %Zwei verschiedene Datentypen für Signatur beschreiben?
 
 %				- es stehen zwei Datentypen zur Verfügung: application/pkcs-mime signedData und multipart/signed
@@ -477,10 +472,7 @@
 %				- erster Teil sind signierte Daten in Form eines MIME-Objektes und daher von jedem Client interpretierbar
 %				- zweiter Teil enthält die eigentliche Signatur in PKCS\#7 Format
 %				- Dadurch ist die Nachricht für alle Clients interpretierbar, allerdings kann der erste Teil durch Mailserver versehentlich geändert werden
-%				\footcite[][S. 65]{Schwenk}
-
-				
-										
+%				\footcite[][S. 65]{Schwenk}			
 				%Vorteile
 				Der Vorteil von \ac{S/MIME} liegt darin, "dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [..] das Anfügen eines Attachments"\footcite[Vgl.][S. 61]{Schwenk}. Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
 				Durch die zwei verschiedenen Datentypen, können \ac{S/MIME} signierte Nachrichten auch von E-Mail Clients interpretiert werden, die dieses Verfahren nicht verwenden. 
@@ -492,7 +484,7 @@
 				
 		\section{Transportwegverschlüsselung}
 			Das \ac{SSL}-Protokoll wurde zunächst durch die Firma Netscape entwickelt, um die Kommunikation über \ac{HTTP}-Verbindungen abzusichern.\footcite[Vgl.][S. 796]{Eckert2013} \ac{SSL} kann auf der Sitzungs- und Präsentationsschicht des \ac{OSI}-Referenzmodells angesiedelt werden und setzt meist auf dem \ac{TCP} auf. Es hat die Aufgabe den darüber liegenden Schichten die Möglichkeit für eine authentifizierte, integritätsgeschützte und verschlüsselte Kommunikation zu geben.\footcite[Vgl.][S. 799 ff.]{Eckert2013}
-			Die Version \ac{SSL} 3.0 hat sich mittlerweile als de facto Standard im Internet durchgesetzt und wird von allen gängigen Browsern unterstützt.\\
+			Die Version \ac{SSL} 3.0 hat sich mittlerweile als De-facto-Standard im Internet durchgesetzt und wird von allen gängigen Browsern unterstützt.\\
 		
 			\begin{wrapfigure}{r}{0.4\textwidth} %wrapfigure ist eine Umgebung, in dem eine Abbildung von TExt umgeben werden kann; {r} steht für rechts, {l} geht auch; zweites Argument ist die Breite des "Einfügekastens"
 				\centering
@@ -501,30 +493,19 @@
 				\label{img:MSC_Transport} %für Bezüge auf diese Abbildung
 			\end{wrapfigure}\footnotetext{\cite[In Anlehnung an][S. 170]{Sorge2013}} 
 			Das \ac{TLS}-Protokoll kann als Weiterentwicklung von \ac{SSL} 3.0 angesehen werden und liegt aktuell in der Version 1.2 vor.
-			Da beide Protokolle in ihren Kernkonzepten übereinstimmen werden sie häufig synonym verwandt. Da \ac{TLS} jedoch eine Weiterentwicklung von \ac{SSL} ist, werden dort einige Erweiterungen eingeführt sowie unsichere Verfahren zur Berechnung von \ac{MAC}-Werten durch neuere Varianten ersetzt.\\
-		
-			%\begin{figure}
-			%	\begin{minipage}{0.5\textwidth}
-			%		\centering
-			%		\includegraphics[width=0.45\textwidth]{images/MSC_Transport.png}
-			%		\caption[Handshake-Protokoll mit RSA]{Handshake-Protokoll mit \ac{RSA}\footcite[In Anlehnung an:][S. 170]{Sorge2013}}
-			%	\end{minipage}
-			%\end{figure}
-			
+			Da beide Protokolle in ihren Kernkonzepten übereinstimmen werden sie häufig synonym verwandt. Da \ac{TLS} jedoch eine Weiterentwicklung von \ac{SSL} ist, werden dort einige Erweiterungen eingeführt sowie unsichere Verfahren zur Berechnung von \ac{MAC}-Werten durch neuere Varianten ersetzt.\medskip\\
 			Beide Protokolle bestehen aus mehreren Schichten bzw. Unterprotokollen wobei das Record- und das Handshakeprotokoll von besonderer Bedeutung sind. 
 			Das Record-Protokoll ist für die Fragmentierung, Authentifizierung mittels \ac{MAC} und Verschlüsselung der zu übertragenden Daten zuständig. 
 			Mittels des Handshakeprotokolls werden Sitzungen zwischen den Kommunikationspartnern hergestellt. 
 			Dies bedeutet, dass die Kommunikationspartner durch den Austausch von Zertifikaten authentifiziert werden können und alle Informationen, die zur Berechnung des Shared Secret für die symmetrische Verschlüsselung der Daten benötigt werden, ausgetauscht werden. 
-			Abbildung \ref{img:MSC_Transport} verdeutlicht den schematischen Ablauf eines solchen Sitzungsaufbaus unter Verwendung von \ac{RSA} für den Schlüsselaustausch.\\
-			
+			Abbildung \ref{img:MSC_Transport} verdeutlicht den schematischen Ablauf eines solchen Sitzungsaufbaus unter Verwendung von \ac{RSA} für den Schlüsselaustausch.\medskip\\
 			Durch die flexible Gestaltung des Handshake-Protokolls wird gleichzeitig auch die Komplexität von \ac{TLS/SSL} stark erhöht. 
 			Dies hat zur Folge, dass durch die hohe Komplexität nicht mit Sicherheit alle Schwachstellen beim Design des Protokolls entfernt werden konnten. 
-			Außerdem ist zu bedenken, dass \ac{TLS/SSL} aufgrund seiner weiten Verbreitung ein lohnendes Ziel für Angriffe ist. Die Sicherheit des Protokolls hängt dabei stark von den genutzten kryptologischen Methoden ab. 
+			Außerdem ist zu bedenken, dass \ac{TLS/SSL} aufgrund seiner weiten Verbreitung ein lohnendes Ziel für Angriffe ist. Die Sicherheit des Protokolls hängt dabei stark von den genutzten kryptologischen Methoden ab. \newpage
 			Außerdem ist zu beachten, dass es sich, aufgrund der Ansiedlung des Protokolls unterhalb der Anwendungsschicht, nur um eine Verschlüsselung der transportierten Nutzdaten auf dem Transportweg handelt. 
 			Die Daten werden am Kommunikationsendpunkt entschlüsselt und anschließend an die entsprechende Anwendung weitergereicht.
 			Dies bedeutet für die Anwendung im Bereich des E-Mailversands, dass die Nachrichten weiterhin im Klartext auf den Servern der Mailprovider vorliegen und von jedem, der berechtigten oder unberechtigten Zugang zu diesen erhält, ausgelesen werden können.
-			Im Sinne der definierten Sicherheitsniveaus ist die \ac{SSL}-Verschlüsselung daher auf der zweitniedrigsten Stufe anzusiedeln, da das Mitlesen der versandten Mails zwar erschwert, aber nicht unmöglich gemacht wird.\\
-			
+			Im Sinne der definierten Sicherheitsniveaus ist die \ac{SSL}-Verschlüsselung daher auf der zweitniedrigsten Stufe anzusiedeln, da das Mitlesen der versandten Mails zwar erschwert, aber nicht unmöglich gemacht wird.\medskip\\
 			%\acp erzeugt den Plural des Akronyms bzw. hängt ein "s" an
 			Auch die Authentifizierung der Kommunikationspartner mittels Zertifikaten weißt dieselben Schwachstellen durch die Vertrauensbeziehung zu bekannten \acp{CA}, die unzureichend gesichert sind, auf.  
 			%Hier noch ein kurzer Abschnitt zu Metadaten mit Bezug auf die Schwachstellen (sec:metadaten)
@@ -583,13 +564,13 @@
 		\label{sec:nwa}
 			Die nachfolgende Nutzwertanalyse bewertet eine Auswahl von E-Mailprovider anhand ihrer Umsetzung von sicherheitsrelevanter Technologien wie bspw. \ac{TLS}, \ac{PGP} oder Verfahren wie \ac{DNSSEC} bzw. \ac{DANE}.
 			Verglichen werden drei große internationale Anbieter, drei Anbieter des \ac{EmiG}-Verbundes und zwei alternative, kleinere Anbieter mit Fokus auf E-Mail-Sicherheit.\\		
-			Die Auswahl der Oberkriterien lehnt sich an die Datenschutz Schutzziele \textit{Vertraulichkeit und Integrität}, \textit{Authentizität} (\prettyref{sec:datensicherheit-einmaleins}) sowie \textit{sicherheitsrelevante Aspekte}.\\
+			Die Auswahl der Oberkriterien lehnt sich an die Datenssicherheit-Schutzziele \textit{Vertraulichkeit und Integrität}, \textit{Authentizität} (\prettyref{sec:datensicherheit-einmaleins}) sowie \textit{sicherheitsrelevante Aspekte}.\\
 			Ausgangspunkt der Bewertung sind hauptsächlich die Analyse-Werkzeuge \textit{SSL Server Test} von Qualys SSL Labs\footnote{\url{https://dev.ssllabs.com/ssltest/}} und der \textit{DNSSEC Debugger} der \ac{CA} Verisign Labs\footnote{\url{http://dnssec-debugger.verisignlabs.com/}}.
 			Mit beiden Werkzeugen ist es möglich Server hinsichtlich ihrer unterstützen Protokolle und Verfahren zu analysieren.\medskip\\
 			Die Ergebnisse der entsprechenden Test-Protokolle (\prettyref{sec:anhang}) \textit{SSL Report} und \textit{DNSSEC Report} der ausgewählten E-Mail-Anbieter sind unter Berücksichtigung der zuvor beschriebenen Zielgruppe und Sicherheitsniveaus verglichen und bewertet worden.\\
 			Ebenso beachtet wurden die individuellen Angebote der E-Mail-Anbieter durch sicherheitsgerichtete Recherche auf den Anbieter-Webseiten, Webmail-Diensten sowie in unabhängigen und entsprechend zitierten Quellen.\\
 			Die Bewertung der E-Mail-Anbieter erfolgt anschließend (\prettyref{sec:provider-vergleich}) textlich beschrieben und auf die relevanten Faktoren beschränkt.\medskip\\
-			Der Bewertungsmaßstab, u.a. zur Erreichung der vollen Punktzahl der Unterkriterien ist nachfolgend zusammengefasst erläutert:
+			Der Bewertungsmaßstab der Unterkriterien, der u.a. die Erreichung der vollen Punktzahl verdeutlicht, ist nachfolgend zusammengefasst erläutert:
 			
 			\begin{smaller}
 			\begin{itemize}
