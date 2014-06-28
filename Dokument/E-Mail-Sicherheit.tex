@@ -66,7 +66,7 @@
 		In diesem Kapitel werden die kryptographischen Grundlagen und die zwei wesentlichen Arten des Vertrauensmodell erläutert. Zudem werden verschiedene Verfahren und Protokolle für den Schlüsselaustausch und für die Verschlüsslung von Information und Transport beschrieben. 
 		Das Kapitel schließt mit einer Betrachtung des Namensdienstes DNS und seinen Sicherheitserweiterungen ab.\medskip\\		
 		In Kapitel \ref{chap:e-mail-sicherheit-in-der-praxis} werden ausgewählte Mail-Provider in der Praxis dahingehend untersucht, ob sie die in dieser Arbeit untersuchten Technologien und Verfahren einsetzen bzw. als Option anbieten. 
-		Aus dieser Analyse wird eine Nutzwertanalyse erstellt, die die Anforderungen der verschiedenen Sicherheitsniveaus anhand der vorgestellten Provider übersichtlich in tabellarischer Form darstellt.
+		Aus dieser Analyse wird eine Nutzwertanalyse erstellt, die die Anforderungen der verschiedenen Sicherheitsniveaus anhand der vorgestellten Provider übersichtlich in tabellarischer Form darstellt.\\
 		Das letzte Kapitel schließt die Arbeit thematisch mit einer Zusammenfassung und einem Ausblick über die gegenwärtigen und möglichen Entwicklungen ab.
 		
 		
@@ -120,12 +120,11 @@
 		
 		%Beispielsweise ist aus Sicht der Autoren der potentielle Schaden gering, wenn eine E-Card zu den Weihnachtsfeiertagen an den nicht rechtmäßigen Empfänger gerät, sodass für die Versendung einer solchen Information der Grad der Verschlüsselung niedrig und somit der Aufwand niedrig ausfällt. Dahingegen ist der potentielle Schaden größer, wenn es sich bei der versendeten Information um beispielsweise die eigenen Kontodaten handelt, was wiederum bedeutet, dass der Nutzer bereit ist einen höheren Aufwand zu betreiben, um diese Inhalte auf eine sichere Art und Weise via E-Mail zu übermitteln.
 	
-	
 		%Das Sicherheitsbedürfnis einer jeden Person kann unterschiedlich stark ausgeprägt sein. 
 		Der Wert einer Information ist durch das eigene Sicherheitsbedürfnis geprägt, welches jedoch von Person zu Person in unterschiedlicher Form ausgeprägt ist.
 		Daher ist es den Verfassern dieser Arbeit nicht möglich, eine allgemein gültige Auflistung aller möglichen Szenarien der E-Mail Kommunikation bereitzustellen, aus welcher die Teilnehmer der Zielgruppe lediglich das richtige Szenario heraussuchen müssen und dadurch den optimalen Grad der Verschlüsselung erhalten. 
 		
-		Stattdessen wird in Tabelle \ref{tab:sicherheitsniveaus} eine Übersicht präsentiert, die es dem Nutzer erlaubt auf Basis seines eigenen Sicherheitsbedürfnisses und mit Hilfe festgelegter Kriterien für die Übermittlung einer ganz bestimmten Information ein geeignetes Sicherheitsniveau zu bestimmen. 
+		Stattdessen wird eine Übersicht (\prettyref{tab:sicherheitsniveaus}) präsentiert, die es dem Nutzer erlaubt auf Basis seines eigenen Sicherheitsbedürfnisses und mit Hilfe festgelegter Kriterien für die Übermittlung einer ganz bestimmten Information ein geeignetes Sicherheitsniveau zu bestimmen. 
 		\medskip
 		
 		
@@ -135,19 +134,18 @@
 		%Wäre nice wenn die Abbildung eine Tabelle ist, weil eine Abbildung für eine Tabelle ist irgendwie komisch :D (Pascal)
 		%Auch viel Sicht der Autoren, ich würde das zur Einleitung einmal allgmein sagen statt hier 3 Mal im Absatz. So bei der Abgrenzung / Zielsetzung / einleitung. Generell ein sehr Einleitungslastiger Abschnitt.
 		
-		Die Tabelle \ref{tab:sicherheitsniveaus} stellt im Tabellenkopf vier verschiedene Sicherheitsniveaus dar: \textit{Streng Vertraulich, Vertraulich, Privat und Öffentlich}. Dabei nimmt das Sicherheitsbedürfnis sowie der Verschlüsselungsaufwand von Streng Vertraulich bis Öffentlich ab.
+		Die Tabelle \ref{tab:sicherheitsniveaus} stellt im Tabellenkopf vier verschiedene Sicherheitsniveaus dar: \textit{Streng Vertraulich}, \textit{Vertraulich}, \textit{Privat} und \textit{Öffentlich}. Dabei nimmt das Sicherheitsbedürfnis sowie der Verschlüsselungsaufwand von Streng Vertraulich bis Öffentlich ab.
 		
 		In der ersten Spalte sind verschiedene Merkmale aufgelistet, welche es dem Nutzer ermöglichen sollen, 
 		%für eine ganz bestimmte Information 
 		ein geeignetes Sicherheitsniveau zu bestimmen.
 		%Nummern wären Klasse (Stufe 1-4)
 		Alle weiteren Felder enthalten die Ausprägung des Merkmals innerhalb des jeweiligen Sicherheitsniveaus.
-		\medskip
 		
-		Der Wert der Information und deren Schutzwürdigkeit beschreiben, wie wertvoll die zu versendende E-Mail für einen nicht rechtmäßigen Empfänger ist und welche Notwendigkeit des Schutzes daraus folgt.
+		Der \textit{Wert der Information} und deren Schutzwürdigkeit beschreiben, wie wertvoll die zu versendende E-Mail für einen nicht rechtmäßigen Empfänger ist und welche Notwendigkeit des Schutzes daraus folgt.
 		
 		Der potentielle Schaden stellt das Ausmaß dar, welches eintritt für den Fall, dass die E-Mail durch 			%unberechtigte 
-		Dritte (klassische Angreifer sowie der E-Mail Provider) gelesen wird. Dieser Schaden kann verschiedener Art sein. Zum Beispiel können daraus rechtliche Konsequenzen erfolgen, es kann zu einem finanziellen Verlust führen oder mit einer Schädigung des Images des Senders einhergehen.\footcite[Vgl.][S. 6]{ReinhausenGmbH} Aus dem potentiellen Schaden lässt sich außerdem gut der Einfluss auf die eigene Privatsphäre ableiten.
+		Dritte (klassische Angreifer sowie der E-Mail Provider) gelesen wird. Dieser Schaden kann verschiedener Art sein. Zum Beispiel können daraus rechtliche Konsequenzen erfolgen, es kann zu einem finanziellen Verlust führen oder mit einer Schädigung des Images des Senders einhergehen.\footcite[Vgl.][S. 6]{ReinhausenGmbH} Aus dem potentiellen Schaden lässt sich außerdem gut der Einfluss auf die eigene \textit{Privatsphäre} ableiten.
 		
 	\pagebreak
 %	\begin{figure}[h] %{wrapfigure}[36]{l}{1.0\textwidth}
@@ -198,12 +196,11 @@
 		
 		
 		Das letzte Merkmal beschreibt das Aufkommen der einzelnen Sicherheitsniveaus. Streng vertrauliche Informationen sind sehr selten und am häufigsten werden öffentliche Nachrichten ausgetauscht.\footcite[Vgl.][]{TSE}
-		\medskip\\
+		\bigskip\\
 	%Auch wieder Cut Bsp: Anwenwedungsfälle als Section? dann Stufe 1-4 und die Fälle dazu? Das ist jetzt ein riesen Case, der unheimnlich kreativ ist und toll beschrieben. Eventuell kann es für ne wissenschaftl. Arbeit auch weniger sein nach dem Motto "Versicherungsschaden am Wagen. Bilder und Kontodaten per E-Mail an Versicherung senden: Streng vertraulich" Sowas hätte mir persönlich gereicht, und dazu vll noch ein Beispiel wie das mit den Patientendaten mit Röntgenbildern (auch streng vertraulich). Und zusätzlich noch ein paar cases zu den unteren stufen. Weihnachtsbild für die Familie mit Gesichtern : Vertraulich. Weihnachts E-Card von Webseite ohne Gesichter Öffentlich. Irgendwie sowas. Das soltlen wir besprechen am Freitag
-	
-		Anhand des nachfolgenden Beispiels soll der Umgang mit der Tabelle \ref{tab:sicherheitsniveaus} verdeutlicht werden. Hierbei ist zu erwähnen, dass das resultierende Sicherheitsniveau auf Basis des beschriebenen Sicherheitsbedürfnisses ermittelt wurde und für die gleiche Information bei anderen Nutzern unterschiedlich ausfallen kann:
-		\medskip\\
-		
+		Anhand des nachfolgenden Beispiels soll der Umgang mit der Tabelle \ref{tab:sicherheitsniveaus} verdeutlicht werden. 
+		Hierbei ist zu erwähnen, dass das resultierende Sicherheitsniveau auf Basis des beschriebenen Sicherheitsbedürfnisses ermittelt wurde und für die gleiche Information bei anderen Nutzern unterschiedlich ausfallen kann:\medskip
+
 		Herr Meier war vor kurzem in einen Auffahrunfall verwickelt, den ein unachtsamer Autofahrer verursacht hatte. Daraufhin brachte Herr Meier sein Fahrzeug in die Werkstatt und ließ ein Gutachten des Schadens erstellen. Dieses Gutachten möchte er nun zusammen mit seinen Kontodaten via E-Mail an die Versicherung des Unfallverursachers senden. 
 		
 		Der Wert dieser Information ist hoch, denn einerseits sind die Kontodaten in der Nachricht vorhanden. Andererseits ist in dem Gutachten Herr Meiers Anschrift angegeben und es lässt sich aus den Fotos und der Schadenshöhe des Gutachtens ableiten, dass Herr Meier einen Luxuswagen besitzt. Daraus wiederum lassen Rückschlüsse auf seine finanzielle Situation schließen. Der potentielle Schaden, der sich daraus ergibt, ist hoch bis äußerst hoch. Denn bei ausreichender krimineller Energie können nicht nur die Kontodaten missbraucht werden, sondern mit Hilfe der Anschrift kann der Wohnsitz von Herrn Meier ausgekundschaftet und beispielsweise bei seiner Abwesenheit in sein Anwesen eingebrochen werden. 
@@ -212,8 +209,7 @@
 		Der Autorisierte Personenkreis für diese Nachricht beschränkt sich auf den Sender (Herr Meier), den Empfänger (die Versicherung) sowie auf seine Frau und auf die Werkstatt, die das Gutachten erstellt hat. Seinen Freunden und Kollegen hat Herr Meier zwar auch von dem Unfall erzählt. Allerdings wissen diese keine genaueren Details hinsichtlich des Schadens und dessen Höhe.
 		
 		Hätte die Versicherung den E-Mail Service nicht angegeben, so würde Herr Meier die Unterlagen des Gutachtens mit einem Standard-Brief versenden. Die Kontodaten würde er mittels Einschreiben verschicken.
-		\medskip\\
-		
+		\bigskip\\
 		Somit kann als Resultat für dieses Beispiel unter dem beschriebenen Sicherheitsbedürfnis ein Sicherheitsniveau von \textit{Vertraulich} ermittelt werden. Welches Verschlüsselungsverfahren konkret für dieses Sicherheitsniveau anzuwenden ist, wird in den nachfolgenden Kapiteln beschrieben.
 		
 %	\chapter{Gefahren und Schwachstellen}
@@ -279,7 +275,7 @@
 				Die Kryptographie ist die Wissenschaftslehre, die sich mit den Verfahren sowie der Anwendung von Ver- und Entschlüsselung von Informationen befasst. Dabei bedient sie sich mathematischen Hilfsmitteln, um die Daten für Dritte unzugänglich zu machen. In diesem Kapitel werden zunächst die grundlegenden Funktionsweisen der Verschlüsselung untersucht, die zum Verständnis der weiteren Kapitel notwendig sind. Anschließend werden verschiedene Verfahren beleuchtet, die eine verschlüsselte und geschützte Kommunikation ermöglichen.
 				%Die Einleitung ist top, mehr Bezug zur E-Mail wäre toll, so das es essenziel für Sicherheit ist und die Basis zur Sicherstellung von sicherer Kommunikation Stufe 1-4 (Unsere niveaus) da nämlich auch öffentlich zumindest transport verschlüsselt sein sollte (wird ja auch als Standard durchgedrück (versucht) EmiG, TLS)
 			\subsection{Symmetrische Verschlüsselung}
-				Bei der symmetrischen Verschlüsselung wird sowohl zur Verschlüsselung als auch Entschlüsselung ein gemeinsamer Schlüssel verwendet. Dieser Schlüssel wird auch Shared Secret genannt. Mithilfe dieses Schlüssels und einem kryptographischen Algorithmus wird die Information des Absenders, auch als Klartext bezeichnet, verschlüsselt. Ein Algorithmus transformiert dabei einen Eingabeparameter in einen Ausgabeparameter. Im Fall eines kryptographischen Algorithmus handelt es sich um eine mathematische Vorschrift, die aus dem Klartext einen sogenannten Geheimtext berechnet. Diesen verschlüsselten Text kann der Empfänger mit dem selben Schlüssel, der zur Verschlüsselung verwendet wurde, entschlüsseln.
+				Bei der symmetrischen Verschlüsselung wird sowohl zur Verschlüsselung als auch Entschlüsselung ein gemeinsamer Schlüssel verwendet. Dieser Schlüssel wird auch \textit{Shared Secret} genannt. Mithilfe dieses Schlüssels und einem kryptographischen Algorithmus wird die Information des Absenders, auch als Klartext bezeichnet, verschlüsselt. Ein Algorithmus transformiert dabei einen Eingabeparameter in einen Ausgabeparameter. Im Fall eines kryptographischen Algorithmus handelt es sich um eine mathematische Vorschrift, die aus dem Klartext einen sogenannten Geheimtext berechnet. Diesen verschlüsselten Text kann der Empfänger mit dem selben Schlüssel, der zur Verschlüsselung verwendet wurde, entschlüsseln.
 				Im elektronischen Mailverkehr wirkt sich die Funktionsweise der symmetrischen Verschlüsselung nachteilig auf deren Anwendung aus. Da beide Kommunikationspartner denselben Schlüssel benötigen, muss dieser zuvor ausgehandelt und übertragen werden. Dieser Umstand stellt ein Risiko bezüglich der Vertraulichkeit dar. Jeder, der über den Schlüssel verfügt, kann auf den Inhalt der Nachricht zugreifen. Dieses Sicherheitsrisiko wird durch die asymmetrische Verschlüsselung beseitigt.
 				%Wir benutzen scheinbar alle verschiedene Synonme für E-Mail Kommunikation. Elektronischer Briefverkehr klingt ganz neu für mich :D Vielleicht einigen wir uns einfach auch "E-Mail-Kommunikation"?
 				%Referenzieren (Schlüsselaustausch!)	
@@ -288,10 +284,10 @@
 				Soll eine Nachricht durch ein asymmetrisches Verschlüsselungsverfahren verschlüsselt verschickt werden, wird zunächst der öffentliche Schlüssel des Empfängers benötigt. Zusammen mit der Nachricht wird der Geheimtext erzeugt und an den Empfänger geschickt. Zum Entschlüsseln der Nachricht wird der private Schlüssel des Empfängers verwendet, der zu dem öffentlichen Schlüssel gehört, der bei der Verschlüsselung der Nachricht verwendet wurde.
 				
 				Mit diesem Verfahren wurde das Sicherheitsrisiko der symmetrischen Verschlüsselung gelöst, da der öffentliche Schlüssel zum Verschlüsseln jedem bekannt sein darf. Zur Entschlüsselung wird der dazugehörige private Schlüssel benötigt, der im Besitz des Empfängers ist und niemals veröffentlicht wird.
-				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt. Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss "bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden."\footcite[Vgl.][S. 90]{Ertel2012}
+				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt. Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss \glqq bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden.\grqq\footcite[Vgl.][S. 90]{Ertel2012}
 				
-				Zwei Aspekte sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Der im Jahr 1978 erfundene asymmetrische RSA-Algorithmus, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist, hebt sich vor allem durch seine Einfachheit hervor\footcite[Vgl.][S. 79]{Ertel2012} und der Diffie-Hellman-Schlüsselaustausch. Mit diesem Protokoll, das Eigenschaften von asymmetrischer Verschlüsselung aufweist, können geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
-			\subsection{Digitale Signaturen}\label{chp: Signatur}	
+				Zwei Aspekte sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Der im Jahr 1978 erfundene asymmetrische \ac{RSA}-Algorithmus, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist, hebt sich vor allem durch seine Einfachheit hervor\footcite[Vgl.][S. 79]{Ertel2012} \color{darkred}und der Diffie-Hellman-Schlüsselaustausch\color{black}. Mit diesem Protokoll, das Eigenschaften von asymmetrischer Verschlüsselung aufweist, können geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
+			\subsection{Digitale Signaturen}\label{chap: Signatur}	
 				Asymmetrische Verschlüsselungsverfahren ermöglichen, die menschliche Unterschrift in der digitalen Welt abzubilden. Diese Funktionalität wird mit digitalen Signaturen umgesetzt. Damit eine digitale Signatur den Anforderungen einer menschlichen Unterschrift erfüllt, müssen einige Bedingungen eingehalten werden:\footcite[Vgl.][S. 202]{Schmeh2013}
 				\begin{itemize}
 					\item Sie darf nicht zu fälschen sein.
@@ -299,8 +295,8 @@
 					\item Sie darf nicht unbemerkt von einem Dokument zum anderen übertragen werden können.
 					\item Das dazugehörende Dokument darf nicht unbemerkt verändert werden können.
 				\end{itemize}
-				Diese Voraussetzungen dienen dazu, die Verbindlichkeit des Absenders sowie die Integrität der Nachricht zu gewährleisten. Beim Signieren verschlüsselt der Absender seine Nachricht mit seinem privaten Schlüssel. Die resultierende Nachricht ist die digitale Signatur. In der Regel wird	beim Signieren aufgrund des Rechenaufwandes für lange Nachrichten nicht die gesamte Nachricht verschlüsselt, sondern ein sogenannter Hashwert. Hashwerte sind eine Zeichenfolge mit einer bestimmten Länge, die durch eine mathematische Einweg-Hashfunktion generiert werden. Diese Funktionen haben einen Eingabeparameter und berechnen daraus einen Hashwert. Aus der Kenntnis des Hashwertes oder der Hashfunktion lässt sich der Eingabeparameter nicht ableiten, wodurch die Integrität einer signierten Nachricht gewährleistet ist.
-				Die signierte Nachricht wird im nächsten Schritt an den Empfänger geschickt. Dieser kann nun die Verbindlichkeit der Nachricht überprüfen, indem er die Signatur mit dem öffentlichen Schlüssel des Absenders entschlüsselt. Anschließend berechnet er den Hashwert der erhaltenen Nachricht und vergleicht diesen mit der zuvor entschlüsselten Signatur des Absenders. Diese Überprüfung wird dabei auch Verifizierung genannt. Stimmen beide Werte überein, kann er sicher sein, dass die Nachricht von dem Absender stammt, da nur mit dessen privatem Schlüssel die Nachricht verschlüsselt werden konnte. Zusätzlich ist damit garantiert, dass die Nachricht vollständig und unverändert beim Absender angekommen ist.
+				Diese Voraussetzungen dienen dazu, die Verbindlichkeit des Absenders sowie die Integrität der Nachricht zu gewährleisten. Beim Signieren verschlüsselt der Absender seine Nachricht mit seinem privaten Schlüssel. Die resultierende Nachricht ist die digitale Signatur. In der Regel wird	beim Signieren aufgrund des Rechenaufwandes für lange Nachrichten nicht die gesamte Nachricht verschlüsselt, sondern ein sogenannter \textit{Hashwert}. Hashwerte, auch Prüfsummen genannt, sind eine Zeichenfolge mit einer bestimmten Länge, die durch eine mathematische Einweg-Hashfunktion generiert werden. Diese Funktionen haben einen Eingabeparameter und berechnen daraus einen Hashwert. Aus der Kenntnis des Hashwertes oder der Hashfunktion lässt sich der Eingabeparameter nicht ableiten, wodurch die Integrität einer signierten Nachricht gewährleistet ist.
+				Die signierte Nachricht wird im nächsten Schritt an den Empfänger geschickt. Dieser kann nun die Verbindlichkeit der Nachricht überprüfen, indem er die Signatur mit dem öffentlichen Schlüssel des Absenders entschlüsselt. Anschließend berechnet der Empfänger den Hashwert der erhaltenen Nachricht und vergleicht diesen mit der zuvor entschlüsselten Signatur des Absenders. Diese Überprüfung wird dabei auch Verifizierung genannt. Stimmen beide Werte überein, kann er sicher sein, dass die Nachricht von dem Absender stammt, da nur mit dessen privatem Schlüssel die Nachricht verschlüsselt werden konnte. Zusätzlich ist damit garantiert, dass die Nachricht vollständig und unverändert beim Absender angekommen ist.
 				
 				Durch die Anwendung des asymmetrischen Verschlüsselungsverfahrens beim Signieren bleibt die Authentizität der öffentlichen Schlüssels weiterhin ein Sicherheitsrisiko. Das Risiko besteht darin, dass	\glqq man einem öffentlichen Schlüssel nicht ansieht, wem er gehört\grqq{}.\footcite[Vgl.][S. 506]{Schmeh2013}
 	
@@ -315,37 +311,26 @@
 	
 		\section{Public Key Infrastruktur}
 			%Problem
-			In Kapitel \ref*{chp: zertifikate} Zertifikate wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[Vgl.][]{BSI}\medskip\\
-			
+			In Kapitel \ref*{chp: zertifikate} Zertifikate wurde die Definition und die Funktionsweise von Zertifikaten betrachtet. Allerdings ist der Austausch selbiger nicht ohne weiteres möglich. Denn dafür müssen sich die beiden Kommunikationspartner \glqq kennen und einen sicheren Weg für den Austausch finden\grqq{}. \footcite[Vgl.][]{BSI}
 			%Idee
 			An dieser Stelle setzt die so genannte \ac{PKI} an, die eine Vertrauenskette darstellt und den Austausch von Zertifikaten zweier Kommunikationspartner erleichtern soll.
-			\medskip\\
-					
+			\newpage
 			%Umsetzung
-			Bei der \ac{PKI} handelt es sich um eine Hierarchie von Zertifikaten, die aus verschiedenen Elementen besteht. Auf der obersten Hierarchie Ebene steht die Wurzelinstanz, welcher auf einer oder mehrerer Unterebenen verschiedene \ac{CA} untergeordnet sind, die wiederum die Zertifikate der Endanwender signieren.\footcite[Vgl.][S. 23]{Schwenk}\medskip\\
-			
+			Bei der \ac{PKI} handelt es sich um eine Hierarchie von Zertifikaten, die aus verschiedenen Elementen besteht. Auf der obersten Hierarchie Ebene steht die Wurzelinstanz, welcher auf einer oder mehrerer Unterebenen verschiedene \ac{CA} untergeordnet sind, die wiederum die Zertifikate der Endanwender signieren.\footcite[Vgl.][S. 23]{Schwenk}\\
 			Die Wurzelinstanz wird durch die \ac{PCA} verkörpert, die  für alle vertrauenswürdig ist und ein so genanntes Wurzelzertifikat erstellt. \footcite[Vgl. ][]{ITWissen2012} 
-			
-			Alle weiteren Zertifikate dieser Vertrauenskette werden mit dem privaten Schlüssel des Wurzelzertifikats signiert %(vgl. Kapitel \ref{chp: Signatur} Digitale Signaturen).
-			\medskip\\
-						
+			Alle weiteren Zertifikate dieser Vertrauenskette werden mit dem privaten Schlüssel des Wurzelzertifikats signiert.\medskip\\ %(vgl. Kapitel \ref{chp: Signatur} Digitale Signaturen).\\	
 			%Vorteile
-			Dies bringt eine Reihe von Vorteilen mit sich. Zum einen können der \ac{PCA} verschieden artige \ac{CA} untergeordnet sein. Beispielsweise könnte eine \ac{CA} SSL-Zertifikate für Webserver signieren, eine weitere \ac{CA} \ac{S/MIME}-Zertifikate ausstellen und eine dritte \ac{CA} für die E-Mail Kommunikation zuständig sein.
-			
-			Zum anderen können verschiedene Sicherheitspolicies für unterschiedliche \acp{CA} hinterlegt werden. So stellt die eine \ac{CA} Zertifikate unter Voraussetzung einer gültigen E-Mail Adresse aus, wohingegen eine andere \ac{CA} erst nach Vorlage eines Personalausweises ein Zertifikat signiert.\footcite[Vgl.][S. 24]{Schwenk}
-			
+			Dies bringt eine Reihe von Vorteilen mit sich. Zum einen können der \ac{PCA} verschieden artige \ac{CA} untergeordnet sein. Beispielsweise könnte eine \ac{CA} SSL-Zertifikate für Webserver signieren, eine weitere \ac{CA} \ac{S/MIME}-Zertifikate ausstellen und eine dritte \ac{CA} für die E-Mail Kommunikation zuständig sein.\\
+			Zum anderen können verschiedene Sicherheitspolicies für unterschiedliche \acp{CA} hinterlegt werden. So stellt die eine \ac{CA} Zertifikate unter Voraussetzung einer gültigen E-Mail Adresse aus, wohingegen eine andere \ac{CA} erst nach Vorlage eines Personalausweises ein Zertifikat signiert.\footcite[Vgl.][S. 24]{Schwenk}\\
 			Ein dritter Vorteil liegt darin, dass mit Hilfe der \ac{PKI} organisatorische Strukturen, zum Beispiel die einer Unternehmung, abgebildet werden können. In solchem Falle können verschiedene CA für unterschiedliche Standorte eines Unternehmens einberufen werden, die wiederum die Zertifikate der Mitarbeiter am jeweiligen Standort signieren und deren eigenes Zertifikat durch eine übergeordnete \ac{CA} oder \ac{PCA} signiert wurde.\medskip\\
-			
 			Diese Vertrauenskette kann beliebig lang fortgesetzt werden, sodass zwei Kommunikationspartner sich nicht mehr gegenseitig kennen müssen um ihre Zertifikate einander auszutauschen, sondern es ausreichend ist, wenn das Zertifikat des Kommunikationspartners entlang der \ac{PKI} von einer Instanz signiert wurde, die man selbst für vertrauenswürdig befindet.\medskip\\
-			
 			%Nachteile
-			Jedoch liegen genau in dieser Vertrauenswürdigkeit auch die Nachteile der \ac{PKI}. Einerseits muss eine neue \ac{CA} oder \ac{PCA} erst einmal bekannt gemacht werden und auf diesem Weg vertrauen erlangen.\footcite[Vgl.][S. 24]{Schwenk}
-			
-			Andererseits kommt es immer wieder vor, dass \ac{CA} angegriffen werden und somit auch gefälschte Zertifikate illegal signiert werden.
-				
+			Jedoch liegen genau in dieser Vertrauenswürdigkeit auch die Nachteile der \ac{PKI}. Einerseits muss eine neue \ac{CA} oder \ac{PCA} erst bekannt gemacht werden und auf diesem Weg Vertrauen erlangen,\footcite[Vgl.][S. 24]{Schwenk} andererseits kommt es immer wieder vor, dass \ac{CA} angegriffen werden und somit auch gefälschte Zertifikate illegal signiert werden.
+			\newpage	
 		\section{Web of Trust}
 			Das Web of Trust ist ein Vertrauensmodell, bei dem sich die Nutzer gegenseitig vertrauen und somit ein netzartiges Modell entstehen lässt. Die Grundidee ist, dass die Nutzer dieses Modells gegenseitig ihre öffentlichen Schlüsseln signieren. Im Gegensatz zum hierarchischen Verfahren gibt es keine zentrale Zertifizierungsstelle.
-			Die Funktionsweise des Web of Trust wird anhand eines Beispiels erläutert.
+			Die Funktionsweise des Web of Trust wird anhand eines Beispiels erläutert:
+			
 			\begin{wrapfigure}{l}{0.5\textwidth}
 			\centering
 				\includegraphics[width=0.4\textwidth]{images/WOT.png}
@@ -364,17 +349,18 @@
 				%Idee
 			\subsection{PFS - Perfect Forward Secrecy}
 				Im Gegensatz zum klassischen RSA-Schlüsselaustausch ist es sinnvoller, die Sitzungsschlüssel
-				zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft Forward Secrecy, die im Kryptographischen Fachjargon auch \ac{PFS}\footcite[Vgl.][]{Boeck2013} genannt wird. Die \glqq Forderung an die Verfahren und Protokolle zur Schlüsselerneuerung besteht darin dafür zu sorgen, dass die Kenntnis eines Schlüssels, also dessen Aufdeckung, nicht dazu führt, dass damit auch vorherige und nachfolgende Schlüssel direkt aufdeckbar sind.\grqq\footcite[Vgl.][S. 439]{Eckert2013} Wie notwendig \ac{PFS} geworden ist zeigen die jüngsten Ereignisse im Zusammenhang mit dem OpenSSL-Bug "Heartbleed", mit dem es sehr einfach war private Schlüssel von Servern auszulesen.\footcite[Vgl.][]{Zhu2014} \medskip\\
+				zum Einen nicht mehr zu übertragen und zum Anderen unabhängig voneinander ständig neu zu generieren und bei Terminierung zu löschen. Realisiert wird dies durch die Protokoll-Eigenschaft \textit{Forward Secrecy}, die im Kryptographischen Fachjargon auch \ac{PFS}\footcite[Vgl.][]{Boeck2013} genannt wird. Die \glqq Forderung an die Verfahren und Protokolle zur Schlüsselerneuerung besteht darin dafür zu sorgen, dass die Kenntnis eines Schlüssels, also dessen Aufdeckung, nicht dazu führt, dass damit auch vorherige und nachfolgende Schlüssel direkt aufdeckbar sind.\grqq\footcite[Vgl.][S. 439]{Eckert2013} Wie notwendig \ac{PFS} geworden ist zeigen die jüngsten Ereignisse im Zusammenhang mit dem OpenSSL-Bug "Heartbleed", mit dem es sehr einfach war private Schlüssel von Servern auszulesen.\footcite[Vgl.][]{Zhu2014} \medskip\\
 				%Umsetzung
-				Das \ac{DHE} Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. \glqq geschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.\grqq \footcite[Vgl.][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und \ac{IPsec} beherrschen bereits \ac{PFS}.\medskip\\
+				Das \ac{DHE}-Verfahren ermöglicht dabei als Basis die Aushandlung eines Sitzungsschlüssels bei dem die Kommunikationspartner verschiedene Nachrichten senden und sich auf einen Sitzungsschlüssel einigen können, ohne diesen je übertragen zu haben. Dieser Schlüssel ist auch nur für die aktuelle Verbindung gültig und wird anschließend gelöscht. Der Public-Key des Servers wird weiterhin übertragen, jedoch nur um den Schlüsselaustausch zu signieren. \glqq geschlossene Sitzungen können somit im Nachhinein nicht mehr entschlüsselt werden.\grqq \footcite[Vgl.][]{Schulz2014} Die Verschlüsselungsverfahren \ac{TLS/SSL} und \ac{IPsec} beherrschen bereits \ac{PFS}.\medskip\\
 				%Vorteile
 				Aufgezeichnete verschlüsselte Daten können somit bei Besitz des privaten Schlüssels nicht entschlüsselt werden. Zudem wird einfaches Belauschen einer aktiven Verbindung deutlich erschwert, denn es müsste die gesamte Kommunikation mit einem gezieltem \ac{MITM}-Angriff manipuliert werden. Für diese Problematik gibt es wiederum moderne Ansätze wie \ac{DANE} (Vgl. Kapitel \ref{subsec:dane}), die in Kombination mit \ac{PFS} aktuell bei der Verschlüsselung von Verbindungen höchsten Sicherheitsansprüchen entsprechen, indem zusätzlich die Authentizität der Kommunikation gewährleistet wird.\medskip\\
 				%Nachteile
-				Nachteile gibt es lediglich bei der Verwendung des bereits überholten, und seit Jahren als geknackt bekannte \ac{DHE}-Verfahren, denn dabei verzögert sich zusätzlich der Verbindungsaufbau. Die Schlüssellänge ist Minimum 1024 Bit, und längere Schlüssel mit 2048 oder 4096 Bit sind dabei nicht sicherer.\footcite[Vgl.][]{Boeck2013} Der moderne Nachfolger mit elliptischen Kurven \ac{ECDH} gilt aktuell als sicher und benötigt dabei weniger als 1024 Bit und verzögert den Verbindungsaufbau nur unweigerlich.\medskip\\
+				Nachteile gibt es lediglich bei der Verwendung des bereits überholten, und seit Jahren als geknackt bekannten \ac{DHE}-Verfahren, denn dabei verzögert sich zusätzlich der Verbindungsaufbau. Die Schlüssellänge ist Minimum 1024 Bit, und längere Schlüssel mit 2048 oder 4096 Bit sind dabei nicht sicherer.\footcite[Vgl.][]{Boeck2013} Der moderne Nachfolger mit elliptischen Kurven, \ac{ECDH} gilt aktuell als sicher und benötigt dabei weniger als 1024 Bit und verzögert den Verbindungsaufbau damit nur unweigerlich.\medskip\\
 				%Grenzen
-				Obwohl es Forward Secrecy bereits seit 1999 im \ac{TLS} Standard 1.0\footcite[Vgl.][]{Boeck2013} vorgesehen ist, und somit essentieller Bestandteil von Verschlüsselung ist, hat sich \ac{PFS} noch nicht als Standard durchgesetzt.\footcite[Vgl.][]{SSLLabs} Dies liegt zum einen an den Webservern. Mit einem Apache Webserver ist nur eine Länge des Modulo (Modulus) von 1024 Bit vorgesehen. Beim Einsatz von \ac{DHE} würden Provider damit ihre Server daher unsicher betreiben. Zum Anderen sind es auf Client-Seite die Browser die \ac{DHE} bzw. \ac{ECDH} lange Zeit ignoriert haben. Der Internet Explorer verschlüsselte nur nach DSS, wobei der de-facto Standard für Verschlüsselung bereits \ac{RSA} war. Opera unterstützte lediglich das überholte \ac{DHE}-Verfahren und Safari priorisiert Forward Secrecy niedrig und bevorzugt bei gegebener Option sogar die unverschlüsselte Kommunikation. Lediglich Firefox und Chrome unterstützen \ac{PFS} in vollem Umfang.\medskip\\
+				Obwohl es Forward Secrecy bereits seit 1999 im \ac{TLS} Standard 1.0\footnote{Vgl. ebd.} vorgesehen ist, und somit essentieller Bestandteil von Verschlüsselung ist, hat sich \ac{PFS} noch nicht als Standard durchgesetzt.\footcite[Vgl.][]{SSLLabs} Dies liegt zum einen an den Webservern. Mit einem Apache Webserver ist nur eine Länge des Modulo (Modulus) von 1024 Bit vorgesehen.\newpage
+				Unter Einsatz von \ac{DHE} würden Provider folglich ihre Server unsicher betreiben. Zum Anderen sind es auf Client-Seite die Browser die \ac{DHE} bzw. \ac{ECDH} lange Zeit ignoriert haben. Der Internet Explorer verschlüsselte nur nach \ac{DSS}, wobei der de-facto Standard für Verschlüsselung bereits \ac{RSA} war. Opera unterstützte lediglich das überholte \ac{DHE}-Verfahren und Safari priorisiert Forward Secrecy niedrig und bevorzugt bei gegebener Option sogar die unverschlüsselte Kommunikation. Lediglich Firefox und Chrome unterstützen \ac{PFS} in vollem Umfang.\medskip\\
 				%Browser prüfen und mit eigenen Quellen versehen
-				Für die E-Mail Kommunikation ist \ac{PFS} essenziell für die Befriedigung hoher Sicherheitsbedürfnisse. Um die dazugehörigen Sicherheitsniveaus abzudecken müssen E-Mail-Server Forward Secrecy unterstützen. Im August 2013 war \ac{PFS} nur sporadisch verbreitet in der E-Mail-Kommunikationslandschaft.\footcite[Vgl.][]{Schulz2014} Mittlerweile wird von vielen E-Mail-Providern auch \ac{PFS} angewandt. Die Umsetzung erfolgt jedoch noch zu zögerlich, wenn man die Tatsache betrachtet, dass \ac{PFS} im Zusammenhang mit Heartbleed der letzte Funken Hoffnung für betroffene Nutzer war, das zumindest vergangene Kommunikation nicht entschlüsselt werden kann.\footcite[Vgl.][]{Zhu2014}
+				Für die E-Mail Kommunikation ist \ac{PFS} essenziell für die Befriedigung hoher Sicherheitsbedürfnisse. Um die dazugehörigen Sicherheitsniveaus ab Stufe 2 abzudecken, müssen E-Mail-Server Forward Secrecy unterstützen. Im August 2013 war \ac{PFS} in der E-Mail-Kommunikationslandschaft nur sporadisch verbreitet.\footcite[Vgl.][]{Schulz2014} Mittlerweile wird von vielen E-Mail-Anbietern auch \ac{PFS} angewandt. Die Umsetzung erfolgt jedoch noch zu zögerlich, wenn man die Tatsache betrachtet, dass \ac{PFS} im Zusammenhang mit Heartbleed der letzte Funken Hoffnung für betroffene Nutzer war, dass zumindest vergangene Kommunikation nicht entschlüsselt werden kann.\footcite[Vgl.][]{Zhu2014}
 		
 		\section{Informationsverschlüsselung}
 			Für hohe Sicherheitsanforderungen entscheidend ist die Vertraulichkeit und Integrität der Datenkommunikation zwischen zwei Endpunkten. In der E-Mail-Kommunikation wird dies mit sog. Ende-zu-Ende-Verschlüsselung (englisch \ac{E2EE}) und den Diensten \ac{S/MIME} und \ac{PGP} realisiert, die im Nachgang beleuchtet werden.
