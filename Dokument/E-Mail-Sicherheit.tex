@@ -284,9 +284,9 @@
 				Soll eine Nachricht durch ein asymmetrisches Verschlüsselungsverfahren verschlüsselt verschickt werden, wird zunächst der öffentliche Schlüssel des Empfängers benötigt. Zusammen mit der Nachricht wird der Geheimtext erzeugt und an den Empfänger geschickt. Zum Entschlüsseln der Nachricht wird der private Schlüssel des Empfängers verwendet, der zu dem öffentlichen Schlüssel gehört, der bei der Verschlüsselung der Nachricht verwendet wurde.
 				
 				Mit diesem Verfahren wurde das Sicherheitsrisiko der symmetrischen Verschlüsselung gelöst, da der öffentliche Schlüssel zum Verschlüsseln jedem bekannt sein darf. Zur Entschlüsselung wird der dazugehörige private Schlüssel benötigt, der im Besitz des Empfängers ist und niemals veröffentlicht wird.
-				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt (auch bezeichnet als \ac{MITM}-Szenario). Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss \glqq bei der Verwendung eines fremden Schlüssels [..] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden.\grqq\footcite[][S. 90]{Ertel2012}
+				Ein Sicherheitsrisiko ergibt sich jedoch aus der Tatsache, dass ein Dritter die Übertragung des öffentlichen Schlüssels unbemerkt abfangen kann und dem Absender stattdessen seinen öffentlichen Schlüssel überträgt (auch bezeichnet als \ac{MITM}-Szenario). Damit ist er in der Lage, alle vom Absender verschlüsselten Nachrichten ohne dessen Kenntnis zu entschlüsseln. Daher muss \glqq bei der Verwendung eines fremden Schlüssels [\dots] möglichst immer die Authentizität des Schlüssels geprüft bzw. sichergestellt werden.\grqq\footcite[][S. 90]{Ertel2012}
 				
-				Zwei Aspekte sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Der im Jahr 1978 erfundene asymmetrische \ac{RSA}-Algorithmus, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist, hebt sich vor allem durch seine Einfachheit hervor\footcite[Vgl.][S. 79]{Ertel2012} \color{darkred}und der Diffie-Hellman-Schlüsselaustausch\color{black}. Mit diesem Protokoll, das Eigenschaften von asymmetrischer Verschlüsselung aufweist, können geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
+				Zwei Verfahren sind im Zusammenhang mit der asymmetrischen Verschlüsselung erwähnenswert. Zum Einen der im Jahr 1978 erfundene asymmetrische \acs{RSA}-Algorithmus, der nach seinen Erfindern R. Rivest, A. Shamir und L. Adleman benannt ist und sich vor allem durch seine Einfachheit hervorhebt.\footcite[Vgl.][S. 79]{Ertel2012} Zum Anderen der Diffie-Hellman-Schlüsselaustausch, der Eigenschaften asymmetrischer Verschlüsselung aufweist und mit dem geheime Schlüssel problemlos über einen abgehörten Kanal übertragen werden können. Nach Ablauf der Vereinbarung kennen nur beide Kommunikationspartner den vereinbarten Schlüssel.\footcite[Vgl.][S. 129]{Stephan2011}
 		\subsection{Digitale Signaturen}\label{chap:Signatur}	
 				Asymmetrische Verschlüsselungsverfahren ermöglichen, die menschliche Unterschrift in der digitalen Welt abzubilden. Diese Funktionalität wird mit digitalen Signaturen umgesetzt. Damit eine digitale Signatur den Anforderungen einer menschlichen Unterschrift erfüllt, müssen einige Bedingungen eingehalten werden:\footcite[Vgl.][S. 202]{Schmeh2013}
 				\begin{itemize}
@@ -416,8 +416,7 @@
 				
 				Ein weiterer Nachteil liegt in der Schwierigkeit beim Austausch von Schlüsselinformationen für \ac{E2EE}. Dies muss noch manuell mit Hilfe von Software erfolgen und ist daher noch nicht Standard heutiger E-Mail-Kommunikation. 
 				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende-Verschlüsselung, allerdings ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf dem eigenen Server zwischenspeichert. Der Anwender hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist.\\
-				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite[Vgl.][]{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modells. \medskip\\
-				
+				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite[Vgl.][]{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modells.		
 				%Bezug zu Sicherheitsniveaus
 				%im allgemeinen Abscnitt schon vorhanden, daher wieder rausgenommen
 %				\ac{PGP} ermöglicht zusammengefasst durch Ende-zu-Ende-Verschlüsselung, dass die Inhalte der E-Mail nur für den Sender und dem rechtmäßigen Empfänger einsehbar sind. Daher ist es geeignet streng vertrauliche Informationen zu versenden.
@@ -439,8 +438,6 @@
 %				\footcite[][S. 40]{Schwenk}
 %				
 %				- Ende zu Ende Verschlüsselung und daher geeignet für Stufe 4
-				
-	
 			\subsection{S/MIME - Secure / Multipurpose Internet Mail Extensions}
 			
 				%Problem
@@ -652,7 +649,7 @@
 			Auch die Untersuchung der Mailserver-Authentifizierung führte zu schlechten Ergebnissen. Diese Analyse basiert auf den Reports des \ac{DNSSEC} Analyzer von Verisign.\footnote{Vgl. Anhang DNSSEC Reports} 
 			
 			\subsubsection{Sicherheitsrelevante Aspekte}
-			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite[Vgl.][]{Kirsch}. Daher ist es nicht \textbf{verwunderlich}, das die Anbieter es sich vorenthalten in die E-Mails ihrer Nutzer \textbf{schauen} zu können\footcite[Vgl.][]{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke 
+			Ein wesentlicher Bestandteil des Geschäftsmodells von Googlemail, Hotmail und Yahoomail besteht darin, die Kommunikation seiner Nutzer zu analysieren.\footcite[Vgl.][]{Kirsch}. Daher ist es nicht verwunderlich, das die Anbieter es sich vorenthalten in die E-Mails ihrer Nutzer schauen zu können\footcite[Vgl.][]{Schwan}. Personalisierte Werbung ist ein erstes Indiz für diese Sicherheitslücke 
 			%eigentlich keien Sicherheitslücke, sonern "nur" Verletzung (des Datenschutz für) Sicherheitsniveaus ab Stufe 2 (Privat)
 			und wird in allen drei Fällen angewendet. Daraus lässt sich auch die Annahme schließen, dass die E-Mails nicht verschlüsselt gespeichert werden. Es konnten zwar keine Quellen herangezogen werden, die diese Annahme untermauern, dafür wurden jedoch auch keine Quellen gefunden, die das Gegenteil beweisen.
 			Laut einer Berichterstattung auf der Webseite von RTL ist die Situation bei Hotmail sogar verschärft:
@@ -802,10 +799,10 @@
 			Mit Rückblick auf die Zeit vor der Initiative und dem damalig gebotenen Sicherheitsniveau im Jahre 2013 ist dieser Gewinn an Sicherheit jedoch kein stark herausragendes Merkmal.
 			Höher als Sicherheitsniveau-Stufe 2 ist die E-Mail-Kommunikation nicht zu bewerten, die auch erst seit dem \ac{TLS}-Verbund erreicht wird.\footnote{Zum Vergleich: 2013 war Stufe 1 das maximale Sicherheitsniveau für Anwender der größten E-Mail-Provider Deutschlands.}
 			Dafür fehlen weiterhin Provider-übergreifende Bemühungen interessierten Anwendern die \ac{E2EE} näher zu bringen.
-			Es könnte durchaus mehr Energie in die Umsetzung von \ac{E2EE} im Webmailer aufgewendet werden, wie es im Vergleich zu anderen Anbietern geschieht (Vgl. \prettyref{subsubsec:googlemail} und \prettyref{subsubsec:mailbox}) \medskip\\
+			Es könnte durchaus mehr Energie in die Umsetzung von \ac{E2EE} im Webmailer aufgewendet werden, wie es im Vergleich zu anderen Anbietern geschieht\medskip\\
 			Vor allem der Entschluss zur Insellösung \ac{IMPT} und Vernachlässigung von Standards wie \ac{DNSSEC} werfen Fragen auf. 
 			Ob \ac{DANE} tatsächlich eine Chance auf eine spätere Implementierung bekommt, bleibt abzuwarten, denn bisher ist mit \ac{IMPT} die Kommunikation mit internationalen Anbieter und garantierter Transportverschlüsselung rhetorisch ausgeschlossen.
-			\footcite[Vgl.][]{Zivadino141}
+			\footcite[Vgl.][]{Zivadino14a}
 			Fakt ist bisher, dass die Aufnahme und Erstzertifizierung neuer Mail-Provider, die am Beitritt der Initiative interessiert sind, Kosten in Höhe von 9.500 bis 30.000 Euro
 			\footcite[Vgl.][]{Zivadino14c} 
 			verursacht und mit zusätzlichen manuellen Aufwand bei der Konfiguration der \ac{SMTP}-Mailserver verbunden sind.
@@ -909,7 +906,7 @@
 						Doch auch hier wäre eine genauere Anleitung zur Nutzung dieser wünschenswert um diese technische Maßnahme für die Nutzer einfach einsetzbar zu machen.
 						Dazu würde auch eine Implementierung dieser Funktion im Webmailer gehören.
 						Hierzu sind aber auf der Website des Mailproviders keine Angaben zu finden, ob eine Umsetzung geplant ist.
-						
+	
 					\paragraph{Zusätzliche sicherheitsrelevante Aspekte}
 						Mit dem Möglichkeit der Zweifaktorauthentifizierung mit einem \ac{OTP} hebt sich Mailbox.org ebenfalls von vielen Konkurrenten ab.
 						Zur Nutzung dieser Funktion muss ein USB-Gerät, ein sogenannter Yubikey, mit dem Account verbunden werden.
@@ -1034,6 +1031,7 @@
 		\addcontentsline{toc}{chapter}{Literaturverzeichnis}
 	\begin{footnotesize}
 		%Literaturverzeichnis
+		\emergencystretch 1.5em
 		\printbibliography[heading=offline,nottype=online]
 		\printbibliography[heading=online,type=online]
 	\end{footnotesize}
