@@ -729,7 +729,7 @@
 			Die Ergebnisse des \ac{SSL}-Test (\prettyref{sec:nwa}) sind für die drei Provider ähnlich gut. GMX und WEB unterstützen Forward Secrecy mit den meisten Browsern, T-Online hingegen lässt den Schlüsselaustausch für ältere Browser über RC4 zu.
 			Für die Anwender, die innerhalb der EmiG Initiative E-Mails versenden bzw. empfangen, ist die Vertraulichkeit des Kommunikationspartner im Webmailer und Outlook ersichtlich.
 			Die Anwender sehen in der Adresszeile die E-Mail-Adresse mit einem grünen Haken versehen, sofern sie im \ac{EmiG}-Verbund sind, und bekommen so visualisiert, das die E-Mail transportverschlüsselt versendet wird. Ein zusätzlicher Gewinn an Benutzerfreundlichkeit.
-			\footcite[Vgl.][]{Zivadino14-1}\medskip\\
+			\footcite[Vgl.][]{Zivadino14a}\medskip\\
 		%NWA - Integrität
 		%\subsubsection{Integrität}	
 			Die Integrität der E-Mail-Inhalte sind für \ac{EmiG}-Provider von unterschiedlicher Bedeutung.
@@ -772,16 +772,16 @@
 			Sollten dabei Inkonsistenzen auftreten, wird der Versand abgelehnt.\\
 			Dieses Vorgehen erinnert an ein geschlossene Variante von \ac{DANE} (\prettyref{subsec:dane}), welches ähnlich zur Sicherstellung der Authentizität verfährt.
 			Alle Partner der Initiative setzen \ac{PFS} ein
-			\footcite[Vgl.][]{Zivadino14-1}
+			\footcite[Vgl.][]{Zivadino14a}
 			und damit eine Eigenschaft um einem höheren Schutzbedarf zu entsprechen.
-			\footcite[Vgl.][]{Zivadino14-2} 
+			\footcite[Vgl.][]{Zivadino14b} 
 			\medskip\\
 			Der Verzicht auf den offenen Standard \ac{DANE} als Standard-Instrument zur Sicherstellung der Authentizität hat gewiss Nachteile für die Nutzer. 
 			Mit \acl{IMPT} existiert jedoch für den E-Mail-Versand unter den \ac{EmiG}-Partnern ein ähnlicher Schutz, der allerdings auch nicht immer die Authentizität der verwendeten \ac{SSL}-Zertifikate gewährleisten kann.
-			\footcite[Vgl.][]{Zivadino14-1}
+			\footcite[Vgl.][]{Zivadino14a}
 			Die Vorgehensweise zur Entwicklung einer proprietären Lösung ist daher durchaus kritisch zu hinterfragen. 
 			United Internet möchte ggf. den Einsatz von \ac{DNSSEC} und \ac{DANE} in einem Review-Prozess einer Neubewertung unterziehen.
-			\footcite[Vgl.][]{Zivadino14-2}
+			\footcite[Vgl.][]{Zivadino14b}
 		%NWA - Zusätzliche Sicherheitsrelevante Aspekte
 		\subsubsection{Sicherheitsrelevante Aspekte}
 			Für die Mails auf den \ac{EmiG}-Servern der \ac{EmiG}-Provider besteht keine separate verschlüsselte Speicherung der E-Mails, insofern dies durch den Nutzer nicht selbst geschehen ist. (\prettyref{subsec:pgp})
@@ -805,16 +805,16 @@
 			Es könnte durchaus mehr Energie in die Umsetzung von \ac{E2EE} im Webmailer aufgewendet werden, wie es im Vergleich zu anderen Anbietern geschieht (Vgl. \prettyref{subsubsec:googlemail} und \prettyref{subsubsec:mailbox}) \medskip\\
 			Vor allem der Entschluss zur Insellösung \ac{IMPT} und Vernachlässigung von Standards wie \ac{DNSSEC} werfen Fragen auf. 
 			Ob \ac{DANE} tatsächlich eine Chance auf eine spätere Implementierung bekommt, bleibt abzuwarten, denn bisher ist mit \ac{IMPT} die Kommunikation mit internationalen Anbieter und garantierter Transportverschlüsselung rhetorisch ausgeschlossen.
-			\footcite[Vgl.][]{Zivadino14-1}
+			\footcite[Vgl.][]{Zivadino141}
 			Fakt ist bisher, dass die Aufnahme und Erstzertifizierung neuer Mail-Provider, die am Beitritt der Initiative interessiert sind, Kosten in Höhe von 9.500 bis 30.000 Euro
-			\footcite[Vgl.][]{Zivadino14-3} 
+			\footcite[Vgl.][]{Zivadino14c} 
 			verursacht und mit zusätzlichen manuellen Aufwand bei der Konfiguration der \ac{SMTP}-Mailserver verbunden sind.
 			Daher wächst die Initiative nur langsam.\\
 			Auch Vorwürfe, dass \ac{EmiG} scheinbar keine kleineren E-Mail-Provider zulassen möchte, wurden veröffentlicht.
-			\footcite[Vgl.][]{Zivadino14-4}
+			\footcite[Vgl.][]{Zivadino14d}
 			Ob \ac{EmiG} tatsächlich ein offener Verbund ist oder sich nur als solcher verkauft, bleibt zur Zeit auch unbeantwortet. \medskip\\
 			Inwieweit die Initiative letztendlich die Hauptaufgabe hat Anwendern ein deutliches Plus an Sicherheit zu gewährleisten, werden erst die nächsten Monate zeigen können.
-			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[][]{Zivadino14-2}
+			Die geplante Einreichung der Initiative, das eigens entwickelte Verfahren als \ac{RFC} beim \ac{IETF} \glqq (...), dem für Internet-Standards verantwortlichem Gremium, (...)\grqq\footcite[][]{Zivadino14b}
 			standardisieren zu lassen, ist der richtige Weg zur Beantwortung vieler Fragen.
 			Ob andere E-Mail-Provider diesen Standard nutzen werden, wenn man zusätzliche Kosten und Aufwand betrachtet, bleibt abzuwarten. Auch die Kompatibilität zwischen \ac{DNSSEC} und \ac{IMPT} kann ein Entscheidungskriterium sein.
 			\medskip\\
