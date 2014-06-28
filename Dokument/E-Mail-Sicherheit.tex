@@ -365,8 +365,8 @@
 		
 		\section{Informationsverschlüsselung}
 			Für hohe Sicherheitsanforderungen entscheidend ist die Vertraulichkeit und Integrität der Datenkommunikation zwischen zwei Endpunkten. In der E-Mail-Kommunikation wird dies mit sog. \textit{Ende-zu-Ende-Verschlüsselung} (englisch \ac{E2EE}) und den Diensten \ac{S/MIME} und \ac{PGP} realisiert, die im Nachgang beleuchtet werden.
-			Es gibt mittlerweile verschiedene Möglichkeiten \ac{E2EE} umzusetzen. Im Grunde müssen durch die Nutzer jedoch Einstellungen in den E-Mailprogrammen wie Thunderbird, Outlook oder Mail.app vorgenommen werden oder zusätzliche Software installiert werden. Demzufolge besteht ein erhöhter Einrichtungsaufwand für die Endnutzer zur Sicherstellung der Vertraulichkeit und um in Sicherheitsniveaus der Stufe 3 oder 4 (Vgl. \prettyref{tab:sicherheitsniveaus}) zu kommunizieren. Allerdings ist \ac{E2EE} \textit{essenziell} zur Erreichung dieser Stufen.\medskip\\
-			Erste E-Mail-Anbieter gehen zum Teil eigene Wege wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013}. Aber auch kleinere Anbieter arbeiten an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
+			Es gibt mittlerweile verschiedene Möglichkeiten \ac{E2EE} umzusetzen. Im Grunde müssen durch die Nutzer jedoch Einstellungen in den E-Mailprogrammen wie Thunderbird, Outlook oder Mail.app vorgenommen oder zusätzliche Software installiert werden. Demzufolge besteht ein erhöhter Einrichtungsaufwand für die Endnutzer zur Sicherstellung der Vertraulichkeit und um in Sicherheitsniveaus der Stufe 3 oder 4 (Vgl. \prettyref{tab:sicherheitsniveaus}) zu kommunizieren. Allerdings ist \ac{E2EE} \textit{essenziell} zur Erreichung dieser Stufen.\medskip\\
+			Erste E-Mail-Anbieter gehen zum Teil eigene Wege, wenn es um die Gestaltung von benutzerfreundlicher \ac{E2EE} geht. Google bspw. arbeitet an einer Erweiterung im eigenen Chrome Browser um mittels OpenPGP zu verschlüsseln.\footcite[Vgl.][]{Somogyi2013}. Aber auch kleinere Anbieter arbeiten an der Umsetzung für ihre Webmailer\footcite[Vgl.][]{Posteo2013} und somit \ac{E2EE} deutlich benutzerfreundlicher zu machen. 
 			
 			\subsection{PGP - Pretty Good Privacy}
 			\label{subsec:pgp}
@@ -379,11 +379,11 @@
 %				Mit PGP werden kryptographische Dienste bereitgestellt die unter anderem Dateiverschlüsselung, Schlüssel-Recovery und das Signieren von Dokumenten umfassen.
 				
 				%Umsetzung
-				Um die Integrität einer E-Mail zu gewährleisten, wird zuerst ein zufälliger Schlüssel (Shared Secret) erzeugt. Anschließend wird die E-Mail Nachricht mit diesem symmetrisch verschlüsselt. Danach wird das Shared Secret selbst mit dem öffentlichen Schlüssel des Empfängers asymmetrisch verschlüsselt und der verschlüsselten E-Mail voran gehangen. Soll die E-Mail mehrere Empfänger erreichen, so wird der letzte Schritt wiederholt.\footcite[vgl.][S. 43]{Schwenk}
+				Um die Integrität einer E-Mail zu gewährleisten, wird zuerst ein zufälliger Schlüssel (Shared Secret) erzeugt. Anschließend wird die E-Mail-Nachricht mit diesem symmetrisch verschlüsselt. Danach wird das Shared Secret selbst mit dem öffentlichen Schlüssel des Empfängers asymmetrisch verschlüsselt und der verschlüsselten E-Mail voran gehangen. Soll die E-Mail mehrere Empfänger erreichen, so wird der letzte Schritt wiederholt.\footcite[vgl.][S. 43]{Schwenk}
 				\medskip
 				
 				
-				Ein entsprechendes Programm zur Implementierung des OpenPGP Standards ist \ac{GPG}. Dieses Tool ist für gängige E-Mail-Clients verfügbar und ermöglicht die Verschlüsselung und den Schlüsselaustausch so benutzerfreundlich wie möglich zu gestalten. Denn der Austausch der öffentlichen Schlüssel muss noch manuell erfolgen.
+				Ein entsprechendes Programm zur Implementierung des OpenPGP Standards ist \ac{GPG}. Dieses Tool ist für gängige E-Mail-Clients verfügbar und gestaltet die Verschlüsselung und den Schlüsselaustausch so benutzerfreundlich wie möglich. Denn der Austausch der öffentlichen Schlüssel muss noch manuell erfolgen.
 				\medskip
 				%Zu Berücksichtigen ist hierbei der Faktor, dass Private Keys nur lokal gespeichert und durch sichere Passphrasen geschützt sind.
 				
@@ -415,12 +415,13 @@
 				Der öffentliche Sourcecode stellt jedoch gleichzeitig auch einen Schwachpunkt dar, da es somit Angreifern ermöglicht wird, potenzielle Schwachstellen und Sicherheitslücken in der Implementierung aufzufinden. Vor allem mit der Zunahme neuer Features wird dieser Nachteil erheblicher, was durch Angriffe von Senderek, Klíma und Rosza bewiesen wurde.\footcite[Vgl.][S. 47-55]{Schwenk}
 				
 				Ein weiterer Nachteil liegt in der Schwierigkeit beim Austausch von Schlüsselinformationen für \ac{E2EE}. Dies muss noch manuell mit Hilfe von Software erfolgen und ist daher noch nicht Standard heutiger E-Mail-Kommunikation. 
-				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende Verschlüsselung, allerdings ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf dem eigenen Server zwischenspeichert. Der Anwender hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist.\\
-				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite[Vgl.][]{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modell. \medskip\\
+				Es gibt zwar die Möglichkeit private Schlüssel durch Dienste\footnote{Bspw. iMessage von Apple für Instant Messaging} zu verteilen, jedoch ist diese Methode umstritten. Sie bietet zwar Ende-zu-Ende-Verschlüsselung, allerdings ist der eigentliche Sinn des privaten Schlüssels verfehlt, wenn der Dienst bzw. Provider diesen für den Nutzer bestimmt und auf dem eigenen Server zwischenspeichert. Der Anwender hat keinen Einfluss auf den privaten Schlüssel und ist damit nicht Eigentümer dieses Schlüssels, der in Folge dessen kein Private Key ist.\\
+				Selbst vereinzelte \ac{CA}s gehen mit solcher Methodik vor\footcite[Vgl.][]{Kaps2014}, und untergraben damit die Sicherheit des ganzen \ac{CA}-Modells. \medskip\\
 				
 				%Bezug zu Sicherheitsniveaus
-				\ac{PGP} ermöglicht zusammengefasst durch Ende-zu-Ende-Verschlüsselung, dass die Inhalte der E-Mail nur für den Sender und dem rechtmäßigen Empfänger einsehbar sind. Daher ist es geeignet streng vertrauliche Informationen zu versenden.
-				\medskip
+				%im allgemeinen Abscnitt schon vorhanden, daher wieder rausgenommen
+%				\ac{PGP} ermöglicht zusammengefasst durch Ende-zu-Ende-Verschlüsselung, dass die Inhalte der E-Mail nur für den Sender und dem rechtmäßigen Empfänger einsehbar sind. Daher ist es geeignet streng vertrauliche Informationen zu versenden.
+%				\medskip
 
 				%Mail Bezug	
 %				- Mail Plugin sucht in einer pubring.pkr Datei über die Mail Adresse des Empfängers nach dessen öffentlichen Schlüssel
@@ -443,7 +444,8 @@
 			\subsection{S/MIME - Secure / Multipurpose Internet Mail Extensions}
 			
 				%Problem
-				Die bislang betrachteten Verfahren bieten keine Möglichkeit einer \ac{E2EE}. \ac{PGP} hat als erstes Protokoll diese Lücke gefüllt. Mit \ac{S/MIME} kam 4 Jahre später ein zweiter Standard hinzu.\footcite[Vgl.][]{Duevel}
+				%Die bislang betrachteten Verfahren bieten keine Möglichkeit einer \ac{E2EE}. 
+				\ac{PGP} hat als erstes Protokoll eine \ac{E2EE} ermöglicht. Mit \ac{S/MIME} kam 4 Jahre später ein zweiter Standard hinzu.\footcite[Vgl.][]{Duevel}
 				\medskip\\	
 				%Idee
 				\ac{S/MIME} ist eine Erweiterung des MIME Datentyps, der für die Signierung und/oder Verschlüsselung von Nachrichten entwickelt worden ist.
@@ -452,11 +454,11 @@
 				%Voraussetzung
 				Damit ein Nutzer \ac{S/MIME} verwenden kann, benötigt er ein X.509 Zertifikat. Dieses wird in seiner einfachsten Form kostenlos von einer \ac{CA} ausgestellt.\footcite[Vgl.][]{Duevel}
 				
-				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[Vgl.][S. 65 ff.]{Schwenk} beschrieben.
+				Das eigene Zertifikat kann ein Nutzer mit anderen austauschen, indem er es einer signierten E-Mail anfügt. Ein E-Mail-Client kann dieses automatisch in seine Zertifikatsdatenbank ablegen. Der genaue Prozess hierfür ist im Schwenk\footcite[Vgl.][S. 65 ff.]{Schwenk} beschrieben.
 				\medskip
 														
 				%Umsetzung
-				Hat sich der Absender für die Verschlüsselung via \ac{S/MIME} entschieden, sucht der Mail Client automatisch in der Zertifikatsdatenbank nach einem Zertifikat, welches die E-Mail Adresse des Empfängers enthält. Sollte ein solches Zertifikat nicht gefunden werden, wird der Nutzer darüber informiert, dass eine \ac{S/MIME} Verschlüsselung nicht möglich sei. Ist ein entsprechendes Zertifikat vorhanden, wird die E-Mail hybrid verschlüsselt.\footcite[Vgl.][S. 65]{Schwenk}
+				Hat sich der Absender für die Verschlüsselung via \ac{S/MIME} entschieden, sucht der E-Mail-Client automatisch in der Zertifikatsdatenbank nach einem Zertifikat, welches die E-Mail-Adresse des Empfängers enthält. Sollte ein solches Zertifikat nicht gefunden werden, wird der Nutzer darüber informiert, dass eine \ac{S/MIME} Verschlüsselung nicht möglich sei. Ist ein entsprechendes Zertifikat vorhanden, wird die E-Mail hybrid verschlüsselt.\footcite[Vgl.][S. 65]{Schwenk}
 				
 %				- Bedeutet, dass Nachricht symmetrisch verschlüsselt wird und das Shared Secret mit dem im Empfänger-Zertifikat angegebenen öffentlichen Schlüssel verschlüsselt wird
 %				- Anschließend base64 codiert, damit Mailserver den Inhalt nicht unbeabsichtigt ändern kann
@@ -476,10 +478,10 @@
 %				\footcite[][S. 65]{Schwenk}			
 				%Vorteile
 				Der Vorteil von \ac{S/MIME} liegt darin, "dass Verschlüsselung und Signatur genauso einfach zu bedienen sind, wie z.B. [..] das Anfügen eines Attachments"\footcite[Vgl.][S. 61]{Schwenk}. Außerdem wird \ac{S/MIME} durch viele Browser by Default unterstützt.\footcite[Vgl.][]{Duevel}
-				Durch die zwei verschiedenen Datentypen, können \ac{S/MIME} signierte Nachrichten auch von E-Mail Clients interpretiert werden, die dieses Verfahren nicht verwenden. 
+				Durch die zwei verschiedenen Datentypen, können \ac{S/MIME} signierte Nachrichten auch von E-Mail-Clients interpretiert werden, die dieses Verfahren nicht verwenden. 
 				\medskip
 				
-				Da \ac{S/MIME} genau wie \ac{PGP} eine \ac{E2EE} ermöglicht, ist auch dieses Verschlüsselungsverfahren für das Versenden von streng vertraulichen Informationen geeignet.
+				%Da \ac{S/MIME} genau wie \ac{PGP} eine \ac{E2EE} ermöglicht, ist auch dieses Verschlüsselungsverfahren für das Versenden von streng vertraulichen Informationen geeignet.
 				\newpage
 				
 				
